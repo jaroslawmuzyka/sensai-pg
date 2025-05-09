@@ -162,6 +162,7 @@ Ta lekcja pokazuje, jak wykorzystać narzędzia AI do efektywnego tworzenia nota
 
 *   **Link do lekcji na platformie:** [Obejrzyj lekcję na SensAI Academy](https://learn.sensai.academy/next/public/lesson/264)
 *   **Notatka z lekcji:** [./Dokumenty/T1L09_Notatki_ze_spotkań_z_AI_i_wsparcie_w_obsłudze_maila.md](./Dokumenty/T1L09_Notatki_ze_spotkań_z_AI_i_wsparcie_w_obsłudze_maila.md)
+*   **Transkrypcja:** [./Dokumenty/T1L09_Notatki_ze_spotkań_z_AI_i_wsparcie_w_obsłudze_maila_Transkrypcja.md](./Dokumenty/T1L09_Notatki_ze_spotkań_z_AI_i_wsparcie_w_obsłudze_maila_Transkrypcja.md) - Pełna transkrypcja lekcji.
 
 ### Omawiane narzędzia:
 
