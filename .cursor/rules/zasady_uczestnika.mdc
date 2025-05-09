@@ -1,9 +1,4 @@
 ---
-description: 
-globs: 
-alwaysApply: false
----
----
 description: Wytyczne dla AI asystenta dotyczące obsługi zapytań uczestników kursu SEO 3.0 na temat repozytorium materiałów.
 globs: 
 alwaysApply: false
