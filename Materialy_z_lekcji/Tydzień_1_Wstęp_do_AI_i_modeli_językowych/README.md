@@ -153,3 +153,18 @@ Ta lekcja przedstawia narzędzie NotebookLM od Google, skupiając się na jego f
 
 *   [NotebookLM (Google)](https://notebooklm.google.com/)
 *   [ChatGPT (OpenAI)](https://chat.openai.com/) (jako przykład narzędzia do dalszej analizy mapy myśli) 
+
+---
+
+## Lekcja: Notatki ze spotkań z AI i wsparcie w obsłudze maila
+
+Ta lekcja pokazuje, jak wykorzystać narzędzia AI do efektywnego tworzenia notatek ze spotkań oraz zarządzania komunikacją e-mail. Omawiane są funkcje popularnych aplikacji (Fireflies.ai, Amie, Spark), które mogą usprawnić codzienną pracę, oszczędzając czas i poprawiając organizację poprzez automatyczną transkrypcję, podsumowania, identyfikację zadań oraz pomoc w redagowaniu profesjonalnych wiadomości e-mail.
+
+*   **Link do lekcji na platformie:** [Obejrzyj lekcję na SensAI Academy](https://learn.sensai.academy/next/public/lesson/264)
+*   **Notatka z lekcji:** [./Dokumenty/T1L09_Notatki_ze_spotkań_z_AI_i_wsparcie_w_obsłudze_maila.md](./Dokumenty/T1L09_Notatki_ze_spotkań_z_AI_i_wsparcie_w_obsłudze_maila.md)
+
+### Omawiane narzędzia:
+
+*   [Fireflies.ai](https://fireflies.ai/)
+*   [Amie](https://amie.so/)
+*   [Spark Mail](https://sparkmailapp.com/) (W notatkach wspomniano o Spark dla Mac/iOS; link do ogólnej strony aplikacji) 
