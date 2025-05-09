@@ -1,11 +1,6 @@
 ---
 description: 
 globs: 
-alwaysApply: false
----
----
-description: 
-globs: 
 alwaysApply: true
 ---
 # Wytyczne dla AI dotyczące Repozytorium Kursu SEO 3.0
