@@ -1,0 +1,68 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Wytyczne dla AI dotyczące Repozytorium Kursu SEO 3.0
+
+Ten dokument określa zasady i najlepsze praktyki dla modelu językowego (AI), który pomaga w zarządzaniu i rozwijaniu repozytorium materiałów dodatkowych do kursu SEO 3.0.
+
+## 1. Zrozumienie Celu i Struktury Repozytorium
+
+* **Cel Główny:** Repozytorium służy jako centralne miejsce na materiały pomocnicze (notatniki Colab, datasety, prompty, linki, opisy narzędzi, notatki z lekcji, transkrypcje) dla uczestników kursu SEO 3.0. Utrzymuj wszystkie treści i komunikację w języku polskim.
+* **Kluczowe Katalogi i Pliki:**
+    * `Materialy_z_lekcji/`: Zawiera podkatalogi dla każdego tygodnia kursu (np. `Tydzień_X_nazwa_tygodnia`). Wewnątrz każdego tygodnia znajduje się:
+        * `README.md` opisujący materiały lekcyjne dla danego tygodnia.
+        * Podkatalog `Dokumenty/` zawierający indywidualne pliki notatek, transkrypcji i inne materiały specyficzne dla poszczególnych lekcji tego tygodnia.
+        * Opcjonalnie plik ze zbiorczą transkrypcją dla tygodnia (np. `Transkrypcje_Tygodnia_X.md`).
+    * `Datasety/`: Centralne repozytorium dla wszystkich zestawów danych. Posiada własny `README.md` z opisami.
+    * `Prompty/`: Zbiór przykładowych promptów AI. Posiada własny `README.md` z opisami i przeznaczeniem promptów.
+    * `Notatniki_Colab.md`: Główna lista wszystkich notatników Colab używanych w kursie.
+    * `Narzędzia.md`: Główna lista narzędzi SEO, AI, programistycznych omawianych w kursie.
+    * `Notatki_z_Lekcji.md`: Główna lista wszystkich notatek z lekcji, z linkami do poszczególnych plików.
+    * `README.md` (główny): Ogólny opis repozytorium.
+
+## 2. Zasady Rozwoju i Modyfikacji
+
+* **Spójność:** Zawsze utrzymuj istniejącą strukturę katalogów i konwencje nazewnictwa.
+* **Dodawanie Materiałów Lekcyjnych (w tym Notatek):**
+    * Pliki notatek z poszczególnych lekcji umieszczaj w podkatalogu `Dokumenty/` wewnątrz folderu danego tygodnia (np. `Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/Dokumenty/`).
+    * Plik z notatkami powinien być nazwany zgodnie z konwencją `T<nr_tygodnia>L<nr_lekcji>_<TematLekcjiDoPliku>.md` (np. `T1L01_Historia_Modeli_Jezykowych.md`). `<TematLekcjiDoPliku>` to skrócony temat lekcji z podkreśleniami zamiast spacji.
+    * Inne materiały specyficzne dla lekcji (np. dodatkowe pliki, małe skrypty) również umieszczaj w tym samym katalogu `Dokumenty/`.
+    * Zawsze aktualizuj `README.md` w danym tygodniu (`Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/README.md`), dodając sekcję opisującą nową lekcję i link względny do jej pliku notatek (np. `./Dokumenty/T1L01_Historia_Modeli_Jezykowych.md`).
+    * Zawsze aktualizuj główny plik `Notatki_z_Lekcji.md`, dodając wpis (wiersz w tabeli) z numerem tygodnia, tematem lekcji i linkiem względnym do odpowiedniego pliku notatek (np. `./Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/Dokumenty/T1L01_Historia_Modeli_Jezykowych.md`).
+* **Dodawanie Transkrypcji Lekcyjnych:**
+    * Umieść plik z transkrypcją w podkatalogu `Dokumenty/` wewnątrz folderu danego tygodnia (np. `Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/Dokumenty/`).
+    * Plik transkrypcji powinien być nazwany zgodnie z konwencją `T<nr_tygodnia>L<nr_lekcji>_<TematLekcjiDoPliku>_Transkrypcja.md` (lub `.txt`) (np. `T1L01_Historia_Modeli_Jezykowych_Transkrypcja.md`).
+    * Zaktualizuj `README.md` w danym tygodniu (`Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/README.md`), dodając w sekcji danej lekcji link względny do pliku transkrypcji (np. `./Dokumenty/T1L01_Historia_Modeli_Jezykowych_Transkrypcja.md`).
+    * Utwórz lub zaktualizuj plik ze zbiorczą transkrypcją dla danego tygodnia (np. `Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/Transkrypcje_Tygodnia_X.md`). Dodaj nagłówek z nazwą lekcji i wklej pod nim pełną treść transkrypcji.
+    * Zaktualizuj główny plik `Notatki_z_Lekcji.md`, dodając (jeśli nie istnieje) kolumnę "Transkrypcja" i wstawiając w odpowiednim wierszu link względny do pliku z transkrypcją lekcji (np. `[Link](mdc:Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/Dokumenty/T1L01_Historia_Modeli_Jezykowych_Transkrypcja.md)`).
+* **Dodawanie Zasobów Ogólnych:**
+    * **Datasety:** Dodawaj do `Datasety/`, aktualizuj `Datasety/README.md` ORAZ linkuj z odpowiedniego `Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/README.md`.
+    * **Prompty:** Dodawaj do `Prompty/`, aktualizuj `Prompty/README.md` (z opisem, przeznaczeniem, modelem AI, powiązaną lekcją).
+    * **Notatniki Colab:** Aktualizuj główny plik `Notatniki_Colab.md` ORAZ linkuj z odpowiedniego `Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/README.md`.
+    * **Narzędzia:** Aktualizuj główny plik `Narzędzia.md`.
+    * **Linki:** Weryfikuj poprawność linków (wewnętrznych - używaj ścieżek względnych, np. `../../Datasety/plik.xlsx` lub `./Dokumenty/Notatka.md`; i zewnętrznych).
+    * **Centralizacja:** Dbaj o to, aby główne listy i katalogi (`Datasety/`, `Prompty/`, `Notatniki_Colab.md`, `Narzędzia.md`, `Notatki_z_Lekcji.md`) były zawsze aktualne i spójne z materiałami w katalogach tygodniowych.
+
+## 3. Komunikacja z Użytkownikiem (Twórcą Kursu)
+
+* **Bądź Proaktywny:** Pytaj, jeśli czegoś nie rozumiesz lub potrzebujesz więcej informacji. Lepiej dopytać niż zgadywać.
+* **Klaruj Cel:** Zanim zaczniesz pracę, upewnij się, że rozumiesz cel zadania. Pytaj o:
+    * Przynależność materiału (Która lekcja/tydzień?).
+    * Główny cel (Co uczestnik ma z tego wynieść?).
+    * Powiązania z innymi zasobami (np. datasety, notatniki Colab).
+    * Wymagane opisy w plikach `README.md`, `Notatki_z_Lekcji.md` itp.
+    * Potrzebne linki.
+* **Potwierdzaj Zrozumienie:** Podsumuj planowane kroki przed ich wykonaniem, zwłaszcza przy dodawaniu nowych lekcji lub transkrypcji (utworzenie pliku w `Dokumenty/`, aktualizacja tygodniowego README, aktualizacja centralnych list, aktualizacja zbiorczej transkrypcji).
+* **Sugeruj Kompleksowe Zmiany:** Jeśli zadanie (np. dodanie lekcji lub transkrypcji) wymaga modyfikacji w wielu miejscach, poinformuj o tym i zaproponuj wykonanie wszystkich koniecznych kroków.
+* **Raportuj Wyniki:** Po zakończeniu pracy jasno opisz, co zostało zrobione i gdzie (np. "Utworzyłem plik X w `Dokumenty/`, zaktualizowałem pliki Y i Z").
+* **Język:** Używaj języka polskiego.
+
+## 4. Praca z Git
+
+* **Status:** Zawsze sprawdzaj `git status` przed rozpoczęciem pracy i przed commitowaniem.
+* **Dodawanie:** Używaj `git add` dla wszystkich zmodyfikowanych/nowych plików objętych zadaniem (np. `git add .` lub `git add ścieżka/do/pliku`).
+* **Commit:** Twórz jasne, opisowe komunikaty commitów w języku polskim (np. `git commit -m "Dodanie notatki do lekcji T1L1 w Dokumenty"`).
+* **Pull:** Zanim zaczniesz pracę nad nowymi zmianami lub przed pushowaniem, rozważ `git pull origin main` (lub inną wskazaną gałąź), aby zsynchronizować repozytorium. Rozwiązuj konflikty, jeśli wystąpią.
+* **Push:** Wysyłaj zmiany na gałąź `main` (`git push origin main`), chyba że użytkownik wskaże inaczej.
