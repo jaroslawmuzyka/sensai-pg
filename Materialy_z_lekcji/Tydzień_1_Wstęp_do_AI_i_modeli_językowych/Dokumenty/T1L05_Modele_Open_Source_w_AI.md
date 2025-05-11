@@ -97,3 +97,32 @@ Modele OS są szczególnie wartościowe w następujących scenariuszach:
 Modele Open Source stanowią potężną i dynamicznie rozwijającą się część ekosystemu AI. Oferują elastyczność, kontrolę, możliwość optymalizacji kosztów i dostosowania, co czyni je atrakcyjną alternatywą lub uzupełnieniem dla modeli komercyjnych. Kluczowe jest zrozumienie dostępnych modeli, platform do ich wyszukiwania oraz opcji infrastrukturalnych.
 
 W kolejnej lekcji przejdziemy do praktyki: pokażę, jak zainstalować i uruchomić model językowy OS lokalnie na Twoim komputerze za pomocą Ollama oraz jak zrobić to samo na zdalnej maszynie w chmurze (np. używając RunPod). 
+
+### Aktualizacja 2025 - Najnowsze Modele Open Source
+
+Świat modeli Open Source rozwija się niezwykle dynamicznie. Poniżej prezentujemy najnowsze modele, które pojawiły się na rynku. Aktualny ranking modeli OS można znaleźć na stronie: [Vellum AI Open LLM Leaderboard](https://www.vellum.ai/open-llm-leaderboard)
+
+#### Najnowsze Modele od Meta
+* **Llama 4** - Najnowsza generacja modeli od Meta, dostępna w różnych rozmiarach:
+  * Oficjalna strona: [llama.com/models/llama-4](https://www.llama.com/models/llama-4/)
+  * Dostępna przez Ollama: [ollama.com/library/llama4](https://ollama.com/library/llama4)
+
+#### Najnowszy Model od Google
+* **Gemma 3** - Kolejna generacja lekkich modeli od Google:
+  * Oficjalna strona: [blog.google/technology/developers/gemma-3](https://blog.google/technology/developers/gemma-3/)
+  * Dostępna przez Ollama: [ollama.com/library/gemma3](https://ollama.com/library/gemma3)
+
+#### Najnowszy Model od Microsoft
+* **Phi-4** - Nowy mały model językowy specjalizujący się w zadaniach programistycznych:
+  * Oficjalna strona: [Microsoft Tech Community](https://techcommunity.microsoft.com/blog/aiplatformblog/introducing-phi-4-microsoft%E2%80%99s-newest-small-language-model-specializing-in-comple/4357090)
+  * Dostępna przez Ollama: [ollama.com/library/phi4](https://ollama.com/library/phi4)
+
+#### Najnowszy Model od Alibaba
+* **Qwen3** - Nowa generacja modeli od Alibaba:
+  * Oficjalna strona: [qwenlm.github.io/blog/qwen3](https://qwenlm.github.io/blog/qwen3/)
+  * Dostępna przez Ollama: [ollama.com/library/qwen3](https://ollama.com/library/qwen3)
+
+#### Najnowszy Model Polski
+* **Bielik 4.5B v3.0** - Zaktualizowana wersja polskiego modelu językowego:
+  * Dostępna na Hugging Face: [huggingface.co/speakleash/Bielik-4.5B-v3.0-Instruct](https://huggingface.co/speakleash/Bielik-4.5B-v3.0-Instruct)
+  * Dostępna przez Ollama: [ollama.com/SpeakLeash/bielik-4.5b-v3.0-instruct](https://ollama.com/SpeakLeash/bielik-4.5b-v3.0-instruct) 
