@@ -51,7 +51,7 @@ Zobaczmy, jak ta funkcja działa w poszczególnych platformach (na przykładzie 
 
 | Narzędzie         | Nazwa Funkcji                 | Kluczowe Cechy / Proces                                     | Unikalne Dane / Możliwości          | Liczba Źródeł (Przykład "kortyzol") | Rekomendacja Prelegenta (dla Deep Research) |
 | :---------------- | :---------------------------- | :---------------------------------------------------------- | :---------------------------------- | :---------------------------------- | :------------------------------------------ |
-| **Chat GPT** | `Zbadaj głęboko`              | Query expansion, głęboki research (prawdopodobnie Bing)     | -                                   | ? (demo nie zadziałało)             | -                                           |
+| **Chat GPT** | `Zbadaj głęboko`              | Query expansion, głęboki research (prawdopodobnie Bing)     | -                                   | 25             | Dobry jako podstawowe rozwiązanie. Wolny.                                           |
 | **Perplexity** | `Badania` / `Zaaw. analiza` | Widoczny proces query expansion, iteracyjne wyszukiwanie    | Dobra wizualizacja procesu          | 39                                  | Dobry punkt startowy                     |
 | **Grok** | `Deep Search`/`Deeper Search` | Query expansion, iteracyjne wyszukiwanie                    | Dostęp do danych z platformy X       | 32                                  | Dobry, zwłaszcza dla tematów z X        |
 | **Gemini** | `Deep Research`               | Najbardziej rozbudowany proces, głębokie wnioskowanie (reasoning) | Największa liczba analizowanych źródeł | >73 (proces trwał)                 | **Najlepszy** pod względem kompleksowości  |

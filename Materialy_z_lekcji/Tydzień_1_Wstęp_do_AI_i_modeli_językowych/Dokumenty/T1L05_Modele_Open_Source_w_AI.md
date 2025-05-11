@@ -63,7 +63,7 @@ W przeciwieństwie do modeli komercyjnych (jak GPT-4), które działają na infr
 
     **`Perplexity API`:** Dostęp do modeli używanych przez wyszukiwarkę Perplexity (głównie `fine-tuningi` Lamy). Playground dostępny.
 
-    **`Grok Platform`:** Reklamowana jako **najszybsza** infrastruktura na świecie. Idealna do aplikacji wymagających niskich opóźnień (np. chatboty głosowe). Oferuje modele Mety, Mistrala, Whisper. Playground dostępny.
+    **`Groq Platform`:** Reklamowana jako **najszybsza** infrastruktura na świecie. Idealna do aplikacji wymagających niskich opóźnień (np. chatboty głosowe). Oferuje modele Mety, Mistrala, Whisper. Playground dostępny.
 * **Routery Infrastruktury:**
 
     **`OpenRouter`:** Działa jak inteligentny pośrednik. Kieruje Twoje zapytania do różnych dostawców infrastruktury (np. `Deep Infra`, `Together AI`, `Hyperbolic`) w zależności od tego, gdzie dany model jest aktualnie dostępny **najtaniej** i ma wolne moce obliczeniowe. Upraszcza wybór i optymalizuje koszty.
