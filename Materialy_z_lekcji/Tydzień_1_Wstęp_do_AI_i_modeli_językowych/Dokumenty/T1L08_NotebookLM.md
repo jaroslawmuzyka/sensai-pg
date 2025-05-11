@@ -74,8 +74,9 @@ Ponieważ mapę myśli można pobrać tylko jako obraz, oto sposób na dalsze je
 
 ## Uwagi dotyczące języka
 
-* NotebookLM działa przede wszystkim w języku angielskim. Mapy myśli i interfejs często będą po angielsku, nawet jeśli źródła lub zapytania są po polsku.
-* Można próbować wymusić język polski w poleceniach, ale wyniki mogą być niespójne.
+* NotebookLM obecnie obsługuje 50 języków, w tym język polski. Możesz swobodnie korzystać z narzędzia w języku polskim, zarówno przy dodawaniu źródeł, jak i podczas interakcji z AI.
+* Interfejs i generowane mapy myśli będą dostępne w wybranym języku, co znacznie ułatwia pracę z polskimi materiałami i źródłami.
+* Warto jednak pamiętać, że jakość odpowiedzi może się różnić w zależności od języka - najlepsze wyniki nadal osiąga się w języku angielskim.
 
 ## Podsumowanie
 
