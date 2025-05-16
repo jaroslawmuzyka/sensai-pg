@@ -13,6 +13,7 @@ W tej lekcji przyglądamy się ewolucji technologii rozumienia języka naturalne
 *   **Link do lekcji na platformie:** [Obejrzyj lekcję na SensAI Academy](https://learn.sensai.academy/next/public/lesson/252)
 *   **Notatka z lekcji:** [./Dokumenty/T1L01_Historia_Modeli_Jezykowych.md](./Dokumenty/T1L01_Historia_Modeli_Jezykowych.md) - Szczegółowy przewodnik po historii modeli językowych, działaniu Transformerów i najnowszych trendach w AI.
 *   **Transkrypcja:** [./Dokumenty/T1L01_Historia_Modeli_Jezykowych.txt](./Dokumenty/T1L01_Historia_Modeli_Jezykowych.txt) - Pełna transkrypcja lekcji.
+*   **Pytania i Odpowiedzi:** [./Dokumenty/T1L01_Historia_Modeli_Jezykowych_QA.md](./Dokumenty/T1L01_Historia_Modeli_Jezykowych_QA.md) - Zestaw pytań i odpowiedzi do lekcji na trzech poziomach zaawansowania.
 
 ---
 
