@@ -173,7 +173,7 @@ Ta lekcja pokazuje, jak wykorzystać narzędzia AI do efektywnego tworzenia nota
 
 ---
 
-## Lekcja T01L10: Q&A LIVE
+## Lekcja Q&A LIVE
 
 Sesja pytań i odpowiedzi na żywo dotycząca materiału z pierwszego tygodnia kursu. Uczestnicy mieli okazję zadać pytania prowadzącym i wyjaśnić wątpliwości związane z wprowadzeniem do AI, modelami językowymi oraz prezentowanymi narzędziami.
 

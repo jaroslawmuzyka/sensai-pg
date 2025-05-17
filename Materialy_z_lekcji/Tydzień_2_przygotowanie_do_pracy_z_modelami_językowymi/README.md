@@ -11,6 +11,8 @@ W tej lekcji zapoznajemy się z Google Colab - narzędziem, które pozwala na tw
 
 ### Materiały dodatkowe
 
+*   **Notatki z lekcji:** [./Dokumenty/T2L01_Google_Colab_wprowadzenie_do_narzędzia.md](./Dokumenty/T2L01_Google_Colab_wprowadzenie_do_narzędzia.md)
+*   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/267)
 *   [Notatnik wprowadzający do Google Colab](https://colab.research.google.com/drive/1bi7TZAq_1Kr0fH5kDKluJSkRu8jRyMpJ?usp=sharing) - ten notatnik służy do nauki podstaw korzystania z narzędzia Google Colab
 *   [Przykładowe notatniki Google Colab](https://colab.google/notebooks/) - różne notatniki od Google, które można wykorzystać we własnych projektach.
 
