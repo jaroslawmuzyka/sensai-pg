@@ -170,3 +170,13 @@ Ta lekcja pokazuje, jak wykorzystać narzędzia AI do efektywnego tworzenia nota
 *   [Fireflies.ai](https://fireflies.ai/)
 *   [Amie](https://amie.so/)
 *   [Spark Mail](https://sparkmailapp.com/) (W notatkach wspomniano o Spark dla Mac/iOS; link do ogólnej strony aplikacji) 
+
+---
+
+## Lekcja T01L10: Q&A LIVE
+
+Sesja pytań i odpowiedzi na żywo dotycząca materiału z pierwszego tygodnia kursu. Uczestnicy mieli okazję zadać pytania prowadzącym i wyjaśnić wątpliwości związane z wprowadzeniem do AI, modelami językowymi oraz prezentowanymi narzędziami.
+
+*   **Link do nagrania na platformie:** [Obejrzyj nagranie na SensAI Academy](https://learn.sensai.academy/next/public/lesson/266)
+*   **Notatka z Q&A:** [./Dokumenty/T01L10_Q&A_LIVE_Notatka.md](./Dokumenty/T01L10_Q&A_LIVE_Notatka.md) - Zbiór pytań i odpowiedzi z sesji.
+*   **Transkrypcja Q&A:** [./Dokumenty/T01L10_Q&A_LIVE_Transkrypcja.md](./Dokumenty/T01L10_Q&A_LIVE_Transkrypcja.md) - Pełna transkrypcja sesji Q&A. 
