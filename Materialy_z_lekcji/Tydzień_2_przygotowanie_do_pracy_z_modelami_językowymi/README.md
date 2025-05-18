@@ -22,7 +22,7 @@ Ta lekcja pokazała, jak komunikować się programowo z API Modeli Językowych p
 
 ### Materiały dodatkowe
 
-*   **Notatki z lekcji:** [./Dokumenty/T2L03_Komunikacja_z_API_modeli_językowych.md](./Dokumenty/T2L03_Komunikacja_z_API_modeli_językowych.md)
+*   **Notatki z lekcji:** [./Dokumenty/T2L02_Komunikacja_z_API_modeli_językowych.md](./Dokumenty/T2L02_Komunikacja_z_API_modeli_językowych.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/268)
 *   [Notatnik Colab: Interaktywny przewodnik po API modeli językowych](https://colab.research.google.com/drive/1O8ueKXMOqn0S2yanBHD4XJrBmixVeRAL?usp=sharing) - Praktyczny notatnik pokazujący, jak korzystać z API modeli językowych w Pythonie.
 *   **Narzędzia wspomniane w lekcji:**
@@ -52,7 +52,7 @@ W tej lekcji przyjrzymy się, jak efektywnie wykorzystać modele językowe do ge
 
 ### Materiały dodatkowe
 
-*   **Notatki z lekcji:** [./Dokumenty/T2L02_Generowanie_skryptow_Python_przy_pracy_z_modelami_jezykowymi.md](./Dokumenty/T2L02_Generowanie_skryptow_Python_przy_pracy_z_modelami_jezykowymi.md)
+*   **Notatki z lekcji:** [./Dokumenty/T2L03_Generowanie_skryptow_Python_przy_pracy_z_modelami_jezykowymi.md](./Dokumenty/T2L03_Generowanie_skryptow_Python_przy_pracy_z_modelami_jezykowymi.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/269)
 
 ## Lekcja: AI Crawling
@@ -61,6 +61,7 @@ Ta lekcja prezentuje różne narzędzia i techniki pokazujące, w jaki sposób m
 
 ### Materiały dodatkowe
 
+*   **Notatki z lekcji:** [./Dokumenty/T2L04_AI_Crawling.md](./Dokumenty/T2L04_AI_Crawling.md)
 *   [Notatnik Colab: Crawl4AI - Wprowadzenie](https://colab.research.google.com/drive/1dgALAwthnxbpaUu_0p5xf08W45JrLvdt?usp=sharing) - Praktyczne wprowadzenie do narzędzia Crawl4AI.
 *   **Narzędzia do AI Crawlingu:**
     *   [crawl4ai (GitHub)](https://github.com/unclecode/crawl4ai) - Narzędzie Open Source do crawlowania zoptymalizowane pod kątem modeli językowych.
@@ -87,12 +88,6 @@ W tej lekcji skupiamy się na kluczowym aspekcie pracy z modelami językowymi �
 *   **Narzędzia (Marketplace API):**
     *   [RapidAPI Hub](https://rapidapi.com/hub) - Duży marketplace z różnorodnymi API.
     *   [Apify](https://apify.com/) - Platforma z gotowymi scraperami (aktorami) i narzędziami do automatyzacji webowej, często dostępnymi przez API.
-
-## Lekcja: Narzędzia do Przygotowania Danych dla Modeli Językowych
-
-W tej lekcji przyglądamy się narzędziom, które ułatwiają konwersję treści stron internetowych do formatu Markdown, optymalnego dla modeli językowych. Omawiamy Jina Reader, FireCrawl i Crawl for AI, porównując ich funkcjonalności, takie jak obsługa pojedynczych URL vs całych domen, ekstrakcja danych za pomocą LLM (`LLM Extract`) oraz różnice w szybkości i dostępności (open source vs wersje komercyjne). Pokazujemy również przykład automatyzacji procesu wzbogacania danych (Data Enrichment) za pomocą Make.com i API Jina Reader.
-
-*   **Notatka z lekcji:** [./Lekcja_Narzędzia_do_Przygotowania_Danych_LLM/Narzędzia_do_Przygotowania_Danych_LLM.md](./Lekcja_Narzędzia_do_Przygotowania_Danych_LLM/Narzędzia_do_Przygotowania_Danych_LLM.md) - szczegółowe omówienie narzędzi Jina Reader, FireCrawl, Crawl for AI oraz przykład automatyzacji w Make.com.
 
 ## Lekcja: Supabase
 

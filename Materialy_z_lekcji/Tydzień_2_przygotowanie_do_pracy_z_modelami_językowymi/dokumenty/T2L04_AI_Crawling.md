@@ -1,4 +1,4 @@
-# Temat lekcji: Narzędzia do Przygotowania Danych dla Modeli Językowych
+# AI Crawling
 
 **Cel Lekcji:** Poznanie trzech narzędzi ułatwiających przetwarzanie danych ze stron internetowych przez modele językowe (LLM) poprzez konwersję do przyjaznych formatów (głównie Markdown).
 
