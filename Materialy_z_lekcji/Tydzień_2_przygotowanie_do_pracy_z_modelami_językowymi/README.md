@@ -62,6 +62,7 @@ Ta lekcja prezentuje różne narzędzia i techniki pokazujące, w jaki sposób m
 ### Materiały dodatkowe
 
 *   **Notatki z lekcji:** [./Dokumenty/T2L04_AI_Crawling.md](./Dokumenty/T2L04_AI_Crawling.md)
+*   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/270)
 *   [Notatnik Colab: Crawl4AI - Wprowadzenie](https://colab.research.google.com/drive/1dgALAwthnxbpaUu_0p5xf08W45JrLvdt?usp=sharing) - Praktyczne wprowadzenie do narzędzia Crawl4AI.
 *   **Narzędzia do AI Crawlingu:**
     *   [crawl4ai (GitHub)](https://github.com/unclecode/crawl4ai) - Narzędzie Open Source do crawlowania zoptymalizowane pod kątem modeli językowych.
@@ -85,6 +86,7 @@ W tej lekcji skupiamy się na kluczowym aspekcie pracy z modelami językowymi �
 ### Materiały dodatkowe
 
 *   [Notatki z lekcji](./Dokumenty/T2L05_Pozyskiwanie_danych_dla_modeli_jezykowych.md)
+*   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/271)
 *   [Notatnik Colab: Ćwiczenia z pozyskiwania danych dla modeli](https://colab.research.google.com/drive/1eI7_Te5IZBOh-hvxFnHJVRNrfgFAAqa7#scrollTo=WMUMmKCBrYXK) - Praktyczne ćwiczenia pokazujące, jak pobierać i przygotowywać dane z różnych źródeł.
 *   **Narzędzia (Marketplace API):**
     *   [RapidAPI Hub](https://rapidapi.com/hub) - Duży marketplace z różnorodnymi API.
@@ -97,6 +99,7 @@ W tej lekcji poznajemy Supabase - platformę do szybkiego tworzenia backendów d
 ### Materiały dodatkowe
 
 *   [Notatki z lekcji](./Dokumenty/T2L06_Wprowadzenie_do_Supabase.md)
+*   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/272)
 *   [Notatnik do importu danych z Excela do Supabase](https://colab.research.google.com/drive/1NE7AbjT3H81fcsu-uMpv-qXeduWKtPxA?authuser=0#scrollTo=ovOxY2nY5Zdt) - ten notatnik demonstruje proces importowania danych z arkuszy Excel do bazy danych Supabase
 *   [Konwersacja z Claude na temat Supabase](https://claude.ai/public/artifacts/cc8b12f9-6927-4998-a59c-c52614cb35dd) - przykładowa konwersacja z asystentem AI używana podczas lekcji
 *   **Plik danych**: [`../Datasety/analiza_widocznosci_senuto.com.xlsx`](../Datasety/analiza_widocznosci_senuto.com.xlsx) - raport widoczności dla domeny senuto.com wygenerowany w aplikacji Senuto, używany podczas lekcji do demonstracji importu danych do Supabase
