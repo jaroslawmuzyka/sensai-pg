@@ -12,6 +12,7 @@ W tej lekcji zapoznajemy się z Google Colab - narzędziem, które pozwala na tw
 ### Materiały dodatkowe
 
 *   **Notatki z lekcji:** [./Dokumenty/T2L01_Google_Colab_wprowadzenie_do_narzędzia.md](./Dokumenty/T2L01_Google_Colab_wprowadzenie_do_narzędzia.md)
+*   **Transkrypcja:** [./Dokumenty/T02L01_Google Colab_transkrypcja.md](./Dokumenty/T02L01_Google Colab_transkrypcja.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/267)
 *   [Notatnik wprowadzający do Google Colab](https://colab.research.google.com/drive/1bi7TZAq_1Kr0fH5kDKluJSkRu8jRyMpJ?usp=sharing) - ten notatnik służy do nauki podstaw korzystania z narzędzia Google Colab
 *   **Plik .ipynb do pobrania:** [./Dokumenty/SensAI_SEO_3_0_Tydzien_2_Google_Colab.ipynb](./Dokumenty/SensAI_SEO_3_0_Tydzien_2_Google_Colab.ipynb)
@@ -24,6 +25,7 @@ Ta lekcja pokazała, jak komunikować się programowo z API Modeli Językowych p
 ### Materiały dodatkowe
 
 *   **Notatki z lekcji:** [./Dokumenty/T2L02_Komunikacja_z_API_modeli_językowych.md](./Dokumenty/T2L02_Komunikacja_z_API_modeli_językowych.md)
+*   **Transkrypcja:** [./Dokumenty/T02L02_Komunikacja z API modeli językowych_transkrypcja.md](./Dokumenty/T02L02_Komunikacja z API modeli językowych_transkrypcja.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/268)
 *   [Notatnik Colab: Interaktywny przewodnik po API modeli językowych](https://colab.research.google.com/drive/1O8ueKXMOqn0S2yanBHD4XJrBmixVeRAL?usp=sharing) - Praktyczny notatnik pokazujący, jak korzystać z API modeli językowych w Pythonie.
 *   **Plik .ipynb do pobrania:** [./Dokumenty/SensAI_SEO_3_0_Tydzien_2_Komunikacja_z_API_Modeli_językowych.ipynb](./Dokumenty/SensAI_SEO_3_0_Tydzien_2_Komunikacja_z_API_Modeli_językowych.ipynb)
@@ -55,6 +57,7 @@ W tej lekcji przyjrzymy się, jak efektywnie wykorzystać modele językowe do ge
 ### Materiały dodatkowe
 
 *   **Notatki z lekcji:** [./Dokumenty/T2L03_Generowanie_skryptow_Python_przy_pracy_z_modelami_jezykowymi.md](./Dokumenty/T2L03_Generowanie_skryptow_Python_przy_pracy_z_modelami_jezykowymi.md)
+*   **Transkrypcja:** [./Dokumenty/T02L03_Generowanie skryptów python przy pracy z modelami językowymi_transkrypcja.md](./Dokumenty/T02L03_Generowanie skryptów python przy pracy z modelami językowymi_transkrypcja.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/269)
 
 ## Lekcja: AI Crawling
@@ -64,6 +67,7 @@ Ta lekcja prezentuje różne narzędzia i techniki pokazujące, w jaki sposób m
 ### Materiały dodatkowe
 
 *   **Notatki z lekcji:** [./Dokumenty/T2L04_AI_Crawling.md](./Dokumenty/T2L04_AI_Crawling.md)
+*   **Transkrypcja:** [./Dokumenty/T02L04_AI_Crawling_transkrypcja.md](./Dokumenty/T02L04_AI_Crawling_transkrypcja.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/270)
 *   [Notatnik Colab: Crawl4AI - Wprowadzenie](https://colab.research.google.com/drive/1dgALAwthnxbpaUu_0p5xf08W45JrLvdt?usp=sharing) - Praktyczne wprowadzenie do narzędzia Crawl4AI.
 *   **Plik .ipynb do pobrania:** [./Dokumenty/SensAI_SEO_3_0_Tydzien_2_AI_Crawling.ipynb](./Dokumenty/SensAI_SEO_3_0_Tydzien_2_AI_Crawling.ipynb)
@@ -89,6 +93,7 @@ W tej lekcji skupiamy się na kluczowym aspekcie pracy z modelami językowymi �
 ### Materiały dodatkowe
 
 *   [Notatki z lekcji](./Dokumenty/T2L05_Pozyskiwanie_danych_dla_modeli_jezykowych.md)
+*   **Transkrypcja:** [./Dokumenty/T02L05 Pozyskiwanie_przygotowanie danych dla modeli jezykowych_transkrypcja.md](./Dokumenty/T02L05 Pozyskiwanie_przygotowanie danych dla modeli jezykowych_transkrypcja.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/271)
 *   [Notatnik Colab: Ćwiczenia z pozyskiwania danych dla modeli](https://colab.research.google.com/drive/1eI7_Te5IZBOh-hvxFnHJVRNrfgFAAqa7#scrollTo=WMUMmKCBrYXK) - Praktyczne ćwiczenia pokazujące, jak pobierać i przygotowywać dane z różnych źródeł.
 *   **Narzędzia (Marketplace API):**
@@ -102,6 +107,7 @@ W tej lekcji poznajemy Supabase - platformę do szybkiego tworzenia backendów d
 ### Materiały dodatkowe
 
 *   [Notatki z lekcji](./Dokumenty/T2L06_Wprowadzenie_do_Supabase.md)
+*   **Transkrypcja:** [./Dokumenty/T02L06_Supabase_transkrypcja.md](./Dokumenty/T02L06_Supabase_transkrypcja.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/272)
 *   [Notatnik do importu danych z Excela do Supabase](https://colab.research.google.com/drive/1NE7AbjT3H81fcsu-uMpv-qXeduWKtPxA?authuser=0#scrollTo=ovOxY2nY5Zdt) - ten notatnik demonstruje proces importowania danych z arkuszy Excel do bazy danych Supabase
 *   **Plik .ipynb do pobrania:** [./Dokumenty/SensAI_SEO_3_0_Tydzien_2_Supabase.ipynb](./Dokumenty/SensAI_SEO_3_0_Tydzien_2_Supabase.ipynb)

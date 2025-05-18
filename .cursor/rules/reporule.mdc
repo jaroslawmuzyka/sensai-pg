@@ -33,9 +33,8 @@ Ten dokument określa zasady i najlepsze praktyki dla modelu językowego (AI), k
     * Zawsze aktualizuj główny plik `Notatki_z_Lekcji.md`, dodając wpis (wiersz w tabeli) z numerem tygodnia, tematem lekcji i linkiem względnym do odpowiedniego pliku notatek (np. `./Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/Dokumenty/T1L01_Historia_Modeli_Jezykowych.md`).
 * **Dodawanie Transkrypcji Lekcyjnych:**
     * Umieść plik z transkrypcją w podkatalogu `Dokumenty/` wewnątrz folderu danego tygodnia (np. `Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/Dokumenty/`).
-    * Plik transkrypcji powinien być nazwany zgodnie z konwencją `T<nr_tygodnia>L<nr_lekcji>_<TematLekcjiDoPliku>_Transkrypcja.md` (lub `.txt`) (np. `T1L01_Historia_Modeli_Jezykowych_Transkrypcja.md`).
+    * Plik transkrypcji powinien być nazwany zgodnie z konwencją `T<nr_tygodnia>L<nr_lekcji>_<TematLekcjiDoPliku>_Transkrypcja.md` (np. `T1L01_Historia_Modeli_Jezykowych_Transkrypcja.md`).
     * Zaktualizuj `README.md` w danym tygodniu (`Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/README.md`), dodając w sekcji danej lekcji link względny do pliku transkrypcji (np. `./Dokumenty/T1L01_Historia_Modeli_Jezykowych_Transkrypcja.md`).
-    * Utwórz lub zaktualizuj plik ze zbiorczą transkrypcją dla danego tygodnia (np. `Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/Transkrypcje_Tygodnia_X.md`). Dodaj nagłówek z nazwą lekcji i wklej pod nim pełną treść transkrypcji.
     * Zaktualizuj główny plik `Notatki_z_Lekcji.md`, dodając (jeśli nie istnieje) kolumnę "Transkrypcja" i wstawiając w odpowiednim wierszu link względny do pliku z transkrypcją lekcji (np. `[Link](mdc:Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/Dokumenty/T1L01_Historia_Modeli_Jezykowych_Transkrypcja.md)`).
 * **Dodawanie Zasobów Ogólnych:**
     * **Datasety:** Dodawaj do `Datasety/`, aktualizuj `Datasety/README.md` ORAZ linkuj z odpowiedniego `Materialy_z_lekcji/Tydzień_X_nazwa_tygodnia/README.md`.
