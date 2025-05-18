@@ -33,7 +33,7 @@ W tej lekcji dokonujemy przeglądu kluczowych narzędzi AI dostępnych na rynku 
 
 *   **Link do lekcji na platformie:** [Obejrzyj lekcję na SensAI Academy](https://learn.sensai.academy/next/public/lesson/254)
 *   **Notatka z lekcji:** [./Dokumenty/T1L03_Podstawowe_Narzedzia_AI.md](./Dokumenty/T1L03_Podstawowe_Narzedzia_AI.md) - Szczegółowy opis i porównanie narzędzi Chat GPT, Perplexity, Grok, Claude, Gemini i Google AI Studio.
-*   **Transkrypcja:** [./Dokumenty/T1L03_Podstawowe_Narzedzia_AI.txt](./Dokumenty/T1L03_Podstawowe_Narzedzia_AI.txt) - Pełna transkrypcja lekcji.
+*   **Transkrypcja:** [./Dokumenty/T1L03_Podstawowe_Narzedzia_AI_transkrypcja.md](./Dokumenty/T1L03_Podstawowe_Narzedzia_AI_transkrypcja.md) - Pełna transkrypcja lekcji.
 
 ### Omawiane narzędzia:
 
@@ -63,7 +63,7 @@ Ta lekcja skupia się na technikach zdobywania aktualnej wiedzy za pomocą narz�
 
 *   **Link do lekcji na platformie:** [Obejrzyj lekcję na SensAI Academy](https://learn.sensai.academy/next/public/lesson/256)
 *   **Notatka z lekcji:** [./Dokumenty/T1L04_Pozyskiwanie_Wiedzy_Deep_Research.md](./Dokumenty/T1L04_Pozyskiwanie_Wiedzy_Deep_Research.md) - Szczegółowe omówienie i porównanie funkcji Deep Research/Search w popularnych narzędziach AI.
-*   **Transkrypcja:** [./Dokumenty/T1L04_Pozyskiwanie_wiedzy_i_deep_research.txt](./Dokumenty/T1L04_Pozyskiwanie_wiedzy_i_deep_research.txt) - Pełna transkrypcja lekcji.
+*   **Transkrypcja:** [./Dokumenty/T1L04_Pozyskiwanie_wiedzy_i_deep_research.md](./Dokumenty/T1L04_Pozyskiwanie_wiedzy_i_deep_research.md) - Pełna transkrypcja lekcji.
 
 ### Porównanie funkcji Deep Search / Research (wg lekcji):
 

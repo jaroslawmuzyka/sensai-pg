@@ -14,6 +14,7 @@ W tej lekcji zapoznajemy się z Google Colab - narzędziem, które pozwala na tw
 *   **Notatki z lekcji:** [./Dokumenty/T2L01_Google_Colab_wprowadzenie_do_narzędzia.md](./Dokumenty/T2L01_Google_Colab_wprowadzenie_do_narzędzia.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/267)
 *   [Notatnik wprowadzający do Google Colab](https://colab.research.google.com/drive/1bi7TZAq_1Kr0fH5kDKluJSkRu8jRyMpJ?usp=sharing) - ten notatnik służy do nauki podstaw korzystania z narzędzia Google Colab
+*   **Plik .ipynb do pobrania:** [./Dokumenty/SensAI_SEO_3_0_Tydzien_2_Google_Colab.ipynb](./Dokumenty/SensAI_SEO_3_0_Tydzien_2_Google_Colab.ipynb)
 *   [Przykładowe notatniki Google Colab](https://colab.google/notebooks/) - różne notatniki od Google, które można wykorzystać we własnych projektach.
 
 ## Lekcja: Komunikacja z API modeli językowych
@@ -25,6 +26,7 @@ Ta lekcja pokazała, jak komunikować się programowo z API Modeli Językowych p
 *   **Notatki z lekcji:** [./Dokumenty/T2L02_Komunikacja_z_API_modeli_językowych.md](./Dokumenty/T2L02_Komunikacja_z_API_modeli_językowych.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/268)
 *   [Notatnik Colab: Interaktywny przewodnik po API modeli językowych](https://colab.research.google.com/drive/1O8ueKXMOqn0S2yanBHD4XJrBmixVeRAL?usp=sharing) - Praktyczny notatnik pokazujący, jak korzystać z API modeli językowych w Pythonie.
+*   **Plik .ipynb do pobrania:** [./Dokumenty/SensAI_SEO_3_0_Tydzien_2_Komunikacja_z_API_Modeli_językowych.ipynb](./Dokumenty/SensAI_SEO_3_0_Tydzien_2_Komunikacja_z_API_Modeli_językowych.ipynb)
 *   **Narzędzia wspomniane w lekcji:**
     *   [OpenRouter](https://openrouter.ai/) - Agregator API różnych modeli językowych.
     *   [Google AI Studio](https://aistudio.google.com/) - Interfejs webowy do modeli Gemini.
@@ -64,6 +66,7 @@ Ta lekcja prezentuje różne narzędzia i techniki pokazujące, w jaki sposób m
 *   **Notatki z lekcji:** [./Dokumenty/T2L04_AI_Crawling.md](./Dokumenty/T2L04_AI_Crawling.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/270)
 *   [Notatnik Colab: Crawl4AI - Wprowadzenie](https://colab.research.google.com/drive/1dgALAwthnxbpaUu_0p5xf08W45JrLvdt?usp=sharing) - Praktyczne wprowadzenie do narzędzia Crawl4AI.
+*   **Plik .ipynb do pobrania:** [./Dokumenty/SensAI_SEO_3_0_Tydzien_2_AI_Crawling.ipynb](./Dokumenty/SensAI_SEO_3_0_Tydzien_2_AI_Crawling.ipynb)
 *   **Narzędzia do AI Crawlingu:**
     *   [crawl4ai (GitHub)](https://github.com/unclecode/crawl4ai) - Narzędzie Open Source do crawlowania zoptymalizowane pod kątem modeli językowych.
     *   [Firecrawl](https://www.firecrawl.dev/) - Komercyjne narzędzie do crawlingu oferujące również wersję open source.
@@ -101,6 +104,7 @@ W tej lekcji poznajemy Supabase - platformę do szybkiego tworzenia backendów d
 *   [Notatki z lekcji](./Dokumenty/T2L06_Wprowadzenie_do_Supabase.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/272)
 *   [Notatnik do importu danych z Excela do Supabase](https://colab.research.google.com/drive/1NE7AbjT3H81fcsu-uMpv-qXeduWKtPxA?authuser=0#scrollTo=ovOxY2nY5Zdt) - ten notatnik demonstruje proces importowania danych z arkuszy Excel do bazy danych Supabase
+*   **Plik .ipynb do pobrania:** [./Dokumenty/SensAI_SEO_3_0_Tydzien_2_Supabase.ipynb](./Dokumenty/SensAI_SEO_3_0_Tydzien_2_Supabase.ipynb)
 *   [Konwersacja z Claude na temat Supabase](https://claude.ai/public/artifacts/cc8b12f9-6927-4998-a59c-c52614cb35dd) - przykładowa konwersacja z asystentem AI używana podczas lekcji
 *   **Plik danych**: [`../Datasety/analiza_widocznosci_senuto.com.xlsx`](../Datasety/analiza_widocznosci_senuto.com.xlsx) - raport widoczności dla domeny senuto.com wygenerowany w aplikacji Senuto, używany podczas lekcji do demonstracji importu danych do Supabase
 *   Przykładowe zapytanie SQL do analizy struktury tabeli w Supabase - używane podczas lekcji do wygenerowania opisu tabeli, który następnie służy jako kontekst dla modeli językowych przy budowaniu zapytań:
