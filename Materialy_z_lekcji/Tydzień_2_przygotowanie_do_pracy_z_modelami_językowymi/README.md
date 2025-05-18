@@ -47,6 +47,8 @@ Ta lekcja pokazała, jak komunikować się programowo z API Modeli Językowych p
 
 ### Materiały dodatkowe
 
+*   **Notatki z lekcji:** [./Dokumenty/T2L03_Komunikacja_z_API_modeli_językowych.md](./Dokumenty/T2L03_Komunikacja_z_API_modeli_językowych.md)
+*   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/268)
 *   [Notatnik Colab: Interaktywny przewodnik po API modeli językowych](https://colab.research.google.com/drive/1O8ueKXMOqn0S2yanBHD4XJrBmixVeRAL?usp=sharing) - Praktyczny notatnik pokazujący, jak korzystać z API modeli językowych w Pythonie.
 *   **Narzędzia wspomniane w lekcji:**
     *   [OpenRouter](https://openrouter.ai/) - Agregator API różnych modeli językowych.
