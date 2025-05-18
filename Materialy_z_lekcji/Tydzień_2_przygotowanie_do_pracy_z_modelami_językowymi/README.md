@@ -50,6 +50,11 @@ W tej lekcji przyjrzymy się, jak efektywnie wykorzystać modele językowe do ge
 
 *(Uwaga: W tej lekcji nie korzystamy z dedykowanego notatnika Colab, skupiamy się na interakcji z modelami poprzez ich interfejsy webowe lub API.)*
 
+### Materiały dodatkowe
+
+*   **Notatki z lekcji:** [./Dokumenty/T2L02_Generowanie_skryptow_Python_przy_pracy_z_modelami_jezykowymi.md](./Dokumenty/T2L02_Generowanie_skryptow_Python_przy_pracy_z_modelami_jezykowymi.md)
+*   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/269)
+
 ## Lekcja: AI Crawling
 
 Ta lekcja prezentuje różne narzędzia i techniki pokazujące, w jaki sposób można realizować proces crawlowania (zbierania danych ze stron internetowych) przy wykorzystaniu modeli językowych. Zobaczymy, jak AI może pomóc w ekstrakcji, strukturyzacji i przetwarzaniu informacji z sieci.
