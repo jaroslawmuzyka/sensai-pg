@@ -84,6 +84,7 @@ W tej lekcji skupiamy się na kluczowym aspekcie pracy z modelami językowymi �
 
 ### Materiały dodatkowe
 
+*   [Notatki z lekcji](./Dokumenty/T2L05_Pozyskiwanie_danych_dla_modeli_jezykowych.md)
 *   [Notatnik Colab: Ćwiczenia z pozyskiwania danych dla modeli](https://colab.research.google.com/drive/1eI7_Te5IZBOh-hvxFnHJVRNrfgFAAqa7#scrollTo=WMUMmKCBrYXK) - Praktyczne ćwiczenia pokazujące, jak pobierać i przygotowywać dane z różnych źródeł.
 *   **Narzędzia (Marketplace API):**
     *   [RapidAPI Hub](https://rapidapi.com/hub) - Duży marketplace z różnorodnymi API.
