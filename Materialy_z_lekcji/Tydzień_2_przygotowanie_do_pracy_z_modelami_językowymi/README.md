@@ -16,31 +16,6 @@ W tej lekcji zapoznajemy się z Google Colab - narzędziem, które pozwala na tw
 *   [Notatnik wprowadzający do Google Colab](https://colab.research.google.com/drive/1bi7TZAq_1Kr0fH5kDKluJSkRu8jRyMpJ?usp=sharing) - ten notatnik służy do nauki podstaw korzystania z narzędzia Google Colab
 *   [Przykładowe notatniki Google Colab](https://colab.google/notebooks/) - różne notatniki od Google, które można wykorzystać we własnych projektach.
 
-## Lekcja: Supabase
-
-W tej lekcji poznajemy Supabase - platformę do szybkiego tworzenia backendów dla aplikacji, oferującą bazę danych PostgreSQL (w tym przechowywanie i wyszukiwarnie wektorowe), autentykację i przechowywanie plików. Uczymy się, jak importować dane z plików Excel do Supabase oraz jak wykorzystać tę platformę w projektach SEO do efektywnego zarządzania danymi.
-
-### Materiały dodatkowe
-
-*   [Notatnik do importu danych z Excela do Supabase](https://colab.research.google.com/drive/1NE7AbjT3H81fcsu-uMpv-qXeduWKtPxA?authuser=0#scrollTo=ovOxY2nY5Zdt) - ten notatnik demonstruje proces importowania danych z arkuszy Excel do bazy danych Supabase
-*   [Konwersacja z Claude na temat Supabase](https://claude.ai/public/artifacts/cc8b12f9-6927-4998-a59c-c52614cb35dd) - przykładowa konwersacja z asystentem AI używana podczas lekcji
-*   **Plik danych**: [`../Datasety/analiza_widocznosci_senuto.com.xlsx`](../Datasety/analiza_widocznosci_senuto.com.xlsx) - raport widoczności dla domeny senuto.com wygenerowany w aplikacji Senuto, używany podczas lekcji do demonstracji importu danych do Supabase
-*   Przykładowe zapytanie SQL do analizy struktury tabeli w Supabase - używane podczas lekcji do wygenerowania opisu tabeli, który następnie służy jako kontekst dla modeli językowych przy budowaniu zapytań:
-
-```sql
-SELECT 
-    column_name, 
-    data_type,
-    character_maximum_length,
-    numeric_precision,
-    numeric_scale,
-    is_nullable
-FROM 
-    information_schema.columns
-WHERE 
-    table_name = 'master_data';
-```
-
 ## Lekcja: Komunikacja z API modeli językowych
 
 Ta lekcja pokazała, jak komunikować się programowo z API Modeli Językowych przy użyciu Pythona, obejmując podstawy HTTP, formatu JSON, bezpiecznego zarządzania kluczami API oraz praktyczne przykłady interakcji z usługami takimi jak OpenAI czy Google Gemini za pomocą ich bibliotek SDK. Poznaliśmy również kluczowe aspekty pracy z API, takie jak ograniczenia tokenów, oraz zaawansowane techniki, w tym Wywoływanie Funkcji, Ustrukturyzowane Odpowiedzi, narzędzia hostowane (Web Search) i przetwarzanie wsadowe (Batch API), co pozwala na tworzenie bardziej złożonych i efektywnych integracji AI.
@@ -55,20 +30,6 @@ Ta lekcja pokazała, jak komunikować się programowo z API Modeli Językowych p
     *   [Google AI Studio](https://aistudio.google.com/) - Interfejs webowy do modeli Gemini.
     *   [OpenAI Playground](https://platform.openai.com/playground) - Interfejs webowy do modeli GPT.
     *   [Anthropic Console](https://console.anthropic.com/) - Interfejs webowy do modeli Claude.
-
-## Lekcja: Pozyskiwanie danych dla modeli językowych
-
-W tej lekcji skupiamy się na kluczowym aspekcie pracy z modelami językowymi – pozyskiwaniu odpowiednich danych, które posłużą jako kontekst lub materiał do dalszego przetwarzania. Omawiamy różne metody dostarczania danych do modeli, w tym:
-
-*   **Wykorzystanie API zewnętrznych:** Jak integrować się z różnymi usługami za pomocą ich interfejsów programistycznych (API) w celu pobierania aktualnych i specyficznych informacji (np. danych o produktach, statystyk, informacji z baz danych).
-*   **Przetwarzanie danych dla modelu:** Jak przygotować i sformatować pozyskane dane (np. z API, plików, baz danych), aby były zrozumiałe i efektywnie wykorzystane przez modele językowe (np. tworzenie odpowiednich struktur, czyszczenie danych).
-
-### Materiały dodatkowe
-
-*   [Notatnik Colab: Ćwiczenia z pozyskiwania danych dla modeli](https://colab.research.google.com/drive/1eI7_Te5IZBOh-hvxFnHJVRNrfgFAAqa7#scrollTo=WMUMmKCBrYXK) - Praktyczne ćwiczenia pokazujące, jak pobierać i przygotowywać dane z różnych źródeł.
-*   **Narzędzia (Marketplace API):**
-    *   [RapidAPI Hub](https://rapidapi.com/hub) - Duży marketplace z różnorodnymi API.
-    *   [Apify](https://apify.com/) - Platforma z gotowymi scraperami (aktorami) i narzędziami do automatyzacji webowej, często dostępnymi przez API.
 
 ## Lekcja: Generowanie prostych skryptów python przy wykorzystaniu modeli językowych
 
@@ -108,6 +69,51 @@ Ta lekcja prezentuje różne narzędzia i techniki pokazujące, w jaki sposób m
 	| [Firecrawl](https://www.firecrawl.dev/) |     *✅* (posiada również wersję komercyjną)    |     ✅     |             ✅            |       ✅       | Mnogość funkcji                        | Wysoki koszt w wersji komercyjnej                  |
 	| [Crawl4AI](https://github.com/unclecode/crawl4ai) |     ✅                                            |     ✅     |             ✅            |       ❌       | Szybkość, bezpłatne (open source)      | Trudność wdrożenia                                 |
 
+## Lekcja: Pozyskiwanie danych dla modeli językowych
+
+W tej lekcji skupiamy się na kluczowym aspekcie pracy z modelami językowymi – pozyskiwaniu odpowiednich danych, które posłużą jako kontekst lub materiał do dalszego przetwarzania. Omawiamy różne metody dostarczania danych do modeli, w tym:
+
+*   **Wykorzystanie API zewnętrznych:** Jak integrować się z różnymi usługami za pomocą ich interfejsów programistycznych (API) w celu pobierania aktualnych i specyficznych informacji (np. danych o produktach, statystyk, informacji z baz danych).
+*   **Przetwarzanie danych dla modelu:** Jak przygotować i sformatować pozyskane dane (np. z API, plików, baz danych), aby były zrozumiałe i efektywnie wykorzystane przez modele językowe (np. tworzenie odpowiednich struktur, czyszczenie danych).
+
+### Materiały dodatkowe
+
+*   [Notatnik Colab: Ćwiczenia z pozyskiwania danych dla modeli](https://colab.research.google.com/drive/1eI7_Te5IZBOh-hvxFnHJVRNrfgFAAqa7#scrollTo=WMUMmKCBrYXK) - Praktyczne ćwiczenia pokazujące, jak pobierać i przygotowywać dane z różnych źródeł.
+*   **Narzędzia (Marketplace API):**
+    *   [RapidAPI Hub](https://rapidapi.com/hub) - Duży marketplace z różnorodnymi API.
+    *   [Apify](https://apify.com/) - Platforma z gotowymi scraperami (aktorami) i narzędziami do automatyzacji webowej, często dostępnymi przez API.
+
+## Lekcja: Narzędzia do Przygotowania Danych dla Modeli Językowych
+
+W tej lekcji przyglądamy się narzędziom, które ułatwiają konwersję treści stron internetowych do formatu Markdown, optymalnego dla modeli językowych. Omawiamy Jina Reader, FireCrawl i Crawl for AI, porównując ich funkcjonalności, takie jak obsługa pojedynczych URL vs całych domen, ekstrakcja danych za pomocą LLM (`LLM Extract`) oraz różnice w szybkości i dostępności (open source vs wersje komercyjne). Pokazujemy również przykład automatyzacji procesu wzbogacania danych (Data Enrichment) za pomocą Make.com i API Jina Reader.
+
+*   **Notatka z lekcji:** [./Lekcja_Narzędzia_do_Przygotowania_Danych_LLM/Narzędzia_do_Przygotowania_Danych_LLM.md](./Lekcja_Narzędzia_do_Przygotowania_Danych_LLM/Narzędzia_do_Przygotowania_Danych_LLM.md) - szczegółowe omówienie narzędzi Jina Reader, FireCrawl, Crawl for AI oraz przykład automatyzacji w Make.com.
+
+## Lekcja: Supabase
+
+W tej lekcji poznajemy Supabase - platformę do szybkiego tworzenia backendów dla aplikacji, oferującą bazę danych PostgreSQL (w tym przechowywanie i wyszukiwarnie wektorowe), autentykację i przechowywanie plików. Uczymy się, jak importować dane z plików Excel do Supabase oraz jak wykorzystać tę platformę w projektach SEO do efektywnego zarządzania danymi.
+
+### Materiały dodatkowe
+
+*   [Notatnik do importu danych z Excela do Supabase](https://colab.research.google.com/drive/1NE7AbjT3H81fcsu-uMpv-qXeduWKtPxA?authuser=0#scrollTo=ovOxY2nY5Zdt) - ten notatnik demonstruje proces importowania danych z arkuszy Excel do bazy danych Supabase
+*   [Konwersacja z Claude na temat Supabase](https://claude.ai/public/artifacts/cc8b12f9-6927-4998-a59c-c52614cb35dd) - przykładowa konwersacja z asystentem AI używana podczas lekcji
+*   **Plik danych**: [`../Datasety/analiza_widocznosci_senuto.com.xlsx`](../Datasety/analiza_widocznosci_senuto.com.xlsx) - raport widoczności dla domeny senuto.com wygenerowany w aplikacji Senuto, używany podczas lekcji do demonstracji importu danych do Supabase
+*   Przykładowe zapytanie SQL do analizy struktury tabeli w Supabase - używane podczas lekcji do wygenerowania opisu tabeli, który następnie służy jako kontekst dla modeli językowych przy budowaniu zapytań:
+
+```sql
+SELECT 
+    column_name, 
+    data_type,
+    character_maximum_length,
+    numeric_precision,
+    numeric_scale,
+    is_nullable
+FROM 
+    information_schema.columns
+WHERE 
+    table_name = 'master_data';
+```
+
 ### Notatniki Colab
 
 Poniższa tabela zawiera linki do notatników Google Colab używanych w tym tygodniu.
@@ -115,10 +121,11 @@ Poniższa tabela zawiera linki do notatników Google Colab używanych w tym tygo
 | Notatnik                            | Opis                                                                                                                                                    | Link                                                                                         |
 | :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------- |
 | Wprowadzenie do Google Colab        | Notatnik służący do nauki podstaw korzystania z narzędzia Google Colab, przygotowujący do pracy z pozostałymi materiałami kursu.                        | [Otwórz w Colab](https://colab.research.google.com/drive/1bi7TZAq_1Kr0fH5kDKluJSkRu8jRyMpJ?usp=sharing) |
-| Import danych z Excela do Supabase | Notatnik demonstrujący proces importowania danych z arkuszy Excel do bazy danych Supabase. | [Otwórz w Colab](https://colab.research.google.com/drive/1NE7AbjT3H81fcsu-uMpv-qXeduWKtPxA?authuser=0#scrollTo=ovOxY2nY5Zdt) |
 | Komunikacja z API modeli językowych | Praktyczny przewodnik po programowej komunikacji z API modeli językowych (np. OpenAI, Gemini) przy użyciu Pythona.                                    | [Otwórz w Colab](https://colab.research.google.com/drive/1O8ueKXMOqn0S2yanBHD4XJrBmixVeRAL?usp=sharing) |
 | Pozyskiwanie danych dla modeli      | Ćwiczenia praktyczne z pozyskiwania i przygotowywania danych z różnych źródeł (np. API) dla modeli językowych.                                       | [Otwórz w Colab](https://colab.research.google.com/drive/1eI7_Te5IZBOh-hvxFnHJVRNrfgFAAqa7#scrollTo=WMUMmKCBrYXK) |
 | AI Crawling - Wprowadzenie do Crawl4AI | Wprowadzenie do narzędzia Crawl4AI, pokazujące jego możliwości w zakresie AI-driven web crawlingu.                                                | [Otwórz w Colab](https://colab.research.google.com/drive/1dgALAwthnxbpaUu_0p5xf08W45JrLvdt?usp=sharing) |
+| Import danych z Excela do Supabase | Notatnik demonstrujący proces importowania danych z arkuszy Excel do bazy danych Supabase. | [Otwórz w Colab](https://colab.research.google.com/drive/1NE7AbjT3H81fcsu-uMpv-qXeduWKtPxA?authuser=0#scrollTo=ovOxY2nY5Zdt) |
+
 
 ---
 
@@ -129,10 +136,4 @@ Poniższa tabela zawiera linki do notatników Google Colab używanych w tym tygo
 W tej sekcji znajdziesz dodatkowe materiały i źródła, które mogą być pomocne w zgłębianiu tematów poruszanych w tym tygodniu.
 
 *   [Poradnik Google na temat prompt engineeringu](https://www.kaggle.com/whitepaper-prompt-engineering)
-
-## Lekcja: Narzędzia do Przygotowania Danych dla Modeli Językowych
-
-W tej lekcji przyglądamy się narzędziom, które ułatwiają konwersję treści stron internetowych do formatu Markdown, optymalnego dla modeli językowych. Omawiamy Jina Reader, FireCrawl i Crawl for AI, porównując ich funkcjonalności, takie jak obsługa pojedynczych URL vs całych domen, ekstrakcja danych za pomocą LLM (`LLM Extract`) oraz różnice w szybkości i dostępności (open source vs wersje komercyjne). Pokazujemy również przykład automatyzacji procesu wzbogacania danych (Data Enrichment) za pomocą Make.com i API Jina Reader.
-
-*   **Notatka z lekcji:** [./Lekcja_Narzędzia_do_Przygotowania_Danych_LLM/Narzędzia_do_Przygotowania_Danych_LLM.md](./Lekcja_Narzędzia_do_Przygotowania_Danych_LLM/Narzędzia_do_Przygotowania_Danych_LLM.md) - szczegółowe omówienie narzędzi Jina Reader, FireCrawl, Crawl for AI oraz przykład automatyzacji w Make.com.
 
