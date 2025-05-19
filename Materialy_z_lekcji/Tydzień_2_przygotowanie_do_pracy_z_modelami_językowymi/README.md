@@ -96,6 +96,7 @@ W tej lekcji skupiamy się na kluczowym aspekcie pracy z modelami językowymi �
 *   **Transkrypcja:** [./Dokumenty/T02L05 Pozyskiwanie_przygotowanie danych dla modeli jezykowych_transkrypcja.md](./Dokumenty/T02L05 Pozyskiwanie_przygotowanie danych dla modeli jezykowych_transkrypcja.md)
 *   **Nagranie lekcji na platformie SensAI:** [Platforma SensAI](https://learn.sensai.academy/next/public/lesson/271)
 *   [Notatnik Colab: Ćwiczenia z pozyskiwania danych dla modeli](https://colab.research.google.com/drive/1eI7_Te5IZBOh-hvxFnHJVRNrfgFAAqa7#scrollTo=WMUMmKCBrYXK) - Praktyczne ćwiczenia pokazujące, jak pobierać i przygotowywać dane z różnych źródeł.
+*   **Plik .ipynb do pobrania:** [./Dokumenty/SensAI_SEO_3.0_Tydzien_2_Pozyskiwanie_Danych_Dla_Modeli_Jezykowych.ipynb](./Dokumenty/SensAI_SEO_3.0_Tydzien_2_Pozyskiwanie_Danych_Dla_Modeli_Jezykowych.ipynb)
 *   **Narzędzia (Marketplace API):**
     *   [RapidAPI Hub](https://rapidapi.com/hub) - Duży marketplace z różnorodnymi API.
     *   [Apify](https://apify.com/) - Platforma z gotowymi scraperami (aktorami) i narzędziami do automatyzacji webowej, często dostępnymi przez API.
