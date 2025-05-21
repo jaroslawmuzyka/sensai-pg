@@ -112,7 +112,7 @@ W tej lekcji poznajemy kluczowe parametry modeli językowych, które wpływają 
 
 ## Lekcja: Narzędzia do Tworzenia Promptów
 
-W tej lekcji poznajemy profesjonalne narzędzia wspomagające tworzenie i zarządzanie promptami. Omawiamy takie narzędzia jak Anthropic Console i AIPRM, ich funkcje oraz praktyczne zastosowanie w pracy z modelami językowymi.
+W tej lekcji poznajemy profesjonalne narzędzia wspomagające tworzenie i zarządzanie promptami. Omawiamy takie narzędzia jak Anthropic Console i AIPRM, ich funkcje oraz praktyczne zastosowanie w pracy z modelami językowymi. W ramach lekcji wykorzystujemy również prompt Knowledge Graph Generator do analizy i strukturyzacji wiedzy na temat tworzenia promptów.
 
 ## Lekcja: Hakowanie instrukcji systemowych
 
@@ -139,6 +139,10 @@ W tej lekcji przyglądamy się, jak dostosować sposób tworzenia promptów w za
 ### Materiały dodatkowe:
 
 *   Wskazówki OpenAI jak tworzyć prompty dla modelu GPT-4.1: [GPT-4.1 Prompting Guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide)
+
+## Lekcja: Proces Tworzenia Promptu w Praktyce
+
+W tej lekcji omówimy proces tworzenia promptu w praktyce, zaczynając od zdefiniowania problemu, przez generowanie różnych promptów, aż do ostatecznego wyboru najlepszego promptu. W ramach lekcji wykorzystamy prompt Knowledge Graph Generator do analizy i strukturyzacji wiedzy na temat tworzenia promptów, co pomoże nam lepiej zrozumieć relacje między różnymi elementami skutecznego promptu.
 
 ## Źródła wiedzy
 
