@@ -114,8 +114,6 @@ W tej lekcji poznajemy kluczowe parametry modeli językowych, które wpływają 
 
 W tej lekcji poznajemy profesjonalne narzędzia wspomagające tworzenie i zarządzanie promptami. Omawiamy takie narzędzia jak Anthropic Console i AIPRM, ich funkcje oraz praktyczne zastosowanie w pracy z modelami językowymi.
 
-
-
 ## Lekcja: Hakowanie instrukcji systemowych
 
 W tej lekcji omawiamy metody i prompty, które można wykorzystać do próby odkrycia ukrytych instrukcji systemowych, jakimi kieruje się model językowy (np. ChatGPT) podczas generowania odpowiedzi.
@@ -142,12 +140,10 @@ W tej lekcji przyglądamy się, jak dostosować sposób tworzenia promptów w za
 
 *   Wskazówki OpenAI jak tworzyć prompty dla modelu GPT-4.1: [GPT-4.1 Prompting Guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide)
 
----
-
-*W przyszłości w tym katalogu pojawią się sekcje dla innych lekcji z Tygodnia 2.*
-
-# Źródła wiedzy
+## Źródła wiedzy
 
 W tej sekcji znajdziesz dodatkowe materiały i źródła, które mogą być pomocne w zgłębianiu tematów poruszanych w tym tygodniu.
 
-*   [Poradnik Google na temat prompt engineeringu](https://www.kaggle.com/whitepaper-prompt-engineering) 
+*   [Dokumentacja OpenAI](https://platform.openai.com/docs/guides/prompt-engineering)
+*   [Dokumentacja Anthropic](https://docs.anthropic.com/claude/docs/prompt-engineering)
+*   [Dokumentacja Google AI](https://ai.google.dev/docs/prompt_engineering) 
