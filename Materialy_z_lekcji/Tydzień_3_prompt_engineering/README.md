@@ -103,6 +103,15 @@ Poniższa tabela zawiera linki do notatników Google Colab używanych w tej lekc
 | *(Więcej notatników może pojawić się tutaj)* | *(Opis kolejnego notatnika)*                                                                                                                                          | *(Link do kolejnego notatnika)*                                                               |
                                                 |
 
+## Lekcja: Parametry Modeli Językowych
+
+W tej lekcji poznajemy kluczowe parametry modeli językowych, które wpływają na jakość i charakter generowanych odpowiedzi. Omawiamy takie parametry jak temperatura, top P i max tokens, oraz ich praktyczne zastosowanie w różnych scenariuszach.
+
+### Notatnik Colab
+[Parametry Modeli Językowych - Ćwiczenia](https://colab.research.google.com/drive/1dfTAIF0gVNEfprf17u3ppZkDigI2yuOA?usp=sharing)
+
+
+
 ## Lekcja: Hakowanie instrukcji systemowych
 
 W tej lekcji omawiamy metody i prompty, które można wykorzystać do próby odkrycia ukrytych instrukcji systemowych, jakimi kieruje się model językowy (np. ChatGPT) podczas generowania odpowiedzi.
