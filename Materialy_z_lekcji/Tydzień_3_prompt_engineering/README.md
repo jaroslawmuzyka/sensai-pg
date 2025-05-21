@@ -110,6 +110,10 @@ W tej lekcji poznajemy kluczowe parametry modeli językowych, które wpływają 
 ### Notatnik Colab
 [Parametry Modeli Językowych - Ćwiczenia](https://colab.research.google.com/drive/1dfTAIF0gVNEfprf17u3ppZkDigI2yuOA?usp=sharing)
 
+## Lekcja: Narzędzia do Tworzenia Promptów
+
+W tej lekcji poznajemy profesjonalne narzędzia wspomagające tworzenie i zarządzanie promptami. Omawiamy takie narzędzia jak Anthropic Console i AIPRM, ich funkcje oraz praktyczne zastosowanie w pracy z modelami językowymi.
+
 
 
 ## Lekcja: Hakowanie instrukcji systemowych
