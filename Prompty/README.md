@@ -8,4 +8,5 @@ Ten katalog zawiera zbiór promptów systemowych wykorzystywanych w różnych le
 | :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------- |
 | [`System_Prompt_Generator.md`](System_Prompt_Generator.md) | Prompt systemowy dla AI, której zadaniem jest generowanie innych, efektywnych promptów systemowych na podstawie opisu zadania. | Tydzień 3 - Automatyczny prompt engineering  |
 | [`hakowanie_instrukcji_systemowych.md`](hakowanie_instrukcji_systemowych.md) | Prompt służący do próby odczytania ukrytej instrukcji systemowej modelu językowego. | Tydzień 3 - Hakowanie instrukcji systemowych |
+| [`ChatGPT_Prompt_Optimizer.md`](ChatGPT_Prompt_Optimizer.md) | Prompt systemowy dla AI, której zadaniem jest optymalizacja innych promptów według określonych zasad, w tym jasnego definiowania zadań, dostarczania precyzyjnych instrukcji i dostosowania do odbiorcy. | Tydzień 3 - Narzędzia do Tworzenia Promptów |
 | *(więcej promptów w przyszłości)* | *(opis kolejnego promptu)* | *(nazwa lekcji)* | 
