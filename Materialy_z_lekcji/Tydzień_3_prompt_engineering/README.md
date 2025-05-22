@@ -105,7 +105,7 @@ Więcej: [The "think" tool: Enabling Claude to stop and think in complex tool us
 
 Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrakcji encji i relacji z tekstów, zgodnie z opisanym procesem lekcji.
 
-# Proces tworzenia zaawansowanego promptu do ekstrakcji encji i relacji
+### Proces tworzenia zaawansowanego promptu do ekstrakcji encji i relacji
 
 ---
 
