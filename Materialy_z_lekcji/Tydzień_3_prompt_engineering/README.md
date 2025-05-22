@@ -68,10 +68,6 @@ W tej lekcji przyglądamy się, jak dostosować sposób tworzenia promptów w za
 
 *   Wskazówki OpenAI jak tworzyć prompty dla modelu GPT-4.1: [GPT-4.1 Prompting Guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide)
 
-## Lekcja: Proces Tworzenia Promptu w Praktyce
-
-W tej lekcji omówimy proces tworzenia promptu w praktyce, zaczynając od zdefiniowania problemu, przez generowanie różnych promptów, aż do ostatecznego wyboru najlepszego promptu. 
-
 ## Lekcja: Sztuczki w prompt engineeringu
 
 **Sztuczka nr 1: Kontemplacyjny monolog modelu**
@@ -95,7 +91,7 @@ Przykładowy blok odpowiedzi:
 
 **Sztuczka nr 2: "Think tool" – dedykowana przestrzeń na przemyślenia**
 
-W tej metodzie model (np. Claude) otrzymuje polecenie, by przed udzieleniem odpowiedzi zatrzymał się i „pomyślał” – czyli dodał osobny krok, w którym analizuje, czy ma wszystkie potrzebne informacje, sprawdza zgodność z zasadami i planuje kolejne działania. To pozwala na bardziej spójne, przemyślane i zgodne z polityką odpowiedzi, zwłaszcza w wieloetapowych lub złożonych zadaniach.
+W tej metodzie model (np. Claude) otrzymuje polecenie, by przed udzieleniem odpowiedzi zatrzymał się i „pomyślał" – czyli dodał osobny krok, w którym analizuje, czy ma wszystkie potrzebne informacje, sprawdza zgodność z zasadami i planuje kolejne działania. To pozwala na bardziej spójne, przemyślane i zgodne z polityką odpowiedzi, zwłaszcza w wieloetapowych lub złożonych zadaniach.
 
 - Model zatrzymuje się, by przeanalizować sytuację i zebrać myśli przed podjęciem decyzji.
 - Szczególnie skuteczne w zadaniach wymagających wielu kroków, analizy wyników narzędzi lub przestrzegania złożonych zasad.
@@ -129,7 +125,7 @@ Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrak
 
 | Pytanie kontrolne | Przykładowa odpowiedź |
 |-------------------|-----------------------|
-| **Co chcę osiągnąć?** | „Stworzyć wiedzo-graf wokół słowa kluczowego” |
+| **Co chcę osiągnąć?** | „Stworzyć wiedzo-graf wokół słowa kluczowego" |
 | **Kto użyje wyniku?** | Uczestnik kursu – potrzebuje jasnej procedury |
 | **Jak model użyje danych?** | Zparsuje teksty z wielu URL-i, zwróci listy encji i relacji |
 
@@ -149,7 +145,7 @@ Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrak
    - co najmniej **20 encji** i **25 relacji**
 
 3. **Ograniczenia merytoryczne**  
-   - filtr „multi-URL” dla marek (muszą występować w ≥ 2 źródłach)  
+   - filtr „multi-URL" dla marek (muszą występować w ≥ 2 źródłach)  
    - każda encja ma ≥ 3 relacje, w tym ≥ 1 **nie** łączącą jej bezpośrednio z keywordem
 
 ---
@@ -158,9 +154,9 @@ Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrak
 
 | Pojęcie | Definicja w prompt-cie |
 |---------|-----------------------|
-| **Encja** | „Jednostka niosąca unikalne info o keywordzie, nazwana oryginalnie” |
-| **Relacja** | „Opis powiązania Źródło → Cel + siła 0-100” |
-| **Entity / Relationship strength** | „Wartość [0-100] = kosinusowa bliskość (symulowana)” |
+| **Encja** | „Jednostka niosąca unikalne info o keywordzie, nazwana oryginalnie" |
+| **Relacja** | „Opis powiązania Źródło → Cel + siła 0-100" |
+| **Entity / Relationship strength** | „Wartość [0-100] = kosinusowa bliskość (symulowana)" |
 
 **Ćwiczenie**: niech kursant sam zapisze 2-3 definicje, a potem wspólnie je doprecyzujcie.
 
@@ -174,7 +170,7 @@ Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrak
 4. Skoring encji  
 5. Deduplikacja i uogólnianie  
 6. Generowanie relacji + skoring  
-7. Filtr „brand single-source”  
+7. Filtr „brand single-source"  
 8. Odcięcie encji/relacji < 60  
 9. Formatowanie wyjścia  
 10. Dodanie `{{completed}}`
@@ -268,7 +264,7 @@ Popraw prompt tam, gdzie model zawodzi.
 - **Parsowanie wejścia** – rozdziel plik po markerach `-----TEXTn-----`, zapisując URL i treść każdej sekcji.
 - **Wydobycie encji** – wyłuskaj wszystkie istotne, unikalne względem keywordu elementy; każdej przypisz 2-3 kategorie (po polsku) i krótką definicję.
 - **Skoring encji** – nadaj wartość 0-100 symulowaną kosinusową bliskością do keywordu.
-- **Deduplikacja / uogólnianie** – scal identyczne lub semantycznie zbieżne encje, twórz uogólnienia („różne typy…”) tam, gdzie lista jest schematyczna.
+- **Deduplikacja / uogólnianie** – scal identyczne lub semantycznie zbieżne encje, twórz uogólnienia („różne typy…") tam, gdzie lista jest schematyczna.
 - **Filtr źródłowy** – odrzuć brand-specyficzne encje, które pojawiają się w < 2 URL-ach lub nie są ściśle związane z keywordem.
 - **Generowanie relacji** – dla każdej encji utwórz ≥ 3 relacje (≥ 1 nie-bazującą bezpośrednio na keywordzie); opisz je zdaniem po polsku i oceń siłą 50-100.
 - **Odcięcie jakości** – usuń encje i relacje < 60 pkt; w rezultacie zachowaj ≥ 20 encji i ≥ 25 relacji.
