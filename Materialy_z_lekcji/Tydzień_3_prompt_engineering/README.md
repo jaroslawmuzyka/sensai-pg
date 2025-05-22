@@ -350,7 +350,3 @@ Popraw prompt tam, gdzie model zawodzi.
 {{completed}}
 ```
 
-Efekt końcowy to uporządkowane, odfiltrowane i ocenione listy encji oraz relacji stanowiące spójny graf wiedzy wokół zadanego słowa kluczowego. 
-=======
-- Test → prompt działa na nowym zbiorze? 
->>>>>>> b6c069174a2d8ad2826f4c5d1e73f79fa31fdeb9
