@@ -84,6 +84,9 @@ W tej lekcji przyglądamy się, jak dostosować sposób tworzenia promptów w za
 
 Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrakcji encji i relacji z tekstów, zgodnie z opisanym procesem lekcji.
 
+**Dataset do ćwiczeń:** [Teksty_dla_SERPow.zip](https://github.com/sensai-academy/seo3.0/blob/main/Datasety/Teksty_dla_SERPow.zip)  
+Zawiera teksty z SERPów dla słów kluczowych, które zostały użyte jako test_case do generowania promptu.
+
 <details>
 <summary><h3>Proces tworzenia zaawansowanego promptu do ekstrakcji encji i relacji</h3></summary>
 
@@ -225,8 +228,6 @@ Popraw prompt tam, gdzie model zawodzi.
 ```
 
 </details>
-
----
 
 **Zobacz finalny prompt:** [Knowledge Graph Generator (GitHub)](https://github.com/sensai-academy/seo3.0/blob/main/Prompty/Knowledge_Graph_Generator.md)
 
