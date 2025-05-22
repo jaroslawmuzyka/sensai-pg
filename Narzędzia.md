@@ -46,6 +46,10 @@ W tym pliku znajduje się zestawienie wszystkich narzędzi używanych lub omawia
 | Senuto | Platforma SEO | 1 | [Poznajemy GPTs](Materialy_z_lekcji/Tydzień_1_Wstęp_do_AI_i_modeli_językowych/README.md#lekcja-poznajemy-gpts) | Kompleksowa platforma SEO (przykład integracji API z GPTs). | [Senuto](https://www.senuto.com/) |
 | *(Tu pojawią się inne narzędzia SEO)* | | | | | |
 
+## Dodatkowe Narzędzia
+
+- **Langfuse** ([langfuse.com](https://langfuse.com/)) – Open Source LLM Engineering Platform. Traces, evals, prompt management i metryki do debugowania i ulepszania aplikacji LLM.
+
 ---
 
 **Uwaga:** Ta lista będzie aktualizowana w miarę dodawania nowych materiałów do kursu. Narzędzia mogą być wspominane w wielu lekcjach. 
