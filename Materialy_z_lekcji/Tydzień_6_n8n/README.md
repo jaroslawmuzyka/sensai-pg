@@ -23,55 +23,51 @@ n8n to potężne narzędzie do automatyzacji przepływów pracy (workflow automa
 
 ## Tematy omawiane w tygodniu 6
 
-### Lekcja 1: Wprowadzenie do n8n
-* Czym jest n8n i jakie są jego główne funkcje
-* Porównanie z innymi narzędziami do automatyzacji
-* Architektura i filozofia działania n8n
+### Wprowadzenie do n8n
 * Przegląd interfejsu użytkownika
 
-### Lekcja 2: Instalacja i korzystanie z n8n
-* Opcje instalacji: cloud, mikr.us, selfhosted, local
+### Instalacja i korzystanie z n8n
+* Opcje instalacji: cloud, selfhosted, local
 * Konfiguracja środowiska Docker
 * Pierwsze uruchomienie i konfiguracja
 * Zarządzanie instancją n8n
 
-### Lekcja 3: Podstawy pracy z n8n
+### Podstawy pracy z n8n
 * Dane logowania i zarządzanie dostępem
 * Podstawowe bloki do komunikacji
 * Konfiguracja credentiali dla różnych serwisów
 * Szczegółowa konfiguracja dla Google API
 
-### Lekcja 4: Przetwarzanie danych w n8n
+### Przetwarzanie danych w n8n
 * Przetwarzanie różnych typów danych (JSON, CSV, XML)
 * Transformacja i mapowanie danych
 * Łączenie i dzielenie strumieni danych
 * Filtrowanie i sortowanie danych
 
-### Lekcja 5: Komunikacja z zewnętrznymi API
+### Komunikacja z zewnętrznymi API
 * Blok HTTP Request i jego możliwości
 * Korzystanie z dokumentacji API
 * Autoryzacja i uwierzytelnianie w zapytaniach
 * Obsługa odpowiedzi i błędów
 
-### Lekcja 6: Integracja z WordPress i WooCommerce
+### Integracja z WordPress 
 * Konfiguracja połączenia z WordPress
 * Automatyzacja zadań w WordPress
-* Integracja z WooCommerce
 * Przykłady praktycznych workflow
 
-### Lekcja 7: Tworzenie narzędzi dla agentów AI
+### Tworzenie narzędzi dla agentów AI
 * Projektowanie narzędzi do ponownego wykorzystania
 * Tworzenie endpointów dla agentów AI
 * Integracja narzędzi z innymi blokami
 * Testowanie i debugowanie narzędzi
 
-### Lekcja 8: Obsługa błędów i workflow design
+### Obsługa błędów i workflow design
 * Strategie obsługi błędów w n8n
 * Najlepsze praktyki projektowania workflow
 * Optymalizacja wydajności
 * Monitorowanie i debugowanie
 
-### Lekcja 9: Bloki agentów i zewnętrzne wywołania
+### Bloki agentów i zewnętrzne wywołania
 * Konfiguracja i wykorzystanie bloków agentów
 * Wywoływanie workflow przez zewnętrzne systemy
 * Integracja z komunikatorami (Slack, Discord, Telegram)
@@ -81,49 +77,7 @@ n8n to potężne narzędzie do automatyzacji przepływów pracy (workflow automa
 
 ## Projekty praktyczne
 
-W ramach tygodnia 6 zrealizujemy szereg praktycznych projektów, które pozwolą zastosować zdobytą wiedzę w praktyce:
-
-### Projekt 1: Endpointy do konwersji formatów
-* Przygotowanie endpointów do realizacji prostych zadań
-* Konwersja HTML do Markdown
-* Konwersja Markdown do HTML
-* Tworzenie API dla tych funkcjonalności
-
-### Projekt 2: Agent do tworzenia schema.org
-* Budowa agenta analizującego strony internetowe
-* Automatyczne generowanie znaczników schema.org
-* Walidacja wygenerowanych schematów
-* Integracja z systemami CMS
-
-### Projekt 3: Integracja z SENUTO
-* Konfiguracja połączenia z API SENUTO
-* Automatyczne pobieranie danych o widoczności
-* Analiza i przetwarzanie danych SEO
-* Generowanie raportów i alertów
-
-### Projekt 4: Monitoring trendów Google
-* Pobieranie aktualnych trendów z Google Trends
-* Analiza i filtrowanie danych
-* Automatyczne powiadomienia o nowych trendach
-* Integracja z narzędziami planowania treści
-
-### Projekt 5: Automatyzacja pracy z Neuronwriter
-* Automatyczne tworzenie zadań w Neuronwriter
-* Pobieranie wytycznych i sugestii z Neuronwriter
-* Integracja z procesem tworzenia treści
-* Monitorowanie postępów i statusów zadań
-
-### Projekt 6: Wektorowa baza danych QDRANT
-* Konfiguracja i połączenie z QDRANT
-* Przechowywanie i indeksowanie danych wektorowych
-* Wyszukiwanie semantyczne w bazie danych
-* Integracja z agentami AI
-
-### Projekt 7: Automatyczna publikacja treści
-* Pobieranie treści z Google Docs
-* Przetwarzanie i formatowanie treści
-* Automatyczna publikacja w WordPress
-* Planowanie i zarządzanie harmonogramem publikacji
+W ramach tygodnia 6 zrealizujemy szereg praktycznych projektów, które pozwolą zastosować zdobytą wiedzę w praktyce.
 
 ---
 
@@ -140,7 +94,7 @@ Po ukończeniu tygodnia 6 kursu SEO 3.0 będziesz potrafił:
 * Tworzyć narzędzia dla agentów AI i integrować je z workflow
 * Automatyzować zadania SEO z wykorzystaniem n8n i zewnętrznych narzędzi
 * Implementować systemy monitoringu i alertów dla procesów SEO
-* Integrować n8n z systemami CMS (WordPress) i e-commerce (WooCommerce)
+* Integrować n8n z systemami CMS (WordPress)
 * Projektować workflow zgodnie z najlepszymi praktykami
 * Efektywnie debugować i rozwiązywać problemy w workflow
 
@@ -162,5 +116,17 @@ W tej sekcji znajdziesz dodatkowe materiały i źródła, które mogą być pomo
 * [Dokumentacja QDRANT](https://qdrant.tech/documentation/)
 
 ---
+
+
+---
+
+## Struktura katalogu
+
+Ten katalog zawiera następujące podkatalogi z materiałami dodatkowymi:
+
+*   [`DOCKER/`](./DOCKER/) - Materiały dotyczące instalacji i konfiguracji środowiska Docker.
+*   [`INSTALACJA_N8N/`](./INSTALACJA_N8N/) - Instrukcje dotyczące różnych metod instalacji n8n (na localhost, na VPS z PostgreSQL, na VPS z PostgreSQL i workerami).
+*   [`LINUX/`](./LINUX/) - Podstawowe informacje i komendy związane z systemem operacyjnym Linux, przydatne przy pracy z serwerami VPS.
+*   [`SCENARIUSZE/`](./SCENARIUSZE/) - Przykładowe scenariusze (workflowy) n8n gotowe do wykorzystania.
 
 *W tym katalogu pojawią się materiały do poszczególnych lekcji z Tygodnia 6, w tym notatki, transkrypcje, przykładowe przepływy pracy i inne zasoby związane z n8n.*
