@@ -31,6 +31,8 @@ Ta lekcja skupia się na technikach automatycznego generowania i testowania ró�
 
 Tutaj znajdują się zestawy danych (datasety) wykorzystywane w tej lekcji.
 
+---
+
 ## Lekcja: Parametry Modeli Językowych
 
 W tej lekcji poznajemy kluczowe parametry modeli językowych, które wpływają na jakość i charakter generowanych odpowiedzi. Omawiamy takie parametry jak temperatura, top P i max tokens, oraz ich praktyczne zastosowanie w różnych scenariuszach.
@@ -38,9 +40,13 @@ W tej lekcji poznajemy kluczowe parametry modeli językowych, które wpływają 
 ### Notatnik Colab
 [Parametry Modeli Językowych - Ćwiczenia](https://colab.research.google.com/drive/1dfTAIF0gVNEfprf17u3ppZkDigI2yuOA?usp=sharing)
 
+---
+
 ## Lekcja: Narzędzia do Tworzenia Promptów
 
 W tej lekcji poznajemy profesjonalne narzędzia wspomagające tworzenie i zarządzanie promptami. Omawiamy takie narzędzia jak Anthropic Console i AIPRM, ich funkcje oraz praktyczne zastosowanie w pracy z modelami językowymi. W ramach lekcji wykorzystujemy również prompt Knowledge Graph Generator do analizy i strukturyzacji wiedzy na temat tworzenia promptów.
+
+---
 
 ## Lekcja: Hakowanie instrukcji systemowych
 
@@ -60,6 +66,8 @@ Dodatkowe zasoby:
     *   [elder-plinius/L1B3RT4S (ALIBABA.mkd)](https://github.com/elder-plinius/L1B3RT4S/blob/main/ALIBABA.mkd)
     *   [lucasmrdt/TheBigPromptLibrary](https://github.com/lucasmrdt/TheBigPromptLibrary/tree/main)
 
+---
+
 ## Lekcja: Różnice w tworzeniu promptów dla różnych typów modeli językowych
 
 W tej lekcji przyglądamy się, jak dostosować sposób tworzenia promptów w zależności od typu modelu językowego, z którym pracujemy. Różne kategorie modeli (np. standardowe jak GPT-4o, modele agentowe jak GPT-4.1, czy modele rozumujące) inaczej reagują na instrukcje i wymagają specyficznych technik promptowania oraz struktur promptów, aby uzyskać optymalne rezultaty. Omówimy unikalne techniki, rekomendowane struktury i typowe zastosowania dla każdej kategorii.
@@ -68,36 +76,7 @@ W tej lekcji przyglądamy się, jak dostosować sposób tworzenia promptów w za
 
 *   Wskazówki OpenAI jak tworzyć prompty dla modelu GPT-4.1: [GPT-4.1 Prompting Guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide)
 
-## Lekcja: Sztuczki w prompt engineeringu
-
-**Sztuczka nr 1: Kontemplacyjny monolog modelu**
-
-W tej sztuczce instruujemy model, aby nie spieszył się z odpowiedzią, tylko prowadził bardzo szczegółowy, wewnętrzny monolog. Model powinien:
-- Rozpoczynać od podstawowych obserwacji,
-- Rozbijać rozumowanie na małe, proste kroki,
-- Otwarcie wyrażać wątpliwości i niepewność,
-- Często wracać do wcześniejszych założeń i je kwestionować,
-- Pokazywać cały proces myślenia, aż do naturalnego wyłonienia się rozwiązania,
-- Odpowiedź powinna być zamknięta w bloku `<contemplator>...</contemplator>`.
-
-Technika ta pozwala uzyskać bardziej pogłębione, przemyślane i kreatywne odpowiedzi od modeli językowych.
-
-Przykładowy blok odpowiedzi:
-```
-<contemplator>
-[Twoja rozbudowana analiza krok po kroku, z wątpliwościami, cofnięciami, aż do finalnej odpowiedzi]
-</contemplator>
-```
-
-**Sztuczka nr 2: "Think tool" – dedykowana przestrzeń na przemyślenia**
-
-W tej metodzie model (np. Claude) otrzymuje polecenie, by przed udzieleniem odpowiedzi zatrzymał się i „pomyślał" – czyli dodał osobny krok, w którym analizuje, czy ma wszystkie potrzebne informacje, sprawdza zgodność z zasadami i planuje kolejne działania. To pozwala na bardziej spójne, przemyślane i zgodne z polityką odpowiedzi, zwłaszcza w wieloetapowych lub złożonych zadaniach.
-
-- Model zatrzymuje się, by przeanalizować sytuację i zebrać myśli przed podjęciem decyzji.
-- Szczególnie skuteczne w zadaniach wymagających wielu kroków, analizy wyników narzędzi lub przestrzegania złożonych zasad.
-- Najlepsze efekty daje połączenie tej techniki z dobrze zoptymalizowanym promptem i przykładami.
-
-Więcej: [The "think" tool: Enabling Claude to stop and think in complex tool use situations (Anthropic, 2025)](https://www.anthropic.com/engineering/claude-think-tool)
+---
 
 ## Lekcja: Tworzenie własnego promptu w praktyce
 
@@ -246,6 +225,41 @@ Popraw prompt tam, gdzie model zawodzi.
 ```
 
 </details>
+
+---
+
+## Lekcja: Sztuczki w prompt engineeringu 🎁 (materiał bonusowy)
+
+**Sztuczka nr 1: Kontemplacyjny monolog modelu**
+
+W tej sztuczce instruujemy model, aby nie spieszył się z odpowiedzią, tylko prowadził bardzo szczegółowy, wewnętrzny monolog. Model powinien:
+- Rozpoczynać od podstawowych obserwacji,
+- Rozbijać rozumowanie na małe, proste kroki,
+- Otwarcie wyrażać wątpliwości i niepewność,
+- Często wracać do wcześniejszych założeń i je kwestionować,
+- Pokazywać cały proces myślenia, aż do naturalnego wyłonienia się rozwiązania,
+- Odpowiedź powinna być zamknięta w bloku `<contemplator>...</contemplator>`.
+
+Technika ta pozwala uzyskać bardziej pogłębione, przemyślane i kreatywne odpowiedzi od modeli językowych.
+
+Przykładowy blok odpowiedzi:
+```
+<contemplator>
+[Twoja rozbudowana analiza krok po kroku, z wątpliwościami, cofnięciami, aż do finalnej odpowiedzi]
+</contemplator>
+```
+
+**Sztuczka nr 2: "Think tool" – dedykowana przestrzeń na przemyślenia**
+
+W tej metodzie model (np. Claude) otrzymuje polecenie, by przed udzieleniem odpowiedzi zatrzymał się i „pomyślał" – czyli dodał osobny krok, w którym analizuje, czy ma wszystkie potrzebne informacje, sprawdza zgodność z zasadami i planuje kolejne działania. To pozwala na bardziej spójne, przemyślane i zgodne z polityką odpowiedzi, zwłaszcza w wieloetapowych lub złożonych zadaniach.
+
+- Model zatrzymuje się, by przeanalizować sytuację i zebrać myśli przed podjęciem decyzji.
+- Szczególnie skuteczne w zadaniach wymagających wielu kroków, analizy wyników narzędzi lub przestrzegania złożonych zasad.
+- Najlepsze efekty daje połączenie tej techniki z dobrze zoptymalizowanym promptem i przykładami.
+
+Więcej: [The "think" tool: Enabling Claude to stop and think in complex tool use situations (Anthropic, 2025)](https://www.anthropic.com/engineering/claude-think-tool)
+
+---
 
 ## Źródła wiedzy
 
