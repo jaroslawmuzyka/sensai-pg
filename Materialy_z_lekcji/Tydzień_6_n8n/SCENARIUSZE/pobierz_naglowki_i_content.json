@@ -1,0 +1,230 @@
+{
+  "name": "pobierz naglowki i content",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -260,
+        -120
+      ],
+      "id": "4a81beab-7780-41d1-81fb-dbe0de048054",
+      "name": "When chat message received",
+      "webhookId": "19b25b9f-a5c0-4955-b548-5a14f900e671"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ea26dc16-def3-482b-8fea-0eb3faa0489c",
+              "name": "url",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "a6313147-f81e-4ca7-83db-1f69df114006",
+              "name": "sessionId",
+              "value": "={{ $json.sessionId }}",
+              "type": "string"
+            },
+            {
+              "id": "a18c93b5-bea1-4e21-b599-f2044e7b8a43",
+              "name": "action",
+              "value": "={{ $json.action }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -40,
+        -120
+      ],
+      "id": "1c6f749f-2f82-4195-a53c-44201228e925",
+      "name": "setURL"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "text",
+              "outputPropertyName": "html"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        180,
+        -120
+      ],
+      "id": "382209ab-a071-4327-ad5c-58948822dcd7",
+      "name": "getWebsite"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and extract headings from the HTML content\nfor (const item of $input.all()) {\n  // Initialize an array to store headings\n  const orderedHeadings = [];\n  \n  // Get HTML content\n  const content = item.json.html;\n  \n  // Use regex to find heading tags\n  const headingRegex = /<h([1-6]).*?>([\\s\\S]*?)<\\/h\\1>/gi;\n  let match;\n  \n  while ((match = headingRegex.exec(content)) !== null) {\n    const level = parseInt(match[1]);\n    // Remove any HTML tags inside the heading text\n    const headingText = match[2].replace(/<.*?>/g, '').trim();\n    \n    orderedHeadings.push({\n      level: level,\n      text: headingText\n    });\n  }\n  \n  // Add the ordered headings to the item\n  item.json.headings = orderedHeadings;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        -240
+      ],
+      "id": "bfd61104-b01b-44df-8a1a-4946ce9fe548",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "html": "={{ $json.html }}",
+        "destinationKey": "markdown",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        460,
+        20
+      ],
+      "id": "4522d7f7-6bec-4468-9136-da57363f138f",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        720,
+        -140
+      ],
+      "id": "295fc2bb-e029-44c2-9249-8cf535a7abfc",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3679efce-8355-4749-8ea3-678450d411b5",
+              "name": "message",
+              "value": "=Pobrałem nagłówki i treść ze strony {{ $('setURL').item.json.url }}\n\nTo są NAGŁÓWKI:\n{{ $json.headings.map(item => `h${item.level}: ${item.text}`).join('\\n') }}\n\nTo jest TREŚĆ STRONY:\n{{ $json.markdown }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        960,
+        -140
+      ],
+      "id": "0cb2d838-bb12-4556-9a0a-b8edddb20a1d",
+      "name": "response"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "setURL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "setURL": {
+      "main": [
+        [
+          {
+            "node": "getWebsite",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "getWebsite": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8944a20e-a8c6-42ac-9c58-e3dab3ddd1e4",
+  "meta": {
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "CCp0ZoGz7YksCYS2",
+  "tags": []
+}
