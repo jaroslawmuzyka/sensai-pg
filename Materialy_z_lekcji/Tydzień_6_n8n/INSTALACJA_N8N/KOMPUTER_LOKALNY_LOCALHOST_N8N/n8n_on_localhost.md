@@ -25,14 +25,9 @@ Jeśli ich nie masz, znajdziesz instrukcje instalacji w materiałach kursu (np. 
 
     ```bash
     docker volume create n8n_storage
-    docker volume create postgres_storage
-    docker volume create redis_storage
-    docker volume create qdrant_storage
     ```
-    *   `n8n_storage`: Przechowuje dane konfiguracyjne i workflowy n8n.
-    *   `postgres_storage`: Przechowuje dane bazy danych PostgreSQL używanej przez n8n.
-    *   `redis_storage`: Przechowuje dane Redis, używanego przez n8n do cache'owania i kolejek.
-    *   `qdrant_storage`: Przechowuje dane bazy wektorowej Qdrant, używanej przez n8n do pracy z wektorami.
+    `n8n_storage`: Przechowuje dane konfiguracyjne i workflowy n8n.
+
 
 4.  **Utwórz katalog `files` (opcjonalnie):**
     Utwórz katalog o nazwie `files` w tym samym miejscu co pliki `.env` i `docker-compose.yml`. Ten katalog będzie zamapowany do kontenera n8n i pozwoli na dostęp do lokalnych plików z poziomu workflowów n8n.
