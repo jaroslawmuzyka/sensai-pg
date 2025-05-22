@@ -228,6 +228,10 @@ Popraw prompt tam, gdzie model zawodzi.
 
 ---
 
+**Zobacz finalny prompt:** [Knowledge Graph Generator (GitHub)](https://github.com/sensai-academy/seo3.0/blob/main/Prompty/Knowledge_Graph_Generator.md)
+
+---
+
 ## Lekcja: Sztuczki w prompt engineeringu 🎁 (materiał bonusowy)
 
 **Sztuczka nr 1: Kontemplacyjny monolog modelu**
