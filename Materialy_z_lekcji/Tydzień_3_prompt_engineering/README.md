@@ -99,18 +99,6 @@ W tej metodzie model (np. Claude) otrzymuje polecenie, by przed udzieleniem odpo
 
 Więcej: [The "think" tool: Enabling Claude to stop and think in complex tool use situations (Anthropic, 2025)](https://www.anthropic.com/engineering/claude-think-tool)
 
-## Źródła wiedzy
-
-W tej sekcji znajdziesz dodatkowe materiały i źródła, które mogą być pomocne w zgłębianiu tematów poruszanych w tym tygodniu.
-
-*   [Dokumentacja OpenAI](https://platform.openai.com/docs/guides/prompt-engineering)
-*   [Dokumentacja Anthropic](https://docs.anthropic.com/claude/docs/prompt-engineering)
-*   [Dokumentacja Google AI](https://ai.google.dev/docs/prompt_engineering)
-*   [Baza promptów ShumerPrompt](https://shumerprompt.com/)
-*   [Baza promptów systemowych, które wyciekły z różnych systemów (GitHub)](https://github.com/jujumilk3/leaked-system-prompts)
-*   [Baza systemowych promptów i narzędzi AI (GitHub)](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools)
-*   [Pełen prompt systemowy Claude (24k tokenów) - tekst](https://raw.githubusercontent.com/asgeirtj/system_prompts_leaks/refs/heads/main/claude.txt)
-
 ## Lekcja: Tworzenie własnego promptu w praktyce
 
 **Notatnik Colab:** [Generator promptu do ekstrakcji encji i relacji](https://colab.research.google.com/drive/1K2yecmKs9LCdNnd71Z8LOYzBpttynmQD?usp=sharing)
@@ -275,4 +263,16 @@ Popraw prompt tam, gdzie model zawodzi.
 ("rel" | <encja_źródło> | <encja_cel> | <opis_relacji> | <siła_relacji>)
 {{completed}}
 ```
+
+## Źródła wiedzy
+
+W tej sekcji znajdziesz dodatkowe materiały i źródła, które mogą być pomocne w zgłębianiu tematów poruszanych w tym tygodniu.
+
+*   [Dokumentacja OpenAI](https://platform.openai.com/docs/guides/prompt-engineering)
+*   [Dokumentacja Anthropic](https://docs.anthropic.com/claude/docs/prompt-engineering)
+*   [Dokumentacja Google AI](https://ai.google.dev/docs/prompt_engineering)
+*   [Baza promptów ShumerPrompt](https://shumerprompt.com/)
+*   [Baza promptów systemowych, które wyciekły z różnych systemów (GitHub)](https://github.com/jujumilk3/leaked-system-prompts)
+*   [Baza systemowych promptów i narzędzi AI (GitHub)](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools)
+*   [Pełen prompt systemowy Claude (24k tokenów) - tekst](https://raw.githubusercontent.com/asgeirtj/system_prompts_leaks/refs/heads/main/claude.txt)
 
