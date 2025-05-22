@@ -26,9 +26,6 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 # Zarządzaj Dockerem jako użytkownik bez uprawnień roota
-
-# Zarządzaj Dockerem jako użytkownik bez uprawnień rootasud
-
 Demon Docker jest powiązany z gniazdem Unix, a nie portem TCP. Domyślnie użytkownik `root` jest właścicielem gniazda Unix, a inni użytkownicy mogą uzyskać do niego dostęp tylko używając `sudo`. Demon Docker zawsze działa jako użytkownik `root`.
 
 Jeśli nie chcesz poprzedzać polecenia `docker` słowem `sudo`, utwórz grupę Unix o nazwie `docker` i dodaj do niej użytkowników. Gdy demon Docker uruchamia się, tworzy gniazdo Unix dostępne dla członków grupy `docker`. W niektórych dystrybucjach Linux system automatycznie tworzy tę grupę podczas instalacji Docker Engine za pomocą menedżera pakietów. W takim przypadku nie musisz ręcznie tworzyć grupy.
