@@ -42,6 +42,15 @@ W tej lekcji poznasz 10 praktycznych wskazówek, które pomogą Ci tworzyć bard
 
 ---
 
+## Lekcja: Różnice w tworzeniu promptów dla różnych typów modeli językowych
+
+Ta lekcja koncentruje się na tym, jak dostosować prompty do różnych typów modeli językowych (standardowe, agentowe, rozumujące). Omawiamy kluczowe różnice w oczekiwaniach modeli i najlepsze praktyki dla każdego typu.
+
+**Notatki z lekcji:** [./Dokumenty/T3L03_Roznice_w_tworzeniu_promptow_dla_roznych_typow_modeli_jezykowych.md](./Dokumenty/T3L03_Roznice_w_tworzeniu_promptow_dla_roznych_typow_modeli_jezykowych.md)
+**Platforma kursu:** [Różnice w tworzeniu promptów dla różnych typów modeli językowych](https://learn.sensai.academy/next/public/lesson/281)
+
+---
+
 ## Lekcja: Automatyczny prompt engineering
 
 Ta lekcja skupia się na technikach automatycznego generowania i testowania różnych promptów systemowych, aby znaleźć najbardziej efektywny prompt dla określonego zadania, np. tworzenia konspektów SEO.
@@ -84,16 +93,6 @@ Dodatkowe zasoby:
     *   [x1xhlol/system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/tree/main)
     *   [elder-plinius/L1B3RT4S (ALIBABA.mkd)](https://github.com/elder-plinius/L1B3RT4S/blob/main/ALIBABA.mkd)
     *   [lucasmrdt/TheBigPromptLibrary](https://github.com/lucasmrdt/TheBigPromptLibrary/tree/main)
-
----
-
-## Lekcja: Różnice w tworzeniu promptów dla różnych typów modeli językowych
-
-W tej lekcji przyglądamy się, jak dostosować sposób tworzenia promptów w zależności od typu modelu językowego, z którym pracujemy. Różne kategorie modeli (np. standardowe jak GPT-4o, modele agentowe jak GPT-4.1, czy modele rozumujące) inaczej reagują na instrukcje i wymagają specyficznych technik promptowania oraz struktur promptów, aby uzyskać optymalne rezultaty. Omówimy unikalne techniki, rekomendowane struktury i typowe zastosowania dla każdej kategorii.
-
-### Materiały dodatkowe:
-
-*   Wskazówki OpenAI jak tworzyć prompty dla modelu GPT-4.1: [GPT-4.1 Prompting Guide](https://cookbook.openai.com/examples/gpt4-1_prompting_guide)
 
 ---
 
