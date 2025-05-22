@@ -4,6 +4,17 @@ Ten katalog zawiera materiały dodatkowe do lekcji z trzeciego tygodnia kursu SE
 
 **Uwaga:** Wszystkie datasety używane w kursie, w tym te z tego tygodnia, są również dostępne w centralnym katalogu [`../Datasety`](../Datasety).
 
+### Notatniki Colab
+
+Poniższa tabela zawiera linki do notatników Google Colab używanych w tym tygodniu.
+
+| Notatnik                                    | Opis                                                                                                              | Link                                                                                         |
+| :------------------------------------------ | :--------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
+| Automatyczny Prompt Engineering             | Notatnik demonstrujący technikę automatycznego generowania i testowania promptów systemowych GPT w celu znalezienia optymalnego promptu do tworzenia konspektów SEO. | [Otwórz w Colab](https://colab.research.google.com/drive/1HCzAn1J5PgPPU9DtbcpwDUPDwY9sSwiM?usp=sharing) |
+| Parametry Modeli Językowych – Ćwiczenia     | Praktyczne ćwiczenia z parametrami modeli językowych, pokazujące wpływ różnych ustawień (temperature, top_p, max_tokens) na generowane odpowiedzi. | [Otwórz w Colab](https://colab.research.google.com/drive/1dfTAIF0gVNEfprf17u3ppZkDigI2yuOA?usp=sharing) |
+| Generator promptu do ekstrakcji encji i relacji | Notatnik do praktycznego generowania i testowania promptu do ekstrakcji encji i relacji z tekstów, zgodnie z procesem lekcji. | [Otwórz w Colab](https://colab.research.google.com/drive/1K2yecmKs9LCdNnd71Z8LOYzBpttynmQD?usp=sharing) |
+| *(Więcej notatników może pojawić się tutaj)* | *(Opis kolejnego notatnika)*                                                                                      | *(Link do kolejnego notatnika)*                                                               |
+
 ## Lekcja: Automatyczny prompt engineering
 
 Ta lekcja skupia się na technikach automatycznego generowania i testowania różnych promptów systemowych, aby znaleźć najbardziej efektywny prompt dla określonego zadania, np. tworzenia konspektów SEO.
@@ -93,16 +104,6 @@ Tutaj znajdują się zestawy danych (datasety) wykorzystywane w tej lekcji.
 
 *W przyszłości w tej sekcji mogą pojawić się inne zestawy danych związane z tą lekcją.*
 
-### Notatniki Colab
-
-Poniższa tabela zawiera linki do notatników Google Colab używanych w tej lekcji.
-
-| Notatnik                                    | Opis                                                                                                                                                                 | Link                                                                                         |
-| :------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
-| Automatyczny Prompt Engineering             | Notatnik demonstrujący technikę automatycznego generowania i testowania promptów systemowych GPT w celu znalezienia optymalnego promptu do tworzenia konspektów SEO. | [Otwórz w Colab](https://colab.research.google.com/drive/1HCzAn1J5PgPPU9DtbcpwDUPDwY9sSwiM?usp=sharing) |
-| *(Więcej notatników może pojawić się tutaj)* | *(Opis kolejnego notatnika)*                                                                                                                                          | *(Link do kolejnego notatnika)*                                                               |
-                                                |
-
 ## Lekcja: Parametry Modeli Językowych
 
 W tej lekcji poznajemy kluczowe parametry modeli językowych, które wpływają na jakość i charakter generowanych odpowiedzi. Omawiamy takie parametry jak temperatura, top P i max tokens, oraz ich praktyczne zastosowanie w różnych scenariuszach.
@@ -188,6 +189,10 @@ W tej sekcji znajdziesz dodatkowe materiały i źródła, które mogą być pomo
 *   [Pełen prompt systemowy Claude (24k tokenów) - tekst](https://raw.githubusercontent.com/asgeirtj/system_prompts_leaks/refs/heads/main/claude.txt)
 
 ## Lekcja: Tworzenie własnego promptu w praktyce
+
+**Notatnik Colab:** [Generator promptu do ekstrakcji encji i relacji](https://colab.research.google.com/drive/1K2yecmKs9LCdNnd71Z8LOYzBpttynmQD?usp=sharing)
+
+Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrakcji encji i relacji z tekstów, zgodnie z opisanym procesem lekcji.
 
 # Proces tworzenia zaawansowanego promptu do ekstrakcji encji i relacji
 
@@ -325,8 +330,6 @@ Popraw prompt tam, gdzie model zawodzi.
 - Etapy → uporządkowane?
 - Wyjście → zero-jedynkowy format?
 - Przykłady → pokazują plusy i minusy?
-<<<<<<< HEAD
-- Test → prompt działa na nowym zbiorze?
 
 ---
 

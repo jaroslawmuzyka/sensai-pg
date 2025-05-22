@@ -18,6 +18,7 @@ W tym pliku znajduje się zestawienie wszystkich notatników Google Colab używa
 | :------ | :----- | :------- | :--- | :--- |
 | 3 | [Automatyczny prompt engineering](Materialy_z_lekcji/Tydzień_3_Prompt_Engineering/README.md#lekcja-automatyczny-prompt-engineering) | Automatyczny Prompt Engineering | Notatnik demonstrujący technikę automatycznego generowania i testowania promptów systemowych GPT w celu znalezienia optymalnego promptu do tworzenia konspektów SEO. | [Otwórz w Colab](https://colab.research.google.com/drive/1HCzAn1J5PgPPU9DtbcpwDUPDwY9sSwiM?usp=sharing) |
 | 3 | [Parametry Modeli Językowych](Materialy_z_lekcji/Tydzień_3_prompt_engineering/README.md#lekcja-parametry-modeli-językowych) | Parametry Modeli Językowych - Ćwiczenia | Praktyczne ćwiczenia z parametrami modeli językowych, pokazujące wpływ różnych ustawień na generowane odpowiedzi. | [Otwórz w Colab](https://colab.research.google.com/drive/1dfTAIF0gVNEfprf17u3ppZkDigI2yuOA?usp=sharing) |
+| 3 | [Tworzenie własnego promptu w praktyce](Materialy_z_lekcji/Tydzień_3_prompt_engineering/README.md#lekcja-tworzenie-własnego-promptu-w-praktyce) | Generator promptu do ekstrakcji encji i relacji | Notatnik do praktycznego generowania i testowania promptu do ekstrakcji encji i relacji z tekstów, zgodnie z procesem lekcji. | [Otwórz w Colab](https://colab.research.google.com/drive/1K2yecmKs9LCdNnd71Z8LOYzBpttynmQD?usp=sharing) |
 
 ---
 
