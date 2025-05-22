@@ -105,11 +105,10 @@ Więcej: [The "think" tool: Enabling Claude to stop and think in complex tool us
 
 Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrakcji encji i relacji z tekstów, zgodnie z opisanym procesem lekcji.
 
-### Proces tworzenia zaawansowanego promptu do ekstrakcji encji i relacji
+<details>
+<summary>Proces tworzenia zaawansowanego promptu do ekstrakcji encji i relacji</summary>
 
----
-
-## 1. Ustal fundament (Dlaczego? Dla kogo? Po co?)
+**1. Ustal fundament (Dlaczego? Dla kogo? Po co?)**
 
 | Pytanie kontrolne | Przykładowa odpowiedź |
 |-------------------|-----------------------|
@@ -119,9 +118,7 @@ Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrak
 
 **Ćwiczenie**: poproś kursanta, by w **jednym zdaniu** zapisał własny cel biznesowy promptu.
 
----
-
-## 2. Zmapuj wejścia i ograniczenia
+**2. Zmapuj wejścia i ograniczenia**
 
 1. **Wejścia**  
    - `central keyword` (string)  
@@ -136,9 +133,7 @@ Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrak
    - filtr „multi-URL" dla marek (muszą występować w ≥ 2 źródłach)  
    - każda encja ma ≥ 3 relacje, w tym ≥ 1 **nie** łączącą jej bezpośrednio z keywordem
 
----
-
-## 3. Zdefiniuj kluczowe pojęcia
+**3. Zdefiniuj kluczowe pojęcia**
 
 | Pojęcie | Definicja w prompt-cie |
 |---------|-----------------------|
@@ -148,9 +143,7 @@ Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrak
 
 **Ćwiczenie**: niech kursant sam zapisze 2-3 definicje, a potem wspólnie je doprecyzujcie.
 
----
-
-## 4. Rozbij zadanie na etapy algorytmu
+**4. Rozbij zadanie na etapy algorytmu**
 
 1. Analiza intencji użytkownika  
 2. Podział pliku TXT na sekcje  
@@ -163,9 +156,7 @@ Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrak
 9. Formatowanie wyjścia  
 10. Dodanie `{{completed}}`
 
----
-
-## 5. Zaprojektuj strukturę promptu
+**5. Zaprojektuj strukturę promptu**
 
 <details>
 <summary>Kliknij, by zobaczyć szablon</summary>
@@ -193,9 +184,7 @@ Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrak
 
 Tip: używaj list i numeracji – LLM lepiej przestrzega wytycznych.
 
----
-
-## 6. Dodaj przykłady
+**6. Dodaj przykłady**
 
 **Dobre encje/relacje**
 
@@ -207,9 +196,7 @@ Tip: używaj list i numeracji – LLM lepiej przestrzega wytycznych.
 ("ent" | "Zbyt ogólna kategoria" | "Ogólne" | ... | 40)
 ("rel" | "Central Keyword" | "Produkt X" | "Czasami używany przy ..." | 30)
 
----
-
-## 7. Sprawdź kompletność (check-list)
+**7. Sprawdź kompletność (check-list)**
 - Cel i odbiorca zdefiniowani
 - Model zna format wejścia
 - Kluczowe pojęcia zdefiniowane
@@ -219,9 +206,7 @@ Tip: używaj list i numeracji – LLM lepiej przestrzega wytycznych.
 - Przykłady → pokazują plusy i minusy?
 - Test → prompt działa na nowym zbiorze?
 
----
-
-## 8. Przetestuj i iteruj
+**8. Przetestuj i iteruj**
 Podstaw testowy keyword + kilka sekcji TXT.
 
 Sprawdź, czy model:
@@ -231,9 +216,7 @@ Sprawdź, czy model:
 
 Popraw prompt tam, gdzie model zawodzi.
 
----
-
-## 9. Skrócona lista kontrolna dla kursanta
+**9. Skrócona lista kontrolna dla kursanta**
 - Cel & odbiorca
 - Wejścia → czy jasno opisane?
 - Definicje → czy jednoznaczne?
@@ -242,9 +225,7 @@ Popraw prompt tam, gdzie model zawodzi.
 - Wyjście → zero-jedynkowy format?
 - Przykłady → pokazują plusy i minusy?
 
----
-
-### Skrócony, ale kompletny opis zadania (zsyntezowany na bazie checklisty)
+**Skrócony, ale kompletny opis zadania (zsyntezowany na bazie checklisty)**
 
 **Cel:** Na podstawie dostarczonego słowa kluczowego i pliku TXT z wieloma sekcjami źródłowymi zidentyfikuj, zweryfikuj i oceniaj semantycznie encje oraz relacje, aby zbudować zgodny z intencją użytkownika graf wiedzy; zwróć go w ściśle określonym formacie.
 
@@ -263,6 +244,8 @@ Popraw prompt tam, gdzie model zawodzi.
 ("rel" | <encja_źródło> | <encja_cel> | <opis_relacji> | <siła_relacji>)
 {{completed}}
 ```
+
+</details>
 
 ## Źródła wiedzy
 
