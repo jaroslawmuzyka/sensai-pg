@@ -24,6 +24,24 @@ Poniższa tabela zawiera linki do notatników Google Colab używanych w tym tygo
 | Generator promptu do ekstrakcji encji i relacji | Notatnik do praktycznego generowania i testowania promptu do ekstrakcji encji i relacji z tekstów, zgodnie z procesem lekcji. | [Otwórz w Colab](https://colab.research.google.com/drive/1K2yecmKs9LCdNnd71Z8LOYzBpttynmQD?usp=sharing) |
 | *(Więcej notatników może pojawić się tutaj)* | *(Opis kolejnego notatnika)*                                                                                      | *(Link do kolejnego notatnika)*                                                               |
 
+## Lekcja: Teoria Prompt Engineeringu
+
+W tej lekcji zagłębiamy się w teoretyczne podstawy prompt engineeringu. Omawiamy kluczowe koncepcje, takie jak role systemowe, użytkownika i asystenta, parametry modeli językowych (temperatura, top_p) oraz zarządzanie tokenami. Zrozumienie tych fundamentów jest kluczowe do efektywnego tworzenia promptów.
+
+**Notatki z lekcji:** [./Dokumenty/T3L01_Teoria_Prompt_Engineeringu.md](./Dokumenty/T3L01_Teoria_Prompt_Engineeringu.md)
+**Platforma kursu:** [Teoria Prompt Engineeringu](https://learn.sensai.academy/next/public/lesson/279)
+
+---
+
+## Lekcja: 10 porad dotyczących tworzenia promptów
+
+W tej lekcji poznasz 10 praktycznych wskazówek, które pomogą Ci tworzyć bardziej efektywne prompty. Dowiesz się m.in. dlaczego warto pisać prompty po angielsku, jak stosować jasne formatowanie, dlaczego lepiej nakazywać niż zakazywać oraz jak ważne jest rozbijanie skomplikowanych zadań na mniejsze kroki.
+
+**Notatki z lekcji:** [./Dokumenty/T3L02_10_porad_dotyczacych_tworzenia_promptow.md](./Dokumenty/T3L02_10_porad_dotyczacych_tworzenia_promptow.md)
+**Platforma kursu:** [10 porad dotyczących tworzenia promptów](https://learn.sensai.academy/next/public/lesson/280)
+
+---
+
 ## Lekcja: Automatyczny prompt engineering
 
 Ta lekcja skupia się na technikach automatycznego generowania i testowania różnych promptów systemowych, aby znaleźć najbardziej efektywny prompt dla określonego zadania, np. tworzenia konspektów SEO.
