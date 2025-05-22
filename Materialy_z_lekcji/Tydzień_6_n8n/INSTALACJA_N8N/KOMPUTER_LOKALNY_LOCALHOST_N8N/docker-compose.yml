@@ -1,0 +1,78 @@
+services:
+  n8n-local:
+    image: n8nio/n8n:latest
+    container_name: n8n-local
+    networks:
+      - n8n-local
+    ports:
+      - 5678:5678
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=n8n-local-postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=${POSTGRES_DB}
+      - DB_POSTGRESDB_USER=${POSTGRES_USER}
+      - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD}
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
+    volumes:
+      - n8n_storage:/home/node/.n8n
+      - /Users/romek/Docker/n8n-local-sensai/files:/files
+    env_file:
+      - .env
+    depends_on:
+      - n8n-local-postgres
+      - n8n-local-redis
+
+  n8n-local-postgres:
+    image: postgres:16-alpine
+    hostname: n8n-local-postgres
+    container_name: n8n-local-postgres
+    networks: ['n8n-local']
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    volumes:
+      - postgres_storage:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -h localhost -U ${POSTGRES_USER} -d ${POSTGRES_DB}']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  n8n-local-redis:
+    image: redis:6-alpine
+    container_name: n8n-local-redis
+    hostname: n8n-local-redis
+    restart: always
+    networks:
+      - n8n-local
+    volumes:
+      - redis_storage:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  n8n-local-qdrant:
+    image: qdrant/qdrant
+    container_name: n8n-local-qdrant
+    hostname: n8n-local-qdrant
+    networks:
+      - n8n-local
+    ports:
+      - 6333:6333a
+    restart: unless-stopped
+    volumes:
+      - qdrant_storage:/qdrant/storage
+
+networks:
+  n8n-local:
+
+volumes:
+  n8n_storage:
+  postgres_storage:
+  redis_storage:
+  qdrant_storage:
