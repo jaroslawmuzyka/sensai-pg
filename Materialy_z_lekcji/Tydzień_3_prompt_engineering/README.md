@@ -142,7 +142,38 @@ W tej lekcji przyglądamy się, jak dostosować sposób tworzenia promptów w za
 
 ## Lekcja: Proces Tworzenia Promptu w Praktyce
 
-W tej lekcji omówimy proces tworzenia promptu w praktyce, zaczynając od zdefiniowania problemu, przez generowanie różnych promptów, aż do ostatecznego wyboru najlepszego promptu. W ramach lekcji wykorzystamy prompt Knowledge Graph Generator do analizy i strukturyzacji wiedzy na temat tworzenia promptów, co pomoże nam lepiej zrozumieć relacje między różnymi elementami skutecznego promptu.
+W tej lekcji omówimy proces tworzenia promptu w praktyce, zaczynając od zdefiniowania problemu, przez generowanie różnych promptów, aż do ostatecznego wyboru najlepszego promptu. 
+
+## Lekcja: Sztuczki w prompt engineeringu
+
+**Sztuczka nr 1: Kontemplacyjny monolog modelu**
+
+W tej sztuczce instruujemy model, aby nie spieszył się z odpowiedzią, tylko prowadził bardzo szczegółowy, wewnętrzny monolog. Model powinien:
+- Rozpoczynać od podstawowych obserwacji,
+- Rozbijać rozumowanie na małe, proste kroki,
+- Otwarcie wyrażać wątpliwości i niepewność,
+- Często wracać do wcześniejszych założeń i je kwestionować,
+- Pokazywać cały proces myślenia, aż do naturalnego wyłonienia się rozwiązania,
+- Odpowiedź powinna być zamknięta w bloku `<contemplator>...</contemplator>`.
+
+Technika ta pozwala uzyskać bardziej pogłębione, przemyślane i kreatywne odpowiedzi od modeli językowych.
+
+Przykładowy blok odpowiedzi:
+```
+<contemplator>
+[Twoja rozbudowana analiza krok po kroku, z wątpliwościami, cofnięciami, aż do finalnej odpowiedzi]
+</contemplator>
+```
+
+**Sztuczka nr 2: "Think tool" – dedykowana przestrzeń na przemyślenia**
+
+W tej metodzie model (np. Claude) otrzymuje polecenie, by przed udzieleniem odpowiedzi zatrzymał się i „pomyślał” – czyli dodał osobny krok, w którym analizuje, czy ma wszystkie potrzebne informacje, sprawdza zgodność z zasadami i planuje kolejne działania. To pozwala na bardziej spójne, przemyślane i zgodne z polityką odpowiedzi, zwłaszcza w wieloetapowych lub złożonych zadaniach.
+
+- Model zatrzymuje się, by przeanalizować sytuację i zebrać myśli przed podjęciem decyzji.
+- Szczególnie skuteczne w zadaniach wymagających wielu kroków, analizy wyników narzędzi lub przestrzegania złożonych zasad.
+- Najlepsze efekty daje połączenie tej techniki z dobrze zoptymalizowanym promptem i przykładami.
+
+Więcej: [The "think" tool: Enabling Claude to stop and think in complex tool use situations (Anthropic, 2025)](https://www.anthropic.com/engineering/claude-think-tool)
 
 ## Źródła wiedzy
 
@@ -150,4 +181,150 @@ W tej sekcji znajdziesz dodatkowe materiały i źródła, które mogą być pomo
 
 *   [Dokumentacja OpenAI](https://platform.openai.com/docs/guides/prompt-engineering)
 *   [Dokumentacja Anthropic](https://docs.anthropic.com/claude/docs/prompt-engineering)
-*   [Dokumentacja Google AI](https://ai.google.dev/docs/prompt_engineering) 
+*   [Dokumentacja Google AI](https://ai.google.dev/docs/prompt_engineering)
+*   [Baza promptów ShumerPrompt](https://shumerprompt.com/)
+*   [Baza promptów systemowych, które wyciekły z różnych systemów (GitHub)](https://github.com/jujumilk3/leaked-system-prompts)
+*   [Baza systemowych promptów i narzędzi AI (GitHub)](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools)
+*   [Pełen prompt systemowy Claude (24k tokenów) - tekst](https://raw.githubusercontent.com/asgeirtj/system_prompts_leaks/refs/heads/main/claude.txt)
+
+## Lekcja: Tworzenie własnego promptu w praktyce
+
+# Proces tworzenia zaawansowanego promptu do ekstrakcji encji i relacji
+
+> **Cel**: przeprowadzić kursanta od pustej kartki do kompletnego promptu, który instruuje model jak budować graf wiedzy wokół słowa kluczowego.
+
+---
+
+## 1. Ustal fundament (Dlaczego? Dla kogo? Po co?)
+
+| Pytanie kontrolne | Przykładowa odpowiedź |
+|-------------------|-----------------------|
+| **Co chcę osiągnąć?** | „Stworzyć wiedzo-graf wokół słowa kluczowego” |
+| **Kto użyje wyniku?** | Uczestnik kursu – potrzebuje jasnej procedury |
+| **Jak model użyje danych?** | Zparsuje teksty z wielu URL-i, zwróci listy encji i relacji |
+
+**Ćwiczenie**: poproś kursanta, by w **jednym zdaniu** zapisał własny cel biznesowy promptu.
+
+---
+
+## 2. Zmapuj wejścia i ograniczenia
+
+1. **Wejścia**  
+   - `central keyword` (string)  
+   - plik `.txt` z wieloma sekcjami `-----TEXTn-----`
+
+2. **Ograniczenia techniczne**  
+   - język wyjściowy: **polski**  
+   - format wynikowy: linie `("ent" | …)` → `("rel" | …)` → `{{completed}}`  
+   - co najmniej **20 encji** i **25 relacji**
+
+3. **Ograniczenia merytoryczne**  
+   - filtr „multi-URL” dla marek (muszą występować w ≥ 2 źródłach)  
+   - każda encja ma ≥ 3 relacje, w tym ≥ 1 **nie** łączącą jej bezpośrednio z keywordem
+
+---
+
+## 3. Zdefiniuj kluczowe pojęcia
+
+| Pojęcie | Definicja w prompt-cie |
+|---------|-----------------------|
+| **Encja** | „Jednostka niosąca unikalne info o keywordzie, nazwana oryginalnie” |
+| **Relacja** | „Opis powiązania Źródło → Cel + siła 0-100” |
+| **Entity / Relationship strength** | „Wartość [0-100] = kosinusowa bliskość (symulowana)” |
+
+**Ćwiczenie**: niech kursant sam zapisze 2-3 definicje, a potem wspólnie je doprecyzujcie.
+
+---
+
+## 4. Rozbij zadanie na etapy algorytmu
+
+1. Analiza intencji użytkownika  
+2. Podział pliku TXT na sekcje  
+3. Wydobycie wstępnych encji  
+4. Skoring encji  
+5. Deduplikacja i uogólnianie  
+6. Generowanie relacji + skoring  
+7. Filtr „brand single-source”  
+8. Odcięcie encji/relacji < 60  
+9. Formatowanie wyjścia  
+10. Dodanie `{{completed}}`
+
+---
+
+## 5. Zaprojektuj strukturę promptu
+
+<details>
+<summary>Kliknij, by zobaczyć szablon</summary>
+
+```text
+# Goal
+<jednozdaniowy cel>
+
+## Input Structure
+<format central keyword + TXT>
+
+## Entity Definition and Guidelines
+<definicje + 20 zasad>
+
+## Steps
+<ponumerowana checklista kroków>
+
+## Output Format
+("ent" | <...> | ... | ... | ...)
+("rel" | <...> | ... | ... | ...)
+{{completed}}
+```
+
+</details>
+
+Tip: używaj list i numeracji – LLM lepiej przestrzega wytycznych.
+
+---
+
+## 6. Dodaj przykłady
+
+**Dobre encje/relacje**
+
+("ent" | "Central Keyword" | "Temat Główny", "Obszar" | ... | 100)
+("rel" | "Central Keyword" | "Subtype A" | "Subtype A to ..." | 90)
+
+**Złe encje/relacje**
+
+("ent" | "Zbyt ogólna kategoria" | "Ogólne" | ... | 40)
+("rel" | "Central Keyword" | "Produkt X" | "Czasami używany przy ..." | 30)
+
+---
+
+## 7. Sprawdź kompletność (check-list)
+- Cel i odbiorca zdefiniowani
+- Model zna format wejścia
+- Kluczowe pojęcia zdefiniowane
+- Zasady nie sprzeczne i wyczerpujące
+- Kolejność kroków jasna
+- Format wyjścia jednoznaczny
+- Przykłady → pokazują plusy i minusy?
+- Test → prompt działa na nowym zbiorze?
+
+---
+
+## 8. Przetestuj i iteruj
+Podstaw testowy keyword + kilka sekcji TXT.
+
+Sprawdź, czy model:
+- zwraca ≥ 20 encji, ≥ 25 relacji;
+- filtruje single-source marki;
+- zachowuje ścisły format.
+
+Popraw prompt tam, gdzie model zawodzi.
+
+---
+
+## 9. Skrócona lista kontrolna dla kursanta
+- Cel & odbiorca
+- Wejścia → czy jasno opisane?
+- Definicje → czy jednoznaczne?
+- Zasady → kompletne, bez sprzeczności?
+- Etapy → uporządkowane?
+- Wyjście → zero-jedynkowy format?
+- Przykłady → pokazują plusy i minusy?
+- Test → prompt działa na nowym zbiorze? 
