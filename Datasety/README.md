@@ -8,6 +8,7 @@ Ten katalog gromadzi wszystkie zestawy danych (datasety) wykorzystywane w różn
 |:------------|:-----|:--------|:-------|:-----|
 | `processed_keywords.zip` | Archiwum zip zawierające pliki JSON z głównymi słowami kluczowymi i powiązanymi frazami | 3 | Automatyczny prompt engineering | [Pobierz](processed_keywords.zip) |
 | `analiza_widocznosci_senuto.com.xlsx` | Raport widoczności dla domeny senuto.com z aplikacji Senuto | 2 | Supabase | [Pobierz](analiza_widocznosci_senuto.com.xlsx) |
+| `Teksty_dla_SERPow.zip` | Zbiór tekstów z SERPów dla wybranych słów kluczowych, wykorzystywany jako test_case do generowania promptu do ekstrakcji encji i relacji | 3 | Tworzenie własnego promptu w praktyce | [Pobierz](Teksty_dla_SERPow.zip) |
 
 ## Dostępne Datasety
 

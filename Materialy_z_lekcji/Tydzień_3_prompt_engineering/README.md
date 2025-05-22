@@ -7,6 +7,7 @@ Ten katalog zawiera materiały dodatkowe do lekcji z trzeciego tygodnia kursu SE
 ### Dostępne Zestawy Danych
 
 *   **`processed_keywords.zip`**: Archiwum zip zawierające pliki JSON z danymi do ćwiczeń związanych z analizą i grupowaniem słów kluczowych. [Pobierz dataset](../Datasety/processed_keywords.zip)
+*   **`Teksty_dla_SERPow.zip`**: Zbiór tekstów z SERPów dla wybranych słów kluczowych, wykorzystywany jako test_case do generowania promptu do ekstrakcji encji i relacji. [Pobierz dataset](../Datasety/Teksty_dla_SERPow.zip)
 
 Szczegółowy opis formatu danych znajdziesz w katalogu [`Datasety`](../Datasety).
 
