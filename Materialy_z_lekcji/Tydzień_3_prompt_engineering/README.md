@@ -191,8 +191,6 @@ W tej sekcji znajdziesz dodatkowe materiały i źródła, które mogą być pomo
 
 # Proces tworzenia zaawansowanego promptu do ekstrakcji encji i relacji
 
-> **Cel**: przeprowadzić kursanta od pustej kartki do kompletnego promptu, który instruuje model jak budować graf wiedzy wokół słowa kluczowego.
-
 ---
 
 ## 1. Ustal fundament (Dlaczego? Dla kogo? Po co?)
