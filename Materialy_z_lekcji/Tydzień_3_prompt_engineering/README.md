@@ -325,4 +325,32 @@ Popraw prompt tam, gdzie model zawodzi.
 - Etapy → uporządkowane?
 - Wyjście → zero-jedynkowy format?
 - Przykłady → pokazują plusy i minusy?
+<<<<<<< HEAD
+- Test → prompt działa na nowym zbiorze?
+
+---
+
+### Skrócony, ale kompletny opis zadania (zsyntezowany na bazie checklisty)
+
+**Cel:** Na podstawie dostarczonego słowa kluczowego i pliku TXT z wieloma sekcjami źródłowymi zidentyfikuj, zweryfikuj i oceniaj semantycznie encje oraz relacje, aby zbudować zgodny z intencją użytkownika graf wiedzy; zwróć go w ściśle określonym formacie.
+
+- **Analiza intencji** – określ, czego szukają użytkownicy wpisujący centralne słowo kluczowe.
+- **Parsowanie wejścia** – rozdziel plik po markerach `-----TEXTn-----`, zapisując URL i treść każdej sekcji.
+- **Wydobycie encji** – wyłuskaj wszystkie istotne, unikalne względem keywordu elementy; każdej przypisz 2-3 kategorie (po polsku) i krótką definicję.
+- **Skoring encji** – nadaj wartość 0-100 symulowaną kosinusową bliskością do keywordu.
+- **Deduplikacja / uogólnianie** – scal identyczne lub semantycznie zbieżne encje, twórz uogólnienia („różne typy…”) tam, gdzie lista jest schematyczna.
+- **Filtr źródłowy** – odrzuć brand-specyficzne encje, które pojawiają się w < 2 URL-ach lub nie są ściśle związane z keywordem.
+- **Generowanie relacji** – dla każdej encji utwórz ≥ 3 relacje (≥ 1 nie-bazującą bezpośrednio na keywordzie); opisz je zdaniem po polsku i oceń siłą 50-100.
+- **Odcięcie jakości** – usuń encje i relacje < 60 pkt; w rezultacie zachowaj ≥ 20 encji i ≥ 25 relacji.
+- **Format wyjściowy** – wypisz najpierw listę encji, potem listę relacji:
+
+```text
+("ent" | <nazwa_encji> | <typ1>, <typ2>[, <typ3>] | <definicja> | <siła_encji>)
+("rel" | <encja_źródło> | <encja_cel> | <opis_relacji> | <siła_relacji>)
+{{completed}}
+```
+
+Efekt końcowy to uporządkowane, odfiltrowane i ocenione listy encji oraz relacji stanowiące spójny graf wiedzy wokół zadanego słowa kluczowego. 
+=======
 - Test → prompt działa na nowym zbiorze? 
+>>>>>>> b6c069174a2d8ad2826f4c5d1e73f79fa31fdeb9
