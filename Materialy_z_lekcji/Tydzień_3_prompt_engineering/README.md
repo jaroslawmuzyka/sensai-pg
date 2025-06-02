@@ -2,6 +2,18 @@
 
 Ten katalog zawiera materiały dodatkowe do lekcji z trzeciego tygodnia kursu SEO 3.0.
 
+## Spis treści
+- [Dostępne Zestawy Danych](#dostępne-zestawy-danych)
+- [Notatniki Colab](#notatniki-colab)
+- [Lekcja: Teoria Prompt Engineeringu](#lekcja-teoria-prompt-engineeringu)
+- [Lekcja: 10 porad dotyczących tworzenia promptów](#lekcja-10-porad-dotyczących-tworzenia-promptów)
+- [Lekcja: Różnice w tworzeniu promptów dla różnych typów modeli językowych](#lekcja-różnice-w-tworzeniu-promptów-dla-różnych-typów-modeli-językowych)
+- [Lekcja: Automatyczny prompt engineering](#lekcja-automatyczny-prompt-engineering)
+- [Lekcja: Parametry Modeli Językowych](#lekcja-parametry-modeli-językowych)
+- [Lekcja: Narzędzia do Tworzenia Promptów](#lekcja-narzędzia-do-tworzenia-promptów)
+- [Lekcja: Hakowanie instrukcji systemowych](#lekcja-hakowanie-instrukcji-systemowych)
+- [Lekcja: Tworzenie własnego promptu w praktyce](#lekcja-tworzenie-własnego-promptu-w-praktyce)
+
 **Uwaga:** Wszystkie datasety używane w kursie, w tym te z tego tygodnia, są również dostępne w centralnym katalogu [`../Datasety`](../Datasety).
 
 ### Dostępne Zestawy Danych
