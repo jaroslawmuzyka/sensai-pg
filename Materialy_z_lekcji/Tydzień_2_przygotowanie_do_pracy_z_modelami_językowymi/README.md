@@ -2,6 +2,16 @@
 
 Ten katalog zawiera materiały dodatkowe do lekcji z drugiego tygodnia kursu SEO 3.0, skupiającego się na przygotowaniu do efektywnej pracy z modelami językowymi.
 
+## Spis treści
+- [Lekcja: Google Colab - wprowadzenie do narzędzia](#lekcja-google-colab---wprowadzenie-do-narzędzia)
+- [Lekcja: Komunikacja z API modeli językowych](#lekcja-komunikacja-z-api-modeli-językowych)
+- [Lekcja: Generowanie prostych skryptów python przy wykorzystaniu modeli językowych](#lekcja-generowanie-prostych-skryptów-python-przy-wykorzystaniu-modeli-językowych)
+- [Lekcja: AI Crawling](#lekcja-ai-crawling)
+- [Lekcja: Pozyskiwanie danych dla modeli językowych](#lekcja-pozyskiwanie-danych-dla-modeli-językowych)
+- [Lekcja: Supabase](#lekcja-supabase)
+- [Notatniki Colab](#notatniki-colab)
+- [Źródła wiedzy](#źródła-wiedzy)
+
 **Uwaga:** Wszystkie datasety używane w kursie, w tym te z tego tygodnia, są również dostępne w centralnym katalogu [`../Datasety`](../Datasety).
 
 

@@ -2,6 +2,18 @@
 
 Ten katalog zawiera materiały dodatkowe do lekcji z pierwszego tygodnia kursu SEO 3.0, wprowadzającego w świat sztucznej inteligencji i modeli językowych.
 
+## Spis treści
+- [Lekcja: Historia modeli językowych](#lekcja-historia-modeli-językowych)
+- [Lekcja: Zrozumieć Modele Językowe](#lekcja-zrozumieć-modele-językowe)
+- [Lekcja: Podstawowe narzędzia AI](#lekcja-podstawowe-narzędzia-ai)
+- [Lekcja: Pozyskiwanie wiedzy i Deep Research](#lekcja-pozyskiwanie-wiedzy-i-deep-research)
+- [Lekcja: Modele Open Source w AI](#lekcja-modele-open-source-w-ai)
+- [Lekcja: Lokalne oraz zdalne uruchamianie modeli językowych](#lekcja-lokalne-oraz-zdalne-uruchamianie-modeli-językowych)
+- [Lekcja: Poznajemy GPTs](#lekcja-poznajemy-gpts)
+- [Lekcja: Google NotebookLM](#lekcja-google-notebooklm)
+- [Lekcja: Notatki ze spotkań z AI i wsparcie w obsłudze maila](#lekcja-notatki-ze-spotkań-z-ai-i-wsparcie-w-obsłudze-maila)
+- [Lekcja Q&A LIVE](#lekcja-qa-live)
+
 **Uwaga:** Wszystkie datasety używane w kursie są dostępne w centralnym katalogu [`../Datasety`](../Datasety).
 
 ---
