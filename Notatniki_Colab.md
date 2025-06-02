@@ -20,6 +20,12 @@ W tym pliku znajduje się zestawienie wszystkich notatników Google Colab używa
 | 3 | [Parametry Modeli Językowych](Materialy_z_lekcji/Tydzień_3_prompt_engineering/README.md#lekcja-parametry-modeli-językowych) | Parametry Modeli Językowych - Ćwiczenia | Praktyczne ćwiczenia z parametrami modeli językowych, pokazujące wpływ różnych ustawień na generowane odpowiedzi. | [Otwórz w Colab](https://colab.research.google.com/drive/1dfTAIF0gVNEfprf17u3ppZkDigI2yuOA?usp=sharing) |
 | 3 | [Tworzenie własnego promptu w praktyce](Materialy_z_lekcji/Tydzień_3_prompt_engineering/README.md#lekcja-tworzenie-własnego-promptu-w-praktyce) | Generator promptu do ekstrakcji encji i relacji | Notatnik do praktycznego generowania i testowania promptu do ekstrakcji encji i relacji z tekstów, zgodnie z procesem lekcji. | [Otwórz w Colab](https://colab.research.google.com/drive/1K2yecmKs9LCdNnd71Z8LOYzBpttynmQD?usp=sharing) |
 
+## Tydzień 4: Modele embeddingowe, semantyka & RAG
+
+| Tydzień | Lekcja | Notatnik | Opis | Link |
+| :------ | :----- | :------- | :--- | :--- |
+| 4 | [Embeddingi - Teoria](Materialy_z_lekcji/Tydzień_4_Modele_embeddingowe_semantyka_RAG/README.md#lista-lekcji) | Podstawy embeddingów | Wprowadzenie do modeli embeddingowych, ich działania i zastosowania w SEO. | [Otwórz w Colab](https://colab.research.google.com/drive/1phQj24TXDi8RJ0-cDCXcG_8qqoW3Cs7u?usp=sharing) |
+
 ---
 
 **Uwaga:** Ta lista będzie aktualizowana w miarę dodawania nowych materiałów do kursu. 
