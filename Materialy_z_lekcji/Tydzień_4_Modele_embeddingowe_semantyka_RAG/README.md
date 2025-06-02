@@ -5,6 +5,7 @@ Ten katalog zawiera materiały dodatkowe do lekcji z czwartego tygodnia kursu SE
 ## Spis treści
 - [Notatniki Colab](#notatniki-colab)
 - [Lekcja: Embeddingi – Teoria](#lekcja-embeddingi--teoria)
+- [Lekcja: Przechowywanie embeddingów](#lekcja-przechowywanie-embeddingów)
 - [Przydatne linki](#przydatne-linki)
 
 ---
@@ -22,6 +23,16 @@ Ten katalog zawiera materiały dodatkowe do lekcji z czwartego tygodnia kursu SE
 W tej lekcji poznasz podstawy modeli embeddingowych, ich działanie i zastosowanie w SEO. Dowiesz się, jak modele embeddingowe pomagają w analizie semantycznej treści i jak wykorzystać je do poprawy widoczności w wyszukiwarkach.
 
 **Notatki z lekcji:** [./Dokumenty/T4L01_Embeddingi_Teoria.md](./Dokumenty/T4L01_Embeddingi_Teoria.md)
+
+---
+
+## Lekcja: Przechowywanie embeddingów
+
+Lekcja poświęcona przeglądowi narzędzi i baz do przechowywania embeddingów oraz porównaniu popularnych rozwiązań.
+
+**Przydatne linki:**
+- [Porównanie baz wektorowych (Superlinked)](https://superlinked.com/vector-db-comparison)
+- [Qdrant – baza wektorowa](https://qdrant.tech/)
 
 ---
 
