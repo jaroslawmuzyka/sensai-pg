@@ -13,7 +13,7 @@ Ten katalog zawiera materiały dodatkowe do lekcji z czwartego tygodnia kursu SE
 
 ### Dostępne Zestawy Danych
 
-*   **`senuto_crawl - crawl_senuto (11) (1) (1).csv`**: Crawl domeny Senuto do importu do bazy danych w tygodniu 4. Plik zawiera dane o stronach, tytułach, opisach i treściach, które będą wykorzystywane do generowania embeddingów i testowania zapytań SQL. [Pobierz dataset](../Datasety/senuto_crawl%20-%20crawl_senuto%20(11)%20(1)%20(1).csv)
+*   **`senuto_crawl - crawl_senuto (11) (1) (1).csv`**: Crawl domeny Senuto do importu do bazy danych w tygodniu 4. Plik zawiera dane o stronach, tytułach, opisach i treściach, które będą wykorzystywane do generowania embeddingów i testowania zapytań SQL. [Pobierz dataset](https://github.com/sensai-academy/seo3.0/blob/main/Datasety/senuto_crawl%20-%20crawl_senuto%20(11)%20(1)%20(1).csv)
 
 ### Notatniki Colab
 
