@@ -22,4 +22,9 @@ Repozytorium jest zorganizowane w następujące główne katalogi:
     *   Każde narzędzie posiada bezpośredni link do oficjalnej strony.
     *   Lista jest regularnie aktualizowana w miarę przedstawiania nowych narzędzi podczas kursu.
 
+*   **`Narzędzia_kursu.md`**: Przewodnik po narzędziach potrzebnych do uczestnictwa w kursie.
+    *   Zawiera szczegółową tabelę z informacjami o wymaganych narzędziach, ich kosztach i dostępności.
+    *   Pomaga w przygotowaniu środowiska do pracy z kursem.
+    *   Zawiera informacje o wymaganiach sprzętowych i szacowanych kosztach.
+
 Zachęcamy do eksploracji poszczególnych katalogów w celu znalezienia potrzebnych materiałów. 
