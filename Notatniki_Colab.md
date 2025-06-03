@@ -26,6 +26,7 @@ W tym pliku znajduje się zestawienie wszystkich notatników Google Colab używa
 | Tydzień | Lekcja | Notatnik | Opis | Link |
 | :------ | :----- | :------- | :--- | :--- |
 | 4 | [Embeddingi - Teoria](Materialy_z_lekcji/Tydzień_4_Modele_embeddingowe_semantyka_RAG/README.md#lista-lekcji) | Podstawy embeddingów | Wprowadzenie do modeli embeddingowych, ich działania i zastosowania w SEO. | [Otwórz w Colab](https://colab.research.google.com/drive/1phQj24TXDi8RJ0-cDCXcG_8qqoW3Cs7u?usp=sharing) |
+| 4 | [Przechowywanie embeddingów](Materialy_z_lekcji/Tydzień_4_Modele_embeddingowe_semantyka_RAG/README.md#lekcja-przechowywanie-embeddingów) | Przechowywanie embeddingów | Notatnik pokazujący, jak indeksować dane w bazach wektorowych i wykonywać zapytania semantyczne. | [Otwórz w Colab](https://colab.research.google.com/drive/1phQj24TXDi8RJ0-cDCXcG_8qqoW3Cs7u?usp=sharing) |
 
 ---
 
