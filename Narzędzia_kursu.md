@@ -11,6 +11,7 @@ Ten dokument zawiera listę wszystkich narzędzi, które będą wykorzystywane w
 | Qdrant | [klik](https://qdrant.tech) | ✅ [GitHub](https://github.com/qdrant/qdrant) | ✅ | 4 | ❌ | Wersja darmowa | Baza danych wektorowa do przechowywania embeddingów. Możesz wybrać Qdrant lub Supabase - są to rozwiązania zamienne. |
 | OpenAI API | [klik](https://platform.openai.com) | ❌ | ✅ | 2-4 | ✅ | Konto płatne, szacowany koszt: $5-10 | Dostęp do modeli GPT-4 i GPT-3.5 |
 | Google Gemini API | [klik](https://ai.google.dev) | ❌ | ✅ | 2-4 | ✅ | Konto płatne, szacowany koszt: $2-5 | Dostęp do modelu Gemini Pro |
+| OpenRouter | [klik](https://openrouter.ai) | ❌ | ✅ | 2-4 | ✅ | Konto płatne, szacowany koszt: $2 | Dostęp do wielu modeli językowych przez jedno API |
 | GitHub | [klik](https://github.com) | ✅ | ❌ | 1-4 | ✅ | Wersja darmowa | Platforma do hostowania repozytoriów Git |
 
 ## Ważne uwagi
