@@ -52,6 +52,12 @@ Ten katalog gromadzi wszystkie zestawy danych (datasety) wykorzystywane w różn
 
 * **Teksty_dla_SERPow.zip** – Zbiór tekstów z SERPów dla wybranych słów kluczowych, wykorzystywany jako test_case do generowania promptu do ekstrakcji encji i relacji.
 
+*   **`senuto_crawl - crawl_senuto (11) (1) (1).csv`**
+    *   **Opis:** Crawl domeny Senuto do importu do bazy danych w tygodniu 4. Plik zawiera dane o stronach, tytułach, opisach i treściach, które będą wykorzystywane do generowania embeddingów i testowania zapytań SQL.
+    *   **Lekcja:** Tydzień 4 - Przechowywanie embeddingów.
+    *   **Przeznaczenie:** Import danych do bazy, generowanie embeddingów, testowanie zapytań SQL.
+    *   **Format danych:** Plik CSV z kolumnami: url, title, description, content.
+
 ---
 
 *W przyszłości w tym katalogu będą dodawane kolejne datasety wraz z ich opisami.* 
