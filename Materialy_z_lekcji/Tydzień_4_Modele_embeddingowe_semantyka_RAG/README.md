@@ -21,9 +21,9 @@ Ten katalog zawiera materiały dodatkowe do lekcji z czwartego tygodnia kursu SE
 
 W tej lekcji poznasz podstawy modeli embeddingowych, ich działanie i zastosowanie w SEO. Dowiesz się, jak modele embeddingowe pomagają w analizie semantycznej treści i jak wykorzystać je do poprawy widoczności w wyszukiwarkach.
 
-**Notatki z lekcji:** [./Dokumenty/T4L01_Embeddingi_Teoria.md](./Dokumenty/T4L01_Embeddingi_Teoria.md)
 
-**Przydatne linki:**
+
+**Dodatkowe linki:**
 - [Ranking modeli embeddingowych (MTEB Leaderboard)](https://huggingface.co/spaces/mteb/leaderboard)
 - [Transformer Explainer – wizualne wyjaśnienie działania modeli językowych](https://poloclub.github.io/transformer-explainer/)
 - [Dokumentacja modeli embeddingowych Google Gemini](https://ai.google.dev/gemini-api/docs/embeddings?hl=pl)
@@ -34,8 +34,26 @@ W tej lekcji poznasz podstawy modeli embeddingowych, ich działanie i zastosowan
 
 ## Lekcja: Przechowywanie embeddingów
 
-Lekcja poświęcona przeglądowi narzędzi i baz do przechowywania embeddingów oraz porównaniu popularnych rozwiązań.
+W tej lekcji poznasz sposoby przechowywania embeddingów w bazach danych oraz strukturę przykładowej tabeli wykorzystywanej do przechowywania embeddingów i metadanych.
+
+
 
 **Przydatne linki:**
 - [Porównanie baz wektorowych (Superlinked)](https://superlinked.com/vector-db-comparison)
-- [Qdrant – baza wektorowa](https://qdrant.tech/) 
+- [Qdrant – baza wektorowa](https://qdrant.tech/)
+
+**Notatki z lekcji:** [./Dokumenty/T4L02_Przechowywanie_Embeddingow.md](./Dokumenty/T4L02_Przechowywanie_Embeddingow.md)
+
+**Zapytanie SQL do utworzenia tabeli wykorzystywanej w lekcji:**
+
+```sql
+CREATE TABLE senuto_crawl_embeddings (
+  id SERIAL PRIMARY KEY,
+  url TEXT,
+  title TEXT,
+  description TEXT,
+  embedding_content VECTOR(768),
+  content TEXT,
+  embedding_title VECTOR(768)
+);
+``` 
