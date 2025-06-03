@@ -4,14 +4,14 @@ Ten dokument zawiera listę wszystkich narzędzi, które będą wykorzystywane w
 
 ## Tabela narzędzi
 
-| Nazwa narzędzia | Link | Open Source | Konto płatne | Koszt | Tygodnie kursu | Wymagane | Wymagana wersja + szacowane koszty na kurs | Komentarze |
-|----------------|------|-------------|--------------|-------|----------------|----------|-------------------------------------------|------------|
-| Google Colab | [colab.research.google.com](https://colab.research.google.com) | ✅ [GitHub](https://github.com/googlecolab/colabtools) | ❌ | Darmowe | 2-4 | ✅ | Wersja darmowa | Podstawowe narzędzie do pracy z kodem Python i modelami AI |
-| Supabase | [supabase.com](https://supabase.com) | ✅ [GitHub](https://github.com/supabase/supabase) | ✅ | Free tier: 500MB, 50MB baz danych<br>Pro: od $25/miesiąc | 2-4 | ❌ | Wersja darmowa | Baza danych PostgreSQL z rozszerzeniami do przechowywania wektorów. Możesz wybrać Supabase lub Qdrant - są to rozwiązania zamienne. |
-| Qdrant | [qdrant.tech](https://qdrant.tech) | ✅ [GitHub](https://github.com/qdrant/qdrant) | ✅ | Free tier: 1GB storage, 100K operacji/miesiąc<br>Pro: od $29/miesiąc | 4 | ❌ | Wersja darmowa | Baza danych wektorowa do przechowywania embeddingów. Możesz wybrać Qdrant lub Supabase - są to rozwiązania zamienne. |
-| OpenAI API | [platform.openai.com](https://platform.openai.com) | ❌ | ✅ | Pay-as-you-go<br>GPT-4: $0.03/1K tokens<br>GPT-3.5: $0.002/1K tokens | 2-4 | ✅ | Konto płatne, szacowany koszt: $5-10 | Dostęp do modeli GPT-4 i GPT-3.5 |
-| Google Gemini API | [ai.google.dev](https://ai.google.dev) | ❌ | ✅ | Pay-as-you-go<br>Gemini Pro: $0.00025/1K znaków | 2-4 | ✅ | Konto płatne, szacowany koszt: $2-5 | Dostęp do modelu Gemini Pro |
-| GitHub | [github.com](https://github.com) | ✅ | ❌ | Darmowe | 1-4 | ✅ | Wersja darmowa | Platforma do hostowania repozytoriów Git |
+| Nazwa narzędzia | Link | Open Source | Konto płatne | Tygodnie kursu | Wymagane | Wymagana wersja + szacowane koszty na kurs | Komentarze |
+|----------------|------|-------------|--------------|----------------|----------|-------------------------------------------|------------|
+| Google Colab | [klik](https://colab.research.google.com) | ✅ [GitHub](https://github.com/googlecolab/colabtools) | ❌ | 2-4 | ✅ | Wersja darmowa | Podstawowe narzędzie do pracy z kodem Python i modelami AI |
+| Supabase | [klik](https://supabase.com) | ✅ [GitHub](https://github.com/supabase/supabase) | ✅ | 2-4 | ❌ | Wersja darmowa | Baza danych PostgreSQL z rozszerzeniami do przechowywania wektorów. Możesz wybrać Supabase lub Qdrant - są to rozwiązania zamienne. |
+| Qdrant | [klik](https://qdrant.tech) | ✅ [GitHub](https://github.com/qdrant/qdrant) | ✅ | 4 | ❌ | Wersja darmowa | Baza danych wektorowa do przechowywania embeddingów. Możesz wybrać Qdrant lub Supabase - są to rozwiązania zamienne. |
+| OpenAI API | [klik](https://platform.openai.com) | ❌ | ✅ | 2-4 | ✅ | Konto płatne, szacowany koszt: $5-10 | Dostęp do modeli GPT-4 i GPT-3.5 |
+| Google Gemini API | [klik](https://ai.google.dev) | ❌ | ✅ | 2-4 | ✅ | Konto płatne, szacowany koszt: $2-5 | Dostęp do modelu Gemini Pro |
+| GitHub | [klik](https://github.com) | ✅ | ❌ | 1-4 | ✅ | Wersja darmowa | Platforma do hostowania repozytoriów Git |
 
 ## Ważne uwagi
 
