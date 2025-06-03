@@ -36,20 +36,16 @@ W tej lekcji poznasz podstawy modeli embeddingowych, ich działanie i zastosowan
 
 W tej lekcji poznasz sposoby przechowywania embeddingów w bazach danych oraz strukturę przykładowej tabeli wykorzystywanej do przechowywania embeddingów i metadanych.
 
+### Przechowywanie embeddingów w Supabase
 
+Poniżej znajdziesz przykładowe zapytania SQL wykorzystywane w lekcji:
 
-**Przydatne linki:**
-- [Porównanie baz wektorowych (Superlinked)](https://superlinked.com/vector-db-comparison)
-- [Qdrant – baza wektorowa](https://qdrant.tech/)
-
-**Notatki z lekcji:** [./Dokumenty/T4L02_Przechowywanie_Embeddingow.md](./Dokumenty/T4L02_Przechowywanie_Embeddingow.md)
-
-**Zapytanie SQL do utworzenia tabeli wykorzystywanej w lekcji:**
+**1. Utworzenie tabeli do przechowywania embeddingów:**
 
 ```sql
 CREATE TABLE senuto_crawl_embeddings (
   id SERIAL PRIMARY KEY,
-  url TEXT,
+  url TEXT UNIQUE, -- Dodano unikalny indeks na kolumnie url
   title TEXT,
   description TEXT,
   embedding_content VECTOR(768),
@@ -58,11 +54,11 @@ CREATE TABLE senuto_crawl_embeddings (
 );
 ```
 
-**Aby tabela mogła przyjmować dane, należy utworzyć odpowiednią policy.**
+**2. Przykładowe polityki dostępu (policy):**
 
 > **Uwaga:** W projektach komercyjnych należy zwrócić szczególną uwagę na bezpieczeństwo i ograniczenia dostępu do danych!
 
-**Policy nr 1 – przykładowa polityka (umożliwia usuwanie danych przez użytkownika anonimowego):**
+- Policy nr 1 – umożliwia usuwanie danych przez użytkownika anonimowego:
 
 ```sql
 create policy "Anon can delete from senuto_crawl_embeddings"
@@ -74,7 +70,7 @@ using (
 );
 ```
 
-**Policy nr 2 – przykładowa polityka (umożliwia dodawanie danych przez użytkownika anonimowego):**
+- Policy nr 2 – umożliwia dodawanie danych przez użytkownika anonimowego:
 
 ```sql
 create policy "Anon can insert into senuto_crawl_embeddings"
@@ -86,7 +82,7 @@ with check (
 );
 ```
 
-**Policy nr 3 – przykładowa polityka (umożliwia odczyt danych przez użytkownika anonimowego):**
+- Policy nr 3 – umożliwia odczyt danych przez użytkownika anonimowego:
 
 ```sql
 create policy "Anon can select from senuto_crawl_embeddings"
@@ -98,7 +94,7 @@ using (
 );
 ```
 
-**Policy nr 4 – przykładowa polityka (umożliwia aktualizację danych przez użytkownika anonimowego):**
+- Policy nr 4 – umożliwia aktualizację danych przez użytkownika anonimowego:
 
 ```sql
 create policy "Anon can update senuto_crawl_embeddings"
@@ -111,4 +107,45 @@ using (
 with check (
   true
 );
-``` 
+```
+
+**3. Zapytanie do wyznaczenia 20 najbardziej zbliżonych URLi do każdego URLa:**
+
+To zapytanie zwraca dla każdego rekordu (URL-a) listę 20 najbardziej podobnych URLi na podstawie embeddingu tytułu (cosine similarity).
+
+```sql
+SELECT
+    su.url AS source_url,
+    jsonb_agg(
+        jsonb_build_object(
+            'url', sim.url,
+            'similarity', 1 - (su.embedding_title <=> sim.embedding_title) -- Cosine similarity (1 - distance)
+        )
+        ORDER BY (su.embedding_title <=> sim.embedding_title) ASC -- Order within the JSON array by distance (most similar first)
+    ) AS top_20_similar_urls_with_similarity
+FROM
+    senuto_crawl_embeddings su
+JOIN LATERAL (
+    SELECT
+        id,
+        url,
+        embedding_title
+    FROM
+        senuto_crawl_embeddings
+    WHERE
+        id != su.id -- Wyklucz rekord źródłowy
+        AND embedding_title IS NOT NULL -- Upewnij się, że wektor nie jest pusty dla porównywanych rekordów
+    ORDER BY
+        su.embedding_title <=> embedding_title -- Sortuj według odległości kosinusowej (im mniejsza wartość, tym bardziej podobne)
+    LIMIT 20 -- Ogranicz do 20 najbardziej podobnych dla każdego rekordu źródłowego
+) sim ON TRUE
+WHERE su.embedding_title IS NOT NULL -- Tylko uwzględnij rekordy źródłowe, które mają embedding
+GROUP BY su.id, su.url -- Grupuj po rekordzie źródłowym
+ORDER BY su.url; -- Opcjonalnie: sortuj wyniki po URL-u źródłowym dla czytelności
+```
+
+---
+
+**Przydatne linki:**
+- [Porównanie baz wektorowych (Superlinked)](https://superlinked.com/vector-db-comparison)
+- [Qdrant – baza wektorowa](https://qdrant.tech/) 
