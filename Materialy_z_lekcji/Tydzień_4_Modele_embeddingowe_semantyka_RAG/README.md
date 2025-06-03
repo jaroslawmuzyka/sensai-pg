@@ -54,9 +54,11 @@ CREATE TABLE senuto_crawl_embeddings (
 );
 ```
 
-**2. Przykładowe polityki dostępu (policy):**
+**2. Polityki dostępu (policy) – należy uruchomić w bazie danych:**
 
 > **Uwaga:** W projektach komercyjnych należy zwrócić szczególną uwagę na bezpieczeństwo i ograniczenia dostępu do danych!
+
+Poniższe polityki należy uruchomić w bazie danych, aby umożliwić import, odczyt, aktualizację i usuwanie danych przez użytkownika anonimowego:
 
 - Policy nr 1 – umożliwia usuwanie danych przez użytkownika anonimowego:
 
@@ -148,4 +150,8 @@ ORDER BY su.url; -- Opcjonalnie: sortuj wyniki po URL-u źródłowym dla czyteln
 
 **Przydatne linki:**
 - [Porównanie baz wektorowych (Superlinked)](https://superlinked.com/vector-db-comparison)
-- [Qdrant – baza wektorowa](https://qdrant.tech/) 
+- [Qdrant – baza wektorowa](https://qdrant.tech/)
+
+**Dataset do importu:** [senuto_crawl - crawl_senuto (11) (1) (1).csv](https://github.com/sensai-academy/seo3.0/blob/main/Datasety/senuto_crawl%20-%20crawl_senuto%20(11)%20(1)%20(1).csv)
+
+Jest to crawl domeny Senuto, który będzie importowany do bazy danych w ramach lekcji. 
