@@ -2,16 +2,18 @@
 
 Ten katalog zawiera materiały dodatkowe do lekcji z czwartego tygodnia kursu SEO 3.0.
 
+## Spis treści
+- [Notatniki Colab](#notatniki-colab)
+- [Dostępne Zestawy Danych](#dostępne-zestawy-danych)
+- [Lekcja: Embeddingi – Teoria](#lekcja-embeddingi--teoria)
+- [Lekcja: Przechowywanie embeddingów](#lekcja-przechowywanie-embeddingów)
+- [Przydatne linki](#przydatne-linki)
+
+---
+
 ### Dostępne Zestawy Danych
 
 *   **`senuto_crawl - crawl_senuto (11) (1) (1).csv`**: Crawl domeny Senuto do importu do bazy danych w tygodniu 4. Plik zawiera dane o stronach, tytułach, opisach i treściach, które będą wykorzystywane do generowania embeddingów i testowania zapytań SQL. [Pobierz dataset](../Datasety/senuto_crawl%20-%20crawl_senuto%20(11)%20(1)%20(1).csv)
-
-## Spis treści
-- [Notatniki Colab](#notatniki-colab)
-- [Lekcja: Embeddingi – Teoria](#lekcja-embeddingi--teoria)
-- [Lekcja: Przechowywanie embeddingów](#lekcja-przechowywanie-embeddingów)
-
----
 
 ### Notatniki Colab
 
