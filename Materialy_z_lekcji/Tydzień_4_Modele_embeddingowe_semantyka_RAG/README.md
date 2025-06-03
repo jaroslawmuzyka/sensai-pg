@@ -56,4 +56,59 @@ CREATE TABLE senuto_crawl_embeddings (
   content TEXT,
   embedding_title VECTOR(768)
 );
+```
+
+**Aby tabela mogła przyjmować dane, należy utworzyć odpowiednią policy.**
+
+> **Uwaga:** W projektach komercyjnych należy zwrócić szczególną uwagę na bezpieczeństwo i ograniczenia dostępu do danych!
+
+**Policy nr 1 – przykładowa polityka (umożliwia usuwanie danych przez użytkownika anonimowego):**
+
+```sql
+create policy "Anon can delete from senuto_crawl_embeddings"
+on public.senuto_crawl_embeddings
+for delete
+to anon
+using (
+  true
+);
+```
+
+**Policy nr 2 – przykładowa polityka (umożliwia dodawanie danych przez użytkownika anonimowego):**
+
+```sql
+create policy "Anon can insert into senuto_crawl_embeddings"
+on public.senuto_crawl_embeddings
+for insert
+to anon
+with check (
+  true
+);
+```
+
+**Policy nr 3 – przykładowa polityka (umożliwia odczyt danych przez użytkownika anonimowego):**
+
+```sql
+create policy "Anon can select from senuto_crawl_embeddings"
+on public.senuto_crawl_embeddings
+for select
+to anon
+using (
+  true
+);
+```
+
+**Policy nr 4 – przykładowa polityka (umożliwia aktualizację danych przez użytkownika anonimowego):**
+
+```sql
+create policy "Anon can update senuto_crawl_embeddings"
+on public.senuto_crawl_embeddings
+for update
+to anon
+using (
+  true
+)
+with check (
+  true
+);
 ``` 
