@@ -6,6 +6,7 @@ Ten dokument zawiera listę wszystkich narzędzi, które będą wykorzystywane w
 
 | Nazwa narzędzia | Link | Open Source | Konto płatne | Tygodnie kursu | Wymagane | Wymagana wersja + szacowane koszty na kurs | Komentarze |
 |----------------|------|-------------|--------------|----------------|----------|-------------------------------------------|------------|
+| *SERPData.io* | [klik](https://serpdata.io) | ❌ | ✅ | 2-4 | ✅ | Konto płatne, szacowany koszt: $5 | API Senuto do pobierania wyników wyszukiwania |
 | Google Colab | [klik](https://colab.research.google.com) | ✅ [GitHub](https://github.com/googlecolab/colabtools) | ❌ | 2-4 | ✅ | Wersja darmowa | Podstawowe narzędzie do pracy z kodem Python i modelami AI |
 | Supabase | [klik](https://supabase.com) | ✅ [GitHub](https://github.com/supabase/supabase) | ✅ | 2-4 | ❌ | Wersja darmowa | Baza danych PostgreSQL z rozszerzeniami do przechowywania wektorów. Możesz wybrać Supabase lub Qdrant - są to rozwiązania zamienne. |
 | Qdrant | [klik](https://qdrant.tech) | ✅ [GitHub](https://github.com/qdrant/qdrant) | ✅ | 4 | ❌ | Wersja darmowa | Baza danych wektorowa do przechowywania embeddingów. Możesz wybrać Qdrant lub Supabase - są to rozwiązania zamienne. |
