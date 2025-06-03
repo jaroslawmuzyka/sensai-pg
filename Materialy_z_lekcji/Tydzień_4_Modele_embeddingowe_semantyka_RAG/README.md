@@ -2,6 +2,10 @@
 
 Ten katalog zawiera materiały dodatkowe do lekcji z czwartego tygodnia kursu SEO 3.0.
 
+### Dostępne Zestawy Danych
+
+*   **`senuto_crawl - crawl_senuto (11) (1) (1).csv`**: Crawl domeny Senuto do importu do bazy danych w tygodniu 4. Plik zawiera dane o stronach, tytułach, opisach i treściach, które będą wykorzystywane do generowania embeddingów i testowania zapytań SQL. [Pobierz dataset](../Datasety/senuto_crawl%20-%20crawl_senuto%20(11)%20(1)%20(1).csv)
+
 ## Spis treści
 - [Notatniki Colab](#notatniki-colab)
 - [Lekcja: Embeddingi – Teoria](#lekcja-embeddingi--teoria)
@@ -33,6 +37,10 @@ W tej lekcji poznasz podstawy modeli embeddingowych, ich działanie i zastosowan
 ---
 
 ## Lekcja: Przechowywanie embeddingów
+
+**Dataset do importu:** [senuto_crawl - crawl_senuto (11) (1) (1).csv](https://github.com/sensai-academy/seo3.0/blob/main/Datasety/senuto_crawl%20-%20crawl_senuto%20(11)%20(1)%20(1).csv)
+
+Jest to crawl domeny Senuto, który będzie importowany do bazy danych w ramach lekcji. Plik zawiera dane o stronach, tytułach, opisach i treściach, które będą wykorzystywane do generowania embeddingów i testowania zapytań SQL.
 
 W tej lekcji poznasz sposoby przechowywania embeddingów w bazach danych oraz strukturę przykładowej tabeli wykorzystywanej do przechowywania embeddingów i metadanych.
 
@@ -151,7 +159,3 @@ ORDER BY su.url; -- Opcjonalnie: sortuj wyniki po URL-u źródłowym dla czyteln
 **Przydatne linki:**
 - [Porównanie baz wektorowych (Superlinked)](https://superlinked.com/vector-db-comparison)
 - [Qdrant – baza wektorowa](https://qdrant.tech/)
-
-**Dataset do importu:** [senuto_crawl - crawl_senuto (11) (1) (1).csv](https://github.com/sensai-academy/seo3.0/blob/main/Datasety/senuto_crawl%20-%20crawl_senuto%20(11)%20(1)%20(1).csv)
-
-Jest to crawl domeny Senuto, który będzie importowany do bazy danych w ramach lekcji. 
