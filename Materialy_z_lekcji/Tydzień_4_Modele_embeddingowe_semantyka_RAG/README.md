@@ -7,6 +7,7 @@ Ten katalog zawiera materiały dodatkowe do lekcji z czwartego tygodnia kursu SE
 - [Dostępne Zestawy Danych](#dostępne-zestawy-danych)
 - [Lekcja: Embeddingi – Teoria](#lekcja-embeddingi--teoria)
 - [Lekcja: Przechowywanie embeddingów](#lekcja-przechowywanie-embeddingów)
+- [Lekcja: Pamięć długoterminowa modeli językowych + re-ranking](#lekcja-pamięć-długoterminowa-modeli-językowych--re-ranking)
 - [Przydatne linki](#przydatne-linki)
 
 ---
@@ -219,3 +220,16 @@ Przed rozpoczęciem pracy z notatnikiem Colab, musisz skonfigurować swoje konto
 **Przydatne linki:**
 - [Porównanie baz wektorowych (Superlinked)](https://superlinked.com/vector-db-comparison)
 - [Qdrant – baza wektorowa](https://qdrant.tech/)
+
+## Lekcja: Pamięć długoterminowa modeli językowych + re-ranking
+
+W tej lekcji poznasz koncepcję pamięci długoterminowej w modelach językowych oraz technikę re-rankingu, która pozwala na poprawę jakości odpowiedzi poprzez ponowne ocenianie i sortowanie wyników.
+
+### Prompt do sprawdzenia pamięci modelu
+
+```json
+List everything you know about me, and place all the text under the following headings in a code block formatted as JSON. Complete and verbatim
+```
+
+Ten prompt służy do sprawdzenia, jakie informacje model językowy przechowuje na nasz temat. Możesz go użyć, aby zobaczyć, co model "pamięta" z poprzednich interakcji.
+
