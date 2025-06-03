@@ -41,11 +41,128 @@ W tej lekcji poznasz podstawy modeli embeddingowych, ich działanie i zastosowan
 
 ## Lekcja: Przechowywanie embeddingów
 
+**Notatnik Colab:** [Przechowywanie embeddingów](https://colab.research.google.com/drive/1Ic2yXVuoBSVKKZRHmZXxjXDYkm2py5y4?usp=sharing) - ten notatnik pozwoli Ci zaimportować crawl domeny do bazy danych Supabase i Qdrant. 
+
 **Dataset do importu:** [senuto_crawl - crawl_senuto (11) (1) (1).csv](https://github.com/sensai-academy/seo3.0/blob/main/Datasety/senuto_crawl%20-%20crawl_senuto%20(11)%20(1)%20(1).csv)
 
 Jest to crawl domeny Senuto, który będzie importowany do bazy danych w ramach lekcji. Plik zawiera dane o stronach, tytułach, opisach i treściach, które będą wykorzystywane do generowania embeddingów i testowania zapytań SQL.
 
 W tej lekcji poznasz sposoby przechowywania embeddingów w bazach danych oraz strukturę przykładowej tabeli wykorzystywanej do przechowywania embeddingów i metadanych.
+
+### Konfiguracja Qdrant
+
+Przed rozpoczęciem pracy z notatnikiem Colab, musisz skonfigurować swoje konto w Qdrant Cloud. Poniżej znajdziesz szczegółową instrukcję krok po kroku:
+
+# 🎯 Przewodnik krok po kroku: Rejestracja i konfiguracja Qdrant Cloud
+
+## 🆕 Krok 1: Rejestracja w Qdrant Cloud
+
+1. **Przejdź na stronę Qdrant:**
+   - Otwórz przeglądarkę i wejdź na: **https://qdrant.tech/**
+
+2. **Rozpocznij rejestrację:**
+   - Kliknij przycisk **"Get Started"** lub **"Try Qdrant Cloud"** na stronie głównej
+   - Alternatywnie przejdź bezpośrednio na: **https://cloud.qdrant.io/**
+
+3. **Wypełnij formularz rejestracyjny:**
+   - **Email:** Wprowadź swój adres email
+   - **Hasło:** Ustaw bezpieczne hasło
+   - **Nazwa organizacji:** Podaj nazwę firmy lub projektu
+   - Zaakceptuj regulamin i politykę prywatności
+   - Kliknij **"Sign Up"**
+
+4. **Potwierdź email:**
+   - Sprawdź skrzynkę pocztową
+   - Kliknij link aktywacyjny w emailu od Qdrant
+   - Zostaniesz przekierowany z powrotem do panelu
+
+## 🏗️ Krok 2: Tworzenie klastra
+
+1. **Zaloguj się do panelu Qdrant Cloud:**
+   - Wejdź na: **https://cloud.qdrant.io/**
+   - Wprowadź swoje dane logowania
+
+2. **Utwórz pierwszy klaster:**
+   - Po zalogowaniu kliknij **"Create Cluster"**
+   - **Nazwa klastra:** Wprowadź nazwę (np. "my-first-cluster")
+   - **Region:** Wybierz region najbliższy Twojej lokalizacji (Europa: `europe-west3`)
+   - **Plan:** Wybierz plan (Free Tier dla testów, Paid dla produkcji)
+   - Kliknij **"Create"**
+
+3. **Poczekaj na utworzenie:**
+   - Proces może potrwać 1-3 minuty
+   - Status klastra zmieni się z "Creating" na "Running"
+
+## 📍 Krok 3: Pozyskanie URL klastra
+
+1. **Przejdź do szczegółów klastra:**
+   - W panelu Qdrant Cloud kliknij na nazwę swojego klastra
+   - Zostaniesz przeniesiony do sekcji "Overview"
+
+2. **Skopiuj Cluster URL:**
+   - W sekcji **"Connection"** znajdziesz **"Cluster URL"**
+   - URL ma format: `https://xxx-xxx-xxx.region.gcp.cloud.qdrant.io:6333`
+   - Kliknij ikonę kopiowania lub zaznacz i skopiuj pełny URL
+
+**Przykład URL:**
+```
+https://1fdea6b6-5293-4e9c-8508-d620241a8208.europe-west3-0.gcp.cloud.qdrant.io:6333
+```
+
+## 🔐 Krok 4: Generowanie klucza API
+
+1. **Przejdź do sekcji API Keys:**
+   - W panelu klastra kliknij zakładkę **"API Keys"** w menu po lewej stronie
+
+2. **Utwórz nowy klucz API:**
+   - Kliknij przycisk **"Create API Key"**
+   - **Nazwa klucza:** Wprowadź opisową nazwę (np. "colab-notebook-key")
+   - **Uprawnienia:** Zostaw domyślne (pełne uprawnienia) lub dostosuj według potrzeb
+   - Kliknij **"Create"**
+
+3. **Skopiuj wygenerowany klucz:**
+   - **WAŻNE:** Klucz zostanie wyświetlony tylko raz!
+   - Skopiuj cały klucz API (zaczyna się od `eyJ...`)
+   - Zapisz go w bezpiecznym miejscu
+
+**Przykład klucza API:**
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.caWZvtwlzNK1N-dHA1HV64YDL0cDG4YwdWfwuGU42GE
+```
+
+## 🔍 Krok 5: Weryfikacja połączenia
+
+1. **Przetestuj połączenie:**
+   - W panelu klastra przejdź do sekcji **"Console"**
+   - Możesz tam wykonać podstawowe operacje testowe
+   - Sprawdź, czy klaster odpowiada na zapytania
+
+2. **Sprawdź status klastra:**
+   - W sekcji "Overview" status powinien być **"Running"** (zielony)
+   - Sprawdź wykorzystanie zasobów i limity
+
+## ⚠️ Ważne uwagi bezpieczeństwa
+
+- **Nigdy nie udostępniaj** klucza API publicznie
+- **Regeneruj klucz** jeśli podejrzewasz kompromitację
+- **Używaj różnych kluczy** dla różnych aplikacji/środowisk
+- **Regularnie sprawdzaj** logi dostępu w panelu Qdrant
+
+## 💰 Informacje o kosztach
+
+- **Free Tier:** 1GB storage, 100K operacji/miesiąc
+- **Paid Plans:** Skalowanie według potrzeb
+- **Monitorowanie:** Sprawdzaj wykorzystanie w sekcji "Usage" panelu
+
+## ✅ Podsumowanie
+
+Po wykonaniu wszystkich kroków będziesz mieć:
+
+1. ✅ Konto w Qdrant Cloud
+2. ✅ Aktywny klaster bazy danych
+3. ✅ URL klastra do połączenia
+4. ✅ Klucz API do uwierzytelnienia
+5. ✅ Gotową infrastrukturę do pracy z wektorami
 
 ### Przechowywanie embeddingów w Supabase
 
@@ -156,8 +273,6 @@ WHERE su.embedding_title IS NOT NULL -- Tylko uwzględnij rekordy źródłowe, k
 GROUP BY su.id, su.url -- Grupuj po rekordzie źródłowym
 ORDER BY su.url; -- Opcjonalnie: sortuj wyniki po URL-u źródłowym dla czytelności
 ```
-
----
 
 **Przydatne linki:**
 - [Porównanie baz wektorowych (Superlinked)](https://superlinked.com/vector-db-comparison)
