@@ -48,25 +48,7 @@ W tym pliku znajduje się zestawienie wszystkich narzędzi używanych lub omawia
 | Senuto | Platforma SEO | 1 | [Poznajemy GPTs](Materialy_z_lekcji/Tydzień_1_Wstęp_do_AI_i_modeli_językowych/README.md#lekcja-poznajemy-gpts) | Kompleksowa platforma SEO (przykład integracji API z GPTs). | [Senuto](https://www.senuto.com/) |
 | *(Tu pojawią się inne narzędzia SEO)* | | | | | |
 
-## Narzędzia do zabezpieczania promptów i bezpieczeństwa AI
-
-| Narzędzie | Kategoria | Opis | Link |
-| :-------- | :-------- | :--- | :--- |
-| Promptfoo | Bezpieczeństwo AI / Prompt Engineering | Open-source narzędzie do zabezpieczania aplikacji AI przed prompt injection, jailbreakami i innymi zagrożeniami. Oferuje red teaming, guardrails, model security i ewaluacje. Używane przez 80,000+ użytkowników, w tym 27 firm z Fortune 500. | [Promptfoo](https://www.promptfoo.dev/) |
-| Langfuse | Monitoring AI / Prompt Engineering | Open Source platforma do monitorowania i debugowania aplikacji LLM. Oferuje śledzenie promptów, ewaluacje, zarządzanie promptami i metryki do ulepszania aplikacji AI. | [Langfuse](https://langfuse.com/) |
-| PromptGuard | Bezpieczeństwo AI / Prompt Engineering | Narzędzie do wykrywania i blokowania niebezpiecznych promptów oraz zapobiegania prompt injection. Oferuje analizę w czasie rzeczywistym i integrację z popularnymi frameworkami AI. | [PromptGuard](https://promptguard.ai/) |
-| PromptShield | Bezpieczeństwo AI / Prompt Engineering | Platforma do zabezpieczania aplikacji AI przed prompt injection i innymi atakami. Oferuje analizę promptów, wykrywanie anomalii i automatyczne blokowanie niebezpiecznych zapytań. | [PromptShield](https://promptshield.ai/) |
-
 ## Dodatkowe Narzędzia
-
-- **Langfuse** ([langfuse.com](https://langfuse.com/)) – Open Source LLM Engineering Platform. Traces, evals, prompt management i metryki do debugowania i ulepszania aplikacji LLM.
-
-## Inne narzędzia
-
-| Narzędzie | Kategoria | Opis | Link |
-| :-------- | :-------- | :--- | :--- |
-| Promptfoo | Bezpieczeństwo AI / Prompt Engineering | Open-source narzędzie do zabezpieczania aplikacji AI przed prompt injection, jailbreakami i innymi zagrożeniami. Oferuje red teaming, guardrails, model security i ewaluacje. Używane przez 80,000+ użytkowników, w tym 27 firm z Fortune 500. | [Promptfoo](https://www.promptfoo.dev/) |
-| Langfuse | Monitoring AI / Prompt Engineering | Open Source platforma do monitorowania i debugowania aplikacji LLM. Oferuje śledzenie promptów, ewaluacje, zarządzanie promptami i metryki do ulepszania aplikacji AI. | [Langfuse](https://langfuse.com/) |
 
 ---
 
