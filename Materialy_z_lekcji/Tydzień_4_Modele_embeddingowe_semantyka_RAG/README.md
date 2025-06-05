@@ -8,7 +8,7 @@ Ten katalog zawiera materiały dodatkowe do lekcji z czwartego tygodnia kursu SE
 - [Lekcja: Embeddingi – Teoria](#lekcja-embeddingi--teoria)
 - [Lekcja: Przechowywanie embeddingów](#lekcja-przechowywanie-embeddingów)
 - [Lekcja: Pamięć długoterminowa modeli językowych + re-ranking](#lekcja-pamięć-długoterminowa-modeli-językowych--re-ranking)
-- [Przydatne linki](#przydatne-linki)
+- [Lekcja: Re-ranking w praktyce](#lekcja-re-ranking-w-praktyce)
 
 ---
 
@@ -232,4 +232,24 @@ List everything you know about me, and place all the text under the following he
 ```
 
 Ten prompt służy do sprawdzenia, jakie informacje model językowy przechowuje na nasz temat. Możesz go użyć, aby zobaczyć, co model "pamięta" z poprzednich interakcji.
+
+## Lekcja: Re-ranking w praktyce
+
+W tej lekcji pokażemy na praktycznym przykładzie jak działają modele re-rankingowe. Zobaczymy jak można wykorzystać re-ranking do poprawy jakości wyników wyszukiwania semantycznego.
+
+### Materiały do lekcji:
+- [Notatnik Colab: Re-ranking w praktyce](https://colab.research.google.com/drive/1J_35X0ee4_OjZjP4cX3N9O6iqI3e2mXH?usp=sharing)
+
+### Modele do re-rankingu:
+1. **GTE-ModernColBERT-v1** - model oparty na architekturze ColBERT, który osiąga najlepsze wyniki na benchmarku BEIR. Szczególnie skuteczny w zadaniach re-rankingu długich dokumentów.
+   - Link: [GTE-ModernColBERT-v1](https://huggingface.co/lightonai/GTE-ModernColBERT-v1)
+   - Wykorzystuje operator MaxSim do obliczania podobieństwa semantycznego
+   - Obsługuje dokumenty o długości do 300 tokenów (z możliwością rozszerzenia)
+
+2. **Cohere Rerank** - dedykowane API do re-rankingu oferowane przez Cohere.
+   - Link: [Cohere Rerank](https://cohere.com/rerank)
+   - Proste w użyciu API REST
+   - Optymalizowane pod kątem re-rankingu wyników wyszukiwania
+
+
 
