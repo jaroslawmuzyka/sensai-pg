@@ -25,7 +25,9 @@ W tym pliku znajduje się zestawienie wszystkich notatników Google Colab używa
 | Tydzień | Lekcja | Notatnik | Opis | Link |
 | :------ | :----- | :------- | :--- | :--- |
 | 4 | [Embeddingi - Teoria](Materialy_z_lekcji/Tydzień_4_Modele_embeddingowe_semantyka_RAG/README.md#lista-lekcji) | Podstawy embeddingów | Wprowadzenie do modeli embeddingowych, ich działania i zastosowania w SEO. | [Otwórz w Colab](https://colab.research.google.com/drive/1phQj24TXDi8RJ0-cDCXcG_8qqoW3Cs7u?usp=sharing) |
-| 4 | [Przechowywanie embeddingów](Materialy_z_lekcji/Tydzień_4_Modele_embeddingowe_semantyka_RAG/README.md#lekcja-przechowywanie-embeddingów) | Przechowywanie embeddingów | Notatnik pokazujący, jak indeksować dane w bazach wektorowych i wykonywać zapytania semantyczne. | [Otwórz w Colab](https://colab.research.google.com/drive/1phQj24TXDi8RJ0-cDCXcG_8qqoW3Cs7u?usp=sharing) |
+| 4 | [Przechowywanie embeddingów](Materialy_z_lekcji/Tydzień_4_Modele_embeddingowe_semantyka_RAG/README.md#lekcja-przechowywanie-embeddingów) | Przechowywanie embeddingów | Notatnik pokazujący, jak wrzucić dane z datasetu do Qdrant i Supabase wraz z wektorami wygenerowanymi przez Gemini. | [Otwórz w Colab](https://colab.research.google.com/drive/1Ic2yXVuoBSVKKZRHmZXxjXDYkm2py5y4?usp=sharing) |
+| 4 | [Indeksowanie danych do baz wektorowych](Materialy_z_lekcji/Tydzień_4_Modele_embeddingowe_semantyka_RAG/README.md#lekcja-indeksowanie-danych-do-baz-wektorowych) | Indeksowanie danych do baz wektorowych | Notatnik pokazujący, jak indeksować dane w bazach wektorowych i wykonywać zapytania semantyczne. | [Otwórz w Colab](https://colab.research.google.com/drive/1phQj24TXDi8RJ0-cDCXcG_8qqoW3Cs7u?usp=sharing) |
+| 4 | [Re-ranking w praktyce](Materialy_z_lekcji/Tydzień_4_Modele_embeddingowe_semantyka_RAG/README.md#lekcja-re-ranking-w-praktyce) | Re-ranking w praktyce | Praktyczne zastosowanie modeli re-rankingowych do poprawy jakości wyników wyszukiwania semantycznego | [Otwórz w Colab](https://colab.research.google.com/drive/1J_35X0ee4_OjZjP4cX3N9O6iqI3e2mXH?usp=sharing) |
 
 ---
 
