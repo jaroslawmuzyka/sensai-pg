@@ -10,7 +10,6 @@ Ten dokument zawiera wszystkie informacje potrzebne do przygotowania się do kur
 |----------------|------|-------------|--------------|----------|--------|------------|
 | Google Colab | [klik](https://colab.research.google.com) | ✅ | ❌ | ✅ | Darmowe | Podstawowe narzędzie do pracy z kodem Python i modelami AI |
 | GitHub | [klik](https://github.com) | ✅ | ❌ | ✅ | Darmowe | Platforma do hostowania repozytoriów Git |
-| VS Code | [klik](https://code.visualstudio.com) | ✅ | ❌ | ❌ | Darmowe | Zalecany edytor kodu |
 
 ### API i modele AI
 
@@ -19,6 +18,7 @@ Ten dokument zawiera wszystkie informacje potrzebne do przygotowania się do kur
 | OpenAI API | [klik](https://platform.openai.com) | ❌ | ✅ | ✅ | $5-10 | Dostęp do modeli GPT-4 i GPT-3.5 |
 | Google Gemini API | [klik](https://ai.google.dev) | ❌ | ✅ | ✅ | $2-5 | Dostęp do modelu Gemini Pro |
 | OpenRouter | [klik](https://openrouter.ai) | ❌ | ✅ | ✅ | $2 | Dostęp do wielu modeli językowych przez jedno API |
+| Claude API | [klik](https://console.anthropic.com) | ❌ | ✅ | ✅ | $2 | Dostęp do modeli Anthropic (Claude) |
 
 ### Bazy danych i przechowywanie
 
