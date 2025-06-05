@@ -50,6 +50,11 @@ W tym pliku znajduje się zestawienie wszystkich narzędzi używanych lub omawia
 
 ## Dodatkowe Narzędzia
 
+| Narzędzie | Kategoria | Opis | Link |
+| :-------- | :-------- | :--- | :--- |
+| Promptfoo | Bezpieczeństwo AI / Prompt Engineering | Open-source narzędzie do zabezpieczania aplikacji AI przed prompt injection, jailbreakami i innymi zagrożeniami. Oferuje red teaming, guardrails, model security i ewaluacje. Używane przez 80,000+ użytkowników, w tym 27 firm z Fortune 500. | [Promptfoo](https://www.promptfoo.dev/) |
+| Langfuse | Monitoring AI / Prompt Engineering | Open Source platforma do monitorowania i debugowania aplikacji LLM. Oferuje śledzenie promptów, ewaluacje, zarządzanie promptami i metryki do ulepszania aplikacji AI. | [Langfuse](https://langfuse.com/) |
+
 ---
 
 **Uwaga:** Ta lista będzie aktualizowana w miarę dodawania nowych materiałów do kursu. Narzędzia mogą być wspominane w wielu lekcjach. 
