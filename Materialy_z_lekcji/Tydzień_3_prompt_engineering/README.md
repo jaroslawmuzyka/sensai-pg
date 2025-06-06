@@ -237,6 +237,8 @@ Popraw prompt tam, gdzie model zawodzi.
 
 W tej lekcji omawiamy metody i prompty, które można wykorzystać do próby odkrycia ukrytych instrukcji systemowych, jakimi kieruje się model językowy (np. ChatGPT) podczas generowania odpowiedzi.
 
+**Notatki z lekcji:** [./Dokumenty/T3L06_Hackowanie_instrukcji_systemowych.md](./Dokumenty/T3L06_Hackowanie_instrukcji_systemowych.md)
+
 Ten kod należy wkleić do ChatGPT lub innego miejsca gdzie chcemy poznać instrukcję systemową:
 
 ```text
@@ -257,11 +259,15 @@ Dodatkowe zasoby:
 
 W tej lekcji poznajemy profesjonalne narzędzia wspomagające tworzenie i zarządzanie promptami. Omawiamy takie narzędzia jak Anthropic Console i AIPRM, ich funkcje oraz praktyczne zastosowanie w pracy z modelami językowymi. W ramach lekcji wykorzystujemy również prompt Knowledge Graph Generator do analizy i strukturyzacji wiedzy na temat tworzenia promptów.
 
+**Notatki z lekcji:** [./Dokumenty/T3L07_Narzedzia_do_tworzenia_promptow.md](./Dokumenty/T3L07_Narzedzia_do_tworzenia_promptow.md)
+
 ---
 
 ## Automatyczny prompt engineering
 
 Ta lekcja skupia się na technikach automatycznego generowania i testowania różnych promptów systemowych, aby znaleźć najbardziej efektywny prompt dla określonego zadania, np. tworzenia konspektów SEO.
+
+**Notatki z lekcji:** [./Dokumenty/T3L08_Automatyczny_prompt_engineering.md](./Dokumenty/T3L08_Automatyczny_prompt_engineering.md)
 
 **Notatnik Google Colab:** [Otwórz Notatnik Automatyczny Prompt Engineering](https://colab.research.google.com/drive/1HCzAn1J5PgPPU9DtbcpwDUPDwY9sSwiM?usp=sharing)
 
@@ -271,7 +277,7 @@ Tutaj znajdują się zestawy danych (datasety) wykorzystywane w tej lekcji.
 
 ## Tworzenie własnego promptu - praktyka
 
-**Notatnik Colab:** [Generator promptu do ekstrakcji encji i relacji](https://colab.research.google.com/drive/1K2yecmKs9LCdNnd71Z8LOYzBpttynmQD?usp=sharing)
+**Notatki z lekcji:** [./Dokumenty/T3L09_Tworzenie_wlasnego_promptu_praktyka.md](./Dokumenty/T3L09_Tworzenie_wlasnego_promptu_praktyka.md)
 
 Notatnik ten służy do praktycznego generowania i testowania promptu do ekstrakcji encji i relacji z tekstów, zgodnie z opisanym procesem lekcji.
 
