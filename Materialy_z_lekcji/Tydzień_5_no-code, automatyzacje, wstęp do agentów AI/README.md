@@ -22,16 +22,16 @@
 * Umiesz połączyć Make z Dify
 * Rozumiesz koncepcję agentów AI
 
-## Wstęp do Dify
+## Wstęp do Dify (Lekcja 01)
 
-W tej lekcji poznasz narzędzie Dify, jego kluczowe funkcje oraz praktyczne zastosowanie, szczególnie w kontekście SEO i orkiestracji procesów AI. Dowiesz się, czym jest Dify, jakie ma przewagi nad innymi narzędziami, jak skonfigurować podstawowe elementy oraz jak zbudować prostego chatbota wykorzystującego bazę wiedzy.
+W tej lekcji poznasz podstawy narzędzia Dify, jego funkcje oraz możliwości wykorzystania w projektach AI.
 
-- Notatka z lekcji: [./Dokumenty/T5LXX_Wstep_do_Dify.html](./Dokumenty/T5LXX_Wstep_do_Dify.html)
+- Notatka z lekcji: [./Dokumenty/T5L01_Wstep_do_Dify.md](./Dokumenty/T5L01_Wstep_do_Dify.md)
 - Platforma kursu: [Wstęp do Dify](https://learn.sensai.academy/next/public/lesson/295)
 
-## Instalacja i wstępna konfiguracja Dify na własnym serwerze
+## Instalacja i wstępna konfiguracja Dify na własnym serwerze (Lekcja 02)
 
 W tej lekcji dowiesz się, jak zainstalować i skonfigurować Dify na własnym serwerze VPS, krok po kroku.
 
-- Notatka z lekcji: [./Dokumenty/T5LXX_Instalacja_i_konfiguracja_Dify.md](./Dokumenty/T5LXX_Instalacja_i_konfiguracja_Dify.md)
+- Notatka z lekcji: [./Dokumenty/T5L02_Instalacja_i_konfiguracja_Dify.md](./Dokumenty/T5L02_Instalacja_i_konfiguracja_Dify.md)
 - Platforma kursu: [Instalacja i wstępna konfiguracja Dify na własnym serwerze](https://learn.sensai.academy/next/public/lesson/295)
