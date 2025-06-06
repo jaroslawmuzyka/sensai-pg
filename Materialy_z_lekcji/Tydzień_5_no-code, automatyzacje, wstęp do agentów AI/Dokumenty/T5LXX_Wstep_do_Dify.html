@@ -1,0 +1,88 @@
+<h1>Wstęp do Dify</h1>
+<p>W tej lekcji poznasz narzędzie Dify, jego kluczowe funkce oraz praktyczne zastosowanie, szczególnie w kontekście SEO i orkiestracji procesów AI. Dowiesz się, czym jest Dify, jakie ma przewagi nad innymi narzędziami, jak skonfigurować podstawowe elementy oraz jak zbudować prostego chatbota wykorzystującego bazę wiedzy. Materiał ten bazuje na przedstawionej lekcji i ma na celu ułatwienie zrozumienia oraz praktycznego wykorzystania Dify.</p>
+
+<h2>Czym jest Dify i dlaczego warto je poznać?</h2>
+<p>Dify to narzędzie służące do orkiestracji procesów, agentów AI i automatyzacji. Jest szczególnie polecane w kontekście SEO ze względu na łatwość tworzenia procesów oraz specyficzne funkcje. W porównaniu do innych popularnych rozwiązań:</p>
+<ul>
+	<li><strong>W odniesieniu do Make:</strong> Dify oferuje zaawansowane funkcje, takie jak wektorowe bazy danych (kluczowe dla mechanizmu RAG - Retrieval Augmented Generation, czyli budowania własnej bazy wiedzy) oraz zestaw pluginów bezpośrednio przydatnych w SEO (np. Perplexity czy narzędzia do ściągania contentu ze stron jak GINA).</li>
+	<li><strong>W odniesieniu do n8n:</strong> Choć n8n jest doskonałym narzędziem do orkiestracji, Dify charakteryzuje się niższym progiem wejścia. W Dify łatwiej jest zbudować bazę wiedzy (RAG) bez konieczności konfigurowania zewnętrznych baz danych, co w n8n wymaga więcej pracy.</li>
+</ul>
+<p>Dify jest uznawane za jedno z najlepszych rozwiązań tej klasy do tworzenia workflowów i procesów SEO.</p>
+
+<h2>Dostępność i model cenowy</h2>
+<p>Dify jest dostępne w dwóch modelach:</p>
+<ul>
+	<li><strong>SaaS:</strong> Model subskrypcyjny, gdzie płaci się miesięczną opłatę (np. około 59 dolarów za pakiet).</li>
+	<li><strong>Open Source:</strong> Narzędzie jest dostępne za darmo na GitHubie, co pozwala na instalację na własnym serwerze. Ta opcja jest szczególnie atrakcyjna ("za darmo to dobra cena" 😉).</li>
+</ul>
+<p>W kolejnych lekcjach zostanie pokazane, jak zainstalować i aktualizować Dify na własnym serwerze.</p>
+
+<h2>Kluczowe funkcje Dify</h2>
+<p>Dify oferuje szereg funkcji przydatnych w pracy z AI, zwłaszcza w kontekście SEO:</p>
+<ul>
+	<li><strong>RAG (Retrieval Augmented Generation):</strong> Możliwość budowania własnej bazy wiedzy, co jest istotne np. przy tworzeniu contentu czy chatbotów bazujących na specyficznych danych.</li>
+	<li><strong>Pipeline:</strong> Umożliwia tworzenie złożonych procesów krok po kroku.</li>
+	<li><strong>Zarządzanie modelami językowymi (LLMOps):</strong> Dify pozwala na centralne zarządzanie modelami językowymi i promptami. Można łatwo aktualizować prompty czy zmieniać modele (np. na najnowsze wersje) w jednym miejscu, a zmiany te są od razu dostępne w całej strukturze organizacji. To ułatwia pracę, nawet jeśli procesy są automatyzowane np. w Pythonie – prompty i modele AI pozostają w Dify.</li>
+	<li><strong>Agenty AI:</strong> Niedawno dodana funkcja pozwalająca na budowanie agentów AI, podobnie jak w n8n.</li>
+	<li><strong>Workflow:</strong> Tworzenie procesów krok po kroku, co pomaga zapewnić, że AI wykonuje zadania zgodnie z instrukcjami i maksymalizuje prawdopodobieństwo uzyskania pożądanego wyniku. Pozwala to również uniknąć ignorowania części instrukcji przez AI, co może się zdarzyć przy zbyt długich promptach.</li>
+	<li><strong>Chatboty:</strong> Możliwość tworzenia i wdrażania chatbotów.</li>
+</ul>
+
+<h2>Pierwsze kroki i interfejs Dify</h2>
+<p>Po zalogowaniu do Dify (w przykładzie użyto firmowej instancji Vestigio Dify) widzimy główny interfejs.</p>
+
+<h3>Główny widok – Studio</h3>
+<p>Centralne miejsce, gdzie wyświetlane są wszystkie zdefiniowane procesy. Każdy proces to osobne zadanie, które Dify może realizować. Procesy mogą być uruchamiane masowo lub przez API, co umożliwia integrację np. z Make czy Google Sheets.</p>
+
+<h3>Ustawienia</h3>
+<p>Kluczowa sekcja na początku pracy z Dify.</p>
+<ul>
+	<li><strong>Użytkownicy:</strong> Można tutaj dodawać członków zespołu i nadawać im uprawnienia do współtworzenia procesów lub bycia ich użytkownikami.</li>
+	<li><strong>Dostawcy modeli:</strong> Konfiguracja dostępu do różnych modeli językowych. Dify obsługuje m.in. <strong>OpenAI</strong>, <strong>GINA</strong>, <strong>Open Router</strong> (który agreguje wiele modeli, w tym najnowsze i open source), <strong>Anthropic</strong>, <strong>Azure</strong>, <strong>Cohere</strong>, <strong>Ollama</strong> (do uruchamiania modeli lokalnie), <strong>DeepSeek</strong>, <strong>Mistral</strong>. Warto zauważyć, że Dify jest tworzone głównie przez deweloperów z Chin, stąd dostęp do wielu chińskich modeli AI (np. od Alibaba).</li>
+	<li><strong>Źródła danych:</strong> Możliwość podłączenia zewnętrznych źródeł danych, takich jak Notion czy strony internetowe. Do pobierania danych ze stron służą narzędzia takie jak <strong>GINA Reader</strong>, <strong>FireCrawl</strong> czy <strong>WaterCrawl</strong>. Pozwala to np. na scrawlowanie całej strony internetowej i zapisanie jej treści do bazy wiedzy.</li>
+	<li><strong>Rozszerzenia API:</strong> Możliwość tworzenia własnych rozszerzeń. Interfejs Dify może być dostępny w języku polskim.</li>
+</ul>
+
+<h3>Narzędzia (Marketplace)</h3>
+<p>Dify posiada Marketplace, gdzie można:</p>
+<ul>
+	<li><strong>Aktualizować</strong> istniejące narzędzia do najnowszych wersji.</li>
+	<li><strong>Pozyskiwać nowe narzędzia</strong> od różnych deweloperów. Przykłady to <strong>Perplexity</strong> (do ściągania wiedzy), <strong>MCP Servers</strong>, wtyczka do <strong>Google Search</strong>, <strong>Search API</strong>, <strong>Wikipedia</strong>, czy integracja ze <strong>Slackiem</strong> (np. do wysyłania powiadomień po zakończeniu procesu).</li>
+</ul>
+<p>Przykładowe narzędzia używane przez prelegenta to <strong>Code Interpreter</strong>, <strong>Web Scraper</strong>, <strong>GINA</strong>.</p>
+
+<h3>Baza wiedzy (zakładka "Wiedza")</h3>
+<p>Sekcja poświęcona zarządzaniu bazami wiedzy (RAG). Można tu tworzyć i przechowywać różne konteksty wiedzowe, np. artykuły, dokumentację. Baza wiedzy składa się z tzw. <strong>czanków</strong> (chunks), czyli fragmentów tekstu. Można testować bazę wiedzy, wyszukując w niej konkretne informacje i sprawdzając trafność wyników.</p>
+
+<h3>Pluginy</h3>
+<p>Dify ma modularną budowę. Funkcjonalności takie jak obsługa OpenAI, Open Router czy GINA są realizowane przez pluginy, które można aktualizować. Istnieje możliwość tworzenia i instalowania własnych pluginów (np. z GitHub lub lokalnego pliku).</p>
+
+<h2>Praktyczny przykład: budowanie chatbota z wykorzystaniem bazy wiedzy</h2>
+<p>Poniżej kroki tworzenia prostego chatbota "Historia opon", który korzysta z przygotowanej wcześniej bazy wiedzy na temat historii wulkanizacji.</p>
+<ol>
+	<li><strong>Utwórz chatbota:</strong> W Dify wybierz opcję tworzenia nowej aplikacji, a następnie <code>Chatbot</code>. Nazwij go np. <code>Historia opon</code>.</li>
+	<li><strong>Konfiguracja chatbota:</strong></li>
+</ol>
+<ul style="margin-left: 40px;">
+	<li><strong>Wybór modelu językowego:</strong> Po prawej stronie interfejsu wybierz model, np. <code>GPT-4.1</code> lub szybszy <code>GPT-4o Mini</code>. Dostępna jest lista wielu modeli.</li>
+	<li><strong>Instrukcja (prompt):</strong> Wpisz instrukcję dla chatbota, np. <code>You are a helpful chatbot. Answer following questions.</code> Można skorzystać z wbudowanego generatora promptów lub dostosować go (np. usuwając zbędne tagi XML).</li>
+	<li><strong>Zmienne:</strong> Domyślnie Dify użyje zmiennej dla pytania użytkownika (np. <code>user_question</code>).</li>
+	<li><strong>Dodanie kontekstu (bazy wiedzy):</strong> W sekcji kontekstu wybierz wcześniej przygotowaną bazę wiedzy (w przykładzie nazwana <code>RAG TXT</code>). To kluczowy krok, aby chatbot odpowiadał na podstawie specyficznych danych.</li>
+	<li><strong>Funkcje wizyjne:</strong> Opcjonalnie można włączyć obsługę obrazów, jeśli chatbot ma analizować zdjęcia (np. bieżnika opony).</li>
+</ul>
+<ol>
+	<li><strong>Publikacja i testowanie:</strong> Kliknij <code>Opublikuj</code>. Następnie zadaj pytanie, np. "Kto wynalazł proces wulkanizacji i dlaczego jest on ważny?". Chatbot powinien odpowiedzieć, korzystając z informacji z bazy wiedzy. Można sprawdzić, które fragmenty (cytaty) z bazy zostały użyte do sformułowania odpowiedzi.</li>
+	<li><strong>Dodatkowe funkcje chatbota:</strong></li>
+</ol>
+<ul style="margin-left: 40px;">
+	<li><strong>Osadzenie na stronie internetowej:</strong> Dify generuje kod JavaScript, który pozwala umieścić chatbota na własnej stronie.</li>
+	<li><strong>Otwarcie w osobnym oknie:</strong> Umożliwia korzystanie z chatbota w dedykowanym oknie.</li>
+	<li><strong>Dostęp przez API:</strong> Chatbot może być udostępniony przez API, co pozwala na integrację z innymi systemami i budowę własnego interfejsu.</li>
+	<li><strong>Logi i monitoring:</strong> Dostępne są logi zapytań i odpowiedzi, co ułatwia debugowanie i monitorowanie pracy chatbota.</li>
+</ul>
+<p>W przykładzie chatbot poprawnie odpowiedział na pytanie o wynalazcę procesu wulkanizacji, korzystając z danych zawartych w bazie wiedzy (plik "RAG TXT", gdzie znajdowała się informacja o roku 1839).</p>
+
+<h2>Podsumowanie</h2>
+<p>Dify to potężne i elastyczne narzędzie do orkiestracji AI, szczególnie wartościowe dla zadań SEO. Omówiono jego podstawowe funkcje, interfejs, konfigurację oraz stworzono prosty, ale funkcjonalny chatbot. To solidny fundament do dalszej eksploracji możliwości Dify.</p>
+
+<p><strong>Platforma kursu:</strong> <a href="https://learn.sensai.academy/next/public/lesson/295" target="_blank">Wstęp do Dify</a></p> 
