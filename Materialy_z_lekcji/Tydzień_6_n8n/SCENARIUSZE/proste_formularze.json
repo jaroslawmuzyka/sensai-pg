@@ -1,0 +1,178 @@
+{
+  "name": "proste_formularze",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0de4db1f-69a4-4f42-9606-aa9e9c82bf6c",
+              "name": "keyword",
+              "value": "={{ $json['Słowo kluczowe'] }}",
+              "type": "string"
+            },
+            {
+              "id": "c2919a94-8cdd-496f-94b6-e59a4c1b2c3a",
+              "name": "date",
+              "value": "={{ $json.submittedAt.toDateTime().format('yyyy-MM-dd HH:mm:ss') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -540,
+        -40
+      ],
+      "id": "4339db21-0423-4322-8f78-bd149927cff7",
+      "name": "input"
+    },
+    {
+      "parameters": {
+        "formTitle": "Formularz",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Słowo kluczowe",
+              "placeholder": "Wprowadź jedno słowo kluczowe",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -740,
+        -40
+      ],
+      "id": "daa42dd1-9fc5-48e9-8149-08062382fb96",
+      "name": "On form submission",
+      "webhookId": "cea529db-3099-4460-902c-cc2296fafa37"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "255202b3-e054-465f-aa32-97145ac0b4e2",
+              "leftValue": "={{ $json.keyword }}",
+              "rightValue": ",",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -320,
+        -40
+      ],
+      "id": "b1820abe-40af-4a07-9014-2d34dd801976",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "Udało się",
+        "completionMessage": "Umiesz pisać bez przecinka!\n\nNowy formularz: https://n8n.nimblio.work/form/cea529db-3099-4460-902c-cc2296fafa37",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        -200
+      ],
+      "id": "541f178b-8afc-4bdf-a10b-2455f9205190",
+      "name": "zakonczenie_1",
+      "webhookId": "5ef2ca45-3d38-42bb-b987-f87301b774f0"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "Błąd",
+        "completionMessage": "wprowadź jedno słowo kluczowe, bez przecninka. \n\nWyślij nowy formularz: https://n8n.nimblio.work/form/cea529db-3099-4460-902c-cc2296fafa37",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        100
+      ],
+      "id": "aa345584-6c5b-45af-a4d8-44c9beb2a57e",
+      "name": "zakonczenie_2",
+      "webhookId": "caef1499-5c66-4b75-b57e-bb76cec40635"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "input": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "zakonczenie_1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "zakonczenie_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "cd56c024-24cf-42c5-aa4e-b5ed96cbfe21",
+  "meta": {
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "IjfxFgvBZoDKmRfV",
+  "tags": []
+}
