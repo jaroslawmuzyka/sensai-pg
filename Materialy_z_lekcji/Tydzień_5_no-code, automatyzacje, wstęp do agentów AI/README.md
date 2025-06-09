@@ -1,5 +1,12 @@
 # Tydzień 5: No-code, automatyzacje, wstęp do agentów AI
 
+Ten katalog zawiera materiały dodatkowe do lekcji z piątego tygodnia kursu SEO 3.0.
+
+## Spis treści
+- [Wprowadzenie do narzędzia Make.com](#wprowadzenie-do-narzędzia-makecom)
+- [Wstęp do Dify (Lekcja 01)](#wstęp-do-dify-lekcja-01)
+- [Instalacja i wstępna konfiguracja Dify na własnym serwerze (Lekcja 02)](#instalacja-i-wstępna-konfiguracja-dify-na-własnym-serwerze-lekcja-02)
+
 ## Tematy
 
 * Wprowadzenie do Make

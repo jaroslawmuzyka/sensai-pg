@@ -301,12 +301,6 @@ Site Focus to metryka określająca, jak bardzo strona internetowa jest skupiona
 ### Co to jest Site Radius?
 Site Radius to metryka pokazująca, jak szeroki jest zakres tematyczny strony. Określa, jak daleko od głównego tematu strony znajdują się poszczególne podstrony w przestrzeni semantycznej.
 
-### Dlaczego to jest ważne?
-Zgodnie z wyciekiem dokumentacji Google, te metryki są używane do:
-- Oceny jakości i spójności tematycznej strony
-- Określania autorytetu strony w danej dziedzinie
-- Wpływania na ranking w wyszukiwarce
-- Identyfikacji stron, które mogą wymagać optymalizacji tematycznej
 
 
 
