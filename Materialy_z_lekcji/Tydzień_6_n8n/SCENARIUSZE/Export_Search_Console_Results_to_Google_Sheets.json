@@ -1,0 +1,768 @@
+{
+  "name": "Export Search Console Results to Google Sheets",
+  "nodes": [
+    {
+      "parameters": {
+        "fieldToSplitOut": "rows",
+        "options": {}
+      },
+      "id": "4b9e5ca4-a3a4-435a-80ca-4eb4d292750c",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        1460,
+        -160
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7343c80f-37f3-4bb5-84d8-9f21f8a350cd",
+              "name": "Keyword",
+              "type": "string",
+              "value": "={{ $json.keys[0] }}"
+            },
+            {
+              "id": "436e7c8b-2df2-40a9-97af-597dc00cf143",
+              "name": "clicks",
+              "type": "number",
+              "value": "={{ $json.clicks }}"
+            },
+            {
+              "id": "5b4aaffe-391a-4c9d-8249-f447397a3f5d",
+              "name": "impressions",
+              "type": "number",
+              "value": "={{ $json.impressions }}"
+            },
+            {
+              "id": "33677237-57fe-48f4-aff8-72ae81b5f5a2",
+              "name": "ctr",
+              "type": "number",
+              "value": "={{ $json.ctr }}"
+            },
+            {
+              "id": "f961deee-d222-4df7-a7ff-b7286405e4a7",
+              "name": "position",
+              "type": "number",
+              "value": "={{ $json.position }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c0d5c073-d1b5-41c2-9533-3615ea70d42d",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1700,
+        -160
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "rows",
+        "options": {}
+      },
+      "id": "58bd18d8-beee-46be-a280-9618dc30aa5f",
+      "name": "Split Out1",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        1460,
+        40
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7343c80f-37f3-4bb5-84d8-9f21f8a350cd",
+              "name": "page",
+              "type": "string",
+              "value": "={{ $json.keys[0] }}"
+            },
+            {
+              "id": "436e7c8b-2df2-40a9-97af-597dc00cf143",
+              "name": "clicks",
+              "type": "number",
+              "value": "={{ $json.clicks }}"
+            },
+            {
+              "id": "5b4aaffe-391a-4c9d-8249-f447397a3f5d",
+              "name": "impressions",
+              "type": "number",
+              "value": "={{ $json.impressions }}"
+            },
+            {
+              "id": "33677237-57fe-48f4-aff8-72ae81b5f5a2",
+              "name": "ctr",
+              "type": "number",
+              "value": "={{ $json.ctr }}"
+            },
+            {
+              "id": "f961deee-d222-4df7-a7ff-b7286405e4a7",
+              "name": "position",
+              "type": "number",
+              "value": "={{ $json.position }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "da61f888-d5f8-47f4-af8a-21a47d652f0e",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1660,
+        40
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "rows",
+        "options": {}
+      },
+      "id": "c1d977c0-36fe-4c6c-b2c9-862deba86826",
+      "name": "Split Out2",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        1460,
+        220
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7343c80f-37f3-4bb5-84d8-9f21f8a350cd",
+              "name": "date",
+              "type": "string",
+              "value": "={{ $json.keys[0] }}"
+            },
+            {
+              "id": "436e7c8b-2df2-40a9-97af-597dc00cf143",
+              "name": "clicks",
+              "type": "number",
+              "value": "={{ $json.clicks }}"
+            },
+            {
+              "id": "5b4aaffe-391a-4c9d-8249-f447397a3f5d",
+              "name": "impressions",
+              "type": "number",
+              "value": "={{ $json.impressions }}"
+            },
+            {
+              "id": "33677237-57fe-48f4-aff8-72ae81b5f5a2",
+              "name": "ctr",
+              "type": "number",
+              "value": "={{ $json.ctr }}"
+            },
+            {
+              "id": "f961deee-d222-4df7-a7ff-b7286405e4a7",
+              "name": "position",
+              "type": "number",
+              "value": "={{ $json.position }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "766c4ff1-9dab-42b0-b1b7-a35ff7710d07",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1660,
+        220
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://www.googleapis.com/webmasters/v3/sites/sc-domain:{{$json.domain}}/searchAnalytics/query",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"startDate\": \"{{ $now.format('yyyy-MM-dd') }}\",\n  \"endDate\": \"{{ $now.minus($json.days, 'days').format('yyyy-MM-dd') }}\",\n  \"dimensions\": [\"date\"]\n}",
+        "options": {}
+      },
+      "id": "7098e395-2fe0-4bcb-8ffe-f0587c4dceae",
+      "name": "date",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1240,
+        220
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "KhJ01zbRO1p1WutP",
+          "name": "webmasters reklama@ibb.meida oauth2 "
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "id": "a77729b2-26fb-4798-9fc6-6d8e4ce342e4",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        580,
+        60
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 660,
+        "width": 1033,
+        "color": 4
+      },
+      "id": "c90e6903-b25f-4728-8e16-b47c2555877a",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1100,
+        -240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "\n## Usage\n\n1. Make a copy of this google sheet https://docs.google.com/spreadsheets/d/10hSuGOOf14YvVY2Bw8WXUIpsyXO614l7qNEjkyVY_Qg/edit?usp=sharing\n\n2. Set your google service credentials and add these scopes `https://www.googleapis.com/auth/webmasters, https://www.googleapis.com/auth/webmasters.readonly, https://www.googleapis.com/auth/adwords`\n\n3. Replace the domains with your desired domains\n\n\n1. **Understanding the Workflow:**\n- **Nodes Overview:**\nThis workflow contains several nodes:\n- **Set your domain:** Sets the domain to be used in the queries.\n- **Schedule Trigger:** Starts the workflow based on a defined schedule.\n- **HttpRequest (query, page, date):** Fetches data from Google's Search Console API using specified dimensions and dates.\n- **Split Out (x3):** Splits the incoming JSON array into individual items for further processing.\n- **Edit Fields (x3):** Maps the outgoing data to specified fields, preparing it for insertion into Google Sheets.\n- **Google Sheets (x3):** Adds or updates entries in specified Google Sheets documents with the fetched data.\n\n- **Inputs and Outputs:**\n- Input: API response from Google Search Console regarding keywords, page data, and date data.\n- Output: Entries written to Google Sheets containing keyword data, clicks, impressions, CTR, and positions.\n\n2. **Setup Instructions:**\n- **Prerequisites:**\n- An n8n instance set up and running.\n- Active Google Account with access to Google Search Console and Google Sheets.\n- Google OAuth 2.0 credentials for API access.\n\n- **Step-by-Step Setup:**\n1. Open n8n and create a new workflow.\n2. Add the nodes as described in the JSON.\n3. Configure the **Google OAuth2** credentials in n8n to enable API access.\n4. Set your domain in the **Set your domain** node.\n5. Customize the Google Sheets document URLs to your personal sheets.\n6. Adjust the schedule in the **Schedule Trigger** node as per your requirements.\n7. Save the workflow.\n\n- **Configuration Options:**\n- You can customize the date ranges in the body of the **HttpRequest** nodes.\n- Adjust any fields in the **Edit Fields** nodes based on different data requirements.\n\n3. **Use Case Examples:**\n- Useful in tracking website performance over time using Search Console metrics.\n- Ideal for digital marketers, SEO specialists, and web analytics professionals.\n- Offers value in compiling performance reports for stakeholders or team reviews.\n\n4. **Running and Troubleshooting:**\n- **Running the Workflow:**\n- Trigger the workflow manually or wait for the schedule to run it automatically.\n\n- **Monitoring Execution:**\n- Check the execution logs in n8n's dashboard to ensure all nodes complete successfully.\n\n- **Common Issues:**\n- Invalid OAuth credentials – ensure credentials are set up correctly.\n- Incorrect Google Sheets URLs – double-check document links and permissions.\n- Scheduling conflicts – make sure the schedule set does not overlap with other workflows.\n",
+        "height": 828,
+        "width": 645,
+        "color": 4
+      },
+      "id": "9999fb55-a1d3-490b-ab8b-816018126ade",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -120,
+        -300
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# Search console REPORTS",
+        "height": 80,
+        "width": 503.60808870324274,
+        "color": 4
+      },
+      "id": "30687ce2-2508-49cd-95da-28c4d7c715ae",
+      "name": "Sticky Note17",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1320,
+        -300
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6f74dee0-3789-433e-b60e-ed2a05202675",
+              "name": "domain",
+              "type": "string",
+              "value": "sklepsejfy.pl"
+            },
+            {
+              "id": "8c73135e-9d39-4f66-821d-7decb3c64085",
+              "name": "days",
+              "type": "number",
+              "value": 7
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b3b54796-cbeb-472d-88b8-028d69e9a658",
+      "name": "Set your domain",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        860,
+        60
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2F{{$json.domain}}%2F/searchAnalytics/query",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"startDate\": \"{{ $now.minus($json.days, 'days').format('yyyy-MM-dd') }}\",\n  \"endDate\": \"{{ $now.format('yyyy-MM-dd') }}\",\n  \"dimensions\": [\"query\",\"page\"]\n}",
+        "options": {}
+      },
+      "id": "4f0d4b76-f4b9-43b3-a812-35340a58504f",
+      "name": "Get query Report",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1200,
+        -160
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "KhJ01zbRO1p1WutP",
+          "name": "webmasters reklama@ibb.meida oauth2 "
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2F{{$json.domain}}%2F/searchAnalytics/query",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"startDate\": \"{{ $now.minus($json.days, 'days').format('yyyy-MM-dd') }}\",\n  \"endDate\": \"{{ $now.format('yyyy-MM-dd') }}\",\n  \"dimensions\": [\"page\"]\n}",
+        "options": {}
+      },
+      "id": "27328d60-2bdb-42f3-bc90-554385420e21",
+      "name": "Get Page Report",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1240,
+        40
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "googleOAuth2Api": {
+          "id": "KhJ01zbRO1p1WutP",
+          "name": "webmasters reklama@ibb.meida oauth2 "
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Set Domain and the days frequency",
+        "height": 300,
+        "width": 300,
+        "color": 4
+      },
+      "id": "d7c77e2d-e808-40b4-ba51-72a572c4441d",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        760,
+        -20
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://docs.google.com/spreadsheets/d/10hSuGOOf14YvVY2Bw8WXUIpsyXO614l7qNEjkyVY_Qg/edit?usp=sharing"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": 996986484,
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10hSuGOOf14YvVY2Bw8WXUIpsyXO614l7qNEjkyVY_Qg/edit#gid=996986484",
+          "cachedResultName": "Query"
+        },
+        "columns": {
+          "value": {},
+          "schema": [
+            {
+              "id": "Keyword",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "Keyword",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "clicks",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "clicks",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "impressions",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "impressions",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ctr",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "ctr",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "position",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "position",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "mappingMode": "autoMapInputData",
+          "matchingColumns": [
+            "Keyword"
+          ]
+        },
+        "options": {}
+      },
+      "id": "5825cd15-3166-4718-8d13-584836902a21",
+      "name": "Update queries to Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1900,
+        -160
+      ],
+      "typeVersion": 4.5
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://docs.google.com/spreadsheets/d/10hSuGOOf14YvVY2Bw8WXUIpsyXO614l7qNEjkyVY_Qg/edit?usp=sharing"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gid=0",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10hSuGOOf14YvVY2Bw8WXUIpsyXO614l7qNEjkyVY_Qg/edit#gid=0",
+          "cachedResultName": "PAGES"
+        },
+        "columns": {
+          "value": {},
+          "schema": [
+            {
+              "id": "page",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "page",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "clicks",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "clicks",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "impressions",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "impressions",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ctr",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "ctr",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "position",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "position",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "mappingMode": "autoMapInputData",
+          "matchingColumns": [
+            "page"
+          ]
+        },
+        "options": {}
+      },
+      "id": "3c47ec53-2d8c-41f6-b4b2-03443228e706",
+      "name": "Update Pages to Sheets ",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1880,
+        40
+      ],
+      "typeVersion": 4.5
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "https://docs.google.com/spreadsheets/d/10hSuGOOf14YvVY2Bw8WXUIpsyXO614l7qNEjkyVY_Qg/edit?usp=sharing"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": 1823079319,
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10hSuGOOf14YvVY2Bw8WXUIpsyXO614l7qNEjkyVY_Qg/edit#gid=1823079319",
+          "cachedResultName": "Dates"
+        },
+        "columns": {
+          "value": {},
+          "schema": [
+            {
+              "id": "date",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "date",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "clicks",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "clicks",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "impressions",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "impressions",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ctr",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "ctr",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "position",
+              "type": "string",
+              "display": true,
+              "removed": false,
+              "required": false,
+              "displayName": "position",
+              "defaultMatch": false,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "mappingMode": "autoMapInputData",
+          "matchingColumns": [
+            "date"
+          ]
+        },
+        "options": {}
+      },
+      "id": "1118b483-07b6-462c-b01a-1a5a5953bc5e",
+      "name": "Update date report to sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1880,
+        220
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.5
+    },
+    {
+      "parameters": {
+        "content": "https://www.googleapis.com/auth/webmasters,\nhttps://www.googleapis.com/auth/webmasters.readonly,\nhttps://www.googleapis.com/auth/adwords",
+        "width": 460
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -60,
+        -520
+      ],
+      "typeVersion": 1,
+      "id": "6ebaeb88-772c-4a78-a8cb-c81b28f4f5a7",
+      "name": "Sticky Note3"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "date": {
+      "main": [
+        [
+          {
+            "node": "Split Out2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        []
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Update queries to Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Update Pages to Sheets ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Update date report to sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Page Report": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set your domain": {
+      "main": [
+        []
+      ]
+    },
+    "Get query Report": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set your domain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "ba6e327d-a0bb-4ed5-8201-cf7891e6da48",
+  "meta": {
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "0Or0TZPHZc4LfeXC",
+  "tags": []
+}

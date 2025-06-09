@@ -1,0 +1,256 @@
+{
+  "name": "blok agenta",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -460,
+        -80
+      ],
+      "id": "44d9ca76-b492-4f74-917e-df5859cb020b",
+      "name": "When chat message received",
+      "webhookId": "a124d4d6-1694-4c84-8b80-bbe5f8e0122e"
+    },
+    {
+      "parameters": {
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Dzisiaj jest (YYYY-MM-dd HH:mm): {{ $now.format('yyyy-MM-dd HH:mm') }}\n\nOdpowiadaj w formacie JSON. Format odpowiedzi:\n\n{\n  \"date\": \"tutaj wpisz aktualną datę i godzinę\",\n  \"message\": \"tutaj wpisz tresc odpowiedzi\"\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -80,
+        -80
+      ],
+      "id": "01e8981a-d8e1-4add-ab8a-658395b47406",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -200,
+        260
+      ],
+      "id": "06dab54b-50af-4ae7-bafa-d4e12ec08787",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        0,
+        280
+      ],
+      "id": "e05946e0-c8c7-4797-bc20-6be56ca15887",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseFormat": "json_object"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        180
+      ],
+      "id": "707f886b-748f-4123-a7b6-83e87e092190",
+      "name": "model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "cxxykvBVJ4BwAWb8",
+          "name": "openrouter nimblio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserAutofixing",
+      "typeVersion": 1,
+      "position": [
+        220,
+        140
+      ],
+      "id": "ec8e4faa-4efe-421e-b3fb-4d29bfea260b",
+      "name": "Auto-fixing Output Parser"
+    },
+    {
+      "parameters": {
+        "model": "anthropic/claude-3.5-sonnet",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        200,
+        360
+      ],
+      "id": "9320d7d7-9596-41d0-9750-a7c40190a2a1",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "cxxykvBVJ4BwAWb8",
+          "name": "openrouter nimblio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"data\": \"Aktualna data i godzina\",\n\t\"message\": \"wiadaomość do użytkownika\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        480,
+        400
+      ],
+      "id": "87477c57-d199-43f1-9329-3b167a29ade7",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "15d12f58-1fbb-4cfd-99aa-54a3d0b3e040",
+              "name": "output",
+              "value": "={{ $json.output }}",
+              "type": "object"
+            },
+            {
+              "id": "ee22c5f0-809b-4920-b44d-2ce4e138d325",
+              "name": "data",
+              "value": "={{ $json.output.data }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        360,
+        -80
+      ],
+      "id": "13a5465f-bfd4-441b-8b92-e595f9bbea56",
+      "name": "output"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auto-fixing Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Auto-fixing Output Parser",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "cfe9c6f5-5430-4f58-9a0f-ae22dd6d43d7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "WNRi39gS0HrL2Cgu",
+  "tags": []
+}

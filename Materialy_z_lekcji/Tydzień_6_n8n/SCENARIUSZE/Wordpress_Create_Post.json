@@ -1,0 +1,445 @@
+{
+  "name": "Wordpress Create Post",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/10x4AxwYXkpDpb6Y94wq4_GbvuyPmXTPPAivFLUiH3Tg/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/10x4AxwYXkpDpb6Y94wq4_GbvuyPmXTPPAivFLUiH3Tg/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "to wordpress"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -60,
+        -40
+      ],
+      "id": "6259da1b-c775-4d49-be2f-484c954b6fb1",
+      "name": "getRowsFromSheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yTQwBHgpFHqp2Mxw",
+          "name": "gSheets roman@ibb.media"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "={{ $json['Google Docs'] }}"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        160,
+        -40
+      ],
+      "id": "f3135097-9b18-4fac-9bbe-dff21e4f0392",
+      "name": "getDocs",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "LepLLN2l4oj3ujf8",
+          "name": "reklama@ibb.media gdocs"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://www.googleapis.com/drive/v3/files/{{ $json.documentId }}/export",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDriveOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "mimeType",
+              "value": "text/html"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        -40
+      ],
+      "id": "b0bab349-94ab-4ea6-a2bb-0e296afbe177",
+      "name": "getGoogleDocsDocument",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "vp8otZvu1Mj2Qaj2",
+          "name": "reklama@ibb.media gDrive"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "html": "={{ $json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        600,
+        -40
+      ],
+      "id": "fc3379a4-f9e9-42a6-ba78-d3a33e7f5f36",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.data }}",
+        "options": {
+          "noHeaderId": true,
+          "tables": true
+        }
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        820,
+        -40
+      ],
+      "id": "5041c821-e4d8-4572-8edd-e18cba75b34b",
+      "name": "toHTML"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7fa4b71-9352-43fb-b6b4-d65c38cc8f3c",
+              "name": "post_title",
+              "value": "={{ $json.data.match(/<h1[^>]*>(.+?)<\\/h1>/)[1] }}",
+              "type": "string"
+            },
+            {
+              "id": "8731ad13-59ad-415d-a901-0570612fe3ed",
+              "name": "post_content",
+              "value": "={{ $json.data.replace(/<h1[^>]*>.*?<\\/h1>\\s*/, '') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1040,
+        -40
+      ],
+      "id": "40c91616-3f72-438a-9f7c-964867aef337",
+      "name": "content"
+    },
+    {
+      "parameters": {
+        "title": "={{ $json.post_title }}",
+        "additionalFields": {
+          "content": "={{ $json.post_content }}",
+          "status": "draft"
+        }
+      },
+      "type": "n8n-nodes-base.wordpress",
+      "typeVersion": 1,
+      "position": [
+        1260,
+        -40
+      ],
+      "id": "b8cb1b3b-33a6-45e4-8f35-000b253dd1a8",
+      "name": "toWordPress",
+      "credentials": {
+        "wordpressApi": {
+          "id": "dUXdMI5IIkDWgLJh",
+          "name": "prestaplay.pl"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/10x4AxwYXkpDpb6Y94wq4_GbvuyPmXTPPAivFLUiH3Tg/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/10x4AxwYXkpDpb6Y94wq4_GbvuyPmXTPPAivFLUiH3Tg/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('getRowsFromSheet').item.json.row_number }}",
+            "Status": "draft",
+            "Post ID": "={{ $json.id }}",
+            "Post URL": "=https://prestaplay.pl/wp-admin/post.php?post={{ $json.id }}&action=edit"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Google Docs",
+              "displayName": "Google Docs",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Post URL",
+              "displayName": "Post URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Post ID",
+              "displayName": "Post ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1480,
+        -40
+      ],
+      "id": "02819acd-1ecf-4972-ab34-f5960327eb57",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yTQwBHgpFHqp2Mxw",
+          "name": "gSheets roman@ibb.media"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -340,
+        -40
+      ],
+      "id": "f841bb21-320d-4582-b76f-e19a735748bf",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/10x4AxwYXkpDpb6Y94wq4_GbvuyPmXTPPAivFLUiH3Tg/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/10x4AxwYXkpDpb6Y94wq4_GbvuyPmXTPPAivFLUiH3Tg/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "includeInOutput": "old",
+        "options": {
+          "columnsToWatch": [
+            "Status"
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        260
+      ],
+      "id": "73b8dbb0-2797-49af-b9c0-a2852d08cc8e",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "jf96aETCMxTNN1zR",
+          "name": "gheets trigger roman@ibb.media"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "getRowsFromSheet": {
+      "main": [
+        [
+          {
+            "node": "getDocs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "getDocs": {
+      "main": [
+        [
+          {
+            "node": "getGoogleDocsDocument",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "getGoogleDocsDocument": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "toHTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "toHTML": {
+      "main": [
+        [
+          {
+            "node": "content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "content": {
+      "main": [
+        [
+          {
+            "node": "toWordPress",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "toWordPress": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "getRowsFromSheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "014da823-a3bb-47f1-9400-868efe0737ef",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "LuMKdpEhNAvjXfxd",
+  "tags": []
+}
