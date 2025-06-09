@@ -32,7 +32,8 @@ W tej lekcji poznasz podstawy narzędzia Make.com (dawniej Integromat) i nauczys
 
 **Plik automatyzacji**: [SensAI - automatyzacja do tworzenia nagłówków - SEO 3.0.blueprint.json](../../Automatyzacje/SensAI%20-%20automatyzacja%20do%20tworzenia%20nagłówków%20-%20SEO%203.0.blueprint.json)
 
-#### Ogólny opis i cel automatyzacji
+<details>
+<summary><strong>📋 Ogólny opis i cel automatyzacji</strong></summary>
 
 Ta automatyzacja to zaawansowane narzędzie do analizy konkurencji SEO, które wykorzystuje sztuczną inteligencję do tworzenia content briefs. System automatycznie analizuje najlepsze wyniki wyszukiwania Google dla danego słowa kluczowego, wyodrębnia z nich kluczowe informacje za pomocą AI, a następnie generuje zoptymalizowaną strukturę artykułu.
 
@@ -50,68 +51,74 @@ Ta automatyzacja to zaawansowane narzędzie do analizy konkurencji SEO, które w
 - Integracja z Google Sheets dla łatwego zarządzania
 - Wykorzystanie najnowszych modeli AI (GPT-4o, GPT-4o-mini)
 
-#### Opis automatyzacji krok po kroku
+</details>
 
-##### 1. **Moduł Google Sheets: Watch Rows** (ID: 7)
+<details>
+<summary><strong>🔧 Opis automatyzacji krok po kroku</strong></summary>
+
+#### 1. **Moduł Google Sheets: Watch Rows** (ID: 7)
 - **Co robi**: Monitoruje arkusz Google Sheets i uruchamia automatyzację gdy pojawi się nowy wiersz
 - **Konfiguracja**: Śledzi arkusz "SensAI - proces generowania nagłówków - SEO 3.0", Sheet1
 - Pobiera słowo kluczowe z kolumny A (np. "Jak obrać ziemiaki?")
 
-##### 2. **HTTP Request do SerpData API** (ID: 5)
+#### 2. **HTTP Request do SerpData API** (ID: 5)
 - **Co robi**: Wykonuje zapytanie do API SerpData.io aby pobrać wyniki wyszukiwania Google
 - **URL**: `https://api.serpdata.io/v1/search?keyword={{słowo_kluczowe}}&hl=pl&gl=pl`
 - Pobiera organiczne wyniki wyszukiwania dla danego słowa kluczowego
 
-##### 3. **Basic Feeder - TOP10** (ID: 64)
+#### 3. **Basic Feeder - TOP10** (ID: 64)
 - **Co robi**: Iteruje przez wyniki organiczne z SerpData
 - **Filtr**: "TOP10" - przetwarza wyniki wyszukiwania
 
-##### 4. **HTTP Request do Jina.ai** (ID: 31)
+#### 4. **HTTP Request do Jina.ai** (ID: 31)
 - **Co robi**: Dla każdego wyniku (maksymalnie TOP 5) pobiera treść strony za pomocą Jina.ai
 - **URL**: `https://r.jina.ai/{{url_strony}}`
 - **Filtr**: "TOP5" - ogranicza do pierwszych 5 wyników
 - Ma obsługę błędów (moduł Ignore ID: 66)
 
-##### 5. **Basic Feeder** (ID: 84)
+#### 5. **Basic Feeder** (ID: 84)
 - **Co robi**: Iteruje przez pobrane treści stron
 
-##### 6. **Basic Aggregator** (ID: 88)
+#### 6. **Basic Aggregator** (ID: 88)
 - **Co robi**: Agreguje wszystkie pobrane treści w jedną strukturę danych
 
-##### 7. **JSON Transform** (ID: 91)
+#### 7. **JSON Transform** (ID: 91)
 - **Co robi**: Konwertuje zagregowane dane do formatu JSON
 
-##### 8. **OpenAI GPT-4o-mini - Ekstrakcja faktów** (ID: 68)
+#### 8. **OpenAI GPT-4o-mini - Ekstrakcja faktów** (ID: 68)
 - **Co robi**: Używa AI do wyodrębnienia faktów z treści konkurencyjnych stron
 - **Prompt**: Zawiera szczegółowe instrukcje do ekstraktowania i organizowania faktów
 - Wynik zapisywany w kolumnie C (Facts)
 
-##### 9. **OpenAI GPT-4o - Tworzenie outline** (ID: 71)
+#### 9. **OpenAI GPT-4o - Tworzenie outline** (ID: 71)
 - **Co robi**: Na podstawie wyodrębnionych faktów tworzy strukturę artykułu w HTML
 - Generuje outline z tagami H1, H2, H3
 - Wynik zapisywany w kolumnie D (Outline)
 
-##### 10. **Google Sheets: Update Row** (ID: 72)
+#### 10. **Google Sheets: Update Row** (ID: 72)
 - **Co robi**: Zapisuje wyniki z powrotem do arkusza Google Sheets
 - Kolumna B: Wyniki SERP
 - Kolumna C: Wyodrębnione fakty  
 - Kolumna D: Wygenerowany outline
 
-#### Wymagane klucze API i konfiguracja
+</details>
 
-##### 1. **SerpData.io API Key**
+<details>
+<summary><strong>🔑 Wymagane klucze API i konfiguracja</strong></summary>
+
+#### 1. **SerpData.io API Key**
 - **Gdzie wstawić**: Moduł HTTP Request (ID: 5)
 - **Lokalizacja**: Headers → Authorization → Bearer `[KLUCZ_API]`
 - **Jak uzyskać**: Zarejestruj się na [serpdata.io](https://serpdata.io)
 - **Uwagi**: Sprawdź limity API i cennik
 
-##### 2. **Jina.ai API Key** 
+#### 2. **Jina.ai API Key** 
 - **Gdzie wstawić**: Moduł HTTP Request (ID: 31)
 - **Lokalizacja**: Headers → Authorization → Bearer `[KLUCZ_API]`
 - **Jak uzyskać**: Zarejestruj się na [jina.ai](https://jina.ai)
 - **Uwagi**: Usługa do pobierania treści stron internetowych
 
-##### 3. **OpenAI API Key**
+#### 3. **OpenAI API Key**
 - **Gdzie wstawić**: Moduły OpenAI (ID: 68 i 71)
 - **Lokalizacja**: Connection → "Senuto" (nazwa połączenia)
 - **Jak uzyskać**: 
@@ -120,7 +127,7 @@ Ta automatyzacja to zaawansowane narzędzie do analizy konkurencji SEO, które w
   3. Wygeneruj nowy klucz API
 - **Uwagi**: Wymaga aktywnego konta z dostępem do GPT-4o i GPT-4o-mini
 
-##### 4. **Google Sheets Connection**
+#### 4. **Google Sheets Connection**
 - **Gdzie skonfigurować**: Moduły Google Sheets (ID: 7 i 72)  
 - **Lokalizacja**: Connection → "D Senuto" (nazwa połączenia)
 - **Jak skonfigurować**: 
@@ -129,7 +136,10 @@ Ta automatyzacja to zaawansowane narzędzie do analizy konkurencji SEO, które w
   3. Autoryzuj dostęp do swojego konta Google
   4. Wybierz odpowiedni arkusz
 
-#### Wymagania techniczne
+</details>
+
+<details>
+<summary><strong>⚙️ Wymagania techniczne</strong></summary>
 
 **Struktura arkusza Google Sheets:**
 - **Kolumna A**: Słowo kluczowe (trigger)
@@ -143,7 +153,10 @@ Ta automatyzacja to zaawansowane narzędzie do analizy konkurencji SEO, które w
 - **Strefa**: eu1.make.com
 - **Wersja**: 1
 
-#### Podsumowanie działania
+</details>
+
+<details>
+<summary><strong>📈 Podsumowanie działania</strong></summary>
 
 Ta automatyzacja tworzy kompleksowy system analizy konkurencji SEO, który:
 
@@ -154,6 +167,8 @@ Ta automatyzacja tworzy kompleksowy system analizy konkurencji SEO, który:
 5. **Zapisuje wyniki** z powrotem do arkusza
 
 To profesjonalne narzędzie do research SEO wykorzystujące najnowsze technologie AI do tworzenia wysokiej jakości content briefs, które znacząco przyspieszają proces tworzenia treści zoptymalizowanych pod wyszukiwarki.
+
+</details>
 
 ---
 
