@@ -10,6 +10,7 @@ Ten katalog zawiera materiały dodatkowe do lekcji z czwartego tygodnia kursu SE
 - [Lekcja: Pamięć długoterminowa modeli językowych + re-ranking](#lekcja-pamięć-długoterminowa-modeli-językowych--re-ranking)
 - [Lekcja: Re-ranking w praktyce](#lekcja-re-ranking-w-praktyce)
 - [Lekcja: [Ćwiczenie] Różne metody wykorzystania embeddingów i semantyki w pracy nad SEO](#lekcja-ćwiczenie-różne-metody-wykorzystania-embeddingów-i-semantyki-w-pracy-nad-seo)
+- [Lekcja: Site Focus & Site Radius](#lekcja-site-focus--site-radius)
 
 ---
 
@@ -26,6 +27,7 @@ Ten katalog zawiera materiały dodatkowe do lekcji z czwartego tygodnia kursu SE
 | Indeksowanie danych do baz wektorowych | Notatnik pokazujący, jak indeksować dane w bazach wektorowych i wykonywać zapytania semantyczne. | [Otwórz w Colab](https://colab.research.google.com/drive/1phQj24TXDi8RJ0-cDCXcG_8qqoW3Cs7u?usp=sharing) |
 | Re-ranking w praktyce | Praktyczne zastosowanie modeli re-rankingowych do poprawy jakości wyników wyszukiwania semantycznego | [Otwórz w Colab](https://colab.research.google.com/drive/1J_35X0ee4_OjZjP4cX3N9O6iqI3e2mXH?usp=sharing) |
 | [Ćwiczenie] Różne metody wykorzystania embeddingów i semantyki w pracy nad SEO | Praktyczne przykłady wykorzystania embeddingów do analizy i optymalizacji strony www | [Otwórz w Colab](https://colab.research.google.com/drive/1KFgH7utwJ4imqQjO1mM8L560q9Zb63Zu?usp=sharing) |
+| Site Focus & Site Radius | Analiza i obliczanie metryk Site Focus i Site Radius dla strony www | [Otwórz w Colab](https://colab.research.google.com/drive/1KFgH7utwJ4imqQjO1mM8L560q9Zb63Zu?usp=sharing) |
 
 ---
 
@@ -276,6 +278,35 @@ W tej lekcji poznasz różne praktyczne metody wykorzystania modeli embeddingowy
    - Identyfikacja brakujących tematów
    - Analiza różnic w pokryciu tematycznym
    - Generowanie rekomendacji contentowych
+
+## Lekcja: Site Focus & Site Radius
+
+W tej lekcji poznasz koncepcje Site Focus i Site Radius, które są kluczowymi metrykami w ocenie jakości i spójności tematycznej strony internetowej. Te metryki zostały potwierdzone w wycieku dokumentacji Google Content Warehouse API.
+
+### Materiały do lekcji:
+- [Notatnik Colab: Site Focus & Site Radius](https://colab.research.google.com/drive/1KFgH7utwJ4imqQjO1mM8L560q9Zb63Zu?usp=sharing) - skrypt do obliczania metryk znajduje się na końcu notatnika
+
+### Przydatne linki:
+- [Jak SEO rozwija się po wycieku algorytmu Google](https://searchengineland.com/how-seo-moves-forward-google-leak-442749)
+- [Tajemnice algorytmu: wyciek wewnętrznej dokumentacji Google Search](https://ipullrank.com/google-algo-leak)
+- [Czym jest Site Focus i Site Radius? Krytyczne czynniki kształtujące sukces eSEO](https://promotraffic.pl/blog/czym-jest-site-focus-i-site-radius-krytyczne-czynniki-ksztaltujace-sukces-eseo)
+- [Website Focus - analiza spójności tematycznej](https://inlinks.com/insight/website_focus/)
+
+### Narzędzia:
+- [Site Focus Calculator by Roman Rozenberger](https://github.com/romek-rozen/siteFocusOllama) - narzędzie do obliczania metryk Site Focus i Site Radius
+
+### Co to jest Site Focus?
+Site Focus to metryka określająca, jak bardzo strona internetowa jest skupiona na konkretnym temacie lub niszy. Wysoki Site Focus oznacza, że strona jest spójna tematycznie i specjalizuje się w określonej dziedzinie.
+
+### Co to jest Site Radius?
+Site Radius to metryka pokazująca, jak szeroki jest zakres tematyczny strony. Określa, jak daleko od głównego tematu strony znajdują się poszczególne podstrony w przestrzeni semantycznej.
+
+### Dlaczego to jest ważne?
+Zgodnie z wyciekiem dokumentacji Google, te metryki są używane do:
+- Oceny jakości i spójności tematycznej strony
+- Określania autorytetu strony w danej dziedzinie
+- Wpływania na ranking w wyszukiwarce
+- Identyfikacji stron, które mogą wymagać optymalizacji tematycznej
 
 
 
