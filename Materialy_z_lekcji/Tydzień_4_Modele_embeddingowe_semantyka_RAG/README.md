@@ -9,6 +9,7 @@ Ten katalog zawiera materiały dodatkowe do lekcji z czwartego tygodnia kursu SE
 - [Lekcja: Przechowywanie embeddingów](#lekcja-przechowywanie-embeddingów)
 - [Lekcja: Pamięć długoterminowa modeli językowych + re-ranking](#lekcja-pamięć-długoterminowa-modeli-językowych--re-ranking)
 - [Lekcja: Re-ranking w praktyce](#lekcja-re-ranking-w-praktyce)
+- [Lekcja: [Ćwiczenie] Różne metody wykorzystania embeddingów i semantyki w pracy nad SEO](#lekcja-ćwiczenie-różne-metody-wykorzystania-embeddingów-i-semantyki-w-pracy-nad-seo)
 
 ---
 
@@ -24,6 +25,7 @@ Ten katalog zawiera materiały dodatkowe do lekcji z czwartego tygodnia kursu SE
 | Przechowywanie embeddingów | Notatnik pokazujący, jak wrzucić dane z datasetu do Qdrant i Supabase wraz z wektorami wygenerowanymi przez Gemini. | [Otwórz w Colab](https://colab.research.google.com/drive/1Ic2yXVuoBSVKKZRHmZXxjXDYkm2py5y4?usp=sharing) |
 | Indeksowanie danych do baz wektorowych | Notatnik pokazujący, jak indeksować dane w bazach wektorowych i wykonywać zapytania semantyczne. | [Otwórz w Colab](https://colab.research.google.com/drive/1phQj24TXDi8RJ0-cDCXcG_8qqoW3Cs7u?usp=sharing) |
 | Re-ranking w praktyce | Praktyczne zastosowanie modeli re-rankingowych do poprawy jakości wyników wyszukiwania semantycznego | [Otwórz w Colab](https://colab.research.google.com/drive/1J_35X0ee4_OjZjP4cX3N9O6iqI3e2mXH?usp=sharing) |
+| [Ćwiczenie] Różne metody wykorzystania embeddingów i semantyki w pracy nad SEO | Praktyczne przykłady wykorzystania embeddingów do analizy i optymalizacji strony www | [Otwórz w Colab](https://colab.research.google.com/drive/1KFgH7utwJ4imqQjO1mM8L560q9Zb63Zu?usp=sharing) |
 
 ---
 
@@ -249,6 +251,31 @@ W tej lekcji pokażemy na praktycznym przykładzie jak działają modele re-rank
    - Link: [Cohere Rerank](https://cohere.com/rerank)
    - Proste w użyciu API REST
    - Optymalizowane pod kątem re-rankingu wyników wyszukiwania
+
+## Lekcja: [Ćwiczenie] Różne metody wykorzystania embeddingów i semantyki w pracy nad SEO
+
+W tej lekcji poznasz różne praktyczne metody wykorzystania modeli embeddingowych w pracy nad SEO. 
+
+### Materiały do lekcji:
+- [Notatnik Colab: [Ćwiczenie] Różne metody wykorzystania embeddingów i semantyki w pracy nad SEO](https://colab.research.google.com/drive/1KFgH7utwJ4imqQjO1mM8L560q9Zb63Zu?usp=sharing)
+
+### Dodatkowe pomysły wykorzystania embeddingów w SEO:
+
+1. **Klasteryzacja danych**
+   - Grupowanie podobnych treści na stronie
+   - Identyfikacja powtarzających się tematów
+   - Optymalizacja struktury wewnętrznej
+   - [Przykład implementacji z Gemini API](https://github.com/google/generative-ai-docs/blob/main/site/en/gemini-api/tutorials/text_classifier_embeddings.ipynb)
+
+2. **Mapowanie przekierowań na nowej stronie**
+   - Automatyczne dopasowanie starych URL-i do nowych
+   - Optymalizacja struktury przekierowań
+   - Zachowanie wartości SEO przy migracji
+
+3. **Wyznaczanie content GAP do konkurencji**
+   - Identyfikacja brakujących tematów
+   - Analiza różnic w pokryciu tematycznym
+   - Generowanie rekomendacji contentowych
 
 
 
