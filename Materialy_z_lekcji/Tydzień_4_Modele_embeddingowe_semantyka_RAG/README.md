@@ -302,5 +302,7 @@ Site Focus to metryka określająca, jak bardzo strona internetowa jest skupiona
 Site Radius to metryka pokazująca, jak szeroki jest zakres tematyczny strony. Określa, jak daleko od głównego tematu strony znajdują się poszczególne podstrony w przestrzeni semantycznej.
 
 
+## Dodatkowe źródła wiedzy
 
+- Przechpwywanie embeddingów w plikach mp4: https://www.cohorte.co/blog/turn-an-mp4-into-your-fastest-vector-store-meet-memvid-2025
 
