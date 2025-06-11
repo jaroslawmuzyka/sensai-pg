@@ -23,61 +23,46 @@ n8n to potężne narzędzie do automatyzacji przepływów pracy (workflow automa
 
 ## Tematy omawiane w tygodniu 6
 
-### Wprowadzenie do n8n
-* Przegląd interfejsu użytkownika
+### 1. Wprowadzenie i podstawy
+- Wstęp do tygodnia
+- Lekcja wstępna do instalacji
+- Jakie instalacje wybrać
 
-### Instalacja i korzystanie z n8n
-* Opcje instalacji: cloud, selfhosted, local
-* Konfiguracja środowiska Docker
-* Pierwsze uruchomienie i konfiguracja
-* Zarządzanie instancją n8n
+### 2. Instalacja n8n
+- Instalacja n8n na localhost
+- Instalacja n8n na Hetznerze
+- Instalacja n8n na Mikrusie
+- Instalacja n8n na Railway
+- Instalacja n8n na Elestio
 
-### Podstawy pracy z n8n
-* Dane logowania i zarządzanie dostępem
-* Podstawowe bloki do komunikacji
-* Konfiguracja credentiali dla różnych serwisów
-* Szczegółowa konfiguracja dla Google API
+### 3. Podstawy pracy z n8n
+- Interfejs n8n
+- Łączenie bloków
+- Blok agenta
+- Import szablonów
 
-### Przetwarzanie danych w n8n
-* Przetwarzanie różnych typów danych (JSON, CSV, XML)
-* Transformacja i mapowanie danych
-* Łączenie i dzielenie strumieni danych
-* Filtrowanie i sortowanie danych
+### 4. Integracje z narzędziami Google
+- Połączenie n8n z narzędziami Google
+- Google Trends to Google Sheets
+- Eksport do GDocs
 
-### Komunikacja z zewnętrznymi API
-* Blok HTTP Request i jego możliwości
-* Korzystanie z dokumentacji API
-* Autoryzacja i uwierzytelnianie w zapytaniach
-* Obsługa odpowiedzi i błędów
+### 5. Integracje z CMS i bazami danych
+- WordPress - część 1
+- WordPress - część 2
+- Podstawy pracy z Qdrant
+- Zaawansowana praca z Qdrant
 
-### Integracja z WordPress 
-* Konfiguracja połączenia z WordPress
-* Automatyzacja zadań w WordPress
-* Przykłady praktycznych workflow
+### 6. Praca z API i danymi
+- Pobieranie danych ze strony
+- Korzystanie z zewnętrznych API
+- Integracja z Senuto
+- Senuto - Widoczność Domeny
+- Agent korzystający z zewnętrznych API
+- Połączenie n8n z rownowaznikiem
 
-### Tworzenie narzędzi dla agentów AI
-* Projektowanie narzędzi do ponownego wykorzystania
-* Tworzenie endpointów dla agentów AI
-* Integracja narzędzi z innymi blokami
-* Testowanie i debugowanie narzędzi
-
-### Obsługa błędów i workflow design
-* Strategie obsługi błędów w n8n
-* Najlepsze praktyki projektowania workflow
-* Optymalizacja wydajności
-* Monitorowanie i debugowanie
-
-### Bloki agentów i zewnętrzne wywołania
-* Konfiguracja i wykorzystanie bloków agentów
-* Wywoływanie workflow przez zewnętrzne systemy
-* Integracja z komunikatorami (Slack, Discord, Telegram)
-* Tworzenie webhooków i API endpoints
-
----
-
-## Projekty praktyczne
-
-W ramach tygodnia 6 zrealizujemy szereg praktycznych projektów, które pozwolą zastosować zdobytą wiedzę w praktyce.
+### 7. Integracje z komunikatorami
+- Łączenie ze Slackiem
+- Integracja z Telegramem
 
 ---
 
@@ -114,9 +99,6 @@ W tej sekcji znajdziesz dodatkowe materiały i źródła, które mogą być pomo
 * [Dokumentacja API WooCommerce](https://woocommerce.github.io/woocommerce-rest-api-docs/)
 * [Dokumentacja Google API](https://developers.google.com/docs/api)
 * [Dokumentacja QDRANT](https://qdrant.tech/documentation/)
-
----
-
 
 ---
 
