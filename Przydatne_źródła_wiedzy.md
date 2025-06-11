@@ -18,7 +18,7 @@ Ten plik zawiera przydatne linki, kursy i zasoby związane z tematami poruszanym
 
 | Nazwa | Opis | Typ | Link |
 |:------|:-----|:----|:-----|
-| *(dodaj przydatne źródła)* | *(opis)* | *(typ)* | *(link)* |
+| **N8N Workflows** | Baza automatyzacji i workflow dla n8n zawierająca prawie 2500 gotowych przepływów pracy do różnych zastosowań | Baza danych | [n8nworkflows.xyz](https://n8nworkflows.xyz/) |
 
 ## 💻 Programowanie i Development
 
