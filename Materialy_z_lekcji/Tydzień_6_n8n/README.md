@@ -113,6 +113,7 @@ Ten katalog zawiera następujące podkatalogi z materiałami dodatkowymi:
 *   [`DOCKER/`](./DOCKER/) - Materiały dotyczące instalacji i konfiguracji środowiska Docker.
 *   [`INSTALACJA_N8N/`](./INSTALACJA_N8N/) - Instrukcje dotyczące różnych metod instalacji n8n (na localhost, na VPS z PostgreSQL, na VPS z PostgreSQL i workerami).
 *   [`LINUX/`](./LINUX/) - Podstawowe informacje i komendy związane z systemem operacyjnym Linux, przydatne przy pracy z serwerami VPS.
+*   [`PRZYKLADOWE_ZGLOSZENIE_DO_CREATORS/`](./PRZYKLADOWE_ZGLOSZENIE_DO_CREATORS/) - Przykład zgłoszenia szablonu workflow do społeczności n8n Creators zgodnie z wytycznymi.
 *   [`SCENARIUSZE/`](./SCENARIUSZE/) - Przykładowe scenariusze (workflowy) n8n gotowe do wykorzystania.
 
 *W tym katalogu pojawią się materiały do poszczególnych lekcji z Tygodnia 6, w tym notatki, transkrypcje, przykładowe przepływy pracy i inne zasoby związane z n8n.*
@@ -150,6 +151,4 @@ Może to być np.
 ### Podpowiedzi
 - Korzystaj aktywnie z jakiegoś LLM przy projektowaniu workflow.
 - Korzystaj aktywnie z cursora / cline / kilo code przy przygotowywaniu dokumentacji .
-- Staraj się naprawdę nie utrudniać i zacznij od prostych operacji. 
-
-
+- Staraj się naprawdę nie utrudniać i zacznij od prostych operacji.
