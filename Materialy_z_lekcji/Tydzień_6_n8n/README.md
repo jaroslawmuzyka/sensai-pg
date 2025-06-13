@@ -8,7 +8,7 @@ Ten katalog zawiera materiały dodatkowe do lekcji z szóstego tygodnia kursu SE
 
 ## Wprowadzenie do n8n
 
-n8n to potężne narzędzie do automatyzacji przepływów pracy (workflow automation), które pozwala łączyć, przetwarzać i automatyzować zadania między różnymi aplikacjami i usługami. W przeciwieństwie do wielu innych narzędzi tego typu, n8n jest open-source i można je hostować lokalnie, co daje większą kontrolę nad danymi i procesami.
+N8n to potężne narzędzie do automatyzacji przepływów pracy (workflow automation), które pozwala łączyć, przetwarzać i automatyzować zadania między różnymi aplikacjami i usługami. W przeciwieństwie do wielu innych narzędzi tego typu, n8n jest open-source i można je hostować lokalnie, co daje większą kontrolę nad danymi i procesami.
 
 ### Kluczowe cechy n8n:
 
@@ -21,52 +21,56 @@ n8n to potężne narzędzie do automatyzacji przepływów pracy (workflow automa
 
 ---
 
-## Tematy omawiane w tygodniu 6
+# Tematy omawiane w tygodniu 6
 
-### 1. Wprowadzenie i podstawy
+## Wprowadzenie i podstawy
 - Wstęp do tygodnia
+
+## Instalacja n8n
 - Lekcja wstępna do instalacji
 - Jakie instalacje wybrać
-
-### 2. Instalacja n8n
 - Instalacja n8n na localhost
-- Instalacja n8n na Hetznerze
-- Instalacja n8n na Mikrusie
+- Instalacja n8n na Hetznerze (lub dowolnym VPS)
 - Instalacja n8n na Railway
 - Instalacja n8n na Elestio
 
-### 3. Podstawy pracy z n8n
+## Podstawy pracy z n8n
 - Interfejs n8n
 - Łączenie bloków
-- Blok agenta
 - Import szablonów
 
-### 4. Integracje z narzędziami Google
+## Praca z API i danymi
+- Pobieranie danych ze strony
+- Korzystanie z zewnętrznych API
+- Korzystanie z zewnętrznych API - Senuto
+- Korzystanie z zewnętrznych API - Senuto Widocznosc Domeny
+- Połączenie n8n z rownowaznikiem @mat
+
+## Integracje z narzędziami Google
 - Połączenie n8n z narzędziami Google
 - Google Trends to Google Sheets
-- Eksport do GDocs
+- Eksport treści do Google Docs
 
-### 5. Integracje z CMS i bazami danych
+## Integracje z CMS i bazami danych
 - WordPress - część 1
-- WordPress - część 2
+- WordPress - część 2 (grafika wyróżniająca)
+
+## Praca z Qdrant
 - Podstawy pracy z Qdrant
 - Zaawansowana praca z Qdrant
 
-### 6. Praca z API i danymi
-- Pobieranie danych ze strony
-- Korzystanie z zewnętrznych API
-- Integracja z Senuto
-- Senuto - Widoczność Domeny
+## Blok Agenta
+- Blok agenta
 - Agent korzystający z zewnętrznych API
-- Połączenie n8n z rownowaznikiem
+- Rozmowa ze strona w n8n
 
-### 7. Integracje z komunikatorami
+## Integracje z komunikatorami
 - Łączenie ze Slackiem
 - Integracja z Telegramem
 
 ---
 
-## Oczekiwane rezultaty
+# Oczekiwane rezultaty
 
 Po ukończeniu tygodnia 6 kursu SEO 3.0 będziesz potrafił:
 
@@ -102,7 +106,7 @@ W tej sekcji znajdziesz dodatkowe materiały i źródła, które mogą być pomo
 
 ---
 
-## Struktura katalogu
+# Struktura katalogu
 
 Ten katalog zawiera następujące podkatalogi z materiałami dodatkowymi:
 
@@ -112,3 +116,40 @@ Ten katalog zawiera następujące podkatalogi z materiałami dodatkowymi:
 *   [`SCENARIUSZE/`](./SCENARIUSZE/) - Przykładowe scenariusze (workflowy) n8n gotowe do wykorzystania.
 
 *W tym katalogu pojawią się materiały do poszczególnych lekcji z Tygodnia 6, w tym notatki, transkrypcje, przykładowe przepływy pracy i inne zasoby związane z n8n.*
+
+# Zadanie domowe
+
+Zadanie domowe jest bardzo proste. Chciałbym żebyś przygotowała / przygotowała jakąś prostę automatyzację związaną z Twoją pracą. Jeden bardzo prosty workflow, który oszczędzi Ci parę minut na operacji.
+
+Może to być np.
+- Bot na telegramie, który po przesłaniu linka znajdzie na stronie nagłówki,
+- Bot, który będzie ułatwiał Ci tworzenie raportu na podstawie danych z SENUTO
+- Zapisywanie AI Overviews do Google Sheets (tu masz wtyczkę:  obsługującą webhook https://github.com/romek-rozen/ai-overview-extractor ) 
+- Listowanie słów zależnych
+- ...
+
+
+## Co zrobić żeby zaliczyć? 
+- Przygotuj Google Docs:
+  - Jaki proces realizuje?
+  - Jaki problem rozwiązuje?
+  - Dlaczego trzeba było to zautomatyzować?
+  - Jakie miałaś, miałeś największe problemy i jak sobie poradziłaś, poradziłeś?
+  - Masz maksymalnie jedną stronę A4 z marginesami 1.5 z każdej strony.
+
+- Przygotuj (wyeksportuj) swój główny workflow:
+  - Workflow powinien być tak skonstruowany, żeby osoba bez znajomości Twojego problemu będzie umiała go użyć,
+  - Tutaj masz wytyczne dla "creatorów" szablonów z N8n : https://github.com/romek-rozen/ai-overview-extractor/blob/main/n8n-template-submission/template-submission-guidelines.md 
+  - Tutaj możesz zobaczyć jak wygląda proces przygotowywania takiego "zgłoszenia" : https://github.com/romek-rozen/ai-overview-extractor/tree/main/n8n-template-submission
+  - Wytyczna dotycząca nazewnictwa węzłów: Aby zwiększyć przejrzystość i ułatwić użytkownikom zrozumienie przebiegu pracy, zaleca się nadawanie kluczowym węzłom opisowych, jednoznacznych nazw. 
+  - Unikaj ogólnych lub technicznych terminów, które mogą być niezrozumiałe dla osób spoza zespołu. 
+  - Opisowe nazwy pomagają szybko zidentyfikować funkcję każdego elementu i usprawniają nawigację w procesie.
+  - Przykład: Zamiast nazwy „data” użyj nazwy „Pobieranie danych wejściowych”, zamiast „Basic LLM Chain” – „Analiza tekstu przez model językowy”, zamiast „Markdown” – „Formatowanie tekstu do Markdown”.
+
+
+### Podpowiedzi
+- Korzystaj aktywnie z jakiegoś LLM przy projektowaniu workflow.
+- Korzystaj aktywnie z cursora / cline / kilo code przy przygotowywaniu dokumentacji .
+- Staraj się naprawdę nie utrudniać i zacznij od prostych operacji. 
+
+
