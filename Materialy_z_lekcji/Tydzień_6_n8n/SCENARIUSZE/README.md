@@ -8,10 +8,10 @@ Na podstawie przesłanych dokumentów stworzę tabelę zachowując kolejność l
 |---|---|---|
 | [Przegląd dostępnych metod instalacji n8n (01:04)](https://learn.sensai.academy/next/public/lesson/315) | - | - |
 | [n8n w wersji cloud (05:09)](https://learn.sensai.academy/next/public/lesson/321) | - | - |
-| [Instalacja n8n na własnym komputerze (08:00)](https://learn.sensai.academy/next/public/lesson/317) | [Instrukcja instalacji na localhost](./LOKALNY_LOCALHOST_N8N) | Instrukcja instalacji na localhost |
+| [Instalacja n8n na własnym komputerze (08:00)](https://learn.sensai.academy/next/public/lesson/317) | [Instrukcja instalacji na localhost](../INSTALACJA_N8N/LOKALNY_LOCALHOST_N8N) | Instrukcja instalacji na localhost |
 | [Instalacja n8n na Railway (04:57)](https://learn.sensai.academy/next/public/lesson/318) | - | - |
 | [Instalacja n8n na Elestio (08:08)](https://learn.sensai.academy/next/public/lesson/319) | - | - |
-| [Instalacja n8n na Hetznerze (lub dowolnym VPS) (40:49)](https://learn.sensai.academy/next/public/lesson/316) | [Instrukcja instalacji na VPS](./INSTALACJA_N8N/VPS_n8n_with_workers) | Instrukcja instalacji na VPS |
+| [Instalacja n8n na Hetznerze (lub dowolnym VPS) (40:49)](https://learn.sensai.academy/next/public/lesson/316) | [Instrukcja instalacji na VPS](../INSTALACJA_N8N/VPS_n8n_with_workers) | Instrukcja instalacji na VPS |
 | [Przegląd interfejsu n8n i omówienie wyzwalaczy (14:42)](https://learn.sensai.academy/next/public/lesson/320) | - | - |
 | [Import i eksport gotowych scenariuszy automatyzacji (04:48)](https://learn.sensai.academy/next/public/lesson/322) | - | - |
 | [Wprowadzenie do tworzenia workflow w n8n (21:30)](https://learn.sensai.academy/next/public/lesson/325) | [Proste formularze](./proste_formularze.json) | Scenariusz tworzy prosty formularz do wprowadzania słów kluczowych z walidacją - sprawdza czy wprowadzone słowo nie zawiera przecinka i wyświetla odpowiedni komunikat sukcesu lub błędu |
