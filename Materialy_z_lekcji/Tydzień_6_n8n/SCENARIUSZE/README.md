@@ -2,8 +2,6 @@
 
 Tutaj znajdziesz gotową listę scenariuszy n8n z opisami i linkami do pobrania. Każdy scenariusz jest powiązany z konkretną lekcją z kursu.
 
-Na podstawie przesłanych dokumentów stworzę tabelę zachowując kolejność lekcji. Oto połączona tabela:
-
 | LEKCJA (nazwa i link do lekcji) | Scenariusz (nazwa i link) | Opis Scenariusza |
 |---|---|---|
 | [Przegląd dostępnych metod instalacji n8n (01:04)](https://learn.sensai.academy/next/public/lesson/315) | - | - |
