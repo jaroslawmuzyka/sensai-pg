@@ -1,0 +1,364 @@
+{
+  "name": "Google Pobranie danych z Trends",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "4558c367-e5d7-4fbf-aaa9-da55caa57b23",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "rss.channel.item",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        680,
+        40
+      ],
+      "id": "e335f7d9-e200-4ec1-a4ba-fb50682cd3da",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        480,
+        40
+      ],
+      "id": "2571386d-2b9a-4e45-9259-ad9165c5fc59",
+      "name": "XML"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "575b8f6f-ce3d-445b-804c-8f9f5cab076e",
+              "name": "keyword",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "452eb6d3-ee3b-4225-b0b6-9e2187069c0d",
+              "name": "ht:approx_traffic",
+              "value": "={{ $json['ht:approx_traffic'].replaceAll('+','') }}",
+              "type": "string"
+            },
+            {
+              "id": "c55fbc8d-1946-4a79-962f-99caad9024e3",
+              "name": "description",
+              "value": "={{ $json.description }}",
+              "type": "string"
+            },
+            {
+              "id": "e3b90b51-f3ed-477e-9041-6a5eec298514",
+              "name": "pubDate",
+              "value": "={{ $json.pubDate.toDateTime().format('yyyy-MM-dd') }}",
+              "type": "string"
+            },
+            {
+              "id": "6e491def-5428-4b2c-a834-fb984c4c48e5",
+              "name": "ht:picture",
+              "value": "={{ $json['ht:picture'] }}",
+              "type": "string"
+            },
+            {
+              "id": "4a848127-d7cb-4e81-affa-2dc94deafc06",
+              "name": "ht:picture_source",
+              "value": "={{ $json['ht:picture_source'] }}",
+              "type": "string"
+            },
+            {
+              "id": "6e0a3a5c-f8d1-402a-88e0-18ecadc2cd52",
+              "name": "media_links",
+              "value": "={{ $json['ht:news_item'].map(item => { \n   return `- Tytuł: ${item['ht:news_item_title']}\\n - Link: ${item['ht:news_item_url']}`; \n}).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "91c01111-6aee-4788-a365-1bc2115b6a00",
+              "name": "media",
+              "value": "={{ $json['ht:news_item'].map(item => { \n   return `- ${item['ht:news_item_source']}`; \n}).join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "4be0920d-4f88-4a23-aec0-63a0d5642362",
+              "name": "key",
+              "value": "={{ $json.pubDate.toDateTime().format('yyyyMMdd') }}-{{ $json.title.trim() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        900,
+        40
+      ],
+      "id": "44ad6409-51bc-491a-9885-8124c465f6da",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1s_eDf9AM8qPbT8BS8Vr3_qxSo4MyIIRY7y54TwejIGo/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1s_eDf9AM8qPbT8BS8Vr3_qxSo4MyIIRY7y54TwejIGo/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "keyword": "={{ $json.keyword }}",
+            "approx traffic": "={{ $json['ht:approx_traffic'] }}",
+            "pubDate": "={{ $json.pubDate }}",
+            "description": "={{ $json.description }}",
+            "media": "={{ $json.media }}",
+            "media_links": "={{ $json.media_links }}",
+            "picture": "={{ $json['ht:picture'] }}",
+            "picture source": "={{ $json['ht:picture_source'] }}",
+            "key": "={{ $json.key }}"
+          },
+          "matchingColumns": [
+            "key"
+          ],
+          "schema": [
+            {
+              "id": "key",
+              "displayName": "key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "keyword",
+              "displayName": "keyword",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "approx traffic",
+              "displayName": "approx traffic",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "pubDate",
+              "displayName": "pubDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "description",
+              "displayName": "description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "media",
+              "displayName": "media",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "media_links",
+              "displayName": "media_links",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "picture",
+              "displayName": "picture",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "picture source",
+              "displayName": "picture source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1120,
+        40
+      ],
+      "id": "df5b43fb-0adc-4843-ad85-bf73889fdbd6",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yTQwBHgpFHqp2Mxw",
+          "name": "gSheets roman@ibb.media"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://trends.google.com/trending/rss?geo=PL",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        260,
+        40
+      ],
+      "id": "80319bdb-c20e-4c94-84bd-848497fb1e82",
+      "name": "trendsXML"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2,
+              "triggerAtMinute": 15
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -20,
+        260
+      ],
+      "id": "8d473211-c3b9-4b42-9605-e879a64e5baf",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "trendsXML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "XML": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "trendsXML": {
+      "main": [
+        [
+          {
+            "node": "XML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "trendsXML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "79706d86-51b8-4ab2-a900-988b62754fd3",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "OByfpRJtkL46gea6",
+  "tags": []
+}

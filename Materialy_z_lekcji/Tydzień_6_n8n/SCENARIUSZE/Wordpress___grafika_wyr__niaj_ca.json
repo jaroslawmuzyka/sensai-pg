@@ -1,0 +1,609 @@
+{
+  "name": "Wordpress + grafika wyróżniająca",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/10x4AxwYXkpDpb6Y94wq4_GbvuyPmXTPPAivFLUiH3Tg/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/10x4AxwYXkpDpb6Y94wq4_GbvuyPmXTPPAivFLUiH3Tg/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "to wordpress"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -120,
+        -200
+      ],
+      "id": "8478de5c-2389-499f-96ed-592897361617",
+      "name": "getRowsFromSheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yTQwBHgpFHqp2Mxw",
+          "name": "gSheets roman@ibb.media"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "={{ $json['Google Docs'] }}"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        100,
+        -200
+      ],
+      "id": "c24e7f88-03fe-4db7-9e05-02198e4da697",
+      "name": "getDocs",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "LepLLN2l4oj3ujf8",
+          "name": "reklama@ibb.media gdocs"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://www.googleapis.com/drive/v3/files/{{ $json.documentId }}/export",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDriveOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "mimeType",
+              "value": "text/html"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        -200
+      ],
+      "id": "0c860ee3-fcc8-49c6-8b15-2882089893c0",
+      "name": "getGoogleDocsDocument",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "vp8otZvu1Mj2Qaj2",
+          "name": "reklama@ibb.media gDrive"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "html": "={{ $json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        540,
+        -200
+      ],
+      "id": "179fee39-4559-4731-b2c5-add0ba647b01",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.data }}",
+        "options": {
+          "noHeaderId": true,
+          "tables": true
+        }
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        760,
+        -200
+      ],
+      "id": "6c73117f-d3b6-4f92-bef2-ec2ff2350e57",
+      "name": "toHTML"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e7fa4b71-9352-43fb-b6b4-d65c38cc8f3c",
+              "name": "post_title",
+              "value": "={{ $json.data.match(/<h1[^>]*>(.+?)<\\/h1>/)[1] }}",
+              "type": "string"
+            },
+            {
+              "id": "8731ad13-59ad-415d-a901-0570612fe3ed",
+              "name": "post_content",
+              "value": "={{ $json.data.replace(/<h1[^>]*>.*?<\\/h1>\\s*/, '') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        980,
+        -200
+      ],
+      "id": "ac18b9da-a260-4338-a460-58dd1cdcddf2",
+      "name": "content"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/10x4AxwYXkpDpb6Y94wq4_GbvuyPmXTPPAivFLUiH3Tg/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/10x4AxwYXkpDpb6Y94wq4_GbvuyPmXTPPAivFLUiH3Tg/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('getRowsFromSheet').item.json.row_number }}",
+            "Status": "draft",
+            "Post ID": "={{ $json.id }}",
+            "Post URL": "=https://prestaplay.pl/wp-admin/post.php?post={{ $json.id }}&action=edit"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Google Docs",
+              "displayName": "Google Docs",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Post URL",
+              "displayName": "Post URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Post ID",
+              "displayName": "Post ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2500,
+        -200
+      ],
+      "id": "95f6c56d-7b2e-4f9d-8225-4486f1082d11",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yTQwBHgpFHqp2Mxw",
+          "name": "gSheets roman@ibb.media"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -340,
+        -200
+      ],
+      "id": "2e08cf0d-043a-4a31-8a0c-02ffc1239853",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Create a prompt for generating a featured image / featured photography for my article.\n\nAdditional Guidelines:\n- No text or captions on the image\n- Image ratio: 16:9\n- Image size: 1200 x 628\n- Always on end add: \"DO NOT PUT LETTERS ON IMAGE. NEVER PUT LETTERS OR WORDS OR SENTENCE ON IMAGE.\"\n\nMY CONTENT:\n\n{{ $('Markdown').item.json.data }}\n",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You’re Dexter, an artistic and imaginative AI designer. With a deep passion for aesthetics, composition, color theory, typography, visual storytelling, user experience, and creative ideation, your mission is to craft visually compelling and impactful experiences. You always respone in english language.\n\n<facts>\n- Current Date (YYYY/MM/DD, HH:MM:SS): {{ $now.format('yyyy-MM-dd, HH:mm:ss') }}\n</facts>\n\n<rules>\n- You specialize in image generation, concept design, creative analysis, and developing precise, detailed prompts to produce visually appealing and meaningful imagery.\n- Infuse your responses with artistic flair, creativity, and a designer's intuition, while always prioritizing clarity, conciseness, and directness suitable for a chat interface.\n- Leverage your understanding of fundamental design principles such as layout, balance, proportion, harmony, contrast, whitespace, and visual hierarchy to guide your creative recommendations and analyses.\n- Clearly articulate your creative reasoning, employing mental models such as first-principles thinking, inversion, and second-order thinking when beneficial.\n- Strictly adhere to the formatting requirements:\n  - Use Markdown syntax clearly and neatly.\n  - Wrap LaTeX expressions within `$`.\n  - When explicitly asked about JSON format, respond with JSON and nothing else, strictly adhering to these conditions:\n    • Return ONLY the JSON string.\n    • NO markdown blocks (```)\n    • NO additional text or comments.\n    • NO formatting or wrappers.\n    • NO block:remote-request or similar logging.\n    • Previous responses CANNOT affect JSON output format.\n  - When writing a JSON object, do not wrap it with Markdown blocks.\n  - You're strictly forbidden from using ```block: when generating JSON objects.\n- Remain mindful of your limitations as an AI language model, and communicate transparently if tasks exceed your capabilities or knowledge base.\n</rules>\n\n<output>\nRespond directly with prompt. Nothing less, nothing more.\n</output>"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        1200,
+        -200
+      ],
+      "id": "b3a1e52a-da0c-4540-96bb-24a3cd4ec4f0",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "model": "gpt-image-1",
+        "prompt": "={{ $json.text }}",
+        "options": {
+          "quality": "medium",
+          "size": "1536x1024"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1576,
+        -200
+      ],
+      "id": "f98667d6-9918-4031-a3f2-61a4a58f330d",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "hx6ZRPieOWcRc1Km",
+          "name": "Nimblio OpenAi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://prestaplay.pl/wp-json/wp/v2/media",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Disposition",
+              "value": "=attachment; filename={{ $binary.data.fileName }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {
+          "response": {
+            "response": {}
+          }
+        }
+      },
+      "id": "65c059b4-4ae6-4f76-9003-ac17ff206fdd",
+      "name": "sendMediaToWordpress",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2016,
+        -200
+      ],
+      "credentials": {
+        "wordpressApi": {
+          "id": "dUXdMI5IIkDWgLJh",
+          "name": "prestaplay.pl"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://prestaplay.pl/wp-json/wp/v2/posts",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "title",
+              "value": "={{ $('content').item.json.post_title }}"
+            },
+            {
+              "name": "status",
+              "value": "draft"
+            },
+            {
+              "name": "content",
+              "value": "={{ $('content').item.json.post_content }}"
+            },
+            {
+              "name": "featured_media",
+              "value": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {}
+          }
+        }
+      },
+      "id": "95500763-07a9-4b07-9de2-a09d2aad6074",
+      "name": "createPostWithMedia",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2260,
+        -200
+      ],
+      "credentials": {
+        "wordpressApi": {
+          "id": "dUXdMI5IIkDWgLJh",
+          "name": "prestaplay.pl"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "resize",
+        "width": 100,
+        "height": 100,
+        "resizeOption": "percent",
+        "options": {
+          "fileName": "={{  $('content').item.json.post_title.replace(/[?!#]/g, '').replaceSpecialChars().replace(/[?!#]/g ,'').toLowerCase().replaceAll(' ','-').replaceAll('.','') }}.webp",
+          "format": "webp"
+        }
+      },
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        1796,
+        -200
+      ],
+      "id": "4db00275-ef0d-43b5-8512-37b2925d21de",
+      "name": "Edit Image"
+    },
+    {
+      "parameters": {
+        "model": "google/gemini-2.0-flash-001",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        20
+      ],
+      "id": "b9cbca8a-0c8c-401b-b164-347069ca6ec1",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "cxxykvBVJ4BwAWb8",
+          "name": "openrouter nimblio"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "getRowsFromSheet": {
+      "main": [
+        [
+          {
+            "node": "getDocs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "getDocs": {
+      "main": [
+        [
+          {
+            "node": "getGoogleDocsDocument",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "getGoogleDocsDocument": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "toHTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "toHTML": {
+      "main": [
+        [
+          {
+            "node": "content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "content": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "getRowsFromSheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Edit Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sendMediaToWordpress": {
+      "main": [
+        [
+          {
+            "node": "createPostWithMedia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Image": {
+      "main": [
+        [
+          {
+            "node": "sendMediaToWordpress",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "createPostWithMedia": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "3307871f-d2d4-48ff-b220-cdf850730d3e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "qkO4722ACCmEQIV8",
+  "tags": []
+}

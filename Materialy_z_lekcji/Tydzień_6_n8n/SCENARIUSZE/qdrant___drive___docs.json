@@ -1,0 +1,1617 @@
+{
+  "name": "qdrant - drive - docs",
+  "nodes": [
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $json.data || $json.text ||  $json.concatenated_data  }}",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "fileId",
+                "value": "={{ $('Set File ID').item.json.fileId }}"
+              },
+              {
+                "name": "fileName",
+                "value": "={{ $('Set File ID').item.json.name }}"
+              },
+              {
+                "name": "fileLink",
+                "value": "={{ $('Set File ID').item.json.link }}"
+              }
+            ]
+          }
+        }
+      },
+      "id": "f41999de-1c46-4f8c-a685-811ac3ce6fcf",
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        -280,
+        742.5
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('Set File ID').item.json.fileId }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {}
+          }
+        }
+      },
+      "id": "9d5369e8-ead5-4adf-9931-176f1a5334e6",
+      "name": "Download File",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1500,
+        420
+      ],
+      "executeOnce": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "vp8otZvu1Mj2Qaj2",
+          "name": "reklama@ibb.media gDrive"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/folders/1Wu8PGO70rJHxEJngzE67_SvnrQ5QGz5C",
+          "mode": "url"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "id": "ee1b2d3b-bf43-4289-a36b-5b17025d7e6f",
+      "name": "File Created",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2560,
+        500
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kyBDe9djaKd6KX7C",
+          "name": "gdrive roman@ibb "
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/folders/1Wu8PGO70rJHxEJngzE67_SvnrQ5QGz5C",
+          "mode": "url"
+        },
+        "event": "fileUpdated",
+        "options": {}
+      },
+      "id": "04e859c4-0858-45d5-8a2c-cf8198c6061c",
+      "name": "File Updated",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2560,
+        740
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kyBDe9djaKd6KX7C",
+          "name": "gdrive roman@ibb "
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "options": {}
+      },
+      "id": "732ae3fd-98a9-467c-aba0-583e93a39891",
+      "name": "Extract Document Text",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -1020,
+        520
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "10646eae-ae46-4327-a4dc-9987c2d76173",
+              "name": "fileId",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "32dfe5aa-91b5-4723-a8bf-d91d9d075118",
+              "name": "mimeType",
+              "value": "={{ $json.mimeType }}",
+              "type": "string"
+            },
+            {
+              "id": "65e93f1b-bd34-4107-839c-b3a5333dba4b",
+              "name": "link",
+              "value": "={{ $json.webViewLink }}",
+              "type": "string"
+            },
+            {
+              "id": "8f546290-af86-415d-885f-67cf26eb898f",
+              "name": "name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6350296e-7734-4b82-9d43-a29ec75b0749",
+      "name": "Set File ID",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1940,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {
+          "joinPages": true
+        }
+      },
+      "id": "43e801c7-231c-4777-8ae1-64c89fdd19b7",
+      "name": "Extract from File",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -780,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://c43642e5-a12b-47b4-9055-ce30ec37fb71.europe-west3-0.gcp.cloud.qdrant.io/collections/sensai-qdrant/points/delete",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "qdrantApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"filter\": {\n    \"must\": [\n      {\n        \"key\": \"metadata.fileId\",\n        \"match\": {\n          \"value\": \"{{ $json.id }}\"\n        }\n      }\n    ]\n  }\n}",
+        "options": {}
+      },
+      "id": "a721de58-287a-4dd8-8b92-0f6c31b6e87d",
+      "name": "deleteOldFile",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1720,
+        420
+      ],
+      "credentials": {
+        "qdrantApi": {
+          "id": "f8cKg7ZkXpx29yyT",
+          "name": "qdrant free tier"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "id": "720cbb82-e8ae-4c35-a281-a3a701383c38",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -840,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "fieldsToSummarize": {
+          "values": [
+            {
+              "aggregation": "concatenate",
+              "field": "data",
+              "separateBy": "\n"
+            }
+          ]
+        },
+        "options": {
+          "outputFormat": "singleItem"
+        }
+      },
+      "id": "886ef036-1826-4e9e-9ad1-c63e335791a1",
+      "name": "Summarize",
+      "type": "n8n-nodes-base.summarize",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ \n$binary.data.fileExtension \n}}",
+                    "rightValue": "pdf",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "82b0eefa-99cb-40a1-8376-dab51b4da176"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "pdf"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "d41c58c6-9aba-45ac-a522-6083ec0fca54",
+                    "leftValue": "={{ \n$binary.data.fileExtension \n}}",
+                    "rightValue": "html",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "txt"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "73eedd83-3f42-4595-bdd4-a9b0f6e85102",
+                    "leftValue": "={{ \n$binary.data.fileExtension \n}}",
+                    "rightValue": "csv",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "csv"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "37f2c996-cc16-471a-b741-6e38b6cdfa34",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1280,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4.1-nano",
+        "options": {
+          "temperature": 0
+        }
+      },
+      "id": "b3ff0aef-3ab4-43a2-bf58-34e1b2f058d2",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -2280,
+        -560
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "hx6ZRPieOWcRc1Km",
+          "name": "Nimblio OpenAi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4.1-mini",
+        "options": {}
+      },
+      "id": "557bd876-7a1e-4e27-ab27-46e85c2695db",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -1580,
+        -440
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "hx6ZRPieOWcRc1Km",
+          "name": "Nimblio OpenAi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-small",
+        "options": {}
+      },
+      "id": "9504ae6f-6e84-4340-b326-ac65d0ae2a6c",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -1936,
+        -180
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "hx6ZRPieOWcRc1Km",
+          "name": "Nimblio OpenAi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "id": "32965b76-487b-4e8f-8130-6eb52e301330",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -2400,
+        -780
+      ],
+      "webhookId": "e985d15f-b2f6-456d-be15-97e0b1544a40"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=You are a personal assistant who helps answer questions from a corpus of documents when you don't know the answer yourself. \n\nTwoim zadaniem jest odpowiedź na zadawane przez użytkownika pytania. Do swojej odpowiedzi zawsze będziesz wykorzystywać user_documents . Jeżeli w user_documents nie ma odpowiedzi to nie wymyślaj. Napisz wtedy \"Nie znam odpowiedzi na to pytani\".\n\nNie wolno Ci rozmawiać na żaden inny temat. Możesz tylko odpowiadać na pytania z wykorzystaniem user_documents.\n\nBądź Miły dla użytkownika. Jeżeli się z Tobą przywita albo pożegna to możesz mu odpowiedzieć bez korzystania z user_documents."
+        }
+      },
+      "id": "536156f5-bf2d-4c66-9f8a-1f74f39b94d5",
+      "name": "RAG AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        -2128,
+        -800
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "qdrantCollection": {
+          "__rl": true,
+          "value": "sensai-qdrant",
+          "mode": "list",
+          "cachedResultName": "sensai-qdrant"
+        },
+        "options": {}
+      },
+      "id": "9b2af61b-b0a9-400c-8c20-7bb1dca3dbaf",
+      "name": "Moja Wiedza",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        520
+      ],
+      "credentials": {
+        "qdrantApi": {
+          "id": "f8cKg7ZkXpx29yyT",
+          "name": "qdrant free tier"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "qdrantCollection": {
+          "__rl": true,
+          "value": "sensai-qdrant",
+          "mode": "list",
+          "cachedResultName": "sensai-qdrant"
+        },
+        "options": {}
+      },
+      "id": "7d21ed63-7992-4122-917e-820f129fbbaa",
+      "name": "Moja Wiedza1",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1,
+      "position": [
+        -1900,
+        -380
+      ],
+      "credentials": {
+        "qdrantApi": {
+          "id": "f8cKg7ZkXpx29yyT",
+          "name": "qdrant free tier"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "dimensions": 1536
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -400,
+        740
+      ],
+      "id": "e9e6f9c9-85f7-498a-950d-8bbffbbada3d",
+      "name": "Embeddings OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "hx6ZRPieOWcRc1Km",
+          "name": "Nimblio OpenAi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "html": "={{ $json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        520
+      ],
+      "id": "2d097c8f-694c-4004-aa66-d76386662beb",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "685c4ce2-87f4-44ad-9e72-75cce46a3f6a",
+              "name": "blobType",
+              "value": "={{ $json.metadata.blobType }}",
+              "type": "string"
+            },
+            {
+              "id": "af547445-8309-4d4a-8d22-07587f7a65ea",
+              "name": "fileId",
+              "value": "={{ $json.metadata.fileId }}",
+              "type": "string"
+            },
+            {
+              "id": "79fddda2-41f9-4f42-ab2e-68e5949307ce",
+              "name": "fileName",
+              "value": "={{ $json.metadata.fileName }}",
+              "type": "string"
+            },
+            {
+              "id": "2b51259c-a8f5-4a49-bd21-4c741cf8fe7e",
+              "name": "fileLink",
+              "value": "={{ $json.metadata.fileLink }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        96,
+        520
+      ],
+      "id": "84fb2337-ee99-4449-b11d-95f9925b757a",
+      "name": "qdrantOutput",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1hme4yqaDpZiq1tcoyejzz_P4nZackpVhyjEZIrmkLn8/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1hme4yqaDpZiq1tcoyejzz_P4nZackpVhyjEZIrmkLn8/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "fileId": "={{ $('Set File ID').item.json.fileId }}",
+            "name": "={{ $('Set File ID').item.json.name }}",
+            "link": "={{ $('Set File ID').item.json.link }}",
+            "type": "={{  $('Download File').item.binary.data.mimeType  }}",
+            "status": "embedded"
+          },
+          "matchingColumns": [
+            "fileId"
+          ],
+          "schema": [
+            {
+              "id": "fileId",
+              "displayName": "fileId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        316,
+        695
+      ],
+      "id": "b10f16aa-04ca-4e7f-8f19-7aee4cfcc510",
+      "name": "updateSheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yTQwBHgpFHqp2Mxw",
+          "name": "gSheets roman@ibb.media"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chunkOverlap": 100,
+        "options": {
+          "splitCode": "markdown"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        -192,
+        940
+      ],
+      "id": "ec0aea12-4e25-4565-9652-376a72f84993",
+      "name": "Recursive Character Text Splitter"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://c43642e5-a12b-47b4-9055-ce30ec37fb71.europe-west3-0.gcp.cloud.qdrant.io/collections/sensai-qdrant/points/delete",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "qdrantApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"filter\": {\n    \"must\": [\n      {\n        \"key\": \"metadata.fileId\",\n        \"match\": {\n          \"value\": \"{{ $json.fileId }}\"\n        }\n      }\n    ]\n  }\n}",
+        "options": {}
+      },
+      "id": "079d385d-b3d3-40fc-be57-15b7c36a3274",
+      "name": "removeFromQdrant",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1720,
+        1055
+      ],
+      "credentials": {
+        "qdrantApi": {
+          "id": "f8cKg7ZkXpx29yyT",
+          "name": "qdrant free tier"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2380,
+        1130
+      ],
+      "id": "3db0c3ab-d2bb-4836-80fd-e0fd03a2c661",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1hme4yqaDpZiq1tcoyejzz_P4nZackpVhyjEZIrmkLn8/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1hme4yqaDpZiq1tcoyejzz_P4nZackpVhyjEZIrmkLn8/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "status",
+              "lookupValue": "remove"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -2160,
+        1130
+      ],
+      "id": "f53ecc94-cbd3-415a-b744-455cbaa475a9",
+      "name": "getRemoveTasks",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yTQwBHgpFHqp2Mxw",
+          "name": "gSheets roman@ibb.media"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "deleteFile",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('getRemoveTasks').item.json.fileId }}",
+          "mode": "id"
+        },
+        "options": {
+          "deletePermanently": false
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1500,
+        1055
+      ],
+      "id": "2d33fa2c-ebbe-4848-900a-b3ec58039999",
+      "name": "deleteFile",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kyBDe9djaKd6KX7C",
+          "name": "gdrive roman@ibb "
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1hme4yqaDpZiq1tcoyejzz_P4nZackpVhyjEZIrmkLn8/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1hme4yqaDpZiq1tcoyejzz_P4nZackpVhyjEZIrmkLn8/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "startIndex": "={{ $('getRemoveTasks').item.json.row_number }}"
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1280,
+        1130
+      ],
+      "id": "fd14535c-8cb5-4cae-86fb-030427633aef",
+      "name": "removeRow",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "yTQwBHgpFHqp2Mxw",
+          "name": "gSheets roman@ibb.media"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -2040,
+        -520
+      ],
+      "id": "90c3acaa-de2d-4650-a5b3-d51e67b49bef",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://c43642e5-a12b-47b4-9055-ce30ec37fb71.europe-west3-0.gcp.cloud.qdrant.io/collections/sensai-qdrant/points/delete",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "qdrantApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"points\": {{ JSON.stringify($('getAllPostsPoints').item.json.result.points.map(item => item.id)) }}\n} ",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1940,
+        60
+      ],
+      "id": "19a607ae-e6a3-4101-a7a1-72689841ebcf",
+      "name": "deleteAllPoints1",
+      "credentials": {
+        "qdrantApi": {
+          "id": "f8cKg7ZkXpx29yyT",
+          "name": "qdrant free tier"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://c43642e5-a12b-47b4-9055-ce30ec37fb71.europe-west3-0.gcp.cloud.qdrant.io/collections/sensai-qdrant/points/scroll",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "qdrantApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"limit\": 100,\n  \"with_payload\": false,\n  \"with_vector\": false\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2160,
+        60
+      ],
+      "id": "e77f547c-bd22-4412-9702-993c894cfc1f",
+      "name": "getAllPostsPoints",
+      "credentials": {
+        "qdrantApi": {
+          "id": "f8cKg7ZkXpx29yyT",
+          "name": "qdrant free tier"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -2180,
+        580
+      ],
+      "id": "ada01126-76fc-454c-876b-0cd91577823a",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1940,
+        1130
+      ],
+      "id": "13819559-3999-44aa-a7a1-344c147e1055",
+      "name": "removeRowsLoop"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "company_knowledge",
+        "toolDescription": "Contains all the user's documents that you can check for context to answer user questions. If no data in docunts just say \"Nie posiadam wiedzy na ten temat\"",
+        "qdrantCollection": {
+          "__rl": true,
+          "value": "sensai-qdrant",
+          "mode": "list",
+          "cachedResultName": "sensai-qdrant"
+        },
+        "topK": 5,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1.1,
+      "position": [
+        -1320,
+        -620
+      ],
+      "id": "dc43b488-a148-4097-bcf5-38d936d216f0",
+      "name": "Qdrant Vector Store",
+      "credentials": {
+        "qdrantApi": {
+          "id": "f8cKg7ZkXpx29yyT",
+          "name": "qdrant free tier"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1340,
+        -400
+      ],
+      "id": "ff0efcf4-5e41-4e44-b6ec-9db3dad78c6f",
+      "name": "Embeddings OpenAI2",
+      "credentials": {
+        "openAiApi": {
+          "id": "hx6ZRPieOWcRc1Km",
+          "name": "Nimblio OpenAi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "user_documents",
+        "description": "Contains all the user's documents that you can check for context to answer user questions. If no data in docunts just say \"Nie posiadam wiedzy na ten temat\"",
+        "topK": 5
+      },
+      "id": "a9448f52-800b-4bf5-9279-d69da63e99fb",
+      "name": "Answer questions with a vector store",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "typeVersion": 1,
+      "position": [
+        -1860,
+        -580
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "68cf2465-5015-458a-bc01-60ac748a907a",
+              "leftValue": "={{ $json.data }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -600,
+        520
+      ],
+      "id": "044ce08b-f442-4a11-a354-65077934a3ae",
+      "name": "Filter"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2380,
+        60
+      ],
+      "id": "330a673d-b8ea-4e6b-84a9-50650253d022",
+      "name": "Wyzeruj QDRANT"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "f4195d2d-7129-4e39-b569-998cf2f61fe7",
+      "name": "Extract from CSV",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -1060,
+        720
+      ]
+    }
+  ],
+  "pinData": {
+    "File Created": [
+      {
+        "json": {
+          "exportLinks": {
+            "application/x-vnd.oasis.opendocument.spreadsheet": "https://docs.google.com/spreadsheets/export?id=1cW851Wh_2nRngGQG85I1vwdTLf1n6xdWyR_NVeP0M4A&exportFormat=ods",
+            "text/tab-separated-values": "https://docs.google.com/spreadsheets/export?id=1cW851Wh_2nRngGQG85I1vwdTLf1n6xdWyR_NVeP0M4A&exportFormat=tsv",
+            "application/pdf": "https://docs.google.com/spreadsheets/export?id=1cW851Wh_2nRngGQG85I1vwdTLf1n6xdWyR_NVeP0M4A&exportFormat=pdf",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "https://docs.google.com/spreadsheets/export?id=1cW851Wh_2nRngGQG85I1vwdTLf1n6xdWyR_NVeP0M4A&exportFormat=xlsx",
+            "text/csv": "https://docs.google.com/spreadsheets/export?id=1cW851Wh_2nRngGQG85I1vwdTLf1n6xdWyR_NVeP0M4A&exportFormat=csv",
+            "application/zip": "https://docs.google.com/spreadsheets/export?id=1cW851Wh_2nRngGQG85I1vwdTLf1n6xdWyR_NVeP0M4A&exportFormat=zip",
+            "application/vnd.oasis.opendocument.spreadsheet": "https://docs.google.com/spreadsheets/export?id=1cW851Wh_2nRngGQG85I1vwdTLf1n6xdWyR_NVeP0M4A&exportFormat=ods"
+          },
+          "parents": [
+            "1Wu8PGO70rJHxEJngzE67_SvnrQ5QGz5C"
+          ],
+          "lastModifyingUser": {
+            "displayName": "Roman Rozenberger",
+            "kind": "drive#user",
+            "me": true,
+            "permissionId": "08837080215002549304",
+            "emailAddress": "roman@ibb.media",
+            "photoLink": "https://lh3.googleusercontent.com/a-/ALV-UjXSLc_VYyaTFcrxFwpN8QdezXA8VHQJJDyc5oXirFQNeWRdZh4-xXxJxgaUQ68-BiWwFBT4PQajtl8F_kSXomQHQI_CcvL4rZZS_HIG5bDy_-jLnt4ZT8AYzk4_-OJK3R8x8e1j5KvIxh7UWMHa_qcZACEp_gXMWGV2IeN6gkf3UCp0h3xesDdbMJJtLtidG51NI7cMNFerlQXIcpGjmGakYYgsDAHGcWG8YaIGGgt770VTBEdUPNzNGsqweVgrNZteHBM-Ut9Pjhiyt4KI8pEpdBEoy4wfkx_CKOqo2S6TB2j2jzYvLuWKTUk5Jn25WwGGOPeBP8t1J7nAcNioFEhsuBFIEfgtzRzrFTBcpnRgnagHWnwVKtRLMMIsjaFPRn45QnGJIZsv27tQLo5hD2PmLuAN3T55dMMEvjFJhhm7gkrUI2OXKoS8L86libzQ6iNyVFE_OoCj12p1zzDjoYo035DTAwemwR25ZnCVu-wfgGDLiZo-kupQyRd7s5x4rKUSZh8XPLHS-qT1kfqvE3hG9ksIn3HyXwrxtYSKAKs0B8xjLIQc5QIbkQ-ei8qKgbxD244xQPQj7ChYh5wsG9Qo9dNRtJ9GB_2rPBNRt-5WUhXaeRnnSGM-SGODOGXkq2eiaNbSF7RZAF418OkFZ7W1vB6FmS1Um90g_bsMEcANlocaAbbj3nQz2mhOO7QSq3eqMcHsqh3DwDTvqy-c1AYXVf2PB1VU2FK022isHS7hhKN9jH8IsXaQyQkVl_ki70icUN_heXOCoeIgeXnE0wool_uSH__zoLoxoj1_QkcQtJcZ5x9P1dQuoDs739kbj2IpZ92ZpgWpy9XHrx1SyT-DSS6jClGnxW7iLhZ_bDB8Tz_77tg4Ce7SNZtcBUVZfn6wp-VZ38XzsiLh_kzfNJs9XaQrxSBpD1GHY2Qr3oecKA3-cMxOSJU37rQR2WQ4vNVzIghguggvziEHzHyVSjIT9S3AZB4mTg=s64"
+          },
+          "owners": [
+            {
+              "displayName": "Roman Rozenberger",
+              "kind": "drive#user",
+              "me": true,
+              "permissionId": "08837080215002549304",
+              "emailAddress": "roman@ibb.media",
+              "photoLink": "https://lh3.googleusercontent.com/a-/ALV-UjXSLc_VYyaTFcrxFwpN8QdezXA8VHQJJDyc5oXirFQNeWRdZh4-xXxJxgaUQ68-BiWwFBT4PQajtl8F_kSXomQHQI_CcvL4rZZS_HIG5bDy_-jLnt4ZT8AYzk4_-OJK3R8x8e1j5KvIxh7UWMHa_qcZACEp_gXMWGV2IeN6gkf3UCp0h3xesDdbMJJtLtidG51NI7cMNFerlQXIcpGjmGakYYgsDAHGcWG8YaIGGgt770VTBEdUPNzNGsqweVgrNZteHBM-Ut9Pjhiyt4KI8pEpdBEoy4wfkx_CKOqo2S6TB2j2jzYvLuWKTUk5Jn25WwGGOPeBP8t1J7nAcNioFEhsuBFIEfgtzRzrFTBcpnRgnagHWnwVKtRLMMIsjaFPRn45QnGJIZsv27tQLo5hD2PmLuAN3T55dMMEvjFJhhm7gkrUI2OXKoS8L86libzQ6iNyVFE_OoCj12p1zzDjoYo035DTAwemwR25ZnCVu-wfgGDLiZo-kupQyRd7s5x4rKUSZh8XPLHS-qT1kfqvE3hG9ksIn3HyXwrxtYSKAKs0B8xjLIQc5QIbkQ-ei8qKgbxD244xQPQj7ChYh5wsG9Qo9dNRtJ9GB_2rPBNRt-5WUhXaeRnnSGM-SGODOGXkq2eiaNbSF7RZAF418OkFZ7W1vB6FmS1Um90g_bsMEcANlocaAbbj3nQz2mhOO7QSq3eqMcHsqh3DwDTvqy-c1AYXVf2PB1VU2FK022isHS7hhKN9jH8IsXaQyQkVl_ki70icUN_heXOCoeIgeXnE0wool_uSH__zoLoxoj1_QkcQtJcZ5x9P1dQuoDs739kbj2IpZ92ZpgWpy9XHrx1SyT-DSS6jClGnxW7iLhZ_bDB8Tz_77tg4Ce7SNZtcBUVZfn6wp-VZ38XzsiLh_kzfNJs9XaQrxSBpD1GHY2Qr3oecKA3-cMxOSJU37rQR2WQ4vNVzIghguggvziEHzHyVSjIT9S3AZB4mTg=s64"
+            }
+          ],
+          "permissions": [
+            {
+              "kind": "drive#permission",
+              "id": "anyoneWithLink",
+              "type": "anyone",
+              "role": "reader",
+              "allowFileDiscovery": false
+            },
+            {
+              "kind": "drive#permission",
+              "id": "08837080215002549304",
+              "type": "user",
+              "emailAddress": "roman@ibb.media",
+              "role": "owner",
+              "displayName": "Roman Rozenberger",
+              "photoLink": "https://lh3.googleusercontent.com/a-/ALV-UjWGmN7BzagcY1mjYySMjhq66xXZZP36mUh30DawONItYJ_TxVd-QPVYMChf46Yf-GyIEkF7Sv2oudeblTAEu3ZhEiK_rcuZUtsY6Rfb8jc6nfFxtaL-d6E0IQPHrtwblyxnDEYFmp0oLA-ngdwwjYTtwH2gfcNzTkusWEb5sm74sVtMsz_cPM2hpQtmYDCVamXr8kx68ZIyzimP9vFlcgOL-MilYI66eUmBeJ19Z1o58ysdN55H7aEVgHhl9VbNWhHLSXQaOix_qpHydNZfCxcEXaUtOVxToZY8hL6q-L_D9xcRPiDSFob34qhPfHJbfDnVkLSK6RCSx76U08qGP995fZ9UEz9Qt0mazaopJNA5FF8I1tn8XghS9aV8r5Ox2r23-JPs6KVosOVXC3ngPKRlr4OloW3RXlibS982p1zgJ0fT0QMdzxAyS8CbVTNzWAP1XHMmyjGtByoEUv-_Cc2R4r1GJzvanH0R7KPtPxQ-OOFaTHxsd30C1-3QuWp3_wn_uHE9PVF9kWjEADQK-tMCFNEuJt9ijwqGo2TrvVHF8HSOA-Bc1tltAyycdilmU0LTqyZkRDCgQc8ay1C47u2bkE6PIs4vfPWGMClUaVU8nqoV4dVvUmpxByo5EGwjehATdUhgqqdk7iH_SJm9Pr9W-bK6jEXy60qQNVk8HFAecLHfuN71Ks250PJ_f53lTXqoI05ry5V7hrLfYxz_zxHEeJfdKiZe8A20402iIOQHF1vMbyaXuvfybmEJ3P1seGRZuDG1QUj49mQm18l6ThDuKoTW-Gv2mRYQNrsnOOe8ZODjJK35L7F7tZiSX_iLRhLK8NsqG7wgXyuXTqAiu3_HbN3uJ4pj4s9QWVVkVwX7y7PjSK7C6esoetwHkD0uCQtxzRhlT9vRHyOV3bcsUjl0KzoC2WWLPIbeKYREkI3QLw6hShI0I4XIlq_8dWOBTNqFi7FnV4mzUnrQkEHsAXkulHPvWpd-eA=s64",
+              "deleted": false,
+              "pendingOwner": false
+            }
+          ],
+          "spaces": [
+            "drive"
+          ],
+          "capabilities": {
+            "canAcceptOwnership": false,
+            "canAddChildren": false,
+            "canAddMyDriveParent": false,
+            "canChangeCopyRequiresWriterPermission": true,
+            "canChangeSecurityUpdateEnabled": false,
+            "canChangeViewersCanCopyContent": true,
+            "canComment": true,
+            "canCopy": true,
+            "canDelete": true,
+            "canDisableInheritedPermissions": false,
+            "canDownload": true,
+            "canEdit": true,
+            "canEnableInheritedPermissions": true,
+            "canListChildren": false,
+            "canModifyContent": true,
+            "canModifyContentRestriction": true,
+            "canModifyEditorContentRestriction": true,
+            "canModifyOwnerContentRestriction": true,
+            "canModifyLabels": false,
+            "canMoveChildrenWithinDrive": false,
+            "canMoveItemIntoTeamDrive": true,
+            "canMoveItemOutOfDrive": true,
+            "canMoveItemWithinDrive": true,
+            "canReadLabels": false,
+            "canReadRevisions": true,
+            "canRemoveChildren": false,
+            "canRemoveContentRestriction": false,
+            "canRemoveMyDriveParent": true,
+            "canRename": true,
+            "canShare": true,
+            "canTrash": true,
+            "canUntrash": true
+          },
+          "permissionIds": [
+            "anyoneWithLink",
+            "08837080215002549304"
+          ],
+          "linkShareMetadata": {
+            "securityUpdateEligible": false,
+            "securityUpdateEnabled": true
+          },
+          "kind": "drive#file",
+          "id": "1cW851Wh_2nRngGQG85I1vwdTLf1n6xdWyR_NVeP0M4A",
+          "name": "CENNIK PUBLIKACJI ",
+          "mimeType": "application/vnd.google-apps.spreadsheet",
+          "starred": false,
+          "trashed": false,
+          "explicitlyTrashed": false,
+          "version": "6",
+          "webViewLink": "https://docs.google.com/spreadsheets/d/1cW851Wh_2nRngGQG85I1vwdTLf1n6xdWyR_NVeP0M4A/edit?usp=drivesdk",
+          "iconLink": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.spreadsheet",
+          "hasThumbnail": false,
+          "thumbnailVersion": "0",
+          "viewedByMe": true,
+          "viewedByMeTime": "2025-05-15T10:56:46.142Z",
+          "createdTime": "2025-05-15T10:56:25.520Z",
+          "modifiedTime": "2025-05-15T10:56:46.142Z",
+          "modifiedByMeTime": "2025-05-15T10:56:46.142Z",
+          "modifiedByMe": true,
+          "shared": true,
+          "ownedByMe": true,
+          "viewersCanCopyContent": true,
+          "copyRequiresWriterPermission": false,
+          "writersCanShare": true,
+          "size": "1024",
+          "quotaBytesUsed": "1024",
+          "isAppAuthorized": false,
+          "inheritedPermissionsDisabled": false
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Moja Wiedza",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "File Created": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "File Updated": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Document Text": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set File ID": {
+      "main": [
+        [
+          {
+            "node": "deleteOldFile",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Moja Wiedza",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "deleteOldFile": {
+      "main": [
+        [
+          {
+            "node": "Download File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Summarize",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summarize": {
+      "main": [
+        [
+          {
+            "node": "Moja Wiedza",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract Document Text",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract from CSV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "RAG AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Answer questions with a vector store",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Moja Wiedza1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "RAG AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RAG AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "Moja Wiedza1": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Answer questions with a vector store",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Moja Wiedza",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Moja Wiedza": {
+      "main": [
+        [
+          {
+            "node": "qdrantOutput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "qdrantOutput": {
+      "main": [
+        [
+          {
+            "node": "updateSheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "removeFromQdrant": {
+      "main": [
+        [
+          {
+            "node": "deleteFile",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "getRemoveTasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "getRemoveTasks": {
+      "main": [
+        [
+          {
+            "node": "removeRowsLoop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "deleteFile": {
+      "main": [
+        [
+          {
+            "node": "removeRow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "RAG AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "getAllPostsPoints": {
+      "main": [
+        [
+          {
+            "node": "deleteAllPoints1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set File ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "updateSheets": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "removeRowsLoop": {
+      "main": [
+        [],
+        [
+          {
+            "node": "removeFromQdrant",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "removeRow": {
+      "main": [
+        [
+          {
+            "node": "removeRowsLoop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qdrant Vector Store": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Embeddings OpenAI2": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Answer questions with a vector store": {
+      "ai_tool": [
+        [
+          {
+            "node": "RAG AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Moja Wiedza",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wyzeruj QDRANT": {
+      "main": [
+        [
+          {
+            "node": "getAllPostsPoints",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from CSV": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b7c95adb-fe3a-4088-ae41-f0145e1ba6dd",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "H19DDGOPYT7GIDFk",
+  "tags": []
+}

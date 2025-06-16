@@ -1,0 +1,143 @@
+{
+  "name": "rozmawiaj ze stroną",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -760,
+        -220
+      ],
+      "id": "77a88e2f-0844-4229-9e5c-5e0a05607e59",
+      "name": "When chat message received",
+      "webhookId": "469fb254-2dad-41d6-81d9-b680990bc82a"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Cześć, jesteś stroną internetową.\nUżytkownik wyśle Ci pytnie i adres URL, A Ty będziesz odpowiadał na podstawie pobranych materiałów.\n\n<narzędzia>\npobierz_strone - służy do pobieranaia zawartośc ze stron www. Jeżeli użytkownik poprosi o inny rodzaj stron (np. google docs), to niestety musisz odprawić go z kwitkiem. Tylko grzecznie.\n</narzędzia>"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -480,
+        -220
+      ],
+      "id": "29c75e31-4d56-447e-8cbd-72d9957b745d",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-4.1-nano",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -580,
+        20
+      ],
+      "id": "89ec4114-e15d-44ef-a16f-9853fc784f06",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "cxxykvBVJ4BwAWb8",
+          "name": "openrouter nimblio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "Skorzystaj z tego narzędzia, żeby pobrać zawartość strony internetowej oraz jej nagłówki z treśći. \n\nMusisz przesłać adres URL strony.",
+        "workflowId": {
+          "__rl": true,
+          "value": "8oqxXACMjEvsZUHB",
+          "mode": "list",
+          "cachedResultName": "naglowki i content"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "url": "={{ $fromAI('url', 'this website url address') }}"
+          },
+          "matchingColumns": [
+            "url"
+          ],
+          "schema": [
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -280,
+        40
+      ],
+      "id": "d43e260c-5dfb-47f4-938f-2974ddd4c4e9",
+      "name": "pobierz_strone"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pobierz_strone": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "eedb886b-2ec6-4ec0-aa59-824149f0b44f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "H0p7TC1AU3TeNFcg",
+  "tags": []
+}

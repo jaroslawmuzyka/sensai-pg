@@ -1,0 +1,245 @@
+{
+  "name": "Agent SEO - MASTER",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -840,
+        -220
+      ],
+      "id": "fb9fdcc3-66fa-434c-9e61-fcd4c91208c4",
+      "name": "When chat message received",
+      "webhookId": "64ef75a8-cc86-4f5d-9378-a8442569434d"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=Cześć, jesteś stroną internetową.\nUżytkownik wyśle Ci pytnie i adres URL, A Ty będziesz odpowiadał na podstawie pobranych materiałów.\n\n<narzędzia>\n- pobierz_strone - służy do pobieranaia zawartośc ze stron www. Jeżeli użytkownik poprosi o inny rodzaj stron (np. google docs), to niestety musisz odprawić go z kwitkiem. Tylko grzecznie.\n- getDomainVisibility - to narzędzie sprawdza widoczność domeny w wynikach wyszukiwania. Gdy użytkownik zapyta o widoczność podaj mu wszytkie otrzmane dane i je podsumuj.\n- perplexity_research - użyj tego do researchu na dany temat. Szczególnie, jeżeli użytkownik chce zgłębiać temat.\n\n</narzędzia>"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -528,
+        -220
+      ],
+      "id": "9b6af49f-2912-4616-814e-fb55bed7f2e4",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-4.1-nano",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -780,
+        140
+      ],
+      "id": "dcc17989-9c85-476a-b93d-75a97905c5c2",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "cxxykvBVJ4BwAWb8",
+          "name": "openrouter nimblio"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "Skorzystaj z tego narzędzia, żeby pobrać zawartość strony internetowej oraz jej nagłówki z treśći. \n\nMusisz przesłać adres URL strony.",
+        "workflowId": {
+          "__rl": true,
+          "value": "8oqxXACMjEvsZUHB",
+          "mode": "list",
+          "cachedResultName": "naglowki i content"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "url": "={{ $fromAI('url', 'this website url address') }}"
+          },
+          "matchingColumns": [
+            "url"
+          ],
+          "schema": [
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -560,
+        200
+      ],
+      "id": "0dae3b74-d9e6-46d2-bda6-2057bde19fc0",
+      "name": "pobierz_strone"
+    },
+    {
+      "parameters": {
+        "description": "Call this tool to get domain visibility i search engine result page.",
+        "workflowId": {
+          "__rl": true,
+          "value": "O0jWmkmx5ztt2wUD",
+          "mode": "list",
+          "cachedResultName": "_tool seunto domain visibility"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "domain": "={{ $fromAI('domain','only domain, no http, https, no path. for example exampledomain.com') }}"
+          },
+          "matchingColumns": [
+            "domain"
+          ],
+          "schema": [
+            {
+              "id": "domain",
+              "displayName": "domain",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -380,
+        200
+      ],
+      "id": "e436de0d-6c21-4eb6-9cc3-6258113ad747",
+      "name": "getDomainVisibility"
+    },
+    {
+      "parameters": {
+        "description": "Use this tool to get good research about topic or keyword.",
+        "workflowId": {
+          "__rl": true,
+          "value": "BfkalMbAnf9xXThI",
+          "mode": "list",
+          "cachedResultName": "korzystanie z zewnetrznych api - perplexity"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "input",
+              "displayName": "input",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -180,
+        200
+      ],
+      "id": "0a20e22b-901f-45f3-8eb1-65c00f9492a5",
+      "name": "perplexity_research"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pobierz_strone": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "getDomainVisibility": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "perplexity_research": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "6d291031-8016-4890-90b1-b2b3ef6c0afb",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "vbLYtxXMiZoXV6nB",
+  "tags": []
+}

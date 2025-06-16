@@ -1,0 +1,566 @@
+{
+  "name": "SensaiBot telegram",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "=Użytkownik nazywa się {{ $json.message.from.first_name + ' ' + $json.message.from.last_name }}. Dzisiaj jest: {{ $now.format('yyyy-MM-dd HH:MM') }}. \nNazywasz się Sensai. Jesteś częścią systemu komunikatora Telegram. Jesteś pomocnym asystentem. \n\n<zasady odpowiedzi>\n- Najpierw zawsze korzystaj z bazy wiedzy i narzędzi\n- Jeżeli nie korzystasz z narzędzi to pisz, że korzystasz z własnej wiedzy modelu\n</zasady odpowiedzi>\n\n<narzędzia>\n\npobierz_strone - służy do pobieranaia zawartośc ze stron www. Jeżeli użytkownik poprosi o inny rodzaj stron (np. google docs), to niestety musisz odprawić go z kwitkiem. Tylko grzecznie.\nuser_documents - Contains all the user's documents that you can check for context to answer user questions. Jeżeli skorzystasz z user_documents to daj znać o tym użytkownikowi.\n\n</narzędzia>\n\n<baza wiedzy>\n\n</baza wiedzy>\n\n<formatowanie>\nZachowuj się jak komunikator TELEGRAM. Formatuj odpowiedź stosując markdown. Ale nie używaj rozpoczęcia ``` dla tej odpowiedzi.\n</formatowanie>\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -2040,
+        -180
+      ],
+      "id": "b5a7503c-1fec-489c-8e86-d3391b1d3350",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "text",
+          "temperature": 0.3
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2400,
+        120
+      ],
+      "id": "caa9b549-4fc7-43a4-8d5f-0b9bd8b14ef5",
+      "name": "4.1 Mini",
+      "credentials": {
+        "openAiApi": {
+          "id": "hx6ZRPieOWcRc1Km",
+          "name": "Nimblio OpenAi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "738db7c2-0813-424b-bdcf-422e6f465967",
+              "leftValue": "={{ $json.user }}",
+              "rightValue": "U08FPL1SMMK",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -2360,
+        -600
+      ],
+      "id": "ca4c702b-ce09-41a3-ab00-a49570778e3b",
+      "name": "stopBot"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "=audio/mp4",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    },
+                    "id": "1ad205fe-969c-40cf-822c-6602b64d83c3"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -2340,
+        -180
+      ],
+      "id": "ed283898-df6d-4d59-9e96-895bf00c972c",
+      "name": "selectMessageType"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a102884e-4033-4129-8628-4e832818d5b7",
+              "leftValue": "={{ $json.message.from.username }}",
+              "rightValue": "romek_rozen",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -2620,
+        -180
+      ],
+      "id": "3235dc20-8657-4c18-851a-44cc0ca05e49",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b482109c-4b5a-4d76-b725-582e729c41ff",
+              "leftValue": "={{ $json.subtype }}",
+              "rightValue": "=file_share",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "038154ed-b3a1-4c4a-abc1-ae99b9250d0a",
+              "leftValue": "={{ $json.files[0].filetype }}",
+              "rightValue": "m4a",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -2660,
+        -460
+      ],
+      "id": "d7ae452a-6dc9-4644-8c7b-3fafbd726896",
+      "name": "filterAudioMessage"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2840,
+        -180
+      ],
+      "id": "809a1c7f-ab79-4f93-bd03-03f02bdb5743",
+      "name": "Telegram Trigger",
+      "webhookId": "b5adbc88-c401-4a45-b190-58f5db32eb1b",
+      "credentials": {
+        "telegramApi": {
+          "id": "yPOICsAfq6JJxg2a",
+          "name": "Przykladowy Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.username }}",
+        "sessionTTL": 604800,
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+      "typeVersion": 1.5,
+      "position": [
+        -2260,
+        140
+      ],
+      "id": "daf41d0e-652d-489d-819b-1c33fb5fc7c0",
+      "name": "Redis Chat Memory",
+      "credentials": {
+        "redis": {
+          "id": "gSp9A1y0THj7FNNK",
+          "name": "redis_2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "Skorzystaj z tego narzędzia, żeby pobrać zawartość strony internetowej oraz jej nagłówki z treśći. \n\nMusisz przesłać adres URL strony.",
+        "workflowId": {
+          "__rl": true,
+          "value": "8oqxXACMjEvsZUHB",
+          "mode": "list",
+          "cachedResultName": "naglowki i content"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "url": "={{ $fromAI('url', 'this website url address') }}"
+          },
+          "matchingColumns": [
+            "url"
+          ],
+          "schema": [
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -2120,
+        180
+      ],
+      "id": "aa9a8545-1f36-402e-ad20-52e9efea59fc",
+      "name": "pobierz_strone"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4.1-mini",
+        "options": {}
+      },
+      "id": "547ecf9d-ffb6-4662-be68-efba3a0d65f3",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -1580,
+        300
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "hx6ZRPieOWcRc1Km",
+          "name": "Nimblio OpenAi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-small",
+        "options": {}
+      },
+      "id": "b675c127-9d48-4466-a2b4-56ae69a5ffdd",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1,
+      "position": [
+        -2040,
+        540
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "hx6ZRPieOWcRc1Km",
+          "name": "Nimblio OpenAi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "qdrantCollection": {
+          "__rl": true,
+          "value": "sensai-qdrant",
+          "mode": "list",
+          "cachedResultName": "sensai-qdrant"
+        },
+        "options": {}
+      },
+      "id": "9d285794-a306-497f-9d90-1c8623ce3f32",
+      "name": "Moja Wiedza1",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1,
+      "position": [
+        -2040,
+        340
+      ],
+      "credentials": {
+        "qdrantApi": {
+          "id": "f8cKg7ZkXpx29yyT",
+          "name": "qdrant free tier"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "user_documents",
+        "description": "Contains all the user's documents that you can check for context to answer user questions. If no data in docunts just say \"Nie posiadam wiedzy na ten temat\"",
+        "topK": 5
+      },
+      "id": "19bd1111-ff85-422c-84a8-ef8ec3123f62",
+      "name": "Answer questions with a vector store",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "typeVersion": 1,
+      "position": [
+        -1900,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.message_id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -1680,
+        -180
+      ],
+      "id": "64c67e2b-0dc4-4962-b037-30e6eaca0ffd",
+      "name": "Telegram",
+      "webhookId": "6a4f8fca-70a1-4cc3-87db-5f441ed54861",
+      "credentials": {
+        "telegramApi": {
+          "id": "yPOICsAfq6JJxg2a",
+          "name": "Przykladowy Bot"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Telegram Trigger": [
+      {
+        "json": {
+          "update_id": 170163022,
+          "message": {
+            "message_id": 34,
+            "from": {
+              "id": 5077281099,
+              "is_bot": false,
+              "first_name": "Roman",
+              "last_name": "Rozenberger",
+              "username": "romek_rozen",
+              "language_code": "pl"
+            },
+            "chat": {
+              "id": 5077281099,
+              "first_name": "Roman",
+              "last_name": "Rozenberger",
+              "username": "romek_rozen",
+              "type": "private"
+            },
+            "date": 1747314447,
+            "text": "Zupa mleczna jest niebezpieczna"
+          }
+        }
+      }
+    ]
+  },
+  "connections": {
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4.1 Mini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "stopBot": {
+      "main": [
+        []
+      ]
+    },
+    "selectMessageType": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "selectMessageType",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "filterAudioMessage": {
+      "main": [
+        []
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pobierz_strone": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Answer questions with a vector store",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Moja Wiedza1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Moja Wiedza1": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Answer questions with a vector store",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Answer questions with a vector store": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "WjE4z6jOteKLEBf3"
+  },
+  "versionId": "354d2850-ccde-4795-bedd-0b4ef66b6032",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "M4VTuOk98XhTaOBU",
+  "tags": []
+}

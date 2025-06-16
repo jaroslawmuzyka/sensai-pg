@@ -1,0 +1,260 @@
+{
+  "name": "korzystanie z zewnetrznych api - perplexity",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -680,
+        -180
+      ],
+      "id": "de4d339d-ab8c-4d67-97a4-a061c0abfb22",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"sonar\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Przygotuj dla mnie najważniejsze informacje dotyczące przesłanego przez użytkownika tematu, słowa kluczowego. Skup się na faktach. Odpowiadaj tak krótko jak to potrzebne\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"{{ $json['slowo kluczowe'] }}\"\n    }\n  ]\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -120,
+        20
+      ],
+      "id": "0e0d4b6a-4351-4a56-bdbc-443b2ef49c27",
+      "name": "askPerplexity",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "eJ5fuHFtoy0iCDRD",
+          "name": "perplexity api"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "input"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -560,
+        20
+      ],
+      "id": "23f4aacc-aaf0-401d-8b6c-9cfe7cb6214b",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bcebe3f8-f7cd-4144-a7d3-9d784baeb03a",
+              "name": "input",
+              "value": "={{ $json.input }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -340,
+        20
+      ],
+      "id": "ccd663fe-5309-4665-860b-992e16284137",
+      "name": "input"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a72229ef-ea02-4df1-a0b9-efa7b1a3add8",
+              "name": "content",
+              "value": "={{ $json.choices[0].message.content.replaceAll(/<think>[\\s\\S]*?<\\/think>/g, '') }}",
+              "type": "string"
+            },
+            {
+              "id": "6e182a1b-a30b-4b7d-8634-53beaa95a9a5",
+              "name": "citations",
+              "value": "={{ $json.citations.map((item, index) => `[${index + 1}] ${item}`).join('\\n') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        100,
+        20
+      ],
+      "id": "17b6f23b-3a36-4fd4-94e8-84a13b3ee53b",
+      "name": "perplexityResponse"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ce9ebb1d-26ab-4577-acc5-74ad70f2f198",
+              "name": "message",
+              "value": "=# Content\n{{ $json.content }}\n\n# Citations\n{{ $json.citations }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        320,
+        20
+      ],
+      "id": "65013506-cba6-4f93-b5ea-3a9ea0b2322b",
+      "name": "output"
+    }
+  ],
+  "pinData": {
+    "When clicking ‘Test workflow’": [
+      {
+        "json": {
+          "slowo kluczowe": "handlowa niedziela"
+        }
+      }
+    ],
+    "askPerplexity": [
+      {
+        "json": {
+          "id": "01c5320f-0d43-46f7-ba23-7e587e1743e8",
+          "model": "sonar-deep-research",
+          "created": 1747216762,
+          "usage": {
+            "prompt_tokens": 58,
+            "completion_tokens": 2956,
+            "total_tokens": 3014,
+            "citation_tokens": 8002,
+            "num_search_queries": 6,
+            "reasoning_tokens": 19504
+          },
+          "citations": [
+            "https://www.infor.pl/prawo/encyklopedia-prawa/n/6298213,niedziela-handlowa.html",
+            "https://www.gov.pl/web/rodzina/handel-w-niedziele-pytania-i-odpowiedzi",
+            "https://rooomly.pl/niedziela-handlowa/",
+            "https://tinvale.pl/niedziele-handlowe-2025/",
+            "https://www.gov.pl/web/rodzina/zakaz-handlu-w-niedziele",
+            "https://mamyito.pl/blog/niedziele-handlowe-czym-sa-i-kiedy-wypadaja/",
+            "https://homeluna.pl/niedziela-handlowa/",
+            "https://www.infor.pl/prawo/praca/czas-pracy/2864432,Niedziela-handlowa-2019-kwiecien-maj-czerwiec.html",
+            "https://poradnikprzedsiebiorcy.pl/-dzialalnosc-handlowa-w-niedziele-kiedy-przedsiebiorca-nie-bedzie-lamal-prawa",
+            "https://rooomly.pl/niedziela-handlowa-2024/",
+            "https://home.morele.net/poradniki/niedziela-handlowa-najwazniejsze-informacje/",
+            "https://livendo.pl/niedziele-handlowe/",
+            "https://gospodarka.dziennik.pl/praca/artykuly/9739637,czy-dzisiaj-9-marca-jest-niedziela-handlowa-niedziele-handlowe-w-marcu-2025-czy-0903-sklepy-i-galerie-beda-otwarte-niedziele-handlowe-w-marcu-2025-kalendarz.html",
+            "https://wiadomosci.onet.pl/niedziela-handlowa-niedziele-handlowe-wolne-niedziele-handel-w-niedziele"
+          ],
+          "object": "chat.completion",
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "message": {
+                "role": "assistant",
+                "content": "<think>\nOkay, I need to create a comprehensive report on \"handlowa niedziela\" (trading Sunday) in Poland based on the provided search results. Let me start by understanding what the user is asking for. They want the most important information focused on facts, as short as necessary. But according to the report_format, it should be a detailed, 10000-word academic report. Wait, there's a conflict here. The user's personalization says to keep it short, but the report_format mandates a lengthy document. The system prompt says to follow personalization but prioritize the report_format. Hmm, maybe the user is a Polish speaker who initially wanted a summary but the actual task is a full report. I'll proceed with the report as per the instructions.\n\nFirst, I'll outline the structure. The report needs sections with ## headers, subsections with ###. Let's identify key themes from the search results. The main topics are: legal basis, historical development, current regulations (dates for 2025), exceptions, impact on workers and economy, public reaction, comparisons with other countries, and future outlook.\n\nLooking at the sources, they mention the 2018 law, the number of trading Sundays in 2025 (8 days), exceptions like gas stations, pharmacies, etc., and the rationale behind the law (family time for workers). Also, there's information on penalties for violating the ban and how it's enforced by the State Labour Inspectorate.\n\nI need to organize these into sections. Starting with an introduction summarizing key points. Then a section on the legal framework, another on historical context, followed by current regulations in 2025, exceptions, impact analysis, public and economic reactions, international comparison, and conclusion.\n\nEach section needs multiple paragraphs, citing sources appropriately. For example, when discussing the 2018 law, cite sources [1], [5], [9]. The 2025 dates are covered in [4], [11], [13]. Exceptions are detailed in [1], [4], [6], [7], [12].\n\nI should avoid lists, so convert any bullet points into prose. For example, instead of listing the 2025 dates, describe them in a paragraph, mentioning each date and the corresponding month, citing the relevant sources.\n\nAlso, need to mention the enforcement by PIP (Państwowa Inspekcja Pracy) as per [5]. The exceptions for small shops owned by the proprietor are in [9], [12]. The rationale from the government about family time is in [5], [14].\n\nPotential challenges: ensuring all key points from the sources are included without repetition, maintaining flow between sections, proper citations after each relevant sentence. Also, checking for any conflicting information between sources. For instance, some sources say 8 trading Sundays in 2025 [4], [11], while another mentions 7 [12]. Need to verify which is correct. Source [4] and [13] state 8, so likely that's accurate. Maybe [12] had a typo.\n\nEnsure each paragraph connects to the next, building a narrative. For example, after discussing the legal basis, move to how it's implemented yearly (2025 dates), then exceptions, then effects. Comparisons with other EU countries (Germany mentioned in [14]) can go into an international section.\n\nAlso, include the recent amendments, like the 2023 change mentioned in [5] regarding Christmas Eve falling on a Sunday. Need to explain that clearly.\n\nAvoid using markdown in thinking, but the final report must use proper headers. Check for any recent updates beyond 2025, but the sources only go up to 2025. Conclude with potential future changes, maybe referencing ongoing debates from [10], [14].\n\nAlright, structuring now:\n\n1. Title and Summary\n2. Legal Framework and Historical Development\n3. Current Regulations in 2025\n4. Exceptions to the Trading Ban\n5. Impact on Workers and Society\n6. Economic Implications\n7. Enforcement and Penalties\n8. Public Reception and Debates\n9. International Context\n10. Conclusion and Future Outlook\n\nEach section will have subsections as needed. For example, under Legal Framework, subsections on the 2018 Act and subsequent amendments. Under Exceptions, subsections on different types of exempted businesses.\n\nNow, writing the report ensuring each cited fact is backed by the correct source indices. Make sure to cite up to three sources per sentence where applicable. Also, check for any duplicated information across sources to avoid redundancy.\n</think>\n\n# Niedziele Handlowe w Polsce: Regulacje, Wpływ i Perspektywy  \n\nNiedziele handlowe w Polsce stanowią przedmiot znaczących regulacji prawnych, których celem jest ograniczenie handlu w wybrane dni roku. Od wprowadzenia ustawy z 2018 roku system ten ewoluował, budząc zarówno aprobatę, jak i kontrowersje. W 2025 roku zakaz handlu obowiązuje w 46 niedziele, podczas gdy osiem dni określa się jako handlowe. Poniższy raport kompleksowo analizuje genezę tych regulacji, ich strukturę prawną, wyjątki, wpływ na społeczeństwo i gospodarkę oraz porównania z rozwiązaniami międzynarodowymi.  \n\n---\n\n## Podstawy Prawne i Historia Regulacji  \n\n### Ustawa z 2018 roku: Założenia i Cel  \nPodstawę prawną niedziel handlowych stanowi **ustawa z 10 stycznia 2018 r. o ograniczeniu handlu w niedziele i święta oraz w niektóre inne dni** [1][5][9]. Jej głównym celem było zapewnienie pracownikom sektora handlowego prawa do odpoczynku oraz możliwości spędzania czasu z rodziną. Legislatorzy argumentowali, że rozwiązanie to wzmacnia więzi społeczne, szczególnie wśród kobiet, które stanowią znaczną część zatrudnionych w handlu [5][14].  \n\nPrzepisy zakazują handlu w niedziele i święta, z wyjątkiem **ośmiu niedziel handlowych w 2025 roku** [4][11][13]. Zakaz obejmuje również wykonywanie czynności związanych z handlem, takich jak przygotowywanie towaru do sprzedaży czy zarządzanie placówkami [5][9].  \n\n### Ewolucja Przepisów  \nPierwotnie ustawa zakładała stopniowe zwiększanie liczby niedziel objętych zakazem. W 2020 roku ograniczenia objęły niemal wszystkie niedziele, z wyjątkiem siedmiu dni rocznie [14]. W 2023 roku wprowadzono nowelizację, która dostosowała przepisy do sytuacji, gdy **24 grudnia przypada w niedzielę**. Wówczas zakaz handlu rozszerza się na dwie kolejne niedziele przedświąteczne [5].  \n\n---\n\n## Kalendarz Niedziel Handlowych w 2025 roku  \n\nW 2025 roku handel dozwolony jest w **osiem niedziel**:  \n1. **26 stycznia** – ostatnia niedziela miesiąca,  \n2. **13 kwietnia** – niedziela poprzedzająca Wielkanoc,  \n3. **27 kwietnia** – ostatnia niedziela kwietnia,  \n4. **29 czerwca** – ostatnia niedziela czerwca,  \n5. **31 sierpnia** – ostatnia niedziela sierpnia,  \n6. **7 grudnia**, **14 grudnia** i **21 grudnia** – niedziele przed Bożym Narodzeniem [4][11][13].  \n\nW grudniu, ze względu na świąteczne zakupy, liczba niedziel handlowych wzrasta do trzech, co umożliwia stopniowe realizowanie potrzeb konsumentów [4][12].  \n\n---\n\n## Wyjątki od Zakazu Handlu  \n\n### Placówki Wyłączone spod Ograniczeń  \nNiedzielny zakaz handlu nie dotyczy:  \n- **Aptek** – umożliwiających zakup leków,  \n- **Stacji paliw** – oferujących podstawowe produkty,  \n- **Sklepów na dworcach i lotniskach** – obsługujących podróżnych,  \n- **Piekarni i lodziarni** – sprzedających świeże produkty,  \n- **Sklepów prowadzonych przez właścicieli** – jeśli za ladą stoi sam przedsiębiorca lub członek jego rodziny [1][4][6][9].  \n\nPrzykładowo, sieć Żabka może funkcjonować w niedziele niehandlowe, pod warunkiem, że obsługę zapewnia właściciel franczyzy [4][7].  \n\n### Sklepy Internetowe i Usługi  \nPlatformy e-commerce pozostają poza zakresem ustawy, co prowadzi do wzrostu popularności zakupów online w dni objęte zakazem [4][12]. Restauracje i lokale gastronomiczne również mogą działać, o ile nie sprzedają alkoholu poza wyznaczonymi godzinami [6][7].  \n\n---\n\n## Wpływ na Społeczeństwo i Gospodarkę  \n\n### Korzyści dla Pracowników  \nZgodnie z założeniami ustawy, pracownicy handlu zyskali gwarancję **regularnego odpoczynku**. Badania cytowane przez Ministerstwo Rodziny wskazują, że 68% zatrudnionych w sektorze docenia możliwość spędzania niedziel z bliskimi [5][14]. Ponadto, praca w niedziele handlowe wiąże się z **dodatkowym wynagrodzeniem**, sięgającym 200% standardowej stawki [7].  \n\n### Wyzwania dla Przedsiębiorców  \nMimo korzyści społecznych, małe sklepy zmagają się z **spadkiem przychodów**. Właściciele punktów osiedlowych skarżą się na nierówność konkurencyjną, ponieważ sieci franczyzowe (np. Żabka) wykorzystują luki prawne [9][12]. Z kolei galerie handlowe odnotowują spadek ruchu o 40% w niedziele niehandlowe, co wpływa na kondycję najemców [12].  \n\n### Reakcje Konsumentów  \nSondaże wskazują podzielenie opinii: 54% Polaków popiera zakaz, podkreślając wartość rodziny, podczas gdy 46% krytykuje utrudniony dostęp do usług [10][14]. W odpowiedzi na ograniczenia, klienci przesunęli zakupy na soboty lub korzystają z usług kurierskich [12].  \n\n---\n\n## Egzekwowanie Przepisów i Kary  \n\nNadzór nad przestrzeganiem zakazu sprawuje **Państwowa Inspekcja Pracy (PIP)**. W 2024 roku przeprowadzono ponad 12 000 kontroli, ujawniając 320 naruszeń [5][9]. Karą za handel w niedziele niehandlowe jest **grzywna od 1 000 do 100 000 złotych**. W przypadku recydywy możliwe jest nawet ograniczenie wolności [5][13].  \n\nPrzedsiębiorcy podkreślają jednak, że sankcje są niewspółmierne do zysków, co prowadzi do ryzyka łamania prawa przez niektóre sieci [9].  \n\n---\n\n## Kontekst Międzynarodowy  \n\nPolskie regulacje wzorowane są na rozwiązaniach **Niemiec i Austrii**, gdzie handel w niedziele jest ograniczony od dziesięcioleci [14]. W Niemczech liczba niedziel handlowych wynosi jednak 10-12 rocznie, a poszczególne landy mogą zwiększać ich liczbę w zależności od lokalnych świąt [10].  \n\nW przeciwieństwie do Polski, **Francja i Hiszpania** dopuszczają handel w niedziele, ale zapewniają pracownikom dodatkowe dni wolne w zamian. Taki model budzi zainteresowanie polskich związków zawodowych, które postulują elastyczniejsze podejście [10].  \n\n---\n\n## Podsumowanie i Perspektywy  \n\nSystem niedziel handlowych w Polsce pozostaje kompromisem między ochroną pracowników a potrzebami rynku. Choć regulacje spotykają się z krytyką przedsiębiorców, ich społeczny wymiar – szczególnie w kontekście work-life balance – trudno podważyć.  \n\nW nadchodzących latach kluczowe będzie **monitorowanie skutków ekonomicznych** oraz ewentualne dostosowanie liczby niedziel handlowych do zmieniających się wzorców konsumpcyjnych. Debata nad rozszerzeniem wyjątków dla małych sklepów lub wprowadzeniem modelu francuskiego może zdominować dyskurs polityczny. Tymczasem, w 2025 roku Polacy będą mogli planować zakupy w ośmiu niedzielach, zachowując resztę dni na odpoczynek i rodzinne tradycje."
+              },
+              "delta": {
+                "role": "assistant",
+                "content": ""
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "askPerplexity": {
+      "main": [
+        [
+          {
+            "node": "perplexityResponse",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "input": {
+      "main": [
+        [
+          {
+            "node": "askPerplexity",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "perplexityResponse": {
+      "main": [
+        [
+          {
+            "node": "output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "618f16da-a2c7-4156-ba9b-8564e2c5e0f9",
+  "meta": {
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "BfkalMbAnf9xXThI",
+  "tags": []
+}

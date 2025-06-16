@@ -1,0 +1,497 @@
+{
+  "name": "Automatyczne odświeżanie tokena API w n8n (na przykładzie Senuto)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "daysInterval": 29,
+              "triggerAtHour": 3,
+              "triggerAtMinute": 1
+            }
+          ]
+        }
+      },
+      "id": "5437dd2b-c1b2-4c57-803f-cca4dc512771",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        140,
+        -240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.senuto.com/api/users/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpCustomAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Lang",
+              "value": "pl-PL"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "response": {
+            "response": {}
+          }
+        }
+      },
+      "id": "a46d35a2-1c79-4494-9fb4-02a202f98a06",
+      "name": "senutoGenerujToken",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        -240
+      ],
+      "credentials": {
+        "httpCustomAuth": {
+          "id": "YVxy46eY94i18VUW",
+          "name": "Senuto_password"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fileSelector": ".senuto_token",
+        "options": {}
+      },
+      "id": "48ceb14b-f382-4545-b873-dace40d5f8bb",
+      "name": "odczytaj token z dysku",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        560,
+        100
+      ],
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b7fa9d4f-e9bd-408e-a30d-46224220ac1b",
+              "leftValue": "={{ $json.isEmpty()}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "104a4beb-c758-4d3a-861d-42d903e8dbb0",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        780,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "destinationKey": "senuto_token",
+        "options": {}
+      },
+      "id": "350579f1-93c2-4aa3-98a1-b64ad1f1a197",
+      "name": "pobierz tekst z pliku",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        960,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e4a0ce6c-a39e-4b3d-a060-ed673f607c4b",
+              "name": "senuto_token",
+              "value": "={{ $json.senuto_token }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6240d3d3-b3dd-4d78-a21c-54e68b326dd0",
+      "name": "senuto_token",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1140,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "47970191-1b70-4b50-8ba9-2ccfebe59079",
+              "name": "data.token",
+              "value": "={{ $json.data.token }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "60951d87-9c76-47ae-bca1-4d1501a45756",
+      "name": "samToken",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        620,
+        -240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "data.token",
+        "options": {
+          "fileName": ".senuto_token"
+        }
+      },
+      "id": "345e6df2-764d-4da6-9b85-b24361907006",
+      "name": "zamien_token_na_plik",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        860,
+        -240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": ".senuto_token",
+        "options": {
+          "append": false
+        }
+      },
+      "id": "bca3740e-6b13-471e-a52f-c29144cf80fc",
+      "name": "zapisz_token_na_dysk",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        -240
+      ]
+    },
+    {
+      "parameters": {
+        "path": "a09c05a6-c504-4b5a-ba4a-fcc26266ea07",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "2c3b2374-240e-439b-9005-d846e49fabc0",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        140,
+        -60
+      ],
+      "webhookId": "a09c05a6-c504-4b5a-ba4a-fcc26266ea07",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"senuto_token\": \"{{ $json.senuto_token }}\"\n}",
+        "options": {}
+      },
+      "id": "96090bac-32d2-4289-b91b-73850586f733",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1340,
+        120
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "bf1f78ed-dcaf-475e-b0fd-e53fa9523e0b",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        140,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.senuto.com/api/users/token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpCustomAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Lang",
+              "value": "pl-PL"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email",
+              "value": "reklama@ibb.media"
+            },
+            {
+              "name": "password",
+              "value": "{&5[.q49~kM!tp,\\a7"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "5ae4b43c-ac17-443b-9823-301ce95acd77",
+      "name": "senutoGenerujToken1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1680,
+        -500
+      ],
+      "credentials": {
+        "httpCustomAuth": {
+          "id": "YVxy46eY94i18VUW",
+          "name": "Senuto_password"
+        }
+      },
+      "disabled": true
+    }
+  ],
+  "pinData": {
+    "Execute Workflow Trigger": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.ibb.media",
+            "user-agent": "ReactorNetty/1.1.22",
+            "content-length": "40",
+            "accept": "*/*",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "x-forwarded-for": "3.131.104.27",
+            "x-forwarded-host": "n8n.ibb.media",
+            "x-forwarded-proto": "https"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "limit": 1000,
+            "page": 1,
+            "keyword": "Dupa"
+          },
+          "webhookUrl": "https://n8n.ibb.media/webhook/senuto_keyword_details",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "senutoGenerujToken": [
+      {
+        "json": {
+          "success": true,
+          "data": {
+            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MzAxMjksImV4cCI6MTc0OTg5NjQyNywiaWF0IjoxNzQ3MjE4MDI3fQ.6XVeX_MZje6HVNsN8OPeTyPyylulG4kEmCCipNu2srI",
+            "id": 30129,
+            "email": "reklama@ibb.media",
+            "lang": "pl-PL",
+            "currency": "PLN",
+            "currency_ratio": 1,
+            "country_id": 1
+          }
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "senutoGenerujToken",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "senutoGenerujToken": {
+      "main": [
+        [
+          {
+            "node": "samToken",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "odczytaj token z dysku": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "senutoGenerujToken",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pobierz tekst z pliku",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pobierz tekst z pliku": {
+      "main": [
+        [
+          {
+            "node": "senuto_token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "senuto_token": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "samToken": {
+      "main": [
+        [
+          {
+            "node": "zamien_token_na_plik",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "zamien_token_na_plik": {
+      "main": [
+        [
+          {
+            "node": "zapisz_token_na_dysk",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "zapisz_token_na_dysk": {
+      "main": [
+        [
+          {
+            "node": "odczytaj token z dysku",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "odczytaj token z dysku",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "odczytaj token z dysku",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "696d537b-66df-437f-a038-3635518f349c",
+  "meta": {
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "LTC9zDEjhs07itO0",
+  "tags": [
+    {
+      "createdAt": "2025-04-23T17:44:12.523Z",
+      "updatedAt": "2025-04-23T17:44:12.523Z",
+      "id": "nYs2ts4b9T9cCYy0",
+      "name": "senuto"
+    }
+  ]
+}
