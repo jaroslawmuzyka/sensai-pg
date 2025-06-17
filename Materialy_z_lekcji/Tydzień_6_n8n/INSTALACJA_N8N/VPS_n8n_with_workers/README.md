@@ -10,6 +10,7 @@ Na podstawie https://github.com/n8n-io/n8n-hosting/tree/main/docker-compose/with
 - Zainstalowany Docker i Docker Compose
 - Domena i subdomena skonfigurowana do wskazywania na serwer
 - Otwarty port 80 i 443 na serwerze
+- Zaloguj się jako swój użytkownik!
 
 ## Przygotowanie struktury katalogów
 
