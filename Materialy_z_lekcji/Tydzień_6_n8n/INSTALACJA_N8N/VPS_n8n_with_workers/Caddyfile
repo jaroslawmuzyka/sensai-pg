@@ -1,0 +1,7 @@
+# Sciezka do pliku powinna byc taka: /home/nimblio/n8n/caddy_config/Caddyfile
+
+Twoja_subdomena.TwojaDomenaGlowna.TLD {
+    reverse_proxy n8n:5678 {
+      flush_interval -1
+    }
+}
