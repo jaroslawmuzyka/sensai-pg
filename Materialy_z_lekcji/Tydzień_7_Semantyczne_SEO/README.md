@@ -8,6 +8,11 @@ Ten katalog zawiera materiały dodatkowe do lekcji z siódmego tygodnia kursu SE
 - [Tworzenie map tematycznych za pomocą grafów wiedzy](#lekcja-tworzenie-map-tematycznych-za-pomocą-grafów-wiedzy)
 - [Proces budowy map tematycznych](#lekcja-proces-budowy-map-tematycznych)
 - [Query expansion](#lekcja-query-expansion)
+- [T07L06 Deep SERP analysis](#lekcja-deep-serp-analysis)
+- [T07L07 Dekompozycja SERP](#lekcja-dekompozycja-serp)
+- [T07L08 Baza grafowa Neo4j](#lekcja-baza-grafowa-neo4j)
+- [T07L09 Indeksowanie i wizualizacja grafu wiedzy](#lekcja-indeksowanie-i-wizualizacja-grafu-wiedzy)
+- [T07L10 Pobieranie danych z grafów wiedzy](#lekcja-pobieranie-danych-z-grafów-wiedzy)
 
 ---
 
@@ -63,4 +68,50 @@ W tej lekcji poznasz technikę query expansion (rozszerzania zapytań) – pierw
 - Notatka z lekcji: [T07L05_Query_expansion.md](./Dokumenty/T07L05_Query_expansion.md)
 - Transkrypcja: [T07L05_Query_expansion_Transkrypcja.md](./Dokumenty/T07L05_Query_expansion_Transkrypcja.md)
 - Google Colab: [Automatyzacja query expansion](https://colab.research.google.com/drive/1kTx9_TbA43a0hmoOnWI_FhFeoXBZsz6q?usp=sharing)
-- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/336) 
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/336)
+
+### T07L06 Deep SERP analysis
+
+- **Notatka:** [Dokumenty/T07L06_Deep_SERP_analysis.md](./Dokumenty/T07L06_Deep_SERP_analysis.md)
+- **Google Colab:** [Deep Search Analysis](https://colab.research.google.com/drive/1kTx9_TbA43a0hmoOnWI_FhFeoXBZsz6q?usp=sharing)
+- **Platforma SensAI:** [Lekcja na platformie](https://learn.sensai.academy/next/public/lesson/338)
+- **Transkrypcja:** [Dokumenty/T07L06_Deep_SERP_analysis_Transkrypcja.md](./Dokumenty/T07L06_Deep_SERP_analysis_Transkrypcja.md)
+
+**Opis:**
+Lekcja pokazuje, jak przejść od listy rozszerzonych słów kluczowych do głębokiej analizy wyników wyszukiwania (SERP) i budowy mapy powiązań tematycznych. Uczestnicy poznają automatyzację procesu za pomocą Google Colab i narzędzia Serpdata, a także analizę wyników i eliminację szumu w danych.
+
+### T07L07 Dekompozycja SERP
+
+- **Notatka:** [Dokumenty/T07L07_Dekompozycja_SERP.md](./Dokumenty/T07L07_Dekompozycja_SERP.md)
+- **Platforma SensAI:** [Lekcja na platformie](https://learn.sensai.academy/next/public/lesson/339)
+- **Transkrypcja:** [Dokumenty/T07L07_Dekompozycja_SERP_Transkrypcja.md](./Dokumenty/T07L07_Dekompozycja_SERP_Transkrypcja.md)
+
+**Opis:**
+Lekcja pokazuje, jak przekształcić surową treść setek stron w ustrukturyzowaną wiedzę w postaci grafów. Omawia konfigurację narzędzi, podwójną perspektywę grafów oraz problem skali danych.
+
+### T07L08 Baza grafowa Neo4j
+
+- **Notatka:** [Dokumenty/T07L08_Baza_grafowa_Neo4j.md](./Dokumenty/T07L08_Baza_grafowa_Neo4j.md)
+- **Platforma SensAI:** [Lekcja na platformie](https://learn.sensai.academy/next/public/lesson/340)
+- **Strona Neo4j:** [https://neo4j.com](https://neo4j.com)
+- **Transkrypcja:** [Dokumenty/T07L08_Baza_grafowa_Neo4j_Transkrypcja.md](./Dokumenty/T07L08_Baza_grafowa_Neo4j_Transkrypcja.md)
+
+**Opis:**
+Lekcja wprowadza do pracy z profesjonalną bazą grafową Neo4j, pokazuje jak założyć darmową instancję AuraDB i przygotować środowisko do dalszej pracy z grafami wiedzy.
+
+### T07L09 Indeksowanie i wizualizacja grafu wiedzy
+
+- **Notatka:** [Dokumenty/T07L09_Indeksowanie_i_wizualizacja_grafu_wiedzy.md](./Dokumenty/T07L09_Indeksowanie_i_wizualizacja_grafu_wiedzy.md)
+- **Platforma SensAI:** [Lekcja na platformie](https://learn.sensai.academy/next/public/lesson/341)
+
+**Opis:**
+Lekcja pokazuje, jak zaindeksować graf wiedzy w bazie Neo4j i zwizualizować go w formie interaktywnego grafu, umożliwiając eksplorację i analizę powiązań między encjami.
+
+### T07L10 Pobieranie danych z grafów wiedzy
+
+- **Notatka:** [Dokumenty/T07L10_Pobieranie_danych_z_grafow_wiedzy.md](./Dokumenty/T07L10_Pobieranie_danych_z_grafow_wiedzy.md)
+- **Platforma SensAI:** [Lekcja na platformie](https://learn.sensai.academy/next/public/lesson/342)
+- **Transkrypcja:** [Dokumenty/T07L10_Pobieranie_danych_z_grafow_wiedzy_Transkrypcja.md](./Dokumenty/T07L10_Pobieranie_danych_z_grafow_wiedzy_Transkrypcja.md)
+
+**Opis:**
+Lekcja pokazuje, jak wyeksportować dane z grafu wiedzy i wykorzystać je do budowy mapy tematycznej oraz planowania linkowania wewnętrznego na stronie. 
