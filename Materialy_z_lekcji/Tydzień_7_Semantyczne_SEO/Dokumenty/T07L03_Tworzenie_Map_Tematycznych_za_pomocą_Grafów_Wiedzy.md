@@ -61,10 +61,10 @@ Mapy tematyczne pozwalają na tworzenie inteligentnego **linkowania wewnętrzneg
 
 ---
 
-## Prompt do tworzenia grafu wiedzy
+## Prompt do budowy mapy tematycznej (Topical Map)
 
-Pełny, aktualny prompt do generowania grafu wiedzy znajdziesz w katalogu promptów:
+Pełny, aktualny prompt do generowania mapy tematycznej znajdziesz w katalogu promptów:
 
-[Prompty/Knowledge_Graph_Generator.md](../../../Prompty/Knowledge_Graph_Generator.md)
+[Prompty/Topical_Map_Generator.md](../../../Prompty/Topical_Map_Generator.md)
 
 --- 

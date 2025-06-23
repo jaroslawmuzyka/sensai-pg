@@ -42,4 +42,14 @@ Lekcja pokazuje inżynierskie podejście do budowania struktur treści na bazie 
 ---
 
 ## Ważne linki
-- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/342) 
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/342)
+
+---
+
+## Prompt do budowy mapy tematycznej (Topical Map)
+
+Pełny, aktualny prompt do generowania mapy tematycznej znajdziesz w katalogu promptów:
+
+[Prompty/Topical_Map_Generator.md](../../../Prompty/Topical_Map_Generator.md)
+
+--- 
