@@ -27,29 +27,28 @@ N8n to potężne narzędzie do automatyzacji przepływów pracy (workflow automa
 - Wstęp do tygodnia
 
 ## Instalacja n8n
-- Lekcja wstępna do instalacji
-- Jakie instalacje wybrać
-- Instalacja n8n na localhost
-- Instalacja n8n na Hetznerze (lub dowolnym VPS)
-- Instalacja n8n na Railway
-- Instalacja n8n na Elestio
+- 🟢 Lekcja wstępna do instalacji
+- 🟢 Jakie instalacje wybrać
+- 🟢 Instalacja n8n na localhost
+- 🟢 Instalacja n8n na Hetznerze (lub dowolnym VPS)
+- 🟢 Instalacja n8n na Railway
+- 🟢 Instalacja n8n na Elestio
 
 ## Podstawy pracy z n8n
-- Interfejs n8n
-- Łączenie bloków
-- Import szablonów
+- 🟢 Interfejs n8n
+-  Łączenie bloków
+- 🟢 Import szablonów
 
 ## Praca z API i danymi
-- Pobieranie danych ze strony
-- Korzystanie z zewnętrznych API
-- Korzystanie z zewnętrznych API - Senuto
-- Korzystanie z zewnętrznych API - Senuto Widocznosc Domeny
-- Połączenie n8n z rownowaznikiem @mat
+- 🟢 Pobieranie danych ze strony 
+- 🟢 Korzystanie z zewnętrznych API
+- 🟢 Korzystanie z zewnętrznych API - Senuto
+- 🟢 Korzystanie z zewnętrznych API - Senuto Widocznosc Domeny
 
 ## Integracje z narzędziami Google
-- Połączenie n8n z narzędziami Google
-- Google Trends to Google Sheets
-- Eksport treści do Google Docs
+- 🟢 Połączenie n8n z narzędziami Google
+- 🟢 Google Trends to Google Sheets
+- 🟢 Eksport treści do Google Docs
 
 ## Integracje z CMS i bazami danych
 - WordPress - część 1
@@ -57,7 +56,6 @@ N8n to potężne narzędzie do automatyzacji przepływów pracy (workflow automa
 
 ## Praca z Qdrant
 - Podstawy pracy z Qdrant
-- Zaawansowana praca z Qdrant
 
 ## Blok Agenta
 - Blok agenta
@@ -65,8 +63,8 @@ N8n to potężne narzędzie do automatyzacji przepływów pracy (workflow automa
 - Rozmowa ze strona w n8n
 
 ## Integracje z komunikatorami
-- Łączenie ze Slackiem
-- Integracja z Telegramem
+- 🟢 Łączenie ze Slackiem
+- 🟢 Integracja z Telegramem
 
 ---
 
