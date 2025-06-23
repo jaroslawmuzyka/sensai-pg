@@ -5,6 +5,8 @@ Ten katalog zawiera materiały dodatkowe do lekcji z siódmego tygodnia kursu SE
 ## Spis treści
 - [Wprowadzenie do Semantycznego SEO](#lekcja-wprowadzenie-do-semantycznego-seo)
 - [Grafy wiedzy i grafy informacji](#lekcja-grafy-wiedzy-i-grafy-informacji)
+- [Tworzenie map tematycznych za pomocą grafów wiedzy](#lekcja-tworzenie-map-tematycznych-za-pomocą-grafów-wiedzy)
+- [Proces budowy map tematycznych](#lekcja-proces-budowy-map-tematycznych)
 
 ---
 
@@ -26,4 +28,26 @@ Ta lekcja wyjaśnia, jak Google porządkuje wiedzę w internecie, wykorzystując
 **Materiały:**
 - Notatka z lekcji: [T07L02_Grafy_Wiedzy.md](./Dokumenty/T07L02_Grafy_Wiedzy.md)
 - Transkrypcja: [T07L02_Grafy_Wiedzy_Transkrypcja.md](./Dokumenty/T07L02_Grafy_Wiedzy_Transkrypcja.md)
-- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/337) 
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/337)
+
+---
+
+## Lekcja: Tworzenie map tematycznych za pomocą grafów wiedzy
+
+W tej lekcji skupisz się na praktycznym wykorzystaniu grafów wiedzy do budowania map tematycznych. Dowiesz się, jak generować rozbudowane grafy wiedzy na podstawie dużych korpusów danych (deep research), a następnie przekształcać je w mapy tematyczne, które ułatwiają planowanie treści i inteligentne linkowanie wewnętrzne. Poznasz narzędzia (Gemini, OpenAI, Claude, Groq) oraz workflow od researchu po generowanie mapy tematycznej i jej zastosowanie w SEO semantycznym.
+
+**Materiały:**
+- Notatka z lekcji: [T07L03_Tworzenie_Map_Tematycznych_za_pomocą_Grafów_Wiedzy.md](./Dokumenty/T07L03_Tworzenie_Map_Tematycznych_za_pomocą_Grafów_Wiedzy.md)
+- Transkrypcja: [T07L03_Tworzenie_Map_Tematycznych_za_pomocą_Grafów_Wiedzy_Transkrypcja.md](./Dokumenty/T07L03_Tworzenie_Map_Tematycznych_za_pomocą_Grafów_Wiedzy_Transkrypcja.md)
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/334)
+
+---
+
+## Lekcja: Proces budowy map tematycznych
+
+Ta lekcja wprowadza w zaawansowany proces budowania mapy tematycznej (topical map) w SEO. Poznasz kolejne etapy: od rozbudowy zapytań, przez analizę SERP, dekompozycję i rekompozycję wiedzy, aż po wykorzystanie grafowej bazy danych (Neo4j) i wnioskowanie na podstawie powstałych struktur. Dzięki temu nauczysz się, jak tworzyć kompleksowe strategie contentowe oparte na dogłębnej analizie działania wyszukiwarki Google i nowoczesnych narzędziach do wizualizacji relacji.
+
+**Materiały:**
+- Notatka z lekcji: [T07L04_Proces_budowy_map_tematycznych.md](./Dokumenty/T07L04_Proces_budowy_map_tematycznych.md)
+- Transkrypcja: [T07L04_Proces_budowy_map_tematycznych_Transkrypcja.md](./Dokumenty/T07L04_Proces_budowy_map_tematycznych_Transkrypcja.md)
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/335) 
