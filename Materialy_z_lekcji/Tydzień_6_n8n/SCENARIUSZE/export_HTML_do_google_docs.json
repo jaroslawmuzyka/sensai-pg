@@ -7,7 +7,7 @@
       "typeVersion": 1,
       "position": [
         -1680,
-        80
+        180
       ],
       "id": "606dafbc-6acd-4813-9301-baa43da27255",
       "name": "When clicking ‘Test workflow’"
@@ -29,28 +29,12 @@
       "typeVersion": 1.1,
       "position": [
         -800,
-        -20
+        80
       ]
     },
     {
       "parameters": {
-        "operation": "write",
-        "fileName": "/files/content.html",
-        "dataPropertyName": "file",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.readWriteFile",
-      "typeVersion": 1,
-      "position": [
-        -580,
-        -20
-      ],
-      "id": "657dfb4f-ca40-470c-be5f-b16a273654d9",
-      "name": "writeFile"
-    },
-    {
-      "parameters": {
-        "fileSelector": "/files/content.html",
+        "fileSelector": "={{ $json.fileName }}",
         "options": {
           "mimeType": "text/html",
           "dataPropertyName": "file"
@@ -59,8 +43,8 @@
       "type": "n8n-nodes-base.readWriteFile",
       "typeVersion": 1,
       "position": [
-        -360,
-        -20
+        -40,
+        80
       ],
       "id": "f055a275-a4ef-42c2-a8f9-7b86da45258e",
       "name": "readFile"
@@ -74,8 +58,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        -140,
-        80
+        220,
+        140
       ],
       "id": "ac7d5d89-ebbe-4847-ab38-b9089f4b8f0a",
       "name": "Merge"
@@ -105,7 +89,7 @@
       "typeVersion": 3,
       "position": [
         -820,
-        240
+        560
       ],
       "id": "8fef3900-aaf6-4a90-94ea-726f69794f3b",
       "name": "createFile",
@@ -123,8 +107,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        80,
-        80
+        420,
+        140
       ],
       "id": "112d5e7d-a512-4444-bbe3-479b0900dafe",
       "name": "Wait",
@@ -144,7 +128,7 @@
       "typeVersion": 1,
       "position": [
         -1240,
-        -20
+        80
       ],
       "id": "203249f7-780f-4143-b2c8-efe84944017d",
       "name": "mdToHtml"
@@ -169,8 +153,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        300,
-        80
+        640,
+        140
       ],
       "id": "844c1ca6-f21c-44f2-a73f-0c45b9a400bb",
       "name": "updateContentToDrive",
@@ -199,7 +183,7 @@
       "typeVersion": 3.4,
       "position": [
         -1020,
-        -20
+        80
       ],
       "id": "cab8c31b-fda9-4456-9c6d-af248cda57a5",
       "name": "setConetnt"
@@ -240,10 +224,58 @@
       "typeVersion": 3.4,
       "position": [
         -1460,
-        80
+        180
       ],
       "id": "97da7fe0-9e7e-4042-b3f8-a099391d6820",
       "name": "gDriveLocationAndContent"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "/files/content.html",
+        "dataPropertyName": "file",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        -80
+      ],
+      "id": "7a8328ab-559d-4369-868a-a49655864b88",
+      "name": "writeFileSharedFolder",
+      "notes": "Ten node zapisuje plik do współdzielonego katalogu /files"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "/home/node/content.html",
+        "dataPropertyName": "file",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        80
+      ],
+      "id": "657dfb4f-ca40-470c-be5f-b16a273654d9",
+      "name": "writeFileToDisk"
+    },
+    {
+      "parameters": {
+        "content": "## Zapis pliku na dysk\n\nW zależności od Twojej instalacji będziesz mógł zapisywać pliki w katalogu współdzielonym albo w katalogu samej aplikacji. \n\nW przypadku braku mapowania katalogu ścieżką dla pliku może być wszystko co jest w /home/node/",
+        "height": 600,
+        "width": 340
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -540,
+        -320
+      ],
+      "typeVersion": 1,
+      "id": "fbe4fb8d-0c17-4c7f-9633-7c9baa7c6ca6",
+      "name": "Sticky Note"
     }
   ],
   "pinData": {},
@@ -263,18 +295,7 @@
       "main": [
         [
           {
-            "node": "writeFile",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "writeFile": {
-      "main": [
-        [
-          {
-            "node": "readFile",
+            "node": "writeFileToDisk",
             "type": "main",
             "index": 0
           }
@@ -367,13 +388,24 @@
           }
         ]
       ]
+    },
+    "writeFileToDisk": {
+      "main": [
+        [
+          {
+            "node": "readFile",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "649cb9ca-c759-4937-a013-fc652ca928f9",
+  "versionId": "72e00da2-0821-4f24-bcc8-a6c0e1c9d857",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
