@@ -70,6 +70,8 @@ W tej lekcji poznasz technikę query expansion (rozszerzania zapytań) – pierw
 - Google Colab: [Automatyzacja query expansion](https://colab.research.google.com/drive/1kTx9_TbA43a0hmoOnWI_FhFeoXBZsz6q?usp=sharing)
 - Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/336)
 
+---
+
 ### T07L06 Deep SERP analysis
 
 - **Notatka:** [Dokumenty/T07L06_Deep_SERP_analysis.md](./Dokumenty/T07L06_Deep_SERP_analysis.md)
@@ -80,6 +82,8 @@ W tej lekcji poznasz technikę query expansion (rozszerzania zapytań) – pierw
 **Opis:**
 Lekcja pokazuje, jak przejść od listy rozszerzonych słów kluczowych do głębokiej analizy wyników wyszukiwania (SERP) i budowy mapy powiązań tematycznych. Uczestnicy poznają automatyzację procesu za pomocą Google Colab i narzędzia Serpdata, a także analizę wyników i eliminację szumu w danych.
 
+---
+
 ### T07L07 Dekompozycja SERP
 
 - **Notatka:** [Dokumenty/T07L07_Dekompozycja_SERP.md](./Dokumenty/T07L07_Dekompozycja_SERP.md)
@@ -88,6 +92,8 @@ Lekcja pokazuje, jak przejść od listy rozszerzonych słów kluczowych do głę
 
 **Opis:**
 Lekcja pokazuje, jak przekształcić surową treść setek stron w ustrukturyzowaną wiedzę w postaci grafów. Omawia konfigurację narzędzi, podwójną perspektywę grafów oraz problem skali danych.
+
+---
 
 ### T07L08 Baza grafowa Neo4j
 
@@ -99,13 +105,18 @@ Lekcja pokazuje, jak przekształcić surową treść setek stron w ustrukturyzow
 **Opis:**
 Lekcja wprowadza do pracy z profesjonalną bazą grafową Neo4j, pokazuje jak założyć darmową instancję AuraDB i przygotować środowisko do dalszej pracy z grafami wiedzy.
 
+---
+
 ### T07L09 Indeksowanie i wizualizacja grafu wiedzy
 
 - **Notatka:** [Dokumenty/T07L09_Indeksowanie_i_wizualizacja_grafu_wiedzy.md](./Dokumenty/T07L09_Indeksowanie_i_wizualizacja_grafu_wiedzy.md)
 - **Platforma SensAI:** [Lekcja na platformie](https://learn.sensai.academy/next/public/lesson/341)
+- **Transkrypcja:** [Dokumenty/T07L09_Indeksowanie_i_wizualizacja_grafu_wiedzy_Transkrypcja.md](./Dokumenty/T07L09_Indeksowanie_i_wizualizacja_grafu_wiedzy_Transkrypcja.md)
 
 **Opis:**
 Lekcja pokazuje, jak zaindeksować graf wiedzy w bazie Neo4j i zwizualizować go w formie interaktywnego grafu, umożliwiając eksplorację i analizę powiązań między encjami.
+
+---
 
 ### T07L10 Pobieranie danych z grafów wiedzy
 
