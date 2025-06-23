@@ -74,46 +74,10 @@ Pełny, aktualny prompt do generowania grafu wiedzy znajdziesz w katalogu prompt
 
 ---
 
-#### Prompt do stworzenia grafu informacji:
+#### Prompt do stworzenia grafu informacji (trójki semantyczne):
 
-```
-You are tasked with extracting information from a given text and creating an information graph using semantic triples. This process involves two main steps: information extraction and graph creation. Follow these instructions carefully to complete the task.
+Pełny, aktualny prompt do generowania grafu informacji znajdziesz w katalogu promptów:
 
-First, you will be presented with a text. Read it carefully and identify the key information, entities, and relationships within it.
+[Prompty/Information_Graph_Generator.md](../../../Prompty/Information_Graph_Generator.md)
 
-Step 1: Information Extraction
-- Carefully read through the text and identify important entities, concepts, and relationships.
-- Pay attention to names, dates, locations, events, and any other significant information.
-- Make note of how these elements relate to each other within the context of the text.
-
-Step 2: Creating the Information Graph
-- Using the extracted information, create an information graph represented as a set of semantic triples.
-- Each triple should be in the json format:  
-{
-  "Subject": "value",
-  "Predicate": "value",
-  "Object": "value"
-}
-- The subject and object should be entities or concepts, while the predicate describes the relationship between them.
-- Ensure that your triples cover all the key information present in the text.
-- Aim for clarity and conciseness in your triples.
-
-Guidelines for formatting your output:
-- Present your semantic triples in a list format.
-- Each triple should be on a new line.
-- Use parentheses to enclose each triple.
-- Separate the subject, predicate, and object with commas within the parentheses.
-- Ensure that your triples, when read together, provide a comprehensive representation of the information in the text.
-
-Here's an example of how your json output should be formatted:
-[
-  {
-    "Subject": "Jan Kowalski",
-    "Predicate": "jest",
-    "Object": "polskim pisarzem"
-  },
-  ...
-]
-
-Output in Polish
-``` 
+--- 
