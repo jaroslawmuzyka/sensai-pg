@@ -7,6 +7,7 @@ Ten katalog zawiera materiały dodatkowe do lekcji z siódmego tygodnia kursu SE
 - [Grafy wiedzy i grafy informacji](#lekcja-grafy-wiedzy-i-grafy-informacji)
 - [Tworzenie map tematycznych za pomocą grafów wiedzy](#lekcja-tworzenie-map-tematycznych-za-pomocą-grafów-wiedzy)
 - [Proces budowy map tematycznych](#lekcja-proces-budowy-map-tematycznych)
+- [Query expansion](#lekcja-query-expansion)
 
 ---
 
@@ -50,4 +51,16 @@ Ta lekcja wprowadza w zaawansowany proces budowania mapy tematycznej (topical ma
 **Materiały:**
 - Notatka z lekcji: [T07L04_Proces_budowy_map_tematycznych.md](./Dokumenty/T07L04_Proces_budowy_map_tematycznych.md)
 - Transkrypcja: [T07L04_Proces_budowy_map_tematycznych_Transkrypcja.md](./Dokumenty/T07L04_Proces_budowy_map_tematycznych_Transkrypcja.md)
-- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/335) 
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/335)
+
+---
+
+## Lekcja: Query expansion
+
+W tej lekcji poznasz technikę query expansion (rozszerzania zapytań) – pierwszy krok w budowaniu mapy tematycznej. Dowiesz się, jak automatycznie generować zestaw powiązanych fraz i pytań na podstawie jednego słowa kluczowego, wykorzystując narzędzia AI oraz dedykowany skrypt Google Colab. Poznasz zasady rozszerzania (synonimy, warianty, pytania, porównania) i zobaczysz przykładowe wyniki dla frazy „samochód”.
+
+**Materiały:**
+- Notatka z lekcji: [T07L05_Query_expansion.md](./Dokumenty/T07L05_Query_expansion.md)
+- Transkrypcja: [T07L05_Query_expansion_Transkrypcja.md](./Dokumenty/T07L05_Query_expansion_Transkrypcja.md)
+- Google Colab: [Automatyzacja query expansion](https://colab.research.google.com/drive/1kTx9_TbA43a0hmoOnWI_FhFeoXBZsz6q?usp=sharing)
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/336) 

@@ -31,6 +31,12 @@ W tym pliku znajduje się zestawienie wszystkich notatników Google Colab używa
 | 4 | [Różne metody wykorzystania embeddingów w SEO](Materialy_z_lekcji/Tydzień_4_Modele_embeddingowe_semantyka_RAG/README.md#lekcja-ćwiczenie-różne-metody-wykorzystania-embeddingów-i-semantyki-w-pracy-nad-seo) | [Ćwiczenie] Różne metody wykorzystania embeddingów i semantyki w pracy nad SEO | Praktyczne przykłady wykorzystania embeddingów do analizy i optymalizacji strony www | [Otwórz w Colab](https://colab.research.google.com/drive/1KFgH7utwJ4imqQjO1mM8L560q9Zb63Zu?usp=sharing) |
 | 4 | [Site Focus & Site Radius](Materialy_z_lekcji/Tydzień_4_Modele_embeddingowe_semantyka_RAG/README.md#lekcja-site-focus--site-radius) | Site Focus & Site Radius | Analiza i obliczanie metryk Site Focus i Site Radius dla strony www | [Otwórz w Colab](https://colab.research.google.com/drive/1KFgH7utwJ4imqQjO1mM8L560q9Zb63Zu?usp=sharing) |
 
+## Tydzień 7: Semantyczne SEO
+
+| Tydzień | Lekcja | Notatnik | Opis | Link |
+| :------ | :----- | :------- | :--- | :--- |
+| 7 | [Query expansion](Materialy_z_lekcji/Tydzień_7_Semantyczne_SEO/README.md#lekcja-query-expansion) | Automatyzacja query expansion | Skrypt automatyzujący generowanie rozszerzonych fraz i pytań na podstawie jednego słowa kluczowego, z wykorzystaniem modeli AI (Gemini, OpenAI). | [Otwórz w Colab](https://colab.research.google.com/drive/1kTx9_TbA43a0hmoOnWI_FhFeoXBZsz6q?usp=sharing) |
+
 ---
 
 **Uwaga:** Ta lista będzie aktualizowana w miarę dodawania nowych materiałów do kursu. 
