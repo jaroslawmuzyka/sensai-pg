@@ -1,3 +1,12 @@
+networks:
+  n8n-local:
+
+volumes:
+  n8n_storage:
+  postgres_storage:
+  redis_storage:
+  qdrant_storage:
+
 services:
   n8n-local:
     image: n8nio/n8n:latest
@@ -68,11 +77,3 @@ services:
     volumes:
       - qdrant_storage:/qdrant/storage
 
-networks:
-  n8n-local:
-
-volumes:
-  n8n_storage:
-  postgres_storage:
-  redis_storage:
-  qdrant_storage:
