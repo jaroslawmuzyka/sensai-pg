@@ -1,98 +1,92 @@
 # Prompt do budowy mapy tematycznej (Topical Map)
 
-Jesteś ekspertem SEO Content Strategist oraz Knowledge Architect. Twoim zadaniem jest analiza dostarczonego grafu wiedzy dla centralnej encji *Keyword* i przekształcenie go w kompletną, hierarchiczną mapę tematyczną. Mapa ta będzie służyć jako główny blueprint strategii treści dla strony internetowej, mający na celu osiągnięcie pełnego topical authority.
+You are an expert SEO Content Strategist and Knowledge Architect. Your task is to analyze a provided knowledge graph for the central entity *Keyword* and transform it into a comprehensive, hierarchical semantic topical map. This map will serve as the master blueprint for a website's content strategy, designed to establish absolute topical authority.
 
----
+# Input Data:
+You will be provided with a knowledge graph in the following format:
 
-## Dane wejściowe:
-Otrzymasz graf wiedzy w formacie:
+  {
+    "source_entity": "samochód",
+    "relationship": "ma_typ",
+    "target_entity": "samochód z napędem hybrydowym",
+    "relationship_description": "samochód może być z napędem hybrydowym, co wyróżnia się ekonomicznością i niższymi kosztami eksploatacji",
+    "relationship_strength": 98
+  },
+  ...
 
-```
-{
-  "source_entity": "samochód",
-  "relationship": "ma_typ",
-  "target_entity": "samochód z napędem hybrydowym",
-  "relationship_description": "samochód może być z napędem hybrydowym, co wyróżnia się ekonomicznością i niższymi kosztami eksploatacji",
-  "relationship_strength": 98
-},
-...
-```
 
----
+# Critical Instructions:
+Structure your output into two primary sections: "Core Section (Main Topics)" and "Outer Section (Supplementary Topics)".
 
-## Kluczowe instrukcje:
-Podziel wynik na dwie główne sekcje: "Core Section (Main Topics)" oraz "Outer Section (Supplementary Topics)".
+You can only use data from given knowledge graph
 
-Możesz korzystać wyłącznie z danych z podanego grafu wiedzy.
+## Core Section (Main Topics):
+This section must contain the foundational pillar topics that are essential for covering the central entity *Keyword* comprehensively. Give all possible topics to cover central entity
 
-### Core Section (Main Topics):
-Ta sekcja powinna zawierać fundamentalne, filarowe tematy niezbędne do pełnego pokrycia centralnej encji *Keyword*.
+Criteria for Inclusion:
+- Identify the entities with "relationship_strength">=80 from the knowledge graph. These are your primary candidates for pillar pages.
+- Analyze the primary attributes and defining characteristics of the central entity *Keyword*.
+- Group the most fundamental user_questions (e.g., "What is...", "How does it work...", "Benefits of...", "Types of...").
 
-**Kryteria:**
-- Wybierz encje z "relationship_strength" >= 80.
-- Przeanalizuj główne atrybuty i kluczowe cechy centralnej encji.
-- Zgrupuj najważniejsze pytania użytkowników (np. "Co to jest...", "Jak działa...", "Zalety...", "Typy...").
+Output Format: Present this as a full hierarchical list. Each item should represent a proposed pillar content piece.
 
-**Format:**
-Przedstaw jako pełną listę hierarchiczną. Każdy element to propozycja filarowej treści.
+## Outer Section (Supplementary Topics):
+This section must cover the peripheral, supporting, and niche topics that provide depth and demonstrate true expertise beyond the basics. Give all possible topics based on given knowledge graph.
 
-### Outer Section (Supplementary Topics):
-Ta sekcja powinna obejmować tematy peryferyjne, wspierające i niszowe, które pogłębiają temat i pokazują eksperckość poza podstawami.
+Criteria for Inclusion:
+- Include topics based on "relationship_strength"<80 but still important.
+- Address highly specific user_questions and those that represent "information gain" opportunities (topics competitors might miss).
+- Incorporate comparison topics (e.g., "vs" queries).
+- Group niche sub-topics and related concepts (e.g., specific car types, technologies, expert opinions).
 
-**Kryteria:**
-- Uwzględnij tematy z "relationship_strength" < 80, ale nadal istotne.
-- Dodaj pytania niszowe, porównania, tematy typu "information gain".
-- Grupuj tematy w logiczne sub-klastry (np. "Typy samochodów", "Utrzymanie", "Zaawansowane technologie").
+Output Format: Present this as a full categorized list. Group related topics into logical sub-clusters (e.g., "Car Types," "Maintenance," "Advanced Technologies").
 
-**Format:**
-Przedstaw jako pełną listę kategoryzowaną. Grupuj tematy w sub-klastry.
+# Example Structure:
 
----
-
-## Przykładowa struktura:
-
-Encja główna: Samochód
+Primary Entity: Car
 
 Core Section (Main Topics)
-1. Co to jest samochód? (Przewodnik definicyjny)
-2. Jak działa samochód: silnik, napęd, kluczowe komponenty
-3. Typy samochodów: od sedanów po SUV-y
-4. Zalety posiadania samochodu
-5. Bezpieczeństwo i regulacje
+1. What is a Car? (The Definitive Guide)
+2. How Cars Work: Engine, Transmission, and Key Components
+3. Types of Cars: From Sedans to SUVs
+4. Benefits of Car Ownership
+5. Car Safety Features and Regulations
 
 Outer Section (Supplementary Topics)
-Klaster: Utrzymanie samochodu
-- Podstawowe porady dotyczące utrzymania
-- Samodzielne naprawy dla początkujących
+Cluster: Car Maintenance
+- Essential Car Maintenance Tips
+- DIY Car Repairs for Beginners
 
-Klaster: Technologie samochodowe
-- Samochody elektryczne vs hybrydowe vs spalinowe
-- Zaawansowane systemy wspomagania kierowcy (ADAS)
+Cluster: Car Technologies
+- Electric vs. Hybrid vs. Gasoline Cars
+- Advanced Driver Assistance Systems (ADAS)
 
-Klaster: Przewodnik zakupu
-- Nowe vs używane samochody: wady i zalety
-- Negocjacje cenowe
+Cluster: Car Buying Guide
+- New vs. Used Cars: Pros and Cons
+- How to Negotiate Car Prices
 
-Klaster: Kultura motoryzacyjna
-- Znane marki i ich historia
-- Społeczności i wydarzenia
+Cluster: Car Culture
+- Famous Car Brands and Their Histories
+- Car Enthusiast Communities and Events
 
----
 
-## Format wyjściowy:
-Przygotuj tabelę z następującymi kolumnami:
-1. Sekcja (Core lub Outer)
-2. Temat/Klaster
-3. Podtematy (jeśli dotyczy)
+# Task:
 
-Wynik wyłącznie w formie tabeli, bez dodatkowych wyjaśnień.
+Analyze the provided knowledge graph and generate the Semantic Topical Map according to all the instructions above. Ensure the structure is clear, logical, and directly actionable for a content team. In each cluster, add all possible topics derived from the knowledge graph.
 
-Wynik w języku polskim.
+Format your output in the form of a logical table with the following columns:
+1. Section (Core or Outer)
+2. Topic/Cluster
+3. Subtopics (if applicable)
 
----
+Your final output should only include the formatted table without any additional explanations or notes.
 
-Keyword: {fraza kluczowa}
+Output in Polish
+
+
+
+Keyword:  {fraza kluczowa}
 
 Knowledge graph: 
 
-{knowledge graph tutaj} 
+{knowledge graph tutaj}

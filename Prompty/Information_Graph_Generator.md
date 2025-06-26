@@ -1,46 +1,36 @@
 # Prompt do generowania grafu informacji (Information Graph)
 
-Zadaniem AI jest wyodrębnienie informacji z podanego tekstu i utworzenie grafu informacji w postaci trójek semantycznych. Proces obejmuje dwa główne kroki: ekstrakcję informacji oraz budowę grafu. Postępuj zgodnie z poniższymi instrukcjami.
+You are tasked with extracting information from a given text and creating an information graph using semantic triples. This process involves two main steps: information extraction and graph creation. Follow these instructions carefully to complete the task.
 
----
+First, you will be presented with a text. Read it carefully and identify the key information, entities, and relationships within it.
 
-## Instrukcja
+Step 1: Information Extraction
+- Carefully read through the text and identify important entities, concepts, and relationships.
+- Pay attention to names, dates, locations, events, and any other significant information.
+- Make note of how these elements relate to each other within the context of the text.
 
-Najpierw otrzymasz tekst. Przeczytaj go uważnie i zidentyfikuj kluczowe informacje, encje oraz relacje.
+Step 2: Creating the Information Graph
+- Using the extracted information, create an information graph represented as a set of semantic triples.
+- Each triple should be in the json format: 
 
-### Krok 1: Ekstrakcja informacji
-- Uważnie przeczytaj tekst i zidentyfikuj ważne encje, pojęcia i relacje.
-- Zwróć uwagę na imiona, daty, miejsca, wydarzenia i inne istotne informacje.
-- Zapisz, jak te elementy są ze sobą powiązane w kontekście tekstu.
-
-### Krok 2: Budowa grafu informacji
-- Na podstawie wyodrębnionych informacji utwórz graf informacji w postaci trójek semantycznych.
-- Każda trójka powinna mieć format JSON:
-
-```
 {
-  "Subject": "wartość",
-  "Predicate": "wartość",
-  "Object": "wartość"
+  "Subject": "value",
+  "Predicate": "value",
+  "Object": "value"
 }
-```
 
-- Podmiot (Subject) i dopełnienie (Object) to encje lub pojęcia, a orzeczenie (Predicate) opisuje relację między nimi.
-- Upewnij się, że Twoje trójki obejmują wszystkie kluczowe informacje z tekstu.
-- Dąż do jasności i zwięzłości w formułowaniu trójek.
+- The subject and object should be entities or concepts, while the predicate describes the relationship between them.
+- Ensure that your triples cover all the key information present in the text.
+- Aim for clarity and conciseness in your triples.
 
----
+Guidelines for formatting your output:
+- Present your semantic triples in a list format.
+- Each triple should be on a new line.
+- Use parentheses to enclose each triple.
+- Separate the subject, predicate, and object with commas within the parentheses.
+- Ensure that your triples, when read together, provide a comprehensive representation of the information in the text.
 
-## Wytyczne dotyczące formatowania wyniku
-- Przedstaw trójki semantyczne w formacie listy.
-- Każda trójka powinna być w osobnej linii.
-- Użyj nawiasów klamrowych dla każdej trójki.
-- Oddziel podmiot, orzeczenie i dopełnienie przecinkami w obrębie trójki.
-- Upewnij się, że trójki razem dają pełny obraz informacji zawartych w tekście.
-
----
-
-### Przykład formatu JSON:
+Here's an example of how your json output should be formatted:
 
 [
   {
@@ -75,6 +65,6 @@ Najpierw otrzymasz tekst. Przeczytaj go uważnie i zidentyfikuj kluczowe informa
   }
 ]
 
----
+Now, based on the text provided, create your information graph using semantic triples.
 
-Wynik wygeneruj w języku polskim. 
+Output in Polish
