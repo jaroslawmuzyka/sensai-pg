@@ -1,0 +1,1246 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: '[SEO 3.0] Audyt contentu'
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/jina_tool:0.0.7@51cf3dfcc4ff002171f2378aa02ec7ce5390ddfe23c02ede532b08f48a75e82c
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.0.26@c1e643ac6a7732f6333a783320b4d3026fa5e31d8e7026375b98d44418d33f26
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1722599404204-source-1718586297231-target
+      selected: false
+      source: '1722599404204'
+      sourceHandle: source
+      target: '1718586297231'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1718586297231-source-1749412446116-target
+      selected: false
+      source: '1718586297231'
+      sourceHandle: source
+      target: '1749412446116'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1718581780358-source-1718586297231-target
+      selected: false
+      source: '1718581780358'
+      sourceHandle: source
+      target: '1718586297231'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1718558764026-source-1750968335817-target
+      selected: false
+      source: '1718558764026'
+      sourceHandle: source
+      target: '1750968335817'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1750968335817-source-1718581780358-target
+      selected: false
+      source: '1750968335817'
+      sourceHandle: source
+      target: '1718581780358'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1750968335817-source-1722599404204-target
+      selected: false
+      source: '1750968335817'
+      sourceHandle: source
+      target: '1722599404204'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1749412446116-source-1750970299509-target
+      selected: false
+      source: '1749412446116'
+      sourceHandle: source
+      target: '1750970299509'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1750970299509-source-1718559325567-target
+      selected: false
+      source: '1750970299509'
+      sourceHandle: source
+      target: '1718559325567'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: keyword
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: keyword
+        - label: language
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: language
+        - label: url
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: url
+        - label: graf
+          max_length: 480000000000
+          options: []
+          required: true
+          type: paragraph
+          variable: graf
+        - label: frazy
+          max_length: 480000000000
+          options: []
+          required: true
+          type: paragraph
+          variable: frazy
+        - label: knowledge_graph
+          max_length: 48000000
+          options: []
+          required: true
+          type: paragraph
+          variable: knowledge_graph
+      height: 220
+      id: '1718558764026'
+      position:
+        x: 2809.9918917105297
+        y: 282
+      positionAbsolute:
+        x: 2809.9918917105297
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1718581780358'
+          - text
+          variable: informacje
+        - value_selector:
+          - '1718586297231'
+          - text
+          variable: headings
+        - value_selector:
+          - '1722599404204'
+          - text
+          variable: brakujacefrazy
+        - value_selector:
+          - '1749412446116'
+          - text
+          variable: summary
+        - value_selector:
+          - '1750970299509'
+          - text
+          variable: html
+        selected: false
+        title: Koniec
+        type: end
+      height: 194
+      id: '1718559325567'
+      position:
+        x: 5889.700654255267
+        y: 282
+      positionAbsolute:
+        x: 5889.700654255267
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: o4-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: d017ea98-02a9-4d4b-a74e-af7b3d7fb0f2
+          role: system
+          text: "You are an expert content analyst tasked with enhancing existing\
+            \ content by identifying relevant information from a <knowledge_graph>\
+            \ and <information_graph> that is missing from the <existing_content>.\
+            \ \n\nYour goal is to produce a concise list of missing information that\
+            \ would enhance the existing content if added.\n\nFollow these steps to\
+            \ complete your task:\n\n1. Analyze the provided information sources.\n\
+            2. Compare the <knowledge_graph> and <information_graph> with the <existing_content>.\n\
+            3. Identify relevant information from the <knowledge_graph> and <information_graph>\
+            \ that is missing from the <existing_content> and would enhance it if\
+            \ added.\n4. Create a numbered list of the identified missing information.\n\
+            \nConduct your detailed analysis:\n1. Summarize the main points of the\
+            \ existing content.\n2. List key concepts from the <knowledge_graph> and\
+            \ <information_graph>.\n3. Outline important information from the <knowledge_graph>\
+            \ and <information_graph>.\n4. Compare these lists to identify missing\
+            \ information.\n5. Evaluate the relevance of each missing item to the\
+            \ <existing_content>.\n\nAfter your analysis, provide your final output\
+            \ as a numbered list of concise statements in <language>. Each item should\
+            \ represent a fact or concept from the <knowledge_graph> and <information_graph>\
+            \ that is missing from the <existing_content> and relevant to enhancing\
+            \ it.\n\nOutput requirements:\n- Format as a numbered list\n- Provide\
+            \ the list in <language>\n- Use plain text\n- Do not include any introductory\
+            \ text, explanations, or conclusions\n- Ensure each item is concise and\
+            \ directly relevant to enhancing the <existing_content>\n\nExample output\
+            \ format:\n\n[\n    \"Missing information 1\",\n    \"Missing information\
+            \ 2\",\n    \"Missing information 3\",\n    ...\n]\n\nRemember, your task\
+            \ is to identify and list only the information that is both relevant to\
+            \ the <existing_content> and missing from it. Do not include information\
+            \ that is already present in the <existing_content> or that is not directly\
+            \ relevant to enhancing it.\n"
+        - id: 06769d71-854c-4c31-8ef5-e37d6262b542
+          role: user
+          text: '<language>
+
+            {{#1718558764026.language#}}
+
+            </language>
+
+
+            <existing_content>
+
+            {{#1750968335817.text#}}
+
+            </existing_content>
+
+
+            <information_graph>
+
+            {{#1718558764026.graf#}}
+
+            </information_graph>
+
+
+            <knowledge_graph>
+
+            {{#1718558764026.knowledge_graph#}}
+
+            </knowledge_graph>
+
+
+            '
+        selected: false
+        title: Brakujące informacje
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+          enabled: false
+      height: 90
+      id: '1718581780358'
+      position:
+        x: 4023.3219698242083
+        y: 132.16215574048093
+      positionAbsolute:
+        x: 4023.3219698242083
+        y: 132.16215574048093
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: o4-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: a50f209b-ff17-42a0-9835-73aba95283dc
+          role: system
+          text: 'You are a professional copywriter tasked with creating an SEO-optimized
+            outline for missing information and missing keywords on a website about
+            a specific topic. Your goal is to address only the missing information
+            and incorporate missing keywords while enriching the existing content
+            with new headings.
+
+
+            First, review the existing content <existing_content>
+
+
+            Missing information that needs to be addressed <missing_informations>
+
+
+            Missing keywords that need to be incorporated <missing_keywords>
+
+
+            The outline should be in <language> and focus on the main keyword <keyword>.
+
+
+            Analyze the missing keywords and missing information carefully, paying
+            attention to all Entities, Relationships, Attributes, and Information
+            they contain. Your task is to address all of these missing elements in
+            your outline, focusing on their relevance to the main topic.
+
+
+            Create a logically structured outline only for missing information and
+            missing keywords, starting from the most general information. Follow these
+            guidelines:
+
+
+            1. Begin with H2 sections. Ensure a natural progression from introductory
+            concepts to detailed information.
+
+            2. For each H2 section, evaluate if additional elaboration is needed to
+            cover missing information and missing keywords.
+
+            3. Use clear, engaging language in your headings. You may incorporate
+            numbers or questions where appropriate to provoke interest.
+
+            4. Ensure all content is directly relevant to the main topic. Do not include
+            unrelated information.
+
+            5. Avoid semantic redundancy or duplication throughout the outline.
+
+            6. Do not include a summary, FAQ, or conclusion section.
+
+            7. Optimize the final headings list to best reflect the main topic. Aim
+            for fewer, more focused headings.
+
+            8. Consider the likely intent of users searching for the main topic. The
+            outline should align with what users are most likely looking for when
+            they search for this topic.
+
+            9. Make sure that your headings don''t exist in the existing content.
+
+            10. Remove all redundant headings and headings with the same meaning.
+
+            11. Don''t add missing information and missing keywords in headings. In
+            headings, only address missing information as they will be added in content.
+
+            12. Aim for less more focused headings that will reflect missing information
+            and missing keywords in content.
+
+
+            Language rules for headings:
+
+            1. No "Introduction", "Wprowadzenie", "Overview", or "Comprehensive Guide"
+
+            2. Avoid "Complete", "Ultimate", "Definitive"
+
+            3. Don''t use "Everything You Need to Know" or "A Deep Dive Into"
+
+            4. No "Essential", "Crucial", "Vital"
+
+            5. Skip "Top 10" or "5 Ways to"
+
+            6. Omit "In Today''s World" or "Modern Approach to"
+
+            7. Avoid buzzwords/jargon unless necessary
+
+            8. Don''t start with "Understanding" or "Exploring"
+
+            9. Avoid overusing "How to"
+
+            10. No "Really", "Actually", "Basically"
+
+            11. Don''t use "Conclusion" or "Summary" for final section
+
+            12. Limit use of gerunds (e.g., "Understanding", "Implementing", "Analyzing")
+
+            13. Maintain a same tone as in <existing_content>
+
+
+            Format your output as follows:
+
+            - Use HTML tags for headings: <h2> for main sections.
+
+            - Provide only the outline structure without any additional explanatory
+            text.
+
+            - Do not use H1 tags or any heading levels beyond H2.
+
+
+            Your final output should be a clean, well-structured outline that effectively
+            covers missing information and missing keywords in the context of the
+            main topic, suitable for creating an informative and SEO-friendly web
+            page.
+
+
+            Remember to focus only on the missing information and missing keywords
+            while maintaining relevance to the main topic. Do not repeat information,
+            keywords, and headings already present in the existing content.
+
+
+            Output plain text only, with each heading on a new line.'
+        - id: bf5f7b50-20f4-439d-a8f5-b38e50f4128b
+          role: user
+          text: '<keyword>
+
+            {{#1718558764026.keyword#}}
+
+            </keyword>
+
+
+            <language>
+
+            {{#1718558764026.language#}}
+
+            </language>
+
+
+            <missing_keywords>
+
+            {{#1722599404204.text#}}
+
+            </missing_keywords>
+
+
+            <missing_informations>
+
+            {{#1718581780358.text#}}
+
+            </missing_informations>
+
+
+            <existing_content>
+
+            {{#1750968335817.text#}}
+
+            </existing_content>'
+        selected: false
+        title: Headingi h2
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+          enabled: false
+      height: 90
+      id: '1718586297231'
+      position:
+        x: 4585.755774926813
+        y: 282
+      positionAbsolute:
+        x: 4585.755774926813
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: o4-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: f9bfe26d-6148-47b3-9b04-e7affed237c7
+          role: system
+          text: "You are an AI assistant tasked with comparing a keywords list against\
+            \ existing content to identify keywords that should be added to enhance\
+            \ the content. Missing keywords should be reflecting main topic.\n\nFollow\
+            \ these steps carefully:\n\n1. The main topic for this task is <keyword>\n\
+            \n2. Review the existing content in <existing_content>\n\n3. Review the\
+            \ keywords list in <keywords_list>\n\n4. Missing keywords and entities\
+            \ should be directly connected to a <keyword> and presented in a specific\
+            \ language. \n\n5. Compare the keywords list with the existing content.\
+            \ Identify any relevant keywords and keywords from given list that are\
+            \ not present in the existing content but would enhance it if added.\n\
+            \n6. Create a list of the missing keywords that would enhance the existing\
+            \ content. Be concise and relevant in your selections.\n\n7. Output format:\n\
+            \n[\n    \"Keyword 1\",\n    \"Keyword 2\",\n    \"Keyword 3\",\n    ...\n\
+            ]\n\n8. Provide your output in the following <language>\n\n9. Remove any\
+            \ duplicates from your list. Each keyword or entity should appear only\
+            \ once.\n\nRemember to focus only on keywords and entities that are directly\
+            \ or closely related to the main topic <keyword>\n\nRemember, your task\
+            \ is to identify and list only the keywords that would enhance the existing\
+            \ content. Focus on relevance and conciseness in your selections.\n\n\
+            Output in plain text"
+        - id: b986508c-efbe-4a9f-805d-51f403d13391
+          role: user
+          text: '<keyword>
+
+            {{#1718558764026.keyword#}}
+
+            </keyword>
+
+
+            <language>
+
+            {{#1718558764026.language#}}
+
+            </language>
+
+
+            <keywords_list>
+
+            {{#1718558764026.frazy#}}
+
+            </keywords_list>
+
+
+            <existing_content>
+
+            {{#1750968335817.text#}}
+
+            </existing_content>
+
+            '
+        selected: false
+        title: Brakujace frazy
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+          enabled: false
+      height: 90
+      id: '1722599404204'
+      position:
+        x: 4023.3219698242083
+        y: 429.0098182929465
+      positionAbsolute:
+        x: 4023.3219698242083
+        y: 429.0098182929465
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: o4-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 07212e9f-2ac9-4222-96dd-35008d973c1e
+          role: system
+          text: "You are a Senior Content Strategist AI. Your purpose is to act as\
+            \ an expert content optimization engine. You will be given existing web\
+            \ content, a knowledge graph (representing key entities and their relationships),\
+            \ an information graph (representing key facts), and a pre-analyzed list\
+            \ of content gaps.\n\nYour task is to synthesize all provided information\
+            \ and generate a structured set of actionable recommendations in a JSON\
+            \ format. You will not perform a new analysis. Instead, you will use the\
+            \ provided inputs (<knowledge_graph>, <information_graph>, <missing_info>,\
+            \ etc.) as the single source of truth for your recommendations.\n\nYour\
+            \ Goal: Generate a single, valid JSON object that provides a clear and\
+            \ actionable plan to enhance the <existing_content> by intelligently incorporating\
+            \ all the provided information.\n\n## Detailed Instructions:\n### Understand\
+            \ Your Inputs:\n<language>: The target language for all text in the final\
+            \ JSON output.\n<existing_content>: The current version of the text that\
+            \ needs optimization.\n<knowledge_graph>: A graph of key entities and\
+            \ their relationships, representing the ideal semantic structure. Use\
+            \ this to identify prominent topics and suggest internal links.\n<information_graph>:\
+            \ A graph of the most important information (facts, relationships, attributes)\
+            \ about the main context. Use the details from this graph to enrich the\
+            \ content with specific facts.\n<missing_keywords>: A definitive list\
+            \ of keywords that must be incorporated into the content.\n<missing_info>:\
+            \ A definitive summary of topics and concepts that are missing from the\
+            \ <existing_content>.\n<headings_proposition>: A definitive list of new\
+            \ headings that must be added to the content.\n\n\n## Generate the JSON\
+            \ Output:\nFollow these steps to construct the JSON object precisely.\
+            \ Do not add any keys or properties not listed in the structure below.\n\
+            \n### summary: Write a brief summary that highlights the primary gap between\
+            \ the <existing_content> and ideal state represented by the provided graphs.\n\
+            \n\n### headings_to_add:\n- This array must be populated directly from\
+            \ the list of headings in the <headings_proposition> input. Do not invent\
+            \ new headings.\n- For each heading, create a guidelines array.\n- In\
+            \ the guidelines, provide specific, actionable instructions on which points\
+            \ from <missing_info>should be included under that new heading.\n- List\
+            \ keywords to add in heading based on <missing_keywords> that should be\
+            \ included under that new heading.\n\n### headings_to_edit:\n- Identify\
+            \ the existing headings within the <existing_content>.\n- For each existing\
+            \ heading, create a guidelines array.\n- In the guidelines, suggest how\
+            \ to enrich the existing text by weaving in relevant facts from <missing_info>,\
+            \ and keywords from <missing_keywords>. Focus on seamless integration.\n\
+            - List keywords to add in heading based on <missing_keywords> that should\
+            \ be included under that existing heading.\n\n\n## Output Constraints:\n\
+            - JSON ONLY: Your entire response must be a single, valid JSON object.\n\
+            - No Redundancy: Do not repeat the input data or these instructions in\
+            \ your output.\n- Adhere to Structure: The JSON object must strictly follow\
+            \ the specified structure.\n- Language: All string values within the JSON\
+            \ must be in the specified <language>.\n\n## JSON Structure to Follow:\n\
+            {\n  \"summary\": \"A brief summary of the differences between information\
+            \ graph and the existing content.\",\n  \"headings_to_add\": [\n    {\n\
+            \      \"heading\": \"Proposed Heading 1 from <headings_proposition>\"\
+            ,\n      \"guidelines\": [\n        \"Guideline on what to write here\
+            \ based on <missing_info> and <information_graph>.\"\n      ],\n     \
+            \ \"keywords_to_use\": [List of keywords from <missing_keywords> to use\
+            \ in following heading]\n    },\n    ...\n  ],\n  \"headings_to_edit\"\
+            : [\n    {\n      \"existing_heading\": \"An Existing Heading from <existing_content>\"\
+            ,\n      \"guidelines\": [\n        \"Guideline on how to enrich this\
+            \ section using <information_graph>, <missing_info>.\"\n      ],\n   \
+            \   \"keywords_to_use\": [List of keywords from <missing_keywords> to\
+            \ use in following heading]\n    },\n    ...\n  ]\n}"
+        - id: 2d52251e-f033-4680-8c42-56ab993bc982
+          role: user
+          text: '<language>
+
+            {{#1718558764026.language#}}
+
+            </language>
+
+
+            <existing_content>
+
+            {{#1750968335817.text#}}
+
+            </existing_content>
+
+
+            <information_graph>
+
+            {{#1718558764026.graf#}}
+
+            </information_graph>
+
+
+            <knowledge_graph>
+
+            {{#1718558764026.knowledge_graph#}}
+
+            </knowledge_graph>
+
+
+            <missing_keywords>
+
+            {{#1722599404204.text#}}
+
+            </missing_keywords>
+
+
+            <missing_info>
+
+            {{#1718581780358.text#}}
+
+            </missing_info>
+
+
+            <headings_proposition>
+
+            {{#1718586297231.text#}}
+
+            </headings_proposition>'
+        selected: false
+        title: Summary
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1749412446116'
+      position:
+        x: 5036.775858365016
+        y: 282
+      positionAbsolute:
+        x: 5036.775858365016
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Web link
+            ja_JP: Web link
+            pt_BR: URL da web
+            zh_Hans: 网页链接
+          label:
+            en_US: URL
+            ja_JP: URL
+            pt_BR: URL
+            zh_Hans: 网址
+          llm_description: url para scraping
+          max: null
+          min: null
+          name: url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 'request parameters, format: {"key1": "value1", "key2": "value2"}
+
+              '
+            ja_JP: 'request parameters, format: {"key1": "value1", "key2": "value2"}
+
+              '
+            pt_BR: 'parâmetros de solicitação, formato: {"key1": "value1", "key2":
+              "value2"}
+
+              '
+            zh_Hans: '请求参数，格式：{"key1": "value1", "key2": "value2"}
+
+              '
+          label:
+            en_US: Request params
+            ja_JP: Request params
+            pt_BR: Parâmetros de solicitação
+            zh_Hans: 请求参数
+          llm_description: request parameters
+          max: null
+          min: null
+          name: request_params
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: css selector for scraping specific elements
+            ja_JP: css selector for scraping specific elements
+            pt_BR: css selector para scraping de elementos específicos
+            zh_Hans: css 选择器用于抓取特定元素
+          label:
+            en_US: Target selector
+            ja_JP: Target selector
+            pt_BR: Seletor de destino
+            zh_Hans: 目标选择器
+          llm_description: css selector of the target element to scrape
+          max: null
+          min: null
+          name: target_selector
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: css selector for waiting for specific elements
+            ja_JP: css selector for waiting for specific elements
+            pt_BR: css selector para aguardar elementos específicos
+            zh_Hans: css 选择器用于等待特定元素
+          label:
+            en_US: Wait for selector
+            ja_JP: Wait for selector
+            pt_BR: Aguardar por seletor
+            zh_Hans: 等待选择器
+          llm_description: css selector of the target element to wait for
+          max: null
+          min: null
+          name: wait_for_selector
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Remove all images from the response.
+            ja_JP: Remove all images from the response.
+            pt_BR: Remove all images from the response.
+            zh_Hans: 从响应中删除所有图片。
+          label:
+            en_US: Remove images
+            ja_JP: Remove images
+            pt_BR: Remove images
+            zh_Hans: 删除图片
+          llm_description: Remove all images from the response
+          max: null
+          min: null
+          name: remove_images
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: 'Captions all images at the specified URL, adding ''Image [idx]:
+              [caption]'' as an alt tag for those without one. This allows downstream
+              LLMs to interact with the images in activities such as reasoning and
+              summarizing.'
+            ja_JP: 'Captions all images at the specified URL, adding ''Image [idx]:
+              [caption]'' as an alt tag for those without one. This allows downstream
+              LLMs to interact with the images in activities such as reasoning and
+              summarizing.'
+            pt_BR: 'Adiciona legendas a todas as imagens na URL especificada, adicionando
+              ''Imagem [idx]: [legenda]'' como uma tag alt para aquelas que não têm
+              uma. Isso permite que os modelos LLM inferiores interajam com as imagens
+              em atividades como raciocínio e resumo.'
+            zh_Hans: '为指定 URL 上的所有图像添加标题，为没有标题的图像添加“Image [idx]: [caption]”作为 alt
+              标签，以支持下游模型的图像交互。'
+          label:
+            en_US: Image caption
+            ja_JP: Image caption
+            pt_BR: Legenda da imagem
+            zh_Hans: 图片说明
+          llm_description: Captions all images at the specified URL
+          max: null
+          min: null
+          name: image_caption
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: A "Buttons & Links" section will be created at the end. This helps
+              the downstream LLMs or web agents navigating the page or take further
+              actions.
+            ja_JP: A "Buttons & Links" section will be created at the end. This helps
+              the downstream LLMs or web agents navigating the page or take further
+              actions.
+            pt_BR: Um "Botões & Links" section will be created at the end. This helps
+              the downstream LLMs or web agents navigating the page or take further
+              actions.
+            zh_Hans: 末尾将添加“按钮和链接”部分，方便下游模型或网络代理做页面导航或执行进一步操作。
+          label:
+            en_US: Gather all links at the end
+            ja_JP: Gather all links at the end
+            pt_BR: Coletar todos os links ao final
+            zh_Hans: 将所有链接集中到最后
+          llm_description: Gather all links at the end
+          max: null
+          min: null
+          name: gather_all_links_at_the_end
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: An "Images" section will be created at the end. This gives the
+              downstream LLMs an overview of all visuals on the page, which may improve
+              reasoning.
+            ja_JP: An "Images" section will be created at the end. This gives the
+              downstream LLMs an overview of all visuals on the page, which may improve
+              reasoning.
+            pt_BR: Um "Imagens" section will be created at the end. This gives the
+              downstream LLMs an overview of all visuals on the page, which may improve
+              reasoning.
+            zh_Hans: 末尾会新增“图片”部分，方便下游模型全面了解页面的视觉内容，提升推理效果。
+          label:
+            en_US: Gather all images at the end
+            ja_JP: Gather all images at the end
+            pt_BR: Coletar todas as imagens ao final
+            zh_Hans: 将所有图片集中到最后
+          llm_description: Gather all images at the end
+          max: null
+          min: null
+          name: gather_all_images_at_the_end
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Use proxy to access URLs
+            ja_JP: Use proxy to access URLs
+            pt_BR: Use proxy to access URLs
+            zh_Hans: 利用代理访问 URL
+          label:
+            en_US: Proxy server
+            ja_JP: Proxy server
+            pt_BR: Servidor de proxy
+            zh_Hans: 代理服务器
+          llm_description: Use proxy to access URLs
+          max: null
+          min: null
+          name: proxy_server
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Bypass the Cache
+            ja_JP: Bypass the Cache
+            pt_BR: Ignorar o cache
+            zh_Hans: 是否绕过缓存
+          label:
+            en_US: Bypass the Cache
+            ja_JP: Bypass the Cache
+            pt_BR: Ignorar o cache
+            zh_Hans: 绕过缓存
+          llm_description: bypass the cache
+          max: null
+          min: null
+          name: no_cache
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: When enabled, request results won't be cached on jina servers.
+            ja_JP: When enabled, request results won't be cached on jina servers.
+            pt_BR: When enabled, request results won't be cached on jina servers.
+            zh_Hans: 启用后，请求结果将不会被缓存在 jina 服务器上。
+          label:
+            en_US: Do Not Cache/Track
+            ja_JP: Do Not Cache/Track
+            pt_BR: Do Not Cache/Track
+            zh_Hans: 请勿缓存/追踪
+          llm_description: Do Not Cache/Track
+          max: null
+          min: null
+          name: no_cache_track
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Enable summary for the output
+            ja_JP: Enable summary for the output
+            pt_BR: Habilitar resumo para a saída
+            zh_Hans: 为输出启用摘要
+          label:
+            en_US: Enable summary
+            ja_JP: Enable summary
+            pt_BR: Habilitar resumo
+            zh_Hans: 是否启用摘要
+          llm_description: enable summary
+          max: null
+          min: null
+          name: summary
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 3
+          form: form
+          human_description:
+            en_US: Number of times to retry the request if it fails
+            ja_JP: Number of times to retry the request if it fails
+            pt_BR: Número de vezes para repetir a solicitação se falhar
+            zh_Hans: 请求失败时重试的次数
+          label:
+            en_US: Retry
+            ja_JP: Retry
+            pt_BR: Repetir
+            zh_Hans: 重试
+          llm_description: Number of times to retry the request if it fails
+          max: null
+          min: null
+          name: max_retries
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        params:
+          gather_all_images_at_the_end: ''
+          gather_all_links_at_the_end: ''
+          image_caption: ''
+          max_retries: ''
+          no_cache: ''
+          no_cache_track: ''
+          proxy_server: ''
+          remove_images: ''
+          request_params: ''
+          summary: ''
+          target_selector: ''
+          url: ''
+          wait_for_selector: ''
+        provider_id: langgenius/jina_tool/jina
+        provider_name: langgenius/jina_tool/jina
+        provider_type: builtin
+        selected: false
+        title: Fetch Single Page
+        tool_configurations:
+          gather_all_images_at_the_end: 0
+          gather_all_links_at_the_end: 0
+          image_caption: 0
+          max_retries: 3
+          no_cache: 0
+          no_cache_track: 0
+          proxy_server: null
+          remove_images: null
+          summary: 0
+          target_selector: null
+          wait_for_selector: null
+        tool_description: Fetch the target URL (can be a PDF) and convert it into
+          a LLM-friendly markdown.
+        tool_label: Fetch Single Page
+        tool_name: jina_reader
+        tool_parameters:
+          url:
+            type: mixed
+            value: '{{#1718558764026.url#}}'
+        type: tool
+      height: 350
+      id: '1750968335817'
+      position:
+        x: 3314.523567537792
+        y: 282
+      positionAbsolute:
+        x: 3314.523567537792
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: o4-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: f69e4892-a0f2-4224-adf6-4b58fcf6a8fa
+          role: system
+          text: "You will be converting a given JSON object into a simple HTML report.\
+            \ Your task is to create an easy-to-read HTML document using only basic\
+            \ HTML syntax. \n\nFollow these steps to create the HTML report:\n\n1.\
+            \ Start with the basic HTML structure:\n   - Include <html>, and <body>\
+            \ tags\n\n2. Iterate through the JSON object:\n   - For each key-value\
+            \ pair in the JSON, create a new section\n   - Use <h2> tags for the keys\
+            \ (property names) - uppercase first letter \n   - Handle the values based\
+            \ on their data type:\n     a. For strings, numbers, and booleans: Display\
+            \ them in a <p> tag\n     b. For arrays: Create an unordered list <ul>\
+            \ with each item in a <li> tag - uppercase first letter \n\n3. Use proper\
+            \ indentation to make the HTML structure clear:\n   - Indent nested elements\
+            \ with 2 spaces\n   - Keep opening and closing tags aligned\n\n4. Keep\
+            \ the HTML simple and avoid using any CSS or advanced HTML features\n\n\
+            Here's a basic example of how your output should be structured:\n\n<html>\n\
+            <body>\n<h1>Raport optymalizacji</h1>\n<h4><keyword></h4>\n<h4><url></h4>\n\
+            \  <h2>Property1</h2>\n  <p>Value1</p>\n  <h2>Property2</h2>\n  <ul>\n\
+            \    <li>Item1</li>\n    <li>Item2</li>\n  </ul>\n</body>\n</html>\n\n\
+            Please provide your complete HTML output.\n\nTranslate everything to <language>"
+        - id: e682a46d-3469-4e3c-94b5-81314f3e9174
+          role: user
+          text: 'Here''s the JSON data you''ll be working with:
+
+            <json_data>
+
+            {{#1749412446116.text#}}
+
+            </json_data>
+
+
+            <language>
+
+            {{#1718558764026.language#}}
+
+            </language>
+
+
+            <keyword>
+
+            {{#1718558764026.keyword#}}
+
+            </keyword>
+
+
+            <url>
+
+            {{#1718558764026.url#}}
+
+            </url>'
+        selected: false
+        title: html
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1750970299509'
+      position:
+        x: 5470.503504288013
+        y: 282
+      positionAbsolute:
+        x: 5470.503504288013
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -3430.645945344233
+      y: 33.60459213784918
+      zoom: 0.8557251580933075
