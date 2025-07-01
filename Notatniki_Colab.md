@@ -37,6 +37,12 @@ W tym pliku znajduje się zestawienie wszystkich notatników Google Colab używa
 | :------ | :----- | :------- | :--- | :--- |
 | 7 | [Query expansion](Materialy_z_lekcji/Tydzień_7_Semantyczne_SEO/README.md#lekcja-query-expansion) | Automatyzacja query expansion | Skrypt automatyzujący generowanie rozszerzonych fraz i pytań na podstawie jednego słowa kluczowego, z wykorzystaniem modeli AI (Gemini, OpenAI). | [Otwórz w Colab](https://colab.research.google.com/drive/1kTx9_TbA43a0hmoOnWI_FhFeoXBZsz6q?usp=sharing) |
 
+## Tydzień 8: Praca nad treścią z AI
+
+| Tydzień | Lekcja | Notatnik | Opis | Link |
+| :------ | :----- | :------- | :--- | :--- |
+| 8 | [Wstęp do tworzenia treści z AI](Materialy_z_lekcji/Tydzień_8_Praca_nad_trescia_z_AI/README.md#lekcja-wstęp-do-tworzenia-treści-z-ai) | Praktyczne narzędzie do pracy z treścią | Kompletny notatnik implementujący proces RAG (Retrieval-Augmented Generation) podobny do Google AI Overview. Zawiera narzędzia do gromadzenia wiedzy, rerankingu fragmentów i identyfikacji "Reasoning Gap" w treściach konkurencji. | [Otwórz w Colab](https://colab.research.google.com/drive/1jaCTMhvxX4t3oHJMjQZFIsrc8IVUUryU?usp=sharing) |
+
 ---
 
 **Uwaga:** Ta lista będzie aktualizowana w miarę dodawania nowych materiałów do kursu. 
