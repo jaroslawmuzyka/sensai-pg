@@ -14,6 +14,7 @@ W tym tygodniu skupiamy się na praktycznych aspektach tworzenia wysokiej jakoś
 - [Tworzenie treści z AI - Budowa struktury nagłówków](#lekcja-tworzenie-treści-z-ai---budowa-struktury-nagłówków)
 - [Tworzenie treści z AI - Budowa bazy wiedzy (RAG)](#lekcja-tworzenie-treści-z-ai---budowa-bazy-wiedzy-rag)
 - [Tworzenie treści z AI - Budowa briefu](#lekcja-tworzenie-treści-z-ai---budowa-briefu)
+- [Tworzenie treści z AI - Generowanie i humanizacja](#lekcja-tworzenie-treści-z-ai---generowanie-i-humanizacja)
 
 ---
 
@@ -182,6 +183,49 @@ Ostatni etap przed finalną generacją treści - przygotowanie szczegółowych b
 
 **Automatyzacje:**
 - [SEO 3.0] Content brief.yml - [główny workflow YAML](../../Automatyzacje/[SEO%203.0]%20Content%20brief.yml)
+- SEO 3.0 [4] - Content generator.blueprint.json - [szablon Blueprint Make.com](../../Automatyzacje/SEO%203.0%20[4]%20-%20Content%20generator.blueprint.json)
+
+---
+
+## Lekcja: Tworzenie treści z AI - Generowanie i humanizacja
+
+Kulminacyjny etap procesu tworzenia treści - łączenie wszystkich przygotowanych elementów (brief, baza RAG, struktura nagłówków) w finalny, zhumanizowany tekst. Lekcja przedstawia sześcioetapowy pipeline w Dify z generacją treści nagłówek po nagłówku, wielostopniową humanizacją (perplexity, burstiness, semantyka leksykalna) oraz automatyzacją eliminującą halucynacje przez precyzyjne zarządzanie kontekstem.
+
+**Materiały:**
+- Notatka z lekcji: [T8L07_Tworzenie_tresci_z_AI_Generowanie_i_humanizacja.md](./Dokumenty/T8L07_Tworzenie_tresci_z_AI_Generowanie_i_humanizacja.md)
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/354)
+- Workflow Dify: [Pobierz workflow](https://learn.sensai.academy/download.php?lfid=72)
+- Automatyzacja Make.com: [Pobierz scenariusz](https://learn.sensai.academy/download.php?lfid=73)
+
+**Kluczowe koncepty:**
+- **Header-by-Header Generation:** Generowanie treści nagłówek po nagłówku dla precyzyjnej kontroli jakości i eliminacji halucynacji
+- **Six-Stage Pipeline:** Sześcioetapowy proces od RAG enhancement przez główną generację po finalne formatowanie HTML
+- **Language Rules:** Precyzyjne reguły językowe eliminujące angloamerykańskie konstrukcje w tekstach polskich
+- **Multi-Stage Humanization:** Kontrola perplexity, optymalizacja burstiness, semantyczna leksykalizacja
+- **Quality Assurance:** Proofreading layer weryfikujący spójność i eliminujący redundancje między sekcjami
+
+**Proces techniczny:**
+- **Kontekst Management:** Obecny nagłówek + brief + frazy kluczowe + plan artykułu + wygenerowana treść (Done)
+- **RAG Enhancement:** Dodatkowe wzbogacenie wiedzy z bazy RAG dla zwiększenia merytorycznej poprawności
+- **Generation Engine:** Reguły językowe + reguły pisania treści + quality control w jednym prompcie
+- **Humanization Stages:** Perplexity optimization → burstiness enhancement → semantic lexicalization
+- **Final Formatting:** HTML struktura z poprawnym formatowaniem list i pogrubień według polskich zasad
+
+**Zaawansowane funkcje:**
+- **Context Aggregation:** Dynamiczne łączenie wiedzy z briefu i bazy RAG bez redundancji
+- **Progressive Enhancement:** Stopniowe ulepszanie tekstu przez kolejne warstwy humanizacji
+- **SEO-Human Balance:** Świadomy kompromis między optymalizacją dla maszyn a czytelnością dla ludzi
+- **Error Prevention:** Minimalizacja halucynacji przez kontrolowany kontekst i header-by-header approach
+- **Flesch-Kincaid Optimization:** Dostosowanie poziomu czytelności do target audience
+
+**Metryki jakości:**
+- **Perplexity Control:** Zarządzanie przewidywalnością tekstu dla optymalizacji SEO
+- **Burstiness Index:** Różnicowanie struktury zdań dla naturalności odbioru
+- **Consistency Maintenance:** Utrzymanie spójności stylu i merytoryki w całym artykule
+- **Semantic Coherence:** Logiczny przepływ i spójność treściowa między sekcjami
+
+**Automatyzacje:**
+- [SEO 3.0] Generowanie contentu.yml - [główny workflow YAML](../../Automatyzacje/[SEO%203.0]%20Generowanie%20contentu.yml)
 - SEO 3.0 [4] - Content generator.blueprint.json - [szablon Blueprint Make.com](../../Automatyzacje/SEO%203.0%20[4]%20-%20Content%20generator.blueprint.json)
 
 ---
