@@ -26,6 +26,11 @@ Ten katalog zawiera zbiór promptów systemowych wykorzystywanych w różnych le
 | [`QA_Content_Chunker.md`](QA_Content_Chunker.md) | Prompt systemowy do dzielenia treści na zestaw pytań i odpowiedzi z ograniczeniem 400 tokenów na chunk. | Tydzień 8 - Budowa RAG |
 | [`Expert_Content_Brief_Generator.md`](Expert_Content_Brief_Generator.md) | Zaawansowany prompt systemowy do generowania briefów treści poprzez mapowanie słów kluczowych i wiedzy z grafów do predefiniowanych nagłówków. | Tydzień 8 - Tworzenie briefów treści z AI |
 | [`JSON_to_HTML_Report_Polish.md`](JSON_to_HTML_Report_Polish.md) | Prompt systemowy do konwersji obiektów JSON na proste, czytelne raporty HTML z automatycznym tłumaczeniem na język polski. | Tydzień 8 - Tworzenie briefów treści z AI |
+| [`SEO_Content_Writer.md`](SEO_Content_Writer.md) | Zaawansowany prompt systemowy do tworzenia zoptymalizowanych pod SEO treści dla konkretnych nagłówków z integracją słów kluczowych i bazy wiedzy. | Tydzień 8 - Generowanie i humanizacja treści z AI |
+| [`Content_Perplexity_Optimizer.md`](Content_Perplexity_Optimizer.md) | Prompt systemowy do optymalizacji struktury i języka treści poprzez kontrolowaną perplexity i wysoką burstiness. | Tydzień 8 - Generowanie i humanizacja treści z AI |
+| [`Content_Humanizer.md`](Content_Humanizer.md) | Prompt systemowy do humanizacji treści poprzez zwiększenie zaangażowania i redukcję powtórzeń dla naturalnego brzmienia. | Tydzień 8 - Generowanie i humanizacja treści z AI |
+| [`HTML_Content_Formatter.md`](HTML_Content_Formatter.md) | Prompt systemowy do formatowania treści za pomocą HTML w celu poprawy czytelności, zaangażowania i struktury. | Tydzień 8 - Generowanie i humanizacja treści z AI |
+| [`Content_Proofreader.md`](Content_Proofreader.md) | Ekspercki prompt systemowy do korekty i weryfikacji artykułów z dogłębną znajomością tematu i kontrolą spójności. | Tydzień 8 - Generowanie i humanizacja treści z AI |
 
 ## Sposób używania
 
@@ -61,6 +66,11 @@ Każdy plik zawiera:
 - Question_Based_Headings_Generator.md
 - Expert_Content_Brief_Generator.md
 - JSON_to_HTML_Report_Polish.md
+- SEO_Content_Writer.md
+- Content_Perplexity_Optimizer.md
+- Content_Humanizer.md
+- HTML_Content_Formatter.md
+- Content_Proofreader.md
 
 ### Budowa RAG (Tydzień 8)
 - Brand_Domain_Extractor.md
