@@ -8,14 +8,49 @@ Ten katalog zawiera zbiór promptów systemowych wykorzystywanych w różnych le
 | :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------- |
 | [`System_Prompt_Generator.md`](System_Prompt_Generator.md) | Prompt systemowy dla AI, której zadaniem jest generowanie innych, efektywnych promptów systemowych na podstawie opisu zadania. | Tydzień 3 - Automatyczny prompt engineering  |
 | [`hakowanie_instrukcji_systemowych.md`](hakowanie_instrukcji_systemowych.md) | Prompt służący do próby odczytania ukrytej instrukcji systemowej modelu językowego. | Tydzień 3 - Hakowanie instrukcji systemowych |
-| [`ChatGPT_Prompt_Optimizer.md`](ChatGPT_Prompt_Optimizer.md) | Prompt systemowy dla AI, której zadaniem jest optymalizacja innych promptów według określonych zasad, w tym jasnego definiowania zadań, dostarczania precyzyjnych instrukcji i dostosowania do odbiorcy. | Tydzień 3 - Narzędzia do Tworzenia Promptów |
-| [`Knowledge_Graph_Generator.md`](Knowledge_Graph_Generator.md) | Prompt systemowy do generowania grafów wiedzy i map tematycznych na podstawie analizy tekstu. Pozwala wyodrębnić kluczowe encje, relacje i zbudować strukturę wiedzy wokół centralnej encji (np. "samochód"). Wykorzystywany w tygodniu 7 do ćwiczeń z semantycznego SEO, budowy map tematycznych i analizy relacji między encjami. | Tydzień 7 - Grafy wiedzy, mapy tematyczne, semantyczne SEO |
-| [`Model_Memory_Checker.md`](Model_Memory_Checker.md) | Prompt służący do sprawdzenia, jakie informacje model językowy przechowuje na temat użytkownika z poprzednich interakcji. | Tydzień 4 - Pamięć długoterminowa modeli językowych |
-| [`Information_Graph_Generator.md`](Information_Graph_Generator.md) | Prompt do generowania grafów informacji (trójek semantycznych) na podstawie tekstu. Pozwala wyodrębnić fakty, relacje i encje w formacie Subject-Predicate-Object. Wykorzystywany w tygodniu 7 do ćwiczeń z ekstrakcji wiedzy i budowy szczegółowych treści. | Tydzień 7 - Grafy informacji, ekstrakcja faktów |
-| [`Topical_Map_Generator.md`](Topical_Map_Generator.md) | Prompt do modelowania mapy tematycznej na podstawie grafu wiedzy. Pozwala wygenerować hierarchiczną mapę tematyczną (sekcje core/outer) do strategii treści i budowy topical authority. Wykorzystywany w tygodniu 7 do ćwiczeń z planowania architektury treści. | Tydzień 7 - Mapy tematyczne, strategia treści |
-| [`Content_Gap_Analysis.md`](Content_Gap_Analysis.md) | Prompt systemowy do analizy luk w contencie poprzez porównanie istniejącej treści z grafem wiedzy i grafem informacji. Identyfikuje brakujące informacje, które mogłyby wzbogacić istniejący content. | Tydzień 8 - Audyt contentu z AI |
-| [`SEO_Outline_Generator.md`](SEO_Outline_Generator.md) | Prompt systemowy do tworzenia zoptymalizowanego pod SEO outline'u dla brakujących informacji i słów kluczowych. Generuje strukturę nagłówków H2, która wzbogaci istniejący content o nowe sekcje. | Tydzień 8 - Audyt contentu z AI |
-| [`Missing_Keywords_Analyzer.md`](Missing_Keywords_Analyzer.md) | Prompt systemowy do identyfikacji słów kluczowych i encji, które są brakujące w istniejącym contencie, ale powinny zostać dodane aby wzbogacić treść pod kątem głównego tematu. | Tydzień 8 - Audyt contentu z AI |
-| [`Content_Optimization_JSON_Generator.md`](Content_Optimization_JSON_Generator.md) | Prompt systemowy do generowania strukturalnego JSON-a z rekomendacjami optymalizacji contentu. Syntetyzuje informacje z grafów wiedzy, brakujących informacji i keywords w zorganizowany plan działania. | Tydzień 8 - Audyt contentu z AI |
-| [`JSON_to_HTML_Converter.md`](JSON_to_HTML_Converter.md) | Prompt systemowy do konwersji obiektów JSON na prosty, czytelny raport HTML. Przekształca strukturalne dane w łatwo czytelny format HTML z odpowiednią hierarchią nagłówków. | Tydzień 8 - Audyt contentu z AI |
-| *(więcej promptów w przyszłości)* | *(opis kolejnego promptu)* | *(nazwa lekcji)* | 
+| [`Information_Graph_Generator.md`](Information_Graph_Generator.md) | Prompt systemowy do generowania grafu informacji na podstawie wyszukiwania i analizy SERP dla danego słowa kluczowego. | Tydzień 7 - Semantyczne SEO |
+| [`Knowledge_Graph_Generator.md`](Knowledge_Graph_Generator.md) | Prompt systemowy do generowania grafu wiedzy z encjami i relacjami na podstawie grafu informacji. | Tydzień 7 - Semantyczne SEO |
+| [`Topical_Map_Generator.md`](Topical_Map_Generator.md) | Prompt systemowy do tworzenia map tematycznych dla SEO na podstawie grafów wiedzy i słów kluczowych. | Tydzień 7 - Semantyczne SEO |
+| [`Model_Memory_Checker.md`](Model_Memory_Checker.md) | Prompt systemowy do sprawdzania pamięci długoterminowej modelu językowego poprzez test wiedzy. | Tydzień 4 - Modele embeddingowe |
+| [`ChatGPT_Prompt_Optimizer.md`](ChatGPT_Prompt_Optimizer.md) | Prompt systemowy do optymalizacji promptów dla modeli ChatGPT w celu poprawy jakości odpowiedzi. | Tydzień 3 - Proces tworzenia promptu |
+| [`Content_Gap_Analysis.md`](Content_Gap_Analysis.md) | Prompt systemowy do analizy luk w contencie poprzez porównanie z grafami wiedzy i informacji. | Tydzień 8 - Audyt contentu z AI |
+| [`SEO_Outline_Generator.md`](SEO_Outline_Generator.md) | Prompt systemowy do tworzenia zoptymalizowanego pod SEO outline'u dla brakujących informacji i słów kluczowych. | Tydzień 8 - Audyt contentu z AI |
+| [`Missing_Keywords_Analyzer.md`](Missing_Keywords_Analyzer.md) | Prompt systemowy do identyfikacji słów kluczowych brakujących w istniejącym contencie. | Tydzień 8 - Audyt contentu z AI |
+| [`Content_Optimization_JSON_Generator.md`](Content_Optimization_JSON_Generator.md) | Prompt systemowy do generowania strukturalnego JSON-a z rekomendacjami optymalizacji contentu. | Tydzień 8 - Audyt contentu z AI |
+| [`JSON_to_HTML_Converter.md`](JSON_to_HTML_Converter.md) | Prompt systemowy do konwersji obiektów JSON na prosty, czytelny raport HTML. | Tydzień 8 - Audyt contentu z AI |
+| [`Comprehensive_SEO_Content_Strategist.md`](Comprehensive_SEO_Content_Strategist.md) | Zaawansowany prompt systemowy do tworzenia kompleksowych, hierarchicznych struktur treści SEO z nagłówkami H2 i H3. | Tydzień 8 - Budowa struktury nagłówków |
+| [`Simple_H2_Outline_Generator.md`](Simple_H2_Outline_Generator.md) | Prompt systemowy do tworzenia prostych struktur treści SEO z nagłówkami H2 bez hierarchii H3. | Tydzień 8 - Budowa struktury nagłówków |
+| [`Question_Based_Headings_Generator.md`](Question_Based_Headings_Generator.md) | Prompt systemowy do tworzenia nagłówków SEO w formie pytań z dwufazowym procesem brainstorming + rafinacja. | Tydzień 8 - Budowa struktury nagłówków |
+
+## Sposób używania
+
+Każdy plik zawiera:
+- Opis promptu i jego przeznaczenia
+- Informacje o modelu AI, z którym był testowany
+- Powiązaną lekcję z kursu
+- Pełny prompt systemowy gotowy do użycia
+
+## Kategoryzacja promptów
+
+### Prompt Engineering (Tydzień 3)
+- System_Prompt_Generator.md
+- hakowanie_instrukcji_systemowych.md
+- ChatGPT_Prompt_Optimizer.md
+
+### Semantyczne SEO (Tydzień 7)
+- Information_Graph_Generator.md
+- Knowledge_Graph_Generator.md
+- Topical_Map_Generator.md
+
+### Modele embeddingowe (Tydzień 4)
+- Model_Memory_Checker.md
+
+### Tworzenie treści z AI (Tydzień 8)
+- Content_Gap_Analysis.md
+- SEO_Outline_Generator.md
+- Missing_Keywords_Analyzer.md
+- Content_Optimization_JSON_Generator.md
+- JSON_to_HTML_Converter.md
+- Comprehensive_SEO_Content_Strategist.md
+- Simple_H2_Outline_Generator.md
+- Question_Based_Headings_Generator.md 
