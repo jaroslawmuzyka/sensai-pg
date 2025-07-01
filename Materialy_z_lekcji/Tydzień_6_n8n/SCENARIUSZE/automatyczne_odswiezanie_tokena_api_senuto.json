@@ -271,11 +271,11 @@
           "parameters": [
             {
               "name": "email",
-              "value": "seo_kocham_cie@noemail.com"
+              "value": "reklama@ibb.media"
             },
             {
               "name": "password",
-              "value": "{&123452349~kM!tp,\\a7"
+              "value": "{&5[.q49~kM!tp,\\a7"
             }
           ]
         },
@@ -334,9 +334,9 @@
         "json": {
           "success": true,
           "data": {
-            "token": "eyJ0eXAiasdasdsadasdIUzI1NiJ9.eyJpZCI6MzAxMjksImV4cCI6MTc0OTg5NjQyNywiaWF0IjoxNzQ3MjE4MDI3fQ.6XVeX_MZje6HVNsN8OPeTyPyylulG4kEmCCipNu2srI",
+            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MzAxMjksImV4cCI6MTc0OTg5NjQyNywiaWF0IjoxNzQ3MjE4MDI3fQ.6XVeX_MZje6HVNsN8OPeTyPyylulG4kEmCCipNu2srI",
             "id": 30129,
-            "email": "seo_kocham_cie@noemail.com",
+            "email": "reklama@ibb.media",
             "lang": "pl-PL",
             "currency": "PLN",
             "currency_ratio": 1,

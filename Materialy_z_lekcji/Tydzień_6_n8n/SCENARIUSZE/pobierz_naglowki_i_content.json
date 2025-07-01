@@ -3,31 +3,38 @@
   "nodes": [
     {
       "parameters": {
-        "workflowInputs": {
-          "values": [
-            {
-              "name": "url"
-            }
-          ]
-        }
+        "options": {}
       },
-      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        -540,
-        100
+        -260,
+        -120
       ],
-      "id": "97f6bd69-b3b2-4a27-8973-198b30a62ec5",
-      "name": "When Executed by Another Workflow"
+      "id": "4a81beab-7780-41d1-81fb-dbe0de048054",
+      "name": "When chat message received",
+      "webhookId": "19b25b9f-a5c0-4955-b548-5a14f900e671"
     },
     {
       "parameters": {
         "assignments": {
           "assignments": [
             {
-              "id": "598b0222-a6ae-49c0-8868-92f6aabc1e7c",
+              "id": "ea26dc16-def3-482b-8fea-0eb3faa0489c",
               "name": "url",
-              "value": "={{ $json.url }}",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "a6313147-f81e-4ca7-83db-1f69df114006",
+              "name": "sessionId",
+              "value": "={{ $json.sessionId }}",
+              "type": "string"
+            },
+            {
+              "id": "a18c93b5-bea1-4e21-b599-f2044e7b8a43",
+              "name": "action",
+              "value": "={{ $json.action }}",
               "type": "string"
             }
           ]
@@ -37,155 +44,89 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -360,
-        100
+        -40,
+        -120
       ],
-      "id": "0ef56a56-329e-47d7-aee1-f6517acc2c8c",
-      "name": "input"
+      "id": "1c6f749f-2f82-4195-a53c-44201228e925",
+      "name": "setURL"
     },
     {
       "parameters": {
         "url": "={{ $json.url }}",
-        "options": {}
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "text",
+              "outputPropertyName": "html"
+            }
+          }
+        }
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -140,
-        100
+        180,
+        -120
       ],
-      "id": "e306b41b-e45d-4ce3-93db-f992d59decec",
-      "name": "getHtml",
-      "alwaysOutputData": false,
-      "onError": "continueErrorOutput"
+      "id": "382209ab-a071-4327-ad5c-58948822dcd7",
+      "name": "getWebsite"
     },
     {
       "parameters": {
-        "html": "={{ $json.data }}",
+        "jsCode": "// Loop over input items and extract headings from the HTML content\nfor (const item of $input.all()) {\n  // Initialize an array to store headings\n  const orderedHeadings = [];\n  \n  // Get HTML content\n  const content = item.json.html;\n  \n  // Use regex to find heading tags\n  const headingRegex = /<h([1-6]).*?>([\\s\\S]*?)<\\/h\\1>/gi;\n  let match;\n  \n  while ((match = headingRegex.exec(content)) !== null) {\n    const level = parseInt(match[1]);\n    // Remove any HTML tags inside the heading text\n    const headingText = match[2].replace(/<.*?>/g, '').trim();\n    \n    orderedHeadings.push({\n      level: level,\n      text: headingText\n    });\n  }\n  \n  // Add the ordered headings to the item\n  item.json.headings = orderedHeadings;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        -240
+      ],
+      "id": "bfd61104-b01b-44df-8a1a-4946ce9fe548",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "html": "={{ $json.html }}",
         "destinationKey": "markdown",
         "options": {}
       },
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
       "position": [
-        120,
-        240
+        460,
+        20
       ],
-      "id": "19104097-ad91-4be0-9f78-3cb6e6f20733",
+      "id": "4522d7f7-6bec-4468-9136-da57363f138f",
       "name": "Markdown"
     },
     {
       "parameters": {
         "mode": "combine",
         "combineBy": "combineByPosition",
-        "numberInputs": 3,
         "options": {}
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.1,
       "position": [
-        560,
-        100
+        720,
+        -140
       ],
-      "id": "e31d9ac4-64f1-4bc0-8d47-e45e84808fc3",
+      "id": "295fc2bb-e029-44c2-9249-8cf535a7abfc",
       "name": "Merge"
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and extract headings from the HTML content\nfor (const item of $input.all()) {\n  // Initialize an array to store headings\n  const orderedHeadings = [];\n  \n  // Get HTML content\n  const content = item.json.data;\n  \n  // Use regex to find heading tags\n  const headingRegex = /<h([1-6]).*?>([\\s\\S]*?)<\\/h\\1>/gi;\n  let match;\n  \n  while ((match = headingRegex.exec(content)) !== null) {\n    const level = parseInt(match[1]);\n    // Remove any HTML tags inside the heading text\n    const headingText = match[2].replace(/<.*?>/g, '').trim();\n    \n    orderedHeadings.push({\n      level: level,\n      text: headingText\n    });\n  }\n  \n  // Add the ordered headings to the item\n  item.json.headings = orderedHeadings;\n}\n\nreturn $input.all();"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        80,
-        0
-      ],
-      "id": "263809da-59c3-43b5-a0e2-657a8ce6a1ee",
-      "name": "Get Headings Once For All Items"
-    },
-    {
-      "parameters": {
-        "mode": "runOnceForEachItem",
-        "jsCode": "// Initialize an array to store headings\nconst orderedHeadings = [];\n\n// Get HTML content from current item\nconst content = $input.item.json.data;\n\n// Use regex to find heading tags\nconst headingRegex = /<h([1-6]).*?>([\\s\\S]*?)<\\/h\\1>/gi;\nlet match;\n\nwhile ((match = headingRegex.exec(content)) !== null) {\n  const level = parseInt(match[1]);\n  // Remove any HTML tags inside the heading text\n  const headingText = match[2].replace(/<.*?>/g, '').trim();\n  \n  orderedHeadings.push({\n    level: level,\n    text: headingText\n  });\n}\n\n// Add the ordered headings to the current item\n$input.item.json.headings = orderedHeadings;\n\nreturn $input.item;"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        80,
-        -240
-      ],
-      "id": "f0b289f7-8ef9-4dad-8238-1a2f4aff01ee",
-      "name": "Get Headings Once For Each Item"
-    },
-    {
-      "parameters": {
         "assignments": {
           "assignments": [
             {
-              "id": "2b1c7ff8-06a7-448b-99b7-5ede4b2e0bf0",
-              "name": "headings_once_for_all_items",
-              "value": "={{ $json.headings.map(h => `h${h.level}: ${h.text}`).join('\\n') }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "92fa46d1-df03-401e-a16f-9fce4bcee1c7",
-      "name": "Headings Once For All Items",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.3,
-      "position": [
-        300,
-        0
-      ]
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "2b1c7ff8-06a7-448b-99b7-5ede4b2e0bf0",
-              "name": "headings_once_for_each_item",
-              "value": "={{ $json.headings.map(h => `h${h.level}: ${h.text}`).join('\\n') }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "f2e97bf0-cac6-4f4d-875d-799b5e885443",
-      "name": "Headings Once For Each Item",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.3,
-      "position": [
-        300,
-        -240
-      ]
-    },
-    {
-      "parameters": {
-        "content": "## n8n Code Node - Tryby wykonania\n\n### 1. Run Once for All Items (domyślny)\n- **Wykonanie**: Kod uruchamia się **raz** dla wszystkich elementów\n- **Dostęp do danych**: `$input.all()` - wszystkie elementy naraz\n- **Zwracanie**: `$input.all()` - wszystkie przetworzone elementy\n- **Struktura**: Wymaga pętli `for (const item of $input.all())`\n\n### 2. Run Once for Each Item\n- **Wykonanie**: Kod uruchamia się **osobno dla każdego elementu**\n- **Dostęp do danych**: `$input.item` - tylko aktualny element\n- **Zwracanie**: `$input.item` - jeden przetworzony element\n- **Struktura**: Prostszy - bezpośredni dostęp do `$input.item`\n\n## Porównanie\n\n| Aspekt | Run Once for All Items | Run Once for Each Item |\n|--------|------------------------|------------------------|\n| **Wydajność** | ✅ Szybszy przy dużej ilości danych | ❌ Wolniejszy - n×wykonań |\n| **Prostota kodu** | ❌ Wymaga pętli `for` | ✅ Prostszy - bez pętli |\n| **Porównywanie elementów** | ✅ Dostęp do wszystkich elementów | ❌ Tylko aktualny element |\n| **Debugowanie** | ❌ Trudniejsze | ✅ Łatwiejsze - jeden element |\n| **Logika warunkowa** | ❌ Bardziej skomplikowana | ✅ Prostsze warunki |\n\n## Kiedy użyć którego?\n\n### Run Once for All Items\n- Masowe przetwarzanie danych\n- Porównywanie elementów między sobą\n- Wydajność jest priorytetem\n- Proste transformacje na wszystkich elementach\n\n### Run Once for Each Item\n- Złożona logika warunkowa per element\n- Debugowanie problemów z konkretnymi elementami\n- Różne przetwarzanie dla różnych typów danych\n- Prostszy kod bez pętli\n\n## Przykład - wyciąganie nagłówków HTML\n\n**Run Once for All Items:**\n- Pętla przez wszystkie elementy: `for (const item of $input.all())`\n- Dostęp do HTML: `item.json.data`\n- Zwracanie: `return $input.all()`\n\n**Run Once for Each Item:**\n- Bezpośredni dostęp: `$input.item.json.data`\n- Zwracanie: `return $input.item`\n\n## Rekomendacja\nDla prostego wyciągania nagłówków HTML oba tryby dają identyczny rezultat. \nZostać przy **\"Run Once for All Items\"** ze względu na lepszą wydajność.",
-        "height": 1200,
-        "width": 480
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -1140,
-        -460
-      ],
-      "typeVersion": 1,
-      "id": "5bbc18b0-d37d-4d2a-a005-487ae7ce59b7",
-      "name": "Sticky Note"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "a1ef952f-2381-4e58-a0d4-019634309d06",
-              "name": "response",
-              "value": "={{ $json.toJsonString() }}",
+              "id": "3679efce-8355-4749-8ea3-678450d411b5",
+              "name": "message",
+              "value": "=Pobrałem nagłówki i treść ze strony {{ $('setURL').item.json.url }}\n\nTo są NAGŁÓWKI:\n{{ $json.headings.map(item => `h${item.level}: ${item.text}`).join('\\n') }}\n\nTo jest TREŚĆ STRONY:\n{{ $json.markdown }}",
               "type": "string"
             }
           ]
@@ -195,82 +136,58 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        120,
-        460
+        960,
+        -140
       ],
-      "id": "30af0257-91d8-4649-a5fd-75543c15689b",
-      "name": "Error Response"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "e882b0d9-d445-4e85-9088-8b65795915c1",
-              "name": "response",
-              "value": "=NAGŁÓWKI\n{{ $json.headings_once_for_all_items }}\nTREŚĆ STRONY:\n{{ $json.markdown.replaceAll(/\\n{2,}/g, \"\\n\") }}\n\n",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        820,
-        100
-      ],
-      "id": "91a9845c-725c-40b9-ba6c-0aac8939db28",
-      "name": "Success Response"
+      "id": "0cb2d838-bb12-4556-9a0a-b8edddb20a1d",
+      "name": "response"
     }
   ],
   "pinData": {},
   "connections": {
-    "When Executed by Another Workflow": {
+    "When chat message received": {
       "main": [
         [
           {
-            "node": "input",
+            "node": "setURL",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "input": {
+    "setURL": {
       "main": [
         [
           {
-            "node": "getHtml",
+            "node": "getWebsite",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "getHtml": {
+    "getWebsite": {
       "main": [
         [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          },
           {
             "node": "Markdown",
             "type": "main",
             "index": 0
-          },
-          {
-            "node": "Get Headings Once For All Items",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Get Headings Once For Each Item",
-            "type": "main",
-            "index": 0
           }
-        ],
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
         [
           {
-            "node": "Error Response",
+            "node": "Merge",
             "type": "main",
             "index": 0
           }
@@ -283,7 +200,7 @@
           {
             "node": "Merge",
             "type": "main",
-            "index": 2
+            "index": 1
           }
         ]
       ]
@@ -292,51 +209,7 @@
       "main": [
         [
           {
-            "node": "Success Response",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get Headings Once For All Items": {
-      "main": [
-        [
-          {
-            "node": "Headings Once For All Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get Headings Once For Each Item": {
-      "main": [
-        [
-          {
-            "node": "Headings Once For Each Item",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Headings Once For All Items": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
-    "Headings Once For Each Item": {
-      "main": [
-        [
-          {
-            "node": "Merge",
+            "node": "response",
             "type": "main",
             "index": 0
           }
@@ -348,10 +221,10 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "f341029f-df72-4336-895c-3daec821b204",
+  "versionId": "8944a20e-a8c6-42ac-9c58-e3dab3ddd1e4",
   "meta": {
     "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
   },
-  "id": "8oqxXACMjEvsZUHB",
+  "id": "CCp0ZoGz7YksCYS2",
   "tags": []
 }
