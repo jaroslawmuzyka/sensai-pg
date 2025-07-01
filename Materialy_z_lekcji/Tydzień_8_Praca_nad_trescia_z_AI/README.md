@@ -10,6 +10,7 @@ W tym tygodniu skupiamy się na praktycznych aspektach tworzenia wysokiej jakoś
 
 - [Wstęp do tworzenia treści z AI](#lekcja-wstęp-do-tworzenia-treści-z-ai)
 - [Tworzenie treści z AI - Budowa wiedzy](#lekcja-tworzenie-treści-z-ai---budowa-wiedzy)
+- [Tworzenie treści z AI - Automatyzacja do budowy wiedzy](#lekcja-tworzenie-treści-z-ai---automatyzacja-do-budowy-wiedzy)
 
 ---
 
@@ -53,6 +54,32 @@ Fundamentalny etap procesu generowania treści z AI - budowa solidnej bazy wiedz
 **Automatyzacje:**
 - [SEO3.0] Budowa bazy wiedzy.yml - [główny workflow](../../Automatyzacje/[SEO3.0]%20Budowa%20bazy%20wiedzy.yml)
 - SEO 3.0 - [1] Budowa wiedzy.blueprint.json - [szablon Blueprint](../../Automatyzacje/SEO%203.0%20-%20[1]%20Budowa%20wiedzy.blueprint.json)
+
+---
+
+## Lekcja: Tworzenie treści z AI - Automatyzacja do budowy wiedzy
+
+Praktyczna implementacja automatyzacji procesu budowy wiedzy poprzez integrację Google Sheets jako panelu sterowania z Make.com i Dify. Lekcja pokazuje krok po kroku budowę kompletnego workflow do zarządzania projektami contentowymi, od konfiguracji triggera w arkuszu kalkulacyjnym, przez transformację danych i komunikację z API Dify, po automatyczne zapisywanie wyników z aktualizacją statusu zadań.
+
+**Materiały:**
+- Notatka z lekcji: [T8L03_Tworzenie_tresci_z_AI_Automatyzacja_do_budowy_wiedzy.md](./Dokumenty/T8L03_Tworzenie_tresci_z_AI_Automatyzacja_do_budowy_wiedzy.md)
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/353)
+- Plik automatyzacji Make.com: [Pobierz workflow](https://learn.sensai.academy/download.php?lfid=66)
+
+**Kluczowe elementy:**
+- Panel sterowania w Google Sheets z dropdown statusów ("Wybierz status", "generuj", "gotowe")
+- Kolumny wejściowe: słowo kluczowe, język, AI Overview, status kontrolny
+- Kolumny wynikowe: frazy z SERP, graf informacji, nagłówki konkurencji, knowledge graph
+- Scenariusz Make.com: trigger Google Sheets Search Rows → JSON Transform → HTTP Request do Dify → Update Row
+- Automatyzacja z harmonogramem (co 15 minut) dla bezobsługowego działania
+
+**Materiały zewnętrzne:**
+- [Główny arkusz Google Sheets](https://docs.google.com/spreadsheets/d/1SdeOwR3uw0N3MQa3YFX-l66wZ6SO56AlKorQK600a14/edit?usp=sharing) - panel sterowania
+- [Katalog z wynikami Google Drive](https://drive.google.com/drive/folders/11_ee_P405ThkaDgQj63QRiWRMRlQzH97?usp=sharing) - brief, content, audyt
+
+**Automatyzacje:**
+- [SEO3.0] Budowa bazy wiedzy.yml - [główny workflow YAML](../../Automatyzacje/[SEO3.0]%20Budowa%20bazy%20wiedzy.yml)
+- SEO 3.0 - [1] Budowa wiedzy.blueprint.json - [szablon Blueprint Make.com](../../Automatyzacje/SEO%203.0%20-%20[1]%20Budowa%20wiedzy.blueprint.json)
 
 ---
 
