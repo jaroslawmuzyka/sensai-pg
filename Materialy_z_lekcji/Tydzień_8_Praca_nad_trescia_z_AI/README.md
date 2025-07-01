@@ -15,6 +15,8 @@ W tym tygodniu skupiamy się na praktycznych aspektach tworzenia wysokiej jakoś
 - [Tworzenie treści z AI - Budowa bazy wiedzy (RAG)](#lekcja-tworzenie-treści-z-ai---budowa-bazy-wiedzy-rag)
 - [Tworzenie treści z AI - Budowa briefu](#lekcja-tworzenie-treści-z-ai---budowa-briefu)
 - [Tworzenie treści z AI - Generowanie i humanizacja](#lekcja-tworzenie-treści-z-ai---generowanie-i-humanizacja)
+- [Tworzenie treści z AI - Automatyzacja procesu generowania treści](#lekcja-tworzenie-treści-z-ai---automatyzacja-procesu-generowania-treści)
+- [Tworzenie treści z AI - Audyt contentu](#lekcja-tworzenie-treści-z-ai---audyt-contentu)
 
 ---
 
@@ -24,6 +26,7 @@ Ta lekcja rozpoczyna bardzo praktyczny tydzień kursu, w którym skupimy się na
 
 **Materiały:**
 - Notatka z lekcji: [T8L01_Wstep_do_tworzenia_tresci_z_AI.md](./Dokumenty/T8L01_Wstep_do_tworzenia_tresci_z_AI.md)
+- Transkrypcja: [T8L01_Wstep_do_tworzenia_tresci_z_AI_Transkrypcja.md](./Dokumenty/T8L01_Wstep_do_tworzenia_tresci_z_AI_Transkrypcja.md)
 - Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/349)
 
 **Narzędzia i zasoby:**
@@ -44,6 +47,7 @@ Fundamentalny etap procesu generowania treści z AI - budowa solidnej bazy wiedz
 
 **Materiały:**
 - Notatka z lekcji: [T8L02_Tworzenie_tresci_z_AI_Budowa_wiedzy.md](./Dokumenty/T8L02_Tworzenie_tresci_z_AI_Budowa_wiedzy.md)
+- Transkrypcja: [T8L02_Tworzenie_tresci_z_AI_Budowa_wiedzy_Transkrypcja.md](./Dokumenty/T8L02_Tworzenie_tresci_z_AI_Budowa_wiedzy_Transkrypcja.md)
 - Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/346)
 - Plik workflow Dify: [Pobierz workflow](https://learn.sensai.academy/download.php?lfid=65)
 
@@ -67,6 +71,7 @@ Praktyczna implementacja automatyzacji procesu budowy wiedzy poprzez integrację
 
 **Materiały:**
 - Notatka z lekcji: [T8L03_Tworzenie_tresci_z_AI_Automatyzacja_do_budowy_wiedzy.md](./Dokumenty/T8L03_Tworzenie_tresci_z_AI_Automatyzacja_do_budowy_wiedzy.md)
+- Transkrypcja: [T8L03_Tworzenie_tresci_z_AI_Automatyzacja_do_budowy_wiedzy_Transkrypcja.md](./Dokumenty/T8L03_Tworzenie_tresci_z_AI_Automatyzacja_do_budowy_wiedzy_Transkrypcja.md)
 - Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/353)
 - Plik automatyzacji Make.com: [Pobierz workflow](https://learn.sensai.academy/download.php?lfid=66)
 
@@ -93,6 +98,7 @@ Drugi kluczowy etap procesu generacji treści - tworzenie struktury nagłówków
 
 **Materiały:**
 - Notatka z lekcji: [T8L04_Tworzenie_tresci_z_AI_Budowa_struktury_naglowkow.md](./Dokumenty/T8L04_Tworzenie_tresci_z_AI_Budowa_struktury_naglowkow.md)
+- Transkrypcja: [T8L04_Tworzenie_tresci_z_AI_Budowa_struktury_naglowkow_Transkrypcja.md](./Dokumenty/T8L04_Tworzenie_tresci_z_AI_Budowa_struktury_naglowkow_Transkrypcja.md)
 - Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/347)
 - Workflow Dify: [Pobierz workflow](https://learn.sensai.academy/download.php?lfid=67)
 - Automatyzacja Make.com: [Pobierz scenariusz](https://learn.sensai.academy/download.php?lfid=68)
@@ -121,6 +127,7 @@ Proces budowy bazy wiedzy w modelu RAG (Retrieval-Augmented Generation) z precyz
 
 **Materiały:**
 - Notatka z lekcji: [T8L05_Tworzenie_tresci_z_AI_Budowa_bazy_wiedzy_RAG.md](./Dokumenty/T8L05_Tworzenie_tresci_z_AI_Budowa_bazy_wiedzy_RAG.md)
+- Transkrypcja: [T8L05_Tworzenie_tresci_z_AI_Budowa_bazy_wiedzy_RAG_Transkrypcja.md](./Dokumenty/T8L05_Tworzenie_tresci_z_AI_Budowa_bazy_wiedzy_RAG_Transkrypcja.md)
 - Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/352)
 - Workflow Dify: [Pobierz workflow](https://learn.sensai.academy/download.php?lfid=69)
 - Automatyzacja Make.com: [Pobierz scenariusz](https://learn.sensai.academy/download.php?lfid=70)
@@ -157,6 +164,7 @@ Ostatni etap przed finalną generacją treści - przygotowanie szczegółowych b
 
 **Materiały:**
 - Notatka z lekcji: [T8L06_Tworzenie_tresci_z_AI_Budowa_briefu.md](./Dokumenty/T8L06_Tworzenie_tresci_z_AI_Budowa_briefu.md)
+- Transkrypcja: [T8L06_Tworzenie_tresci_z_AI_Budowa_briefu_Transkrypcja.md](./Dokumenty/T8L06_Tworzenie_tresci_z_AI_Budowa_briefu_Transkrypcja.md)
 - Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/351)
 - Workflow Dify: [Pobierz workflow](https://learn.sensai.academy/download.php?lfid=71)
 
@@ -193,6 +201,7 @@ Kulminacyjny etap procesu tworzenia treści - łączenie wszystkich przygotowany
 
 **Materiały:**
 - Notatka z lekcji: [T8L07_Tworzenie_tresci_z_AI_Generowanie_i_humanizacja.md](./Dokumenty/T8L07_Tworzenie_tresci_z_AI_Generowanie_i_humanizacja.md)
+- Transkrypcja: [T8L07_Tworzenie_tresci_z_AI_Generowanie_i_humanizacja_Transkrypcja.md](./Dokumenty/T8L07_Tworzenie_tresci_z_AI_Generowanie_i_humanizacja_Transkrypcja.md)
 - Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/354)
 - Workflow Dify: [Pobierz workflow](https://learn.sensai.academy/download.php?lfid=72)
 - Automatyzacja Make.com: [Pobierz scenariusz](https://learn.sensai.academy/download.php?lfid=73)
@@ -227,6 +236,80 @@ Kulminacyjny etap procesu tworzenia treści - łączenie wszystkich przygotowany
 **Automatyzacje:**
 - [SEO 3.0] Generowanie contentu.yml - [główny workflow YAML](../../Automatyzacje/[SEO%203.0]%20Generowanie%20contentu.yml)
 - SEO 3.0 [4] - Content generator.blueprint.json - [szablon Blueprint Make.com](../../Automatyzacje/SEO%203.0%20[4]%20-%20Content%20generator.blueprint.json)
+
+---
+
+## Lekcja: Tworzenie treści z AI - Automatyzacja procesu generowania treści
+
+Kulminacyjny element całego procesu - w pełni zautomatyzowane generowanie kompletnego artykułu poprzez sekwencyjne przetwarzanie nagłówków w Make.com. Lekcja przedstawia zaawansowany scenariusz wykorzystujący Data Store do zarządzania kontekstem, iteratory do przetwarzania list JSON oraz real-time document building w Google Docs.
+
+**Materiały lekcji:**
+- [Notatki z lekcji](./Dokumenty/T8L08_Tworzenie_tresci_z_AI_Automatyzacja_procesu_generowania_tresci.md)
+- [Transkrypcja](./Dokumenty/T8L08_Tworzenie_tresci_z_AI_Automatyzacja_procesu_generowania_tresci_Transkrypcja.md)
+- [Link do platformy](https://learn.sensai.academy/next/public/lesson/348)
+
+**Kluczowe koncepty:**
+- End-to-End automation od planu nagłówków do gotowego artykułu
+- Data Store management dla zachowania kontekstu między iteracjami
+- Iterator pattern z real-time document building
+- JSON processing (Bundle → Array conversion)
+- Status management w Google Sheets z trigger activation
+- Error prevention przez context reset między generacjami
+
+**Proces techniczny:**
+- **Inicjalizacja**: Trigger z Google Sheets, JSON processing, file creation
+- **Context Management**: Data Store setup z polem `content`, memory allocation
+- **Iterative Generation**: Header-by-header processing z API calls do Dify
+- **Document Assembly**: Real-time paragraph insertion do Google Docs
+- **Finalization**: Link generation, status update, cleanup
+
+**Zaawansowane funkcje:**
+- Asynchronous processing z zachowaniem kolejności
+- Memory management przez cykliczne czyszczenie Data Store
+- Progress monitoring w czasie rzeczywistym
+- Scalability dla artykułów o dowolnej liczbie nagłówków
+- Integration layer (Dify + Make.com + Google Workspace)
+
+**Automatyzacje:**
+- [SEO 3.0] Generowanie contentu.yml - [główny workflow YAML](../../Automatyzacje/[SEO%203.0]%20Generowanie%20contentu.yml)
+- SEO 3.0 [4] - Content generator.blueprint.json - [kompletna automatyzacja Make.com](../../Automatyzacje/SEO%203.0%20[4]%20-%20Content%20generator.blueprint.json)
+
+---
+
+## Lekcja: Tworzenie treści z AI - Audyt contentu
+
+Podsumowująca lekcja tygodnia skupiająca się na audycie i optymalizacji istniejącego contentu w dobie AI Overview. Wykorzystuje zaawansowane modele reasoningowe do gap analysis, identyfikacji braków semantycznych i tworzenia raportów optymalizacyjnych dla pojedynczych jednostek treści.
+
+**Materiały:**
+- [Notatki z lekcji](./Dokumenty/T8L09_Tworzenie_tresci_z_AI_Audyt_contentu.md)
+- [Transkrypcja](./Dokumenty/T8L09_Tworzenie_tresci_z_AI_Audyt_contentu_Transkrypcja.md)
+- [Workflow Dify](https://learn.sensai.academy/download.php?lfid=74) - kompletny workflow audytu semantycznego
+- [Automatyzacja Make.com](https://learn.sensai.academy/download.php?lfid=75) - integracja z Google Sheets (zakładka "Audyt")
+- [Platforma SensAI Academy](https://learn.sensai.academy/next/public/lesson/350)
+
+**Kluczowe koncepty:**
+- Semantic Content Audit z wykorzystaniem modeli reasoningowych
+- Gap Analysis przez porównanie z "konsensus internetu"
+- Multi-dimensional analysis (informacje, frazy, nagłówki)
+- Automated HTML report generation z konkretnym planem optymalizacji
+- Integration z workflow Google Sheets dla skalowania procesu
+
+**Proces techniczny:**
+- **Input Data Collection**: Target URL + keyword + knowledge resources z wcześniejszych etapów
+- **Multi-dimensional Gap Analysis**: Information gap detection + keyword gap + structural gap assessment
+- **Reasoning-based Synthesis**: Cross-analysis integration przez modele reasoningowe
+- **Report Generation**: JSON to HTML conversion z implementation guidelines
+
+**Zaawansowane funkcje:**
+- Reasoning Models Supremacy w procesach analitycznych i porównawczych
+- Real-time content scraping z podanych URL
+- Semantic entity mapping między treścią a grafami wiedzy
+- Automated priority scoring dla zidentyfikowanych braków
+- Cross-platform integration z Google Sheets (zakładka "Audyt")
+
+**Automatyzacje:**
+- [SEO 3.0] Audyt contentu.yml - [główny workflow YAML](../../Automatyzacje/[SEO%203.0]%20Audyt%20contentu.yml)
+- SEO 3.0 - Audyt contentu.blueprint.json - [szablon Blueprint Make.com](../../Automatyzacje/SEO%203.0%20-%20Audyt%20contentu.blueprint.json)
 
 ---
 
