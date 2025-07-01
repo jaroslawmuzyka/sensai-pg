@@ -24,6 +24,8 @@ Ten katalog zawiera zbiór promptów systemowych wykorzystywanych w różnych le
 | [`Brand_Domain_Extractor.md`](Brand_Domain_Extractor.md) | Prompt systemowy do ekstrakcji nazw brandów i domen z listy tekstów w strukturalnym formacie wyjściowym. | Tydzień 8 - Budowa RAG |
 | [`Content_Chunker_Knowledge_Builder.md`](Content_Chunker_Knowledge_Builder.md) | Zaawansowany prompt systemowy do dzielenia i strukturyzacji informacji z tekstu w celu budowy bazy wiedzy. | Tydzień 8 - Budowa RAG |
 | [`QA_Content_Chunker.md`](QA_Content_Chunker.md) | Prompt systemowy do dzielenia treści na zestaw pytań i odpowiedzi z ograniczeniem 400 tokenów na chunk. | Tydzień 8 - Budowa RAG |
+| [`Expert_Content_Brief_Generator.md`](Expert_Content_Brief_Generator.md) | Zaawansowany prompt systemowy do generowania briefów treści poprzez mapowanie słów kluczowych i wiedzy z grafów do predefiniowanych nagłówków. | Tydzień 8 - Tworzenie briefów treści z AI |
+| [`JSON_to_HTML_Report_Polish.md`](JSON_to_HTML_Report_Polish.md) | Prompt systemowy do konwersji obiektów JSON na proste, czytelne raporty HTML z automatycznym tłumaczeniem na język polski. | Tydzień 8 - Tworzenie briefów treści z AI |
 
 ## Sposób używania
 
@@ -57,6 +59,8 @@ Każdy plik zawiera:
 - Comprehensive_SEO_Content_Strategist.md
 - Simple_H2_Outline_Generator.md
 - Question_Based_Headings_Generator.md
+- Expert_Content_Brief_Generator.md
+- JSON_to_HTML_Report_Polish.md
 
 ### Budowa RAG (Tydzień 8)
 - Brand_Domain_Extractor.md
