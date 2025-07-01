@@ -21,6 +21,9 @@ Ten katalog zawiera zbiór promptów systemowych wykorzystywanych w różnych le
 | [`Comprehensive_SEO_Content_Strategist.md`](Comprehensive_SEO_Content_Strategist.md) | Zaawansowany prompt systemowy do tworzenia kompleksowych, hierarchicznych struktur treści SEO z nagłówkami H2 i H3. | Tydzień 8 - Budowa struktury nagłówków |
 | [`Simple_H2_Outline_Generator.md`](Simple_H2_Outline_Generator.md) | Prompt systemowy do tworzenia prostych struktur treści SEO z nagłówkami H2 bez hierarchii H3. | Tydzień 8 - Budowa struktury nagłówków |
 | [`Question_Based_Headings_Generator.md`](Question_Based_Headings_Generator.md) | Prompt systemowy do tworzenia nagłówków SEO w formie pytań z dwufazowym procesem brainstorming + rafinacja. | Tydzień 8 - Budowa struktury nagłówków |
+| [`Brand_Domain_Extractor.md`](Brand_Domain_Extractor.md) | Prompt systemowy do ekstrakcji nazw brandów i domen z listy tekstów w strukturalnym formacie wyjściowym. | Tydzień 8 - Budowa RAG |
+| [`Content_Chunker_Knowledge_Builder.md`](Content_Chunker_Knowledge_Builder.md) | Zaawansowany prompt systemowy do dzielenia i strukturyzacji informacji z tekstu w celu budowy bazy wiedzy. | Tydzień 8 - Budowa RAG |
+| [`QA_Content_Chunker.md`](QA_Content_Chunker.md) | Prompt systemowy do dzielenia treści na zestaw pytań i odpowiedzi z ograniczeniem 400 tokenów na chunk. | Tydzień 8 - Budowa RAG |
 
 ## Sposób używania
 
@@ -53,4 +56,9 @@ Każdy plik zawiera:
 - JSON_to_HTML_Converter.md
 - Comprehensive_SEO_Content_Strategist.md
 - Simple_H2_Outline_Generator.md
-- Question_Based_Headings_Generator.md 
+- Question_Based_Headings_Generator.md
+
+### Budowa RAG (Tydzień 8)
+- Brand_Domain_Extractor.md
+- Content_Chunker_Knowledge_Builder.md
+- QA_Content_Chunker.md 
