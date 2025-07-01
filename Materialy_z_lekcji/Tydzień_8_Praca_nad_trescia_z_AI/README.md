@@ -12,6 +12,7 @@ W tym tygodniu skupiamy się na praktycznych aspektach tworzenia wysokiej jakoś
 - [Tworzenie treści z AI - Budowa wiedzy](#lekcja-tworzenie-treści-z-ai---budowa-wiedzy)
 - [Tworzenie treści z AI - Automatyzacja do budowy wiedzy](#lekcja-tworzenie-treści-z-ai---automatyzacja-do-budowy-wiedzy)
 - [Tworzenie treści z AI - Budowa struktury nagłówków](#lekcja-tworzenie-treści-z-ai---budowa-struktury-nagłówków)
+- [Tworzenie treści z AI - Budowa bazy wiedzy (RAG)](#lekcja-tworzenie-treści-z-ai---budowa-bazy-wiedzy-rag)
 
 ---
 
@@ -109,6 +110,42 @@ Drugi kluczowy etap procesu generacji treści - tworzenie struktury nagłówków
 **Automatyzacje:**
 - [SEO 3.0] Budowa nagłówków - blog.yml - [główny workflow YAML](../../Automatyzacje/[SEO%203.0]%20Budowa%20nagłówków%20-%20blog.yml)
 - SEO 3.0 [2] - Nagłówki.blueprint.json - [szablon Blueprint Make.com](../../Automatyzacje/SEO%203.0%20[2]%20-%20Nagłówki.blueprint.json)
+
+---
+
+## Lekcja: Tworzenie treści z AI - Budowa bazy wiedzy (RAG)
+
+Proces budowy bazy wiedzy w modelu RAG (Retrieval-Augmented Generation) z precyzyjnym fragmentowaniem danych (chunking) w celu eliminacji halucynacji w generowanych tekstach. Lekcja obejmuje dwustrategy approach (wiedza dokładna vs. ogólna), ręczny proces w Dify oraz pełną automatyzację Make.com z konfiguracją wyszukiwania hybrydowego i rerankingu.
+
+**Materiały:**
+- Notatka z lekcji: [T8L05_Tworzenie_tresci_z_AI_Budowa_bazy_wiedzy_RAG.md](./Dokumenty/T8L05_Tworzenie_tresci_z_AI_Budowa_bazy_wiedzy_RAG.md)
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/352)
+- Workflow Dify: [Pobierz workflow](https://learn.sensai.academy/download.php?lfid=69)
+- Automatyzacja Make.com: [Pobierz scenariusz](https://learn.sensai.academy/download.php?lfid=70)
+
+**Kluczowe koncepty:**
+- **RAG Architecture:** Retrieval-Augmented Generation dla faktualnych treści bez halucynacji
+- **Chunking strategy:** Separator `###`, 450-500 tokenów, zachowanie kontekstu między fragmentami
+- **Dwutorowa wiedza:** dokładna (direct answers) vs ogólna (AI-generated additional context)
+- **Wyszukiwanie hybrydowe:** połączenie wyszukiwania wektorowego z rerankingiem
+- **Quality control:** Testowanie fragmentów, monitoring trafności, optymalizacja parametrów
+
+**Proces techniczny:**
+- Generacja danych przez Dify workflow z internet search
+- Import do bazy wiedzy z custom separatorem `###`
+- Konfiguracja: wysoka jakość wektoryzacji + `base-multimodal-reranker-generic`
+- API integration: Dataset ID, authorization headers, JSON body format
+- Status management przez Google Sheets (kolumny N, P)
+
+**Zaawansowane funkcje:**
+- **Reranking:** Dodatkowa analiza trafności wyników wyszukiwania wektorowego  
+- **Hybrid search:** Kombinacja semantic similarity i keyword matching
+- **Batch processing:** Skalowalne przetwarzanie wielu słów kluczowych
+- **Monitoring:** Analiza pokrycia, threshold similarity, performance tracking
+
+**Automatyzacje:**
+- [SEO 3.0] Budowa RAG.yml - [główny workflow YAML](../../Automatyzacje/[SEO%203.0]%20Budowa%20RAG.yml)
+- SEO 3.0 [3] - RAG.blueprint.json - [szablon Blueprint Make.com](../../Automatyzacje/SEO%203.0%20[3]%20-%20RAG.blueprint.json)
 
 ---
 
