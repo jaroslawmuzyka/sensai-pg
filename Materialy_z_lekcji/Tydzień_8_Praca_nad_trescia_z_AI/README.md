@@ -13,6 +13,7 @@ W tym tygodniu skupiamy się na praktycznych aspektach tworzenia wysokiej jakoś
 - [Tworzenie treści z AI - Automatyzacja do budowy wiedzy](#lekcja-tworzenie-treści-z-ai---automatyzacja-do-budowy-wiedzy)
 - [Tworzenie treści z AI - Budowa struktury nagłówków](#lekcja-tworzenie-treści-z-ai---budowa-struktury-nagłówków)
 - [Tworzenie treści z AI - Budowa bazy wiedzy (RAG)](#lekcja-tworzenie-treści-z-ai---budowa-bazy-wiedzy-rag)
+- [Tworzenie treści z AI - Budowa briefu](#lekcja-tworzenie-treści-z-ai---budowa-briefu)
 
 ---
 
@@ -146,6 +147,42 @@ Proces budowy bazy wiedzy w modelu RAG (Retrieval-Augmented Generation) z precyz
 **Automatyzacje:**
 - [SEO 3.0] Budowa RAG.yml - [główny workflow YAML](../../Automatyzacje/[SEO%203.0]%20Budowa%20RAG.yml)
 - SEO 3.0 [3] - RAG.blueprint.json - [szablon Blueprint Make.com](../../Automatyzacje/SEO%203.0%20[3]%20-%20RAG.blueprint.json)
+
+---
+
+## Lekcja: Tworzenie treści z AI - Budowa briefu
+
+Ostatni etap przed finalną generacją treści - przygotowanie szczegółowych briefów dla AI. Lekcja przedstawia metodę dzielenia procesu generacji na mniejsze, precyzyjnie sterowane kroki, gdzie każdy nagłówek otrzymuje dedykowany brief zawierający konkretne wytyczne, wiedzę do zawarcia i słowa kluczowe. Proces wykorzystuje dane z poprzednich etapów (RAG, Knowledge Graph, Information Graph) i jest w pełni zautomatyzowany przez Make.com z archiwizacją wyników w Google Sheets i Google Drive.
+
+**Materiały:**
+- Notatka z lekcji: [T8L06_Tworzenie_tresci_z_AI_Budowa_briefu.md](./Dokumenty/T8L06_Tworzenie_tresci_z_AI_Budowa_briefu.md)
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/351)
+- Workflow Dify: [Pobierz workflow](https://learn.sensai.academy/download.php?lfid=71)
+
+**Kluczowe koncepty:**
+- **Brief Generator:** Precyzyjne sterowanie procesem generacji treści przez dzielenie na zarządzalne etapy
+- **Knowledge Integration:** Wykorzystanie danych z RAG, Knowledge Graph i Information Graph w jednym briefie
+- **Modular Approach:** Generowanie briefów nagłówek po nagłówku dla eliminacji błędów AI
+- **Dual Output Format:** Brief tekstowy i HTML dla różnych zastosowań
+- **Quality Control:** Precyzyjne określanie co ma zostać wygenerowane w każdym kroku
+
+**Proces techniczny:**
+- Agregacja danych: słowa kluczowe, nagłówki, Knowledge Graph, Information Graph
+- Rozszerzenie automatyzacji Make.com o moduł "Brief" z API Dify
+- Mapowanie zmiennych z poprzednich modułów (frazy, headings, grafy wiedzy)
+- Generacja dual output: brief tekstowy + HTML przez Dify
+- Automatyzacja archiwizacji: Google Sheets (kolumna Q) + Google Drive z linkami (kolumna R)
+
+**Zaawansowane funkcje:**
+- **Variable Mapping:** Dynamiczne mapowanie danych z poprzednich etapów automatyzacji
+- **Automatic File Naming:** Inteligentne nazewnictwo plików z numerem wiersza i słowem kluczowym
+- **Link Management:** Automatyczne zapisywanie linków do dokumentów Google (`web view link`)
+- **Error Handling:** Obsługa sytuacji gdy zmienne nie są od razu widoczne w panelu mapowania
+- **Workflow Extension:** Bezproblemowe rozszerzenie istniejących automatyzacji bez konfliktów
+
+**Automatyzacje:**
+- [SEO 3.0] Content brief.yml - [główny workflow YAML](../../Automatyzacje/[SEO%203.0]%20Content%20brief.yml)
+- SEO 3.0 [4] - Content generator.blueprint.json - [szablon Blueprint Make.com](../../Automatyzacje/SEO%203.0%20[4]%20-%20Content%20generator.blueprint.json)
 
 ---
 
