@@ -9,6 +9,7 @@ W tym tygodniu skupiamy się na praktycznych aspektach tworzenia wysokiej jakoś
 ## Spis treści
 
 - [Wstęp do tworzenia treści z AI](#lekcja-wstęp-do-tworzenia-treści-z-ai)
+- [Tworzenie treści z AI - Budowa wiedzy](#lekcja-tworzenie-treści-z-ai---budowa-wiedzy)
 
 ---
 
@@ -29,6 +30,29 @@ Ta lekcja rozpoczyna bardzo praktyczny tydzień kursu, w którym skupimy się na
 - [SEO 3.0] Generowanie contentu.yml - [link do automatyzacji](../../Automatyzacje/[SEO%203.0]%20Generowanie%20contentu.yml)
 - [SEO 3.0] Content brief.yml - [link do automatyzacji](../../Automatyzacje/[SEO%203.0]%20Content%20brief.yml)
 - [SEO 3.0] Budowa RAG.yml - [link do automatyzacji](../../Automatyzacje/[SEO%203.0]%20Budowa%20RAG.yml)
+
+---
+
+## Lekcja: Tworzenie treści z AI - Budowa wiedzy
+
+Fundamentalny etap procesu generowania treści z AI - budowa solidnej bazy wiedzy. Lekcja przedstawia kompletny workflow w narzędziu Deefai do zbierania i przetwarzania informacji z różnych źródeł. Obejmuje proces od pobierania danych z wyników wyszukiwania (SerpData), przez crawling stron konkurencji, po analizę treści przez AI i ekstrakcję wiedzy w formie trójników semantycznych, słów kluczowych i grafów wiedzy.
+
+**Materiały:**
+- Notatka z lekcji: [T8L02_Tworzenie_tresci_z_AI_Budowa_wiedzy.md](./Dokumenty/T8L02_Tworzenie_tresci_z_AI_Budowa_wiedzy.md)
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/346)
+- Plik workflow Dify: [Pobierz workflow](https://learn.sensai.academy/download.php?lfid=65)
+
+**Kluczowe tematy:**
+- 5-etapowy proces generacji treści (budowa wiedzy, struktura nagłówków, generacja treści, brief generacyjny, finalizacja)
+- Workflow w narzędziu Deefai i równoległe przetwarzanie danych
+- Pobieranie danych z SerpData (AI Overview + Top 10 wyników organicznych)
+- Crawling i analiza treści ze stron konkurencji z obsługą błędów
+- 4 gałęzie analizy AI: ekstrakcja słów kluczowych, trójniki semantyczne, nagłówki konkurencji, graf wiedzy
+- Przygotowanie ustrukturyzowanych danych do kolejnych etapów procesu
+
+**Automatyzacje:**
+- [SEO3.0] Budowa bazy wiedzy.yml - [główny workflow](../../Automatyzacje/[SEO3.0]%20Budowa%20bazy%20wiedzy.yml)
+- SEO 3.0 - [1] Budowa wiedzy.blueprint.json - [szablon Blueprint](../../Automatyzacje/SEO%203.0%20-%20[1]%20Budowa%20wiedzy.blueprint.json)
 
 ---
 
