@@ -11,6 +11,7 @@ W tym tygodniu skupiamy się na praktycznych aspektach tworzenia wysokiej jakoś
 - [Wstęp do tworzenia treści z AI](#lekcja-wstęp-do-tworzenia-treści-z-ai)
 - [Tworzenie treści z AI - Budowa wiedzy](#lekcja-tworzenie-treści-z-ai---budowa-wiedzy)
 - [Tworzenie treści z AI - Automatyzacja do budowy wiedzy](#lekcja-tworzenie-treści-z-ai---automatyzacja-do-budowy-wiedzy)
+- [Tworzenie treści z AI - Budowa struktury nagłówków](#lekcja-tworzenie-treści-z-ai---budowa-struktury-nagłówków)
 
 ---
 
@@ -80,6 +81,34 @@ Praktyczna implementacja automatyzacji procesu budowy wiedzy poprzez integrację
 **Automatyzacje:**
 - [SEO3.0] Budowa bazy wiedzy.yml - [główny workflow YAML](../../Automatyzacje/[SEO3.0]%20Budowa%20bazy%20wiedzy.yml)
 - SEO 3.0 - [1] Budowa wiedzy.blueprint.json - [szablon Blueprint Make.com](../../Automatyzacje/SEO%203.0%20-%20[1]%20Budowa%20wiedzy.blueprint.json)
+
+---
+
+## Lekcja: Tworzenie treści z AI - Budowa struktury nagłówków
+
+Drugi kluczowy etap procesu generacji treści - tworzenie struktury nagłówków przy wykorzystaniu nowoczesnych modeli reasoningowych. Lekcja prezentuje metodę generowania trzech typów nagłówków (rozbudowane H2+H3, płaskie H2, pytania) dostosowanych do różnych strategii SEO oraz pełną automatyzację procesu przez Google Sheets i Make.com z etapem manualnej weryfikacji.
+
+**Materiały:**
+- Notatka z lekcji: [T8L04_Tworzenie_tresci_z_AI_Budowa_struktury_naglowkow.md](./Dokumenty/T8L04_Tworzenie_tresci_z_AI_Budowa_struktury_naglowkow.md)
+- Link do lekcji na platformie: [SensAI Academy](https://learn.sensai.academy/next/public/lesson/347)
+- Workflow Dify: [Pobierz workflow](https://learn.sensai.academy/download.php?lfid=67)
+- Automatyzacja Make.com: [Pobierz scenariusz](https://learn.sensai.academy/download.php?lfid=68)
+
+**Kluczowe koncepty:**
+- **Trzy typy nagłówków:** rozbudowane (H2+H3) dla core section, płaskie H2 jako standard, pytania dla SEO i blog content
+- **Reasoning models:** wykorzystanie zaawansowanych promptów z eliminacją redundancji i logicznym przepływem
+- **Strategiczne zastosowanie:** dopasowanie typu nagłówków do pozycji artykułu w topical map (rdzeń vs outer section)
+- **Punkt kontrolny:** manualna weryfikacja przed przejściem do generacji treści
+- **Automatyzacja Make.com:** trigger na status "generuj" → filtr bezpieczeństwa → API Dify → zapis trzech wariantów
+
+**Zaawansowane funkcje:**
+- Eliminacja generycznych fraz AI ("Wprowadzenie", "Podsumowanie", "Ultimate Guide")
+- Logiczny przepływ użytkownika od definicji głównego pojęcia do tematów pomocniczych
+- System statusów z manualną kontrolą jakości przed finalną generacją
+
+**Automatyzacje:**
+- [SEO 3.0] Budowa nagłówków - blog.yml - [główny workflow YAML](../../Automatyzacje/[SEO%203.0]%20Budowa%20nagłówków%20-%20blog.yml)
+- SEO 3.0 [2] - Nagłówki.blueprint.json - [szablon Blueprint Make.com](../../Automatyzacje/SEO%203.0%20[2]%20-%20Nagłówki.blueprint.json)
 
 ---
 
