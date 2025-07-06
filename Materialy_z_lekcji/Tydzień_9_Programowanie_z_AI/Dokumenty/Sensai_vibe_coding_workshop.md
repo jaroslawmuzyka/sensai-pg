@@ -31,7 +31,7 @@ Bariery techniczne znikają, co sprawia, że co raz więcej osób zaczyna progra
 
 **Programowanie to sposób tworzenia instrukcji, które mówią komputerowi, jak rozwiązać konkretny problem — najczęściej prowadząc użytkownika z punktu A do punktu B. Można je porównać do przepisu kulinarnego albo instrukcji dojazdu: zawierają krok po kroku, co ma się wydarzyć.**
 
-![image](Notion/image.png)
+![image](image.png)
 
 #### N8N
 
@@ -41,13 +41,13 @@ W trakcie tego kursu zetknęłaś się już z formą programowania – automatyz
 
 Teraz pójdziemy o krok dalej i zajmiemy się **programowaniem w Pythonie**. To język tekstowy, który daje nam **nieograniczone możliwości**, ale wymaga nieco więcej nauki. Python jest idealny do zadań, które są zbyt złożone dla n8n, na przykład do zaawansowanej analizy danych, uczenia maszynowego czy budowania niestandardowych narzędzi.
 
-![image](Notion/image%201.png)
+![image](image%201.png)
 
 #### Wizualizacja procesu
 
 Myślenie o programowaniu jako o procesie pomaga zrozumieć jego logikę. Każdy krok w procesie to fragment kodu, który wykonuje określone zadanie.
 
-![image](Notion/image%2010.png)
+![image](image%2010.png)
 
 #### Przykładowy skrypt w Pythonie
 
@@ -443,7 +443,7 @@ if __name__ == "__main__":
 
 ### 📝 Języki programowania
 
-![image](Notion/image%202.png)
+![image](image%202.png)
 
 Rozmawiając z modelami językowymi możemy pisać aplikacje nie tworząc samemu ani linijki kodu. Dlatego bardziej niż składnia języka powinny nas interesować jego inne cechy, do czego służy, jakie ma mocne strony i jakie są jego ograniczenia. To po prostu wybór odpowiedniego narzędzia do zadania.
 
@@ -467,7 +467,7 @@ Nazwany na cześć grupy Monty Python ponad 30 lat temu.
 
 Jest to język wysokopoziomowy (czyli łatwy dla człowieka, nie dla komputera), napisany w C.
 
-![image](Notion/image%203.png)
+![image](image%203.png)
 
 Wszechstronny, mnogość zastosowań w AI
 
@@ -610,7 +610,7 @@ Choć formalnie nie są to języki.
 
 HTML HTML + CSS
 
-![image](Notion/image%204.png)
+![image](image%204.png)
 
 ### 📚 **Podstawowe koncepty w kodzie**
 
@@ -879,7 +879,7 @@ No code
 
 [https://x.com/Mrcontech/status/1933538141052211478](https://x.com/Mrcontech/status/1933538141052211478)
 
-![image](Notion/image%205.png)
+![image](image%205.png)
 
 [https://bolt.new/](https://bolt.new/)
 
@@ -907,7 +907,7 @@ Claude Code
 
 ## <mark><strong>Security is not a feature, it's a requirement.</strong></mark>
 
-![image](Notion/image%206.png)
+![image](image%206.png)
 
 ```markdown
 ⚠️ ZŁOTA ZASADA: Klucze API to jak hasła!
@@ -1152,7 +1152,7 @@ critical_vulnerabilities:
 
 Projekt generowany przez platformy [bolt.new](http://bolt.new) czy lovable.dev jest oparty na Vite + TypeScript, ze zintegrowanym Tailwind CSS i PostCSS oraz ESLint do lintowania. Jego struktura:
 
-![image](Notion/image%209.png)
+![image](image%209.png)
 
 *   **node_modules** – folder z wszystkimi paczkami (zainstalowanymi przez npm/yarn).
 *   **src/** – kod źródłowy aplikacji.
@@ -1165,17 +1165,17 @@ Projekt generowany przez platformy [bolt.new](http://bolt.new) czy lovable.dev j
 
 ### 🤖 Modele
 
-![image](Notion/image%2011.png)
+![image](image%2011.png)
 
-![image](Notion/image%2012.png)
+![image](image%2012.png)
 
-![image](Notion/image%2013.png)
+![image](image%2013.png)
 
 **Czy najinteligentniejszy model jest najlepszy?**
 
 Wybierając model musimy przede wszystkim wziąć pod uwagę w jakim środowisku go używamy - jeśli potrzebujemy skryptu bez zależności od większej liczby elementów systemy to spokojnie możemy go napisać z modelem w czacie, ale jeśli chcemy wykorzystać model jako agenta (np. w Cursorze) to jego skuteczność korzystania z narzędzi jest moim zdaniem istotniejsza niż jego wyniki w testach programistycznych.
 
-![image](Notion/image%2014.png)
+![image](image%2014.png)
 
 [https://artificialanalysis.ai](https://artificialanalysis.ai)
 
@@ -1220,7 +1220,7 @@ ON
 
 ##### YOLO mode - auto-run denylist
 
-![image](Notion/image%2015.png)
+![image](image%2015.png)
 
 [https://forum.cursor.com/t/cursor-yolo-deleted-everything-in-my-computer/103131](https://forum.cursor.com/t/cursor-yolo-deleted-everything-in-my-computer/103131)
 
@@ -1242,11 +1242,11 @@ Włączone
 
 #### Prompting
 
-![image](Notion/image%2016.png)
+![image](image%2016.png)
 
-![image](Notion/image%2017.png)
+![image](image%2017.png)
 
-![image](Notion/image%2018.png)
+![image](image%2018.png)
 
 ### **Supabase Cheat Sheet**
 
