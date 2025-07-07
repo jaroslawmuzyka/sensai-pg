@@ -1,0 +1,994 @@
+{
+  "name": "Loops",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2800,
+        -2280
+      ],
+      "id": "925996d8-6160-4e66-a300-5f84c16dd999",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "model": "gemma3:1b",
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmOllama",
+      "typeVersion": 1,
+      "position": [
+        -2052,
+        -1510
+      ],
+      "id": "fc6ef6dc-b061-4e2e-a9d4-62f58fc57587",
+      "name": "Ollama",
+      "credentials": {
+        "ollamaApi": {
+          "id": "EnB0L7vKEbmomObL",
+          "name": "ollama_ibb_media"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0493ad86-4658-4051-b8db-2e865e08cb46",
+              "name": "headings",
+              "value": "=[\n  \"Aktualne wyzwania i zmiany w SEO\",\n  \"Wpływ sztucznej inteligencji na wyszukiwarki\",\n  \"Ewolucja zachowań użytkowników w wyszukiwaniu\",\n  \"ogórek ogórek ogórek zielony ma ....\"\n]",
+              "type": "array"
+            },
+            {
+              "id": "9d94a37b-c5ab-420e-9d97-51f67993b3a6",
+              "name": "iterator",
+              "value": "={{ $runIndex }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2580,
+        -2280
+      ],
+      "id": "7946da8b-d75a-4035-8b3b-c6d2ce15903c",
+      "name": "input"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0fd511b6-94cc-48c9-916f-e33883f6eb9d",
+              "leftValue": "={{ $json.content_length }}",
+              "rightValue": "={{ $json.headings_length }}",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1026,
+        -1730
+      ],
+      "id": "7b08037b-e35e-4d61-8102-91ab21facb6e",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77e7147e-4131-467d-942f-11518a847aa9",
+              "name": "headings_length",
+              "value": "={{ $json.headings.length }}",
+              "type": "number"
+            },
+            {
+              "id": "fe055b4f-fb07-455f-878c-6c306fbbfc2e",
+              "name": "content_length",
+              "value": "={{ $json.content.length }}",
+              "type": "number"
+            },
+            {
+              "id": "86d0cf99-b357-414b-b4e6-522f1aff2615",
+              "name": "content",
+              "value": "={{ $json.content }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -728,
+        -1730
+      ],
+      "id": "170fb896-9c5f-4359-893d-3db27df2176d",
+      "name": "Result"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ce2247a7-1b3f-4276-af3b-b3333a637128",
+              "name": "new_content",
+              "value": "={{ JSON.stringify({\n  \"heading\": $('input_data').item.json.headings[$runIndex],\n  \"text\": $json.text\n}) }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1764,
+        -1730
+      ],
+      "id": "4083c2cd-e65d-4f1b-8cce-d47b3d546ec9",
+      "name": "new_content_output"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9a4bb76d-6109-4c51-88ff-c2a35e3312a4",
+              "name": "run_index",
+              "value": "={{ $runIndex }}",
+              "type": "string"
+            },
+            {
+              "id": "3ec5c5e1-ff8f-44f2-b154-157309c5515c",
+              "name": "headings",
+              "value": "={{ $json.headings}}",
+              "type": "array"
+            },
+            {
+              "id": "a691a4a2-81b6-43d6-90d6-9cd372b2f7ba",
+              "name": "headings_length",
+              "value": "={{ $json.headings.length }}",
+              "type": "number"
+            },
+            {
+              "id": "77b88033-2e9b-456e-977b-16d1b613d7ad",
+              "name": "new_content",
+              "value": "={{ $json.new_content }}",
+              "type": "object"
+            },
+            {
+              "id": "3ccba9f5-34e4-494b-bed0-3dfdb9c4833d",
+              "name": "content",
+              "value": "={{\n  $runIndex === 0\n  ? [$json.new_content]\n  : Array($runIndex)\n      .fill(0)\n      .map((_, idx) =>\n          $('accumulate_content').all(0, idx).first().json.new_content\n      )\n      .filter(item => item !== undefined && item !== null)\n      .concat([$json.new_content])\n}}",
+              "type": "array"
+            },
+            {
+              "id": "aaba33b3-b89d-4ad6-9925-07ac9fe21c3d",
+              "name": "content_length",
+              "value": "={{\n  ($runIndex === 0\n  ? [$json.new_content]\n  : Array($runIndex)\n      .fill(0)\n      .map((_, idx) =>\n          $('accumulate_content').all(0, idx).first().json.new_content\n      )\n      .filter(item => item !== undefined && item !== null)\n      .concat([$json.new_content])).length\n}}",
+              "type": "number"
+            },
+            {
+              "id": "e90c4ebf-2380-4639-9ee1-4008e23cb218",
+              "name": "executed",
+              "value": "={{$('accumulate_content').isExecuted}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1324,
+        -1855
+      ],
+      "id": "77ce02c8-9506-4580-9a3e-0818bcabb150",
+      "name": "accumulate_content",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -1544,
+        -1855
+      ],
+      "id": "0c2e2618-cf76-4a24-ae2d-59a4bbb5dad4",
+      "name": "Merge Data with Generated Content"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "headings",
+        "options": {
+          "destinationFieldName": "currentHeading"
+        }
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2062,
+        -2555
+      ],
+      "id": "72a8c23c-0957-4fc6-a6a1-cb24644fe418",
+      "name": "SplitByHeadings"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Current Heading : {{ $json.headings[$runIndex] }}\n{{\n  $json.content && $json.content.length > 0 \n  ? 'accumulated_content: ' + $json.content.toJsonString() \n  : ''.trim()\n}}\nWrite one short sentence about the topic sent by the user. This will be dummy content. So wrote really short.",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "Write one short sentence about the topic sent by the user. This will be dummy content. So wrote really short."
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -2140,
+        -1730
+      ],
+      "id": "fc57598b-88fe-4792-8dfe-7a0536e3e42e",
+      "name": "LLM CHAIN"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write one short sentence about the topic sent by the user. This will be dummy content. So wrote really short.\nOutput Language: Polish (polski).\n\nCurrent Heading: {{ $json.currentHeading }}\n{{\n  $node[\"Loop Over Headings\"].context.processedItems?.length > 0 \n    ? 'Previously written content: \\n' + $node[\"Loop Over Headings\"].context.processedItems.map(item => item.json.genereted_content).toJsonString()\n    : ''\n}}\n\n",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "Write one short sentence about the topic sent by the user. This will be dummy content. So wrote really short. \nOutput Language: Polish (polski)"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -1104,
+        -2255
+      ],
+      "id": "419be731-420e-432e-8560-c709cad229e5",
+      "name": "FOR SPLIT IN BATCHES"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -1764,
+        -2480
+      ],
+      "id": "42b4a62f-b561-45e5-ac56-468f3ec1bf5b",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "model": "phi4-mini:latest",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmOllama",
+      "typeVersion": 1,
+      "position": [
+        -1016,
+        -2035
+      ],
+      "id": "e93211e3-0918-420c-9341-88121261896f",
+      "name": "Ollama Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "EnB0L7vKEbmomObL",
+          "name": "ollama_ibb_media"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d213a006-313f-414e-a34e-f7f5a16a6aeb",
+              "name": "heading_index",
+              "value": "={{ $runIndex }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1324,
+        -2380
+      ],
+      "id": "93717aad-8b4c-4e12-b000-8cef51406e4a",
+      "name": "Single Heading"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "74226fb6-aac5-47ea-b2c3-6940a6383dd8",
+              "name": "headings",
+              "value": "={{ $json.headings }}",
+              "type": "array"
+            },
+            {
+              "id": "94e594b2-da46-4376-81c1-e961a985cb92",
+              "name": "current_heading",
+              "value": "={{ $json.headings[$runIndex] }}",
+              "type": "string"
+            },
+            {
+              "id": "6d0be488-47b8-49bf-9141-b17b829b9382",
+              "name": "iteracja",
+              "value": "={{ $runIndex }}",
+              "type": "string"
+            },
+            {
+              "id": "7efac300-d838-4e0d-b083-f90d0ad387c0",
+              "name": "content",
+              "value": "={{ $json.content }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2360,
+        -1730
+      ],
+      "id": "92fa9fc9-f9c9-4d16-9001-c7e546264302",
+      "name": "input_data",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5756772b-d367-496e-acd6-226819028ea6",
+              "name": "headings_length",
+              "value": "={{ $json.headings.length }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "include": "except",
+        "excludeFields": "iterator",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2360,
+        -2480
+      ],
+      "id": "238741e0-98e7-4544-9aea-d245b47e548e",
+      "name": "split_in_batches_method"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dd1171e8-fcfd-4697-b12e-a08b350b7893",
+              "name": "genereted_content",
+              "value": "={{ JSON.stringify({\n  \"heading\": $('Single Heading').item.json.currentHeading,\n  \"text\": $json.text\n}) }}",
+              "type": "object"
+            },
+            {
+              "id": "2360481d-3490-4122-be20-043726035f16",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -728,
+        -2255
+      ],
+      "id": "1664e536-ddd2-4eb2-aabc-5b48e3ac190b",
+      "name": "Generated Content"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -508,
+        -2380
+      ],
+      "id": "3587a571-7523-4e86-be1b-c2b5df63eb83",
+      "name": "mergeBatch"
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1544,
+        -2480
+      ],
+      "id": "121a1134-1677-439a-8761-0dbc60f94446",
+      "name": "Loop Over Headings"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -1324,
+        -2580
+      ],
+      "id": "f7cea483-243a-4263-866e-bc1354ac9eaa",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e48e933b-0cf1-4a42-bbb3-1f1c184165c1",
+              "name": "currentRunIndex",
+              "value": "={{$runIndex}}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -288,
+        -2380
+      ],
+      "id": "d900052f-30a2-4a9f-8e64-dd297cae24e5",
+      "name": "getRunIndex"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7b1131ae-4cf1-4645-aef8-752b2e2b2585",
+              "name": "content",
+              "value": "=## {{ $json.currentHeading }}\n{{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1324,
+        -2780
+      ],
+      "id": "edf0d555-fcc0-46f2-9a11-0957c4f0b0e3",
+      "name": "connectContent"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "733195bf-f2e1-434f-9978-55f554bd9981",
+              "name": "text",
+              "value": "={{ $json.concatenated_currentHeading }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -728,
+        -2780
+      ],
+      "id": "9e12e50b-5237-468c-b970-1ddd4f52c7bf",
+      "name": "text_from_splitting"
+    },
+    {
+      "parameters": {
+        "fieldsToSummarize": {
+          "values": [
+            {
+              "aggregation": "concatenate",
+              "field": "currentHeading",
+              "separateBy": "\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.summarize",
+      "typeVersion": 1.1,
+      "position": [
+        -1026,
+        -2780
+      ],
+      "id": "a2f776e6-5f48-4423-9abc-75561b440a2e",
+      "name": "Concat Text For Content"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "content",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -508,
+        -1730
+      ],
+      "id": "415d11b8-a80a-4cc7-8f33-b69981f43570",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0b85fcee-48ab-429c-995b-8ad59cfda5ce",
+              "name": "content",
+              "value": "=## {{ $json.heading }}\n{{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -288,
+        -1730
+      ],
+      "id": "7b2c0859-04bc-4c3f-b5e0-f98f08a58129",
+      "name": "content_for_text"
+    },
+    {
+      "parameters": {
+        "fieldsToSummarize": {
+          "values": [
+            {
+              "aggregation": "concatenate",
+              "field": "content"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.summarize",
+      "typeVersion": 1.1,
+      "position": [
+        -68,
+        -1730
+      ],
+      "id": "4e6c28dc-ec08-484d-bf5a-8aed94472b5f",
+      "name": "concat content"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4997dcad-1bbc-42c1-988f-9fd1b14e97f9",
+              "name": "result text",
+              "value": "={{ $json.concatenated_content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        152,
+        -1730
+      ],
+      "id": "387aa18a-e594-4825-a751-cfd5c090068e",
+      "name": "result text"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LLM CHAIN",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "input": {
+      "main": [
+        [
+          {
+            "node": "split_in_batches_method",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "input_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "input_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "new_content_output": {
+      "main": [
+        [
+          {
+            "node": "Merge Data with Generated Content",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "accumulate_content": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Data with Generated Content": {
+      "main": [
+        [
+          {
+            "node": "accumulate_content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SplitByHeadings": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM CHAIN": {
+      "main": [
+        [
+          {
+            "node": "new_content_output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Headings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "FOR SPLIT IN BATCHES",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Single Heading": {
+      "main": [
+        [
+          {
+            "node": "FOR SPLIT IN BATCHES",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "mergeBatch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "input_data": {
+      "main": [
+        [
+          {
+            "node": "LLM CHAIN",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge Data with Generated Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "split_in_batches_method": {
+      "main": [
+        [
+          {
+            "node": "SplitByHeadings",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "FOR SPLIT IN BATCHES": {
+      "main": [
+        [
+          {
+            "node": "Generated Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generated Content": {
+      "main": [
+        [
+          {
+            "node": "mergeBatch",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "mergeBatch": {
+      "main": [
+        [
+          {
+            "node": "getRunIndex",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Headings": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "connectContent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Single Heading",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "getRunIndex": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Headings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "connectContent": {
+      "main": [
+        [
+          {
+            "node": "Concat Text For Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Concat Text For Content": {
+      "main": [
+        [
+          {
+            "node": "text_from_splitting",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Result": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "content_for_text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "content_for_text": {
+      "main": [
+        [
+          {
+            "node": "concat content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "concat content": {
+      "main": [
+        [
+          {
+            "node": "result text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "0d24d545-5632-4ae6-95b0-eb836d8cae6b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e8794a4f970040d09c64040698c632aefaa9a59e97e60424e4b5671338351753"
+  },
+  "id": "B7ua1gRCS9BP9WWG",
+  "tags": []
+}
