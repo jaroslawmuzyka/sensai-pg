@@ -28,4 +28,5 @@ Tutaj znajdziesz gotową listę scenariuszy n8n z opisami i linkami do pobrania.
 | [Rozmowa ze stroną w n8n (20:02)](https://learn.sensai.academy/next/public/lesson/326) | [Rozmowa ze stroną](./rozmawiaj_ze_strona.json) | Scenariusz umożliwia prowadzenie konwersacji o zawartości stron internetowych - agent pobiera treść strony i odpowiada na pytania na jej podstawie |
 | [Łączenie n8n z Telegramem (24:20)](https://learn.sensai.academy/next/public/lesson/324) | [SensaiBot Telegram](./sensai_bot_telegram.json) | Bot Telegram z integracją AI, pamięcią konwersacji, dostępem do bazy wiedzy Qdrant i możliwością pobierania treści stron internetowych |
 | [Łączenie n8n ze Slackiem (28:19)](https://learn.sensai.academy/next/public/lesson/323) | [SensaiBot Slack](./sensai_bot_slack.json) | Bot Slack z podobną funkcjonalnością jak wersja Telegram - AI agent z pamięcią, bazą wiedzy i narzędziami do analizy stron i domen |
+| Pętle z przekazywaniem wyników poprzednich kroków | [Loops](./Loops.json) | Przekazywanie danych z pętli w pętli (np. wygenerowanego tekstu w pętli) |
 | [Praca domowa do tygodnia 5 i 6](https://learn.sensai.academy/next/public/lesson/332) | - | - |
